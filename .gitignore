@@ -1,0 +1,7 @@
+*.o
+*.db
+*.log
+*hart.*
+fishtank_monitor/sketchbook/fish_tank_display/.build
+fishtank_monitor/sketchbook/fish_tank_display/.build/*
+

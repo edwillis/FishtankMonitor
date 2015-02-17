@@ -1,0 +1,4 @@
+cd sketchbook/project
+ino build -m alamode
+ino upload -p /dev/ttyS0 -m alamode
+
