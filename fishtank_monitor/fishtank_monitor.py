@@ -9,12 +9,16 @@ from email.mime.image import MIMEImage
 from email.mime.multipart import MIMEMultipart
 from datetime import datetime
 
-import logging
-logging.basicConfig(
-                       filename='fishtank_monitor.log',
-                       level=logging.INFO,
-                       format='%(asctime)s | %(levelname)5s | %(message)s'
-                   )
+import logging, logging.handlers
+
+log_handler = logging.handlers.TimedRotatingFileHandler("fishtank_monitor.log",
+                                                         backupCount=5,
+                                                         when="midnight")
+log_formatter = logging.Formatter('%(asctime)s | %(levelname)5s | %(message)s')
+log_handler.setFormatter(log_formatter)
+logger = logging.getLogger('fishtank_monitor')
+logger.addHandler(log_handler)
+logger.setLevel(logging.INFO)
 
 SERIAL_DEV = '/dev/ttyS0'
 
@@ -33,10 +37,10 @@ def parse_input(input):
         token = input[:split_point]
         if token[0] == 'T':
             temperature = float(token[2:])
-            logging.debug("measured temperature:  %r"%temperature)
+            logger.debug("measured temperature:  %r"%temperature)
         if token[0] == 'P':
             ph = float(token[2:])
-            logging.debug("measured ph:  %r"%ph)
+            logger.debug("measured ph:  %r"%ph)
         input = input[split_point + 1:]
     return input
 
@@ -48,11 +52,11 @@ def monitor_serial():
         stop = False
         while not stop:
             next = ard.readline().decode('UTF8')
-            logging.debug("serial raw read %r"%next)
+            logger.debug("serial raw read %r"%next)
             input = input + next
             input = parse_input(input)
     except Exception as e:
-        logging.exception("exception encountered in monitor_serial:  %r" %e)
+        logger.exception("exception encountered in monitor_serial:  %r" %e)
 
 time_last_notified = 0
 time_last_informed = 0
@@ -63,7 +67,7 @@ def send_email(email):
     s.starttls()
     s.ehlo()
     s.login('ewillis@jesande.com', 'password')
-    logging.info("sending emails")
+    logger.info("sending emails")
     s.sendmail("ewillis@jesande.com", ["ewillis@jesande.com"], email.as_string())
     s.quit()
 
@@ -73,20 +77,20 @@ def notify_if_required():
     temp_bad = False
     msg = ''
     if ph and (ph < 6.0 or ph > 8.0):
-        logging.warning("ph is bad: %r" %ph)
+        logger.warning("ph is bad: %r" %ph)
         ph_bad = True
     if temperature and (temperature < 20 or temperature > 28):
-        logging.warning("temperature is bad: %r" %temperature)
+        logger.warning("temperature is bad: %r" %temperature)
         temp_bad = True
     if ph_bad:
         msg += 'Fishtank PH level is unsafe:  %r\n'%ph
-        logging.warn("unsafe ph, will email")
+        logger.warn("unsafe ph, will email")
     if temp_bad:
         msg += 'Fishtank temperature is unsafe:  %r\n'%temperature
-        logging.warn("unsafe temperature, will email")
+        logger.warn("unsafe temperature, will email")
     if msg and time.time() - time_last_notified > 4*60*60:
         time_last_notified = time.time()
-        logging.info("setting time_last_notified to %r" %time_last_notified)
+        logger.info("setting time_last_notified to %r" %time_last_notified)
         msg = MIMEText(msg)
         msg['Subject'] = 'Fishtank warning'
         msg['From'] = "pi@jesande.com"
@@ -99,7 +103,7 @@ def inform_if_required():
     global temperature
     global ph
     if time.time() - time_last_informed > 24*60*60:
-        logging.info("sending daily report (time_last_informed is %r)"%time_last_informed)
+        logger.info("sending daily report (time_last_informed is %r)"%time_last_informed)
         chart = pygal.DateY(title='Fishtank PH and Temperature over time')
         values = conn.execute('select ph, temp, time from measurements order by time desc limit 1000').fetchall()
         ph_values = [ i[0] for i in values ]
@@ -128,12 +132,12 @@ def inform_if_required():
             msg.attach(MIMEImage(f.read(), name='chart.svg', _subtype="svg"))
         send_email(msg)
         time_last_informed = time.time()
-        logging.info("setting time_last_informed to %r" %time_last_informed)
+        logger.info("setting time_last_informed to %r" %time_last_informed)
 
 def create_and_start_monitor():
     monitor = threading.Thread(target=monitor_serial)
     monitor.daemon = True
-    logging.info("starting monitor")
+    logger.info("starting monitor")
     monitor.start()
     time.sleep(2)
     return monitor
@@ -142,21 +146,21 @@ def main_loop():
     monitor = create_and_start_monitor()
     while True:
         if temperature is not None and ph is not None:
-            logging.info("writing measurements to database ph is %r, temperature is %r" %(ph, temperature))
+            logger.info("writing measurements to database ph is %r, temperature is %r" %(ph, temperature))
             conn.execute('insert into measurements values(?, ?, ?)',(int(time.time()), temperature, ph))
             conn.commit()
             notify_if_required()
             inform_if_required()
             if not monitor.is_alive():
-                logging.error("serial monitor died, restarting")
+                logger.error("serial monitor died, restarting")
                 monitor = threadingte_and_start_monitor()
-        logging.info("sleeping until next check")
+        logger.info("sleeping until next check")
         time.sleep(60*60)
 
 if __name__ == "__main__":
     while True:
         try:
-            logging.info("calling main_loop")
+            logger.info("calling main_loop")
             main_loop()
         except Exception as e:
-            logging.exception("encountered exception in main_loop, retrying:  %r" %e)
+            logger.exception("encountered exception in main_loop, retrying:  %r" %e)
