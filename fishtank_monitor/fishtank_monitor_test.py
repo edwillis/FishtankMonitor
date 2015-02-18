@@ -20,6 +20,11 @@ SLEEP_INT = 0.25
 
 class TestFishTankMonitor(unittest.TestCase):
 
+    @classmethod
+    def setUpClass(cls):
+        ftm.config_filename = './test/fishtank_monitor.cfg'
+        ftm.read_config()
+
     def setUp(self):
         self.monitor = threading.Thread(target = ftm.monitor_serial)
         self.monitor.daemon = True
@@ -75,6 +80,18 @@ class TestFishTankMonitor(unittest.TestCase):
         self.assertEqual(ftm.ph, 5.5)
         self.assertEqual(ftm.temperature, 21.0)
         self.assertNotEqual(ftm.time_last_notified, 0)
+
+    def test_config(self):
+        self.assertEqual(ftm.SMTP_host, 'smtphost')
+        self.assertEqual(ftm.SMTP_port, 0)
+        self.assertEqual(ftm.SMTP_user, 'username')
+        self.assertEqual(ftm.SMTP_password, 'password')
+        self.assertEqual(ftm.SMTP_use_ttls, True)
+        self.assertEqual(ftm.send_reports_interval, 0)
+        self.assertEqual(ftm.send_warnings_interval, 0)
+        self.assertEqual(ftm.email_to_address, 'you@domain.com')
+        self.assertEqual(ftm.email_from_address, 'pi@domain.com')
+
 
     def tearDown(self):
         ftm.monitor_serial.stop = True

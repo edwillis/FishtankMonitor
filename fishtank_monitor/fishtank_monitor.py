@@ -3,6 +3,7 @@ import time
 import sqlite3
 import smtplib
 import threading
+import configparser
 import pygal
 from email.mime.text import MIMEText
 from email.mime.image import MIMEImage
@@ -62,13 +63,14 @@ time_last_notified = 0
 time_last_informed = 0
 
 def send_email(email):
-    s = smtplib.SMTP('mail.jesande.com', 587)
+    s = smtplib.SMTP(SMTP_host, SMTP_port)
     s.ehlo()
-    s.starttls()
+    if SMTP_use_ttls:
+        s.starttls()
     s.ehlo()
-    s.login('ewillis@jesande.com', 'password')
+    s.login(SMTP_user, SMTP_password)
     logger.info("sending emails")
-    s.sendmail("ewillis@jesande.com", ["ewillis@jesande.com"], email.as_string())
+    s.sendmail(email_to_address, [email_to_address], email.as_string())
     s.quit()
 
 def notify_if_required():
@@ -88,51 +90,54 @@ def notify_if_required():
     if temp_bad:
         msg += 'Fishtank temperature is unsafe:  %r\n'%temperature
         logger.warn("unsafe temperature, will email")
-    if msg and time.time() - time_last_notified > 4*60*60:
+    if msg and time.time() - time_last_notified > send_warnings_interval:
         time_last_notified = time.time()
         logger.info("setting time_last_notified to %r" %time_last_notified)
-        msg = MIMEText(msg)
-        msg['Subject'] = 'Fishtank warning'
-        msg['From'] = "pi@jesande.com"
-        msg['To'] =  "ewillis@jesande.com"
-        send_email(msg)
+        if send_warnings_interval:
+            logger.info("sending warning email")
+            msg = MIMEText(msg)
+            msg['Subject'] = 'Fishtank warning'
+            msg['From'] = email_from_address
+            msg['To'] = email_to_address
+            send_email(msg)
 
 def inform_if_required():
     global time_last_informed
     global conn
     global temperature
     global ph
-    if time.time() - time_last_informed > 24*60*60:
-        logger.info("sending daily report (time_last_informed is %r)"%time_last_informed)
-        chart = pygal.DateY(title='Fishtank PH and Temperature over time')
-        values = conn.execute('select ph, temp, time from measurements order by time desc limit 1000').fetchall()
-        ph_values = [ i[0] for i in values ]
-        temp_values = [ i[1] for i in values ]
-        time_values = [ datetime.fromtimestamp(i[2]) for i in values ]
-        timespan = time_values[0] - time_values[-1]
-        chart.x_labels = [ 
-                           time_values[0], 
-                           time_values[0] - 1*(timespan / 4),
-                           time_values[0] - 2*(timespan / 4),
-                           time_values[0] - 3*(timespan / 4),
-                           time_values[-1]
-                         ]
-        ph_values = list(zip(time_values, ph_values))
-        temp_values = list(zip(time_values, temp_values))
-        chart.add('PH', ph_values)
-        chart.add('Temperature', temp_values, secondary=True)
-        chart.x_label_format = "%b-%d %H:%M"
-        chart.render_to_file('chart.svg')
-        msg = MIMEMultipart()
-        msg.attach(MIMEText('Daily measurements from fishtank.'))
-        msg['Subject'] = 'Fishtank status'
-        msg['From'] = "pi@jesande.com"
-        msg['To'] =  "ewillis@jesande.com"
-        with open('chart.svg', 'rb') as f:
-            msg.attach(MIMEImage(f.read(), name='chart.svg', _subtype="svg"))
-        send_email(msg)
+    if time.time() - time_last_informed > send_reports_interval:
         time_last_informed = time.time()
         logger.info("setting time_last_informed to %r" %time_last_informed)
+        if send_reports_interval:
+            logger.info("sending daily report (time_last_informed is %r)"%time_last_informed)
+            chart = pygal.DateY(title='Fishtank PH and Temperature over time')
+            values = conn.execute('select ph, temp, time from measurements order by time desc limit 1000').fetchall()
+            ph_values = [ i[0] for i in values ]
+            temp_values = [ i[1] for i in values ]
+            time_values = [ datetime.fromtimestamp(i[2]) for i in values ]
+            timespan = time_values[0] - time_values[-1]
+            chart.x_labels = [ 
+                               time_values[0], 
+                               time_values[0] - 1*(timespan / 4),
+                               time_values[0] - 2*(timespan / 4),
+                               time_values[0] - 3*(timespan / 4),
+                               time_values[-1]
+                             ]
+            ph_values = list(zip(time_values, ph_values))
+            temp_values = list(zip(time_values, temp_values))
+            chart.add('PH', ph_values)
+            chart.add('Temperature', temp_values, secondary=True)
+            chart.x_label_format = "%b-%d %H:%M"
+            chart.render_to_file('chart.svg')
+            msg = MIMEMultipart()
+            msg.attach(MIMEText('Daily measurements from fishtank.'))
+            msg['Subject'] = 'Fishtank status'
+            msg['From'] = email_from_address
+            msg['To'] = email_to_address
+            with open('chart.svg', 'rb') as f:
+                msg.attach(MIMEImage(f.read(), name='chart.svg', _subtype="svg"))
+            send_email(msg)
 
 def create_and_start_monitor():
     monitor = threading.Thread(target=monitor_serial)
@@ -141,6 +146,45 @@ def create_and_start_monitor():
     monitor.start()
     time.sleep(2)
     return monitor
+
+SMTP_host = None
+SMTP_port = None
+SMTP_user = None
+SMTP_password = None
+SMTP_use_ttls = None
+send_reports_interval = 0
+send_warnings_interval = 0
+email_to_address = None
+email_from_address = None
+
+config_filename = './fishtank_monitor.cfg'
+
+def read_config():
+    global SMTP_host, SMTP_port, SMTP_user, SMTP_password, SMTP_use_ttls, send_reports_interval
+    global send_warnings_interval, email_to_address, email_from_address
+    try:
+        cfg = configparser.ConfigParser()
+        cfg.read(config_filename)
+        SMTP_host = cfg.get('SMTP', 'host')
+        SMTP_port = cfg.getint('SMTP', 'port')
+        SMTP_user = cfg.get('SMTP', 'user')
+        SMTP_password = cfg.get('SMTP', 'password')
+        SMTP_use_ttls = cfg.getboolean('SMTP', 'use ttls')
+        send_reports_interval = cfg.getint('email', 'send reports interval')
+        send_warnings_interval = cfg.getint('email', 'send warnings interval')
+        email_to_address = cfg.get('email', 'email to address')
+        email_from_address = cfg.get('email', 'email from address')
+        logger.info("smtp host from config is %r" %SMTP_host)
+        logger.info("smtp port from config is %r" %SMTP_port)
+        logger.info("smtp user from config is %r" %SMTP_user)
+        logger.info("smtp use ttls from config is %r" %SMTP_use_ttls)
+        logger.info("send_reports_interval from config is %r" %send_reports_interval)
+        logger.info("send_warnings_interval from config is %r" %send_warnings_interval)
+        logger.info("email_to_address from config is %r" %email_to_address)
+        logger.info("email_from_address from config is %r" %email_from_address)
+
+    except Exception as e:
+        logger.exception("exception encountered reading config file:  %r" %e)
 
 def main_loop():
     monitor = create_and_start_monitor()
@@ -158,6 +202,8 @@ def main_loop():
         time.sleep(60*60)
 
 if __name__ == "__main__":
+    logger.info("getting parameters from config file")
+    read_config()
     while True:
         try:
             logger.info("calling main_loop")
