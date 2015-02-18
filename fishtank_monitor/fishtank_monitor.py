@@ -62,7 +62,7 @@ def send_email(email):
     s.ehlo()
     s.starttls()
     s.ehlo()
-    s.login('ewillis@jesande.com', 'm3g3z6n2')
+    s.login('ewillis@jesande.com', 'password')
     logging.info("sending emails")
     s.sendmail("ewillis@jesande.com", ["ewillis@jesande.com"], email.as_string())
     s.quit()
