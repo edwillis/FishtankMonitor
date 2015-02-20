@@ -111,24 +111,19 @@ def inform_if_required():
         logger.info("setting time_last_informed to %r" %time_last_informed)
         if send_reports_interval:
             logger.info("sending daily report (time_last_informed is %r)"%time_last_informed)
-            chart = pygal.DateY(title='Fishtank PH and Temperature over time')
+            chart = pygal.DateY(title='Fishtank PH and Temperature over time', x_label_rotation=20)
             values = conn.execute('select ph, temp, time from measurements order by time desc limit 1000').fetchall()
             ph_values = [ i[0] for i in values ]
             temp_values = [ i[1] for i in values ]
-            time_values = [ datetime.fromtimestamp(i[2]) for i in values ]
+            time_values = [ i[2] for i in values ]
             timespan = time_values[0] - time_values[-1]
-            chart.x_labels = [ 
-                               time_values[0], 
-                               time_values[0] - 1*(timespan / 4),
-                               time_values[0] - 2*(timespan / 4),
-                               time_values[0] - 3*(timespan / 4),
-                               time_values[-1]
-                             ]
             ph_values = list(zip(time_values, ph_values))
             temp_values = list(zip(time_values, temp_values))
             chart.add('PH', ph_values)
-            chart.add('Temperature', temp_values, secondary=True)
-            chart.x_label_format = "%b-%d %H:%M"
+            logger.debug("PH:  %r" %ph_values)
+            chart.add('Temperature', temp_values)
+            logger.debug("Temperature:  %r" %temp_values)
+            chart.x_label_format = "%Y-%m-%d"
             chart.render_to_file('chart.svg')
             msg = MIMEMultipart()
             msg.attach(MIMEText('Daily measurements from fishtank.'))
@@ -197,7 +192,7 @@ def main_loop():
             inform_if_required()
             if not monitor.is_alive():
                 logger.error("serial monitor died, restarting")
-                monitor = threadingte_and_start_monitor()
+                monitor = create_and_start_monitor()
         logger.info("sleeping until next check")
         time.sleep(60*60)
 
