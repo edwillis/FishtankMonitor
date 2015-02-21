@@ -9,6 +9,6 @@ log_handler.setFormatter(log_formatter)
 def get_logger(name):
     l = logging.getLogger(name)
     l.addHandler(log_handler)
-    l.setLevel(logging.DEBUG)
+    l.setLevel(logging.INFO)
     return l
 

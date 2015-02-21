@@ -10,7 +10,7 @@ import config
 
 logger = get_logger(__name__)
 
-time_last_notified = 0
+time_last_warned = 0
 time_last_informed = 0
 
 def send_email(email):
@@ -24,8 +24,8 @@ def send_email(email):
     s.sendmail(config.email_to_address, [config.email_to_address], email.as_string())
     s.quit()
 
-def notify_if_required(monitor):
-    global time_last_notified
+def warn_if_required(monitor):
+    global time_last_warned
     ph_bad = False
     temp_bad = False
     msg = ''
@@ -41,9 +41,9 @@ def notify_if_required(monitor):
     if temp_bad:
         msg += 'Fishtank temperature is unsafe:  %r\n'%monitor.temperature
         logger.warn("unsafe temperature, will email")
-    if msg and time.time() - time_last_notified > config.send_warnings_interval:
-        time_last_notified = time.time()
-        logger.info("setting time_last_notified to %r" %time_last_notified)
+    if msg and time.time() - time_last_warned > config.send_warnings_interval:
+        time_last_warned = time.time()
+        logger.info("setting time_last_warned to %r" %time_last_warned)
         if config.send_warnings_interval > 0:
             logger.info("sending warning email")
             msg = MIMEText(msg)

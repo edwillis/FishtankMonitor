@@ -31,7 +31,7 @@ class TestFishTankMonitor(unittest.TestCase):
     def setUp(self):
         self.monitor = serial_monitor.SerialMonitor()
         self.monitor.stop = False
-        notifications.time_last_notified = 0
+        notifications.time_last_warned = 0
         self.monitor.ph = None
         self.monitor.temperature = None
         self.monitor.ard = None
@@ -43,7 +43,7 @@ class TestFishTankMonitor(unittest.TestCase):
         time.sleep(SLEEP_INT)
         self.assertEqual(self.monitor.ph, 6.5)
         self.assertEqual(self.monitor.temperature, 21.0)
-        self.assertEqual(notifications.time_last_notified, 0)
+        self.assertEqual(notifications.time_last_warned, 0)
 
     def test_odd_prefix(self):
         lines = [b'.0\nP:5.5\nT:21.0\nP:6.5\n']
@@ -52,7 +52,7 @@ class TestFishTankMonitor(unittest.TestCase):
         time.sleep(SLEEP_INT)
         self.assertEqual(self.monitor.ph, 6.5)
         self.assertEqual(self.monitor.temperature, 21.0)
-        self.assertEqual(notifications.time_last_notified, 0)
+        self.assertEqual(notifications.time_last_warned, 0)
 
     def test_odd_pre_and_postfix(self):
         lines = [b'.0\nP:5.5\nT:21.0\nP:6.5\nT:20.5\nP:']
@@ -61,27 +61,31 @@ class TestFishTankMonitor(unittest.TestCase):
         time.sleep(SLEEP_INT)
         self.assertEqual(self.monitor.ph, 6.5)
         self.assertEqual(self.monitor.temperature, 20.5)
-        self.assertEqual(notifications.time_last_notified, 0)
+        self.assertEqual(notifications.time_last_warned, 0)
 
     def test_bad_temp(self):
         lines = [b'T:1.0\nP:6.5\n']
         self.monitor.ard = FakeSerial(lines)
         self.monitor.start()
         time.sleep(SLEEP_INT)
-        notifications.notify_if_required(self.monitor)
+        notifications.warn_if_required(self.monitor)
         self.assertEqual(self.monitor.ph, 6.5)
         self.assertEqual(self.monitor.temperature, 1.0)
-        self.assertNotEqual(notifications.time_last_notified, 0)
+        self.assertNotEqual(notifications.time_last_warned, 0)
 
     def test_bad_ph(self):
         lines = [b'T:21.0\nP:5.5\n']
         self.monitor.ard = FakeSerial(lines)
         self.monitor.start()
         time.sleep(SLEEP_INT)
-        notifications.notify_if_required(self.monitor)
+        notifications.warn_if_required(self.monitor)
         self.assertEqual(self.monitor.ph, 5.5)
         self.assertEqual(self.monitor.temperature, 21.0)
-        self.assertNotEqual(notifications.time_last_notified, 0)
+        self.assertNotEqual(notifications.time_last_warned, 0)
+
+    def test_inform(self):
+        notifications.inform_if_required(ftm.conn)
+        self.assertNotEqual(notifications.time_last_informed, 0)
 
     def test_config(self):
         self.assertEqual(config.SMTP_host, 'smtphost')

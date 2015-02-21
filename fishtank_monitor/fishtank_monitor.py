@@ -1,7 +1,7 @@
 import time
 import sqlite3
 from serial_monitor import SerialMonitor
-from notifications import notify_if_required, inform_if_required
+from notifications import warn_if_required, inform_if_required
 import config
 from log import get_logger
 
@@ -21,7 +21,7 @@ def main_loop():
             conn.execute('insert into measurements values(?, ?, ?)',(int(time.time()), monitor.temperature, monitor.ph))
             conn.commit()
             logger.debug("checking notifications")
-            notify_if_required(monitor)
+            warn_if_required(monitor)
             inform_if_required(conn)
             if not monitor.is_alive():
                 logger.error("serial monitor died, restarting")
