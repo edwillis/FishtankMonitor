@@ -4,6 +4,6 @@
 *hart.*
 fishtank_monitor/sketchbook/fish_tank_display/.build
 fishtank_monitor/sketchbook/fish_tank_display/.build/*
-fishtank_monitor/fishtank_monitor.cfg
+fishtank_monitor/cfg/fishtank_monitor.cfg
 fishtank_monitor/__pycache__/*
 fishtank_monitor/__pycache__

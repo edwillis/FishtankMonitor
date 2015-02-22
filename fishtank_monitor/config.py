@@ -17,7 +17,7 @@ months_between_calibrations = None
 # set elsewhere
 last_calibration = None
 
-config_filename = './fishtank_monitor.cfg'
+config_filename = './cfg/fishtank_monitor.cfg'
 
 def read_config():
     global SMTP_host, SMTP_port, SMTP_user, SMTP_password, SMTP_use_ttls, send_reports_interval

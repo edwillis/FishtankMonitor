@@ -5,7 +5,7 @@ ino upload -p /dev/ttyS0 -m alamode
 cd 
 source /home/pi/python3.2/bin/activate
 cd /home/pi/FishtankMonitor/fishtank_monitor/
-sudo rm fishtank_monitor.log
+sudo rm log/fishtank_monitor.log
 sudo /home/pi/python3.2/bin/python3.2 fishtank_monitor.py &
 
 
