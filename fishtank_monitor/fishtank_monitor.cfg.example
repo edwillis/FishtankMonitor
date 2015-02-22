@@ -1,3 +1,6 @@
+[hardware]
+serial device = /dev/ttyS0
+
 [SMTP]
 host = smtphost
 port = 0
@@ -12,4 +15,8 @@ send reports interval = 86400
 send warnings interval = 14400
 email to address = you@domain.com
 email from address = pi@domain.com
+
+[calibration]
+# zero to disable
+months_between_calibrations = 3
 

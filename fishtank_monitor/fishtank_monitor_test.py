@@ -29,7 +29,7 @@ class TestFishTankMonitor(unittest.TestCase):
         config.read_config()
 
     def setUp(self):
-        self.monitor = serial_monitor.SerialMonitor()
+        self.monitor = serial_monitor.SerialMonitor(config.serial_device)
         self.monitor.stop = False
         notifications.time_last_warned = 0
         self.monitor.ph = None
@@ -68,26 +68,38 @@ class TestFishTankMonitor(unittest.TestCase):
         self.monitor.ard = FakeSerial(lines)
         self.monitor.start()
         time.sleep(SLEEP_INT)
-        notifications.warn_if_required(self.monitor)
+        notifier = notifications.NotifyWarnings()
+        notifier(ftm.conn, self.monitor)
         self.assertEqual(self.monitor.ph, 6.5)
         self.assertEqual(self.monitor.temperature, 1.0)
-        self.assertNotEqual(notifications.time_last_warned, 0)
+        self.assertNotEqual(notifier.time_last_warned, 0)
 
     def test_bad_ph(self):
         lines = [b'T:21.0\nP:5.5\n']
         self.monitor.ard = FakeSerial(lines)
         self.monitor.start()
         time.sleep(SLEEP_INT)
-        notifications.warn_if_required(self.monitor)
+        notifier = notifications.NotifyWarnings()
+        notifier(ftm.conn, self.monitor)
         self.assertEqual(self.monitor.ph, 5.5)
         self.assertEqual(self.monitor.temperature, 21.0)
-        self.assertNotEqual(notifications.time_last_warned, 0)
+        self.assertNotEqual(notifier.time_last_warned, 0)
 
     def test_inform(self):
-        notifications.inform_if_required(ftm.conn)
-        self.assertNotEqual(notifications.time_last_informed, 0)
+        notifier = notifications.NotifyInformationalReports()
+        notifier(ftm.conn, self.monitor)
+        self.assertNotEqual(notifier.time_last_informed, 0)
+
+    def test_notify_calibration(self):
+        now = time.time()
+        then = now - (30*24*60*60 + 1)
+        config.last_calibration = then
+        notifier = notifications.NotifyCalibration()
+        notifier(ftm.conn, self.monitor)
+        self.assertNotEqual(then, config.last_calibration)
 
     def test_config(self):
+        self.assertEqual(config.serial_device, '/dev/ttyS0')
         self.assertEqual(config.SMTP_host, 'smtphost')
         self.assertEqual(config.SMTP_port, 0)
         self.assertEqual(config.SMTP_user, 'username')
@@ -97,6 +109,7 @@ class TestFishTankMonitor(unittest.TestCase):
         self.assertEqual(config.send_warnings_interval, 0)
         self.assertEqual(config.email_to_address, 'you@domain.com')
         self.assertEqual(config.email_from_address, 'pi@domain.com')
+        self.assertEqual(config.months_between_calibrations, 0)
 
 
     def tearDown(self):

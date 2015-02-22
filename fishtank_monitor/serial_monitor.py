@@ -1,20 +1,20 @@
 import time
 import serial
 import threading
+import config
 from log import get_logger
 
 logger = get_logger(__name__)
 
 class SerialMonitor(threading.Thread):
 
-    SERIAL_DEV = '/dev/ttyS0'
-
-    def __init__(self):
+    def __init__(self, serial_device):
         super().__init__()
         self.ph = None
         self.temperature = None
         self.started = threading.Event()
-        self.ard = serial.Serial(self.SERIAL_DEV)
+        self.serial_device = serial_device
+        self.ard = serial.Serial(self.serial_device)
         self.daemon = True
 
     def _parse_input(self, input):
@@ -44,7 +44,7 @@ class SerialMonitor(threading.Thread):
 
     @classmethod
     def create_and_start_monitor(cls):
-        monitor = SerialMonitor()
+        monitor = SerialMonitor(config.serial_device)
         logger.info("starting monitor")
         monitor.start()
         time.sleep(2)
