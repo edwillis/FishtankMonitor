@@ -3,6 +3,7 @@ import fishtank_monitor as ftm
 import config
 import notifications
 import serial_monitor
+import scheduler
 import threading
 import time
 
@@ -119,6 +120,34 @@ class TestFishTankMonitor(unittest.TestCase):
         self.assertEqual(config.lights_off_times[0], '11:00')
         self.assertEqual(config.lights_off_times[1], '22:30')
 
+    def test_scheduler_time_parsing(self):
+        self.assertFalse(scheduler.LightScheduler._is_valid_time_string(''))
+        self.assertFalse(scheduler.LightScheduler._is_valid_time_string(' '))
+        self.assertFalse(scheduler.LightScheduler._is_valid_time_string(' :'))
+        self.assertFalse(scheduler.LightScheduler._is_valid_time_string(': '))
+        self.assertFalse(scheduler.LightScheduler._is_valid_time_string(' :  '))
+        self.assertFalse(scheduler.LightScheduler._is_valid_time_string('1:1'))
+        self.assertFalse(scheduler.LightScheduler._is_valid_time_string(' 1:00'))
+        self.assertFalse(scheduler.LightScheduler._is_valid_time_string(' 10:00'))
+        self.assertFalse(scheduler.LightScheduler._is_valid_time_string('10:00 '))
+        self.assertFalse(scheduler.LightScheduler._is_valid_time_string('10:000'))
+        self.assertFalse(scheduler.LightScheduler._is_valid_time_string('10:0'))
+        self.assertFalse(scheduler.LightScheduler._is_valid_time_string('100:00'))
+        self.assertTrue(scheduler.LightScheduler._is_valid_time_string('1:10'))
+        self.assertTrue(scheduler.LightScheduler._is_valid_time_string('01:10'))
+        self.assertTrue(scheduler.LightScheduler._is_valid_time_string('11:11'))
+
+    def test_scheduler(self):
+        old_validator = scheduler.LightScheduler._is_valid_time_string
+        old_config_on_times = config.lights_on_times
+        old_config_off_times = config.lights_off_times
+        try:
+            scheduler.LightScheduler._is_valid_time_string = lambda x:  True
+            now = time.time()
+        finally:
+            scheduler.LightScheduler._is_valid_time_string = old_validator
+            config.lights_on_times = old_config_on_times
+            config.lights_off_times = old_config_off_times
 
     def tearDown(self):
         self.monitor.stop = True

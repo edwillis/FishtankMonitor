@@ -60,6 +60,11 @@ def read_config():
         logger.info("email_to_address from config is %r" %email_to_address)
         logger.info("email_from_address from config is %r" %email_from_address)
         logger.info("months_between_calibrations from config is %r" %months_between_calibrations)
+        logger.info("x10_retries from config is %r" %x10_retries)
+        logger.info("x10_light_code from config is %r" %x10_light_code)
+        logger.info("lights_on_times from config is %r" %lights_on_times)
+        logger.info("lights_off_times from config is %r" %lights_off_times)
+
 
     except Exception as e:
         logger.exception("exception encountered reading config file:  %r" %e)

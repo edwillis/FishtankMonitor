@@ -1,7 +1,6 @@
 import smtplib
 import pygal
 import time
-from datetime import datetime
 from email.mime.text import MIMEText
 from email.mime.image import MIMEImage
 from email.mime.multipart import MIMEMultipart
