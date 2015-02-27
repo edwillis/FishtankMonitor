@@ -20,3 +20,12 @@ email from address = pi@domain.com
 # zero to disable
 months_between_calibrations = 3
 
+[lights]
+# how many times to issue the x10 command per scheduled action
+x10 retries = 0
+# the x10 house + unit code for the lights (e.g. "i8")
+x10 light code = 
+# comma-separated list of times in 24 hour format (e.g. "17:30")
+# leave unset to disable
+lights on times = 
+lights off times = 

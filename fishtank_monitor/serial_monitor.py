@@ -21,10 +21,10 @@ class SerialMonitor(threading.Thread):
         while '\n' in input:
             split_point = input.find('\n')
             token = input[:split_point]
-            if token[0] == 'T':
+            if token and token[0] == 'T':
                 self.temperature = float(token[2:])
                 logger.debug("measured temperature:  %r"%self.temperature)
-            if token[0] == 'P':
+            if token and token[0] == 'P':
                 self.ph = float(token[2:])
                 logger.debug("measured ph:  %r"%self.ph)
             input = input[split_point + 1:]

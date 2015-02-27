@@ -14,6 +14,11 @@ send_warnings_interval = None
 email_to_address = None
 email_from_address = None
 months_between_calibrations = None
+x10_light_code = None
+lights_on_times = []
+lights_off_times = []
+x10_retries = None
+
 # set elsewhere
 last_calibration = None
 
@@ -22,7 +27,7 @@ config_filename = './cfg/fishtank_monitor.cfg'
 def read_config():
     global SMTP_host, SMTP_port, SMTP_user, SMTP_password, SMTP_use_ttls, send_reports_interval
     global send_warnings_interval, email_to_address, email_from_address, months_between_calibrations
-    global last_calibration, serial_device
+    global last_calibration, serial_device, x10_retries, x10_light_code, lights_on_times, lights_off_times
     try:
         cfg = configparser.ConfigParser()
         cfg.read(config_filename)
@@ -37,6 +42,14 @@ def read_config():
         email_to_address = cfg.get('email', 'email to address')
         email_from_address = cfg.get('email', 'email from address')
         months_between_calibrations = cfg.getint('calibration', 'months_between_calibrations')
+        x10_retries = cfg.getint('lights', 'x10 retries')
+        x10_light_code = cfg.get('lights', 'x10 light code')
+        if cfg.get('lights', 'lights on times').strip():
+            for t in cfg.get('lights', 'lights on times').split(','):
+                lights_on_times.append(t.strip())
+        if cfg.get('lights', 'lights off times').strip():
+            for t in cfg.get('lights', 'lights off times').split(','):
+                lights_off_times.append(t.strip())
         logger.info("serial device from config is %r" %serial_device)
         logger.info("smtp host from config is %r" %SMTP_host)
         logger.info("smtp port from config is %r" %SMTP_port)

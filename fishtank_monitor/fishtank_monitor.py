@@ -3,6 +3,7 @@ import sqlite3
 from serial_monitor import SerialMonitor
 from notifications import get_notifiers
 import config
+import scheduler
 from log import get_logger
 
 logger = get_logger(__name__)
@@ -13,8 +14,12 @@ conn.execute('create table if not exists measurements (time INT, temp REAL, ph R
 conn.execute('create table if not exists settings (last_calibration REAL)')
 
 def main_loop(notifiers):
+    logger.debug("starting serial monitor")
     monitor = SerialMonitor.create_and_start_monitor()
     monitor.started.wait()
+    logger.debug("starting light scheduler")
+    light_scheduler = scheduler.LightScheduler()
+    light_scheduler.start()
     logger.debug("prior to while loop in main_loop, temperature is %r, ph is %r" %(monitor.temperature, monitor.ph))
     while True:
         if monitor.temperature is not None and monitor.ph is not None:

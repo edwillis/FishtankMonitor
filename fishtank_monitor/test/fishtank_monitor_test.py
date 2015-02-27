@@ -110,6 +110,14 @@ class TestFishTankMonitor(unittest.TestCase):
         self.assertEqual(config.email_to_address, 'you@domain.com')
         self.assertEqual(config.email_from_address, 'pi@domain.com')
         self.assertEqual(config.months_between_calibrations, 0)
+        self.assertEqual(config.x10_retries, 3)
+        self.assertEqual(config.x10_light_code, 'i8')
+        self.assertEqual(len(config.lights_on_times), 2)
+        self.assertEqual(len(config.lights_off_times), 2)
+        self.assertEqual(config.lights_on_times[0], '7:00')
+        self.assertEqual(config.lights_on_times[1], '15:00')
+        self.assertEqual(config.lights_off_times[0], '11:00')
+        self.assertEqual(config.lights_off_times[1], '22:30')
 
 
     def tearDown(self):
