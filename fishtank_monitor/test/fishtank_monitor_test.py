@@ -1,3 +1,5 @@
+import sys
+import os
 import unittest
 import fishtank_monitor as ftm
 import config
@@ -6,6 +8,8 @@ import serial_monitor
 import scheduler
 import threading
 import time
+import datetime
+import dateutil
 
 class FakeSerial():
 
@@ -138,14 +142,36 @@ class TestFishTankMonitor(unittest.TestCase):
         self.assertTrue(scheduler.LightScheduler._is_valid_time_string('11:11'))
 
     def test_scheduler(self):
+
+        if os.environ.get('RUN') != 'all':
+            print("\nskipping test_scheduler - use test.sh all to run")
+            return
+
+        def new_call(self):
+            if not hasattr(self, 'count'):
+                self.count = 0
+            self.count += 1
+
         old_validator = scheduler.LightScheduler._is_valid_time_string
+        old_call = scheduler.LightScheduler.__call__
         old_config_on_times = config.lights_on_times
         old_config_off_times = config.lights_off_times
         try:
-            scheduler.LightScheduler._is_valid_time_string = lambda x:  True
-            now = time.time()
+            scheduler.LightScheduler._is_valid_time_string = lambda x, y:  True
+            scheduler.LightFunctor.__call__ = new_call
+            times = []
+            for i in range(3):
+                times.append((datetime.datetime.now() + datetime.timedelta(minutes = 1+i)).strftime("%H:%M"))
+            config.lights_on_times = times
+            config.lights_off_times = times
+            s = scheduler.LightScheduler()
+            s.start()
+            time.sleep(4*60)
+            self.assertEqual(s._on.count, 3)
+            self.assertEqual(s._off.count, 3)
         finally:
             scheduler.LightScheduler._is_valid_time_string = old_validator
+            scheduler.LightFunctor.__call__ = old_call
             config.lights_on_times = old_config_on_times
             config.lights_off_times = old_config_off_times
 
