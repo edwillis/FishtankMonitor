@@ -4,6 +4,7 @@
 #include <Timezone.h>
 #include <LiquidCrystal.h>
 #include <LCDKeypad.h>
+#include <ArduinoJson.h>
 
 LCDKeypad lcd;
 
@@ -110,17 +111,18 @@ float getPh()
   return ph;
 }
 
+#define MAX_JSON_BUFFER_SIZE 200
+StaticJsonBuffer<MAX_JSON_BUFFER_SIZE> jsonBuffer;
+
 // Send temperature and ph readings back to pi. Both arguments are 
 // assumed to be 10 times larger than the actual values.  So 0.1s 
 // of degree C and 0.1s of units of PH
 void printTempAndPhToSerial(int temp, int ph)
 {
-  Serial.print("T: ");
-  Serial.print((float)temp/10.0);
-  Serial.print("\n");
-  Serial.print("P: ");
-  Serial.print((float)ph/10.0);
-  Serial.print("\n");
+  JsonObject& json = jsonBuffer.createObject();
+  json["temperature"] = temp/10.0;
+  json["ph"] = ph/10.0;
+  json.printTo(Serial);
 }
 
 void setup()

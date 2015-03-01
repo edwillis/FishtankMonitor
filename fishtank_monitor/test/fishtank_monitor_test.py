@@ -42,7 +42,7 @@ class TestFishTankMonitor(unittest.TestCase):
         self.monitor.ard = None
 
     def test_basic(self):
-        lines = [b'T:21.0\nP:6.5\n']
+        lines = [b'{"temperature":21.0, "ph":6.5}']
         self.monitor.ard = FakeSerial(lines)
         self.monitor.start()
         time.sleep(SLEEP_INT)
@@ -51,7 +51,7 @@ class TestFishTankMonitor(unittest.TestCase):
         self.assertEqual(notifications.time_last_warned, 0)
 
     def test_odd_prefix(self):
-        lines = [b'.0\nP:5.5\nT:21.0\nP:6.5\n']
+        lines = [b'.0, "ph" :5.5}\n{"temperature":21.0, "ph":6.5}']
         self.monitor.ard = FakeSerial(lines)
         self.monitor.start()
         time.sleep(SLEEP_INT)
@@ -60,16 +60,16 @@ class TestFishTankMonitor(unittest.TestCase):
         self.assertEqual(notifications.time_last_warned, 0)
 
     def test_odd_pre_and_postfix(self):
-        lines = [b'.0\nP:5.5\nT:21.0\nP:6.5\nT:20.5\nP:']
+        lines = [b'.0, "ph":5.5}\n{"temperature":21.0, "ph":6.5}\n{"temperature":20.5, "ph":4.0']
         self.monitor.ard = FakeSerial(lines)
         self.monitor.start()
         time.sleep(SLEEP_INT)
         self.assertEqual(self.monitor.ph, 6.5)
-        self.assertEqual(self.monitor.temperature, 20.5)
+        self.assertEqual(self.monitor.temperature, 21.0)
         self.assertEqual(notifications.time_last_warned, 0)
 
     def test_bad_temp(self):
-        lines = [b'T:1.0\nP:6.5\n']
+        lines = [b'{"temperature":1.0, "ph":6.5}\n']
         self.monitor.ard = FakeSerial(lines)
         self.monitor.start()
         time.sleep(SLEEP_INT)
@@ -80,7 +80,7 @@ class TestFishTankMonitor(unittest.TestCase):
         self.assertNotEqual(notifier.time_last_warned, 0)
 
     def test_bad_ph(self):
-        lines = [b'T:21.0\nP:5.5\n']
+        lines = [b'{"temperature":21.0, "ph":5.5}']
         self.monitor.ard = FakeSerial(lines)
         self.monitor.start()
         time.sleep(SLEEP_INT)

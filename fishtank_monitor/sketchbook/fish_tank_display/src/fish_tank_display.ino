@@ -4,6 +4,7 @@
 #include <Timezone.h>
 #include <LiquidCrystal.h>
 #include <LCDKeypad.h>
+#include <ArduinoJson.h>
 
 LCDKeypad lcd;
 
@@ -115,6 +116,13 @@ float getPh()
 // of degree C and 0.1s of units of PH
 void printTempAndPhToSerial(int temp, int ph)
 {
+  StaticJsonBuffer<200> jsonBuffer;
+  JsonObject& root = jsonBuffer.createObject();
+  root["temperature"] = temp/10.0;
+  root["ph"] = ph/10.0;
+  root.printTo(Serial);
+  Serial.print("\n");
+  return;
   Serial.print("T: ");
   Serial.print((float)temp/10.0);
   Serial.print("\n");

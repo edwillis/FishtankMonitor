@@ -2,6 +2,7 @@ import time
 import serial
 import threading
 import config
+import json
 from log import get_logger
 
 logger = get_logger(__name__)
@@ -18,27 +19,30 @@ class SerialMonitor(threading.Thread):
         self.daemon = True
 
     def _parse_input(self, input):
-        while '\n' in input:
-            split_point = input.find('\n')
-            token = input[:split_point]
-            if token and token[0] == 'T':
-                self.temperature = float(token[2:])
-                logger.debug("measured temperature:  %r"%self.temperature)
-            if token and token[0] == 'P':
-                self.ph = float(token[2:])
-                logger.debug("measured ph:  %r"%self.ph)
-            input = input[split_point + 1:]
-        return input
+        if '{' in input and '}' in input and (input.index('{') < input.rfind('}')):
+            logger.debug("input is %r" %input)
+            message = json.loads(input[input.index('{') : input.rfind('}') + 1])
+            logger.message("json is %r" %message)
+            if 'temperature' in message and 'ph' in message:
+                logger.info("measured temperature:  %r" %message['temperature'])
+                logger.info("measured ph:  %r" %message['ph'])
+            return message
+        return None
 
     def run(self):
         try:
-            input = ''
             stop = False
+            # before we read anything, write the analog input pins for
+            # ph and temp.  On the other side, read them on startup and
+            # periodically check for readability and discard
             while not stop:
                 next = self.ard.readline().decode('UTF8')
-                logger.debug("serial raw read %r"%next)
-                input = input + next
-                input = self._parse_input(input)
+                if next:
+                    logger.info("serial raw read %r"%next)
+                    message = self._parse_input(next)
+                    if message and 'temperature' in message and 'ph' in message:
+                        self.temperature = message['temperature']
+                        self.ph = message['ph']
         except Exception as e:
             logger.exception("exception encountered in monitor_serial:  %r" %e)
 
