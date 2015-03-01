@@ -1,5 +1,12 @@
 [hardware]
 serial device = /dev/ttyS0
+ph pin = A2
+temperature pin = A1
+
+[time]
+# in minutes, offset from utc
+daylight timezone offset = -240
+standard timezone offset = -300
 
 [SMTP]
 host = smtphost

@@ -1,3 +1,4 @@
+#include <stdarg.h>
 #include <Wire.h>
 #include <Time.h>
 #include <DS1307RTC.h>
@@ -15,8 +16,8 @@ Timezone* localTz = 0;
 // the value of the 'other' resistor
 #define SERIESRESISTOR 10000    
  
-// What pin to connect the sensor to
-#define THERMISTORPIN A1
+// the anaog pin the sensor is connected to
+int THERMISTORPIN = -1;
 
 #define NUM_TEMP_SAMPLES 25
 
@@ -34,9 +35,13 @@ Timezone* localTz = 0;
 // the value of the 'other' resistor
 #define SERIESRESISTOR 10000    
 
+// common size limit
+#define MAX_COLLECTION_SIZE 200
 
 // PH CONSTANTS AND VARIABLES
-#define PHPIN A2               //pH meter Analog output to Arduino Analog Input 0
+
+// the analog pin the ph sensor is connected to
+int PHPIN = -1;
 
 #define OFFSET -0.23           //deviation compensate
 
@@ -116,32 +121,68 @@ float getPh()
 // of degree C and 0.1s of units of PH
 void printTempAndPhToSerial(int temp, int ph)
 {
-  StaticJsonBuffer<200> jsonBuffer;
+  StaticJsonBuffer<MAX_COLLECTION_SIZE> jsonBuffer;
   JsonObject& root = jsonBuffer.createObject();
   root["temperature"] = temp/10.0;
   root["ph"] = ph/10.0;
   root.printTo(Serial);
   Serial.print("\n");
-  return;
-  Serial.print("T: ");
-  Serial.print((float)temp/10.0);
+  Serial.flush();
+}
+
+void logToSerial(const char * const message, ...)
+{
+  StaticJsonBuffer<MAX_COLLECTION_SIZE> jsonBuffer;
+  char msg_buffer[MAX_COLLECTION_SIZE];
+  va_list args;
+  va_start(args, message);
+  vsnprintf(msg_buffer, sizeof(msg_buffer), message, args);
+  va_end(args);
+  JsonObject& root = jsonBuffer.createObject();
+  root["log"] = msg_buffer;
+  root.printTo(Serial);
   Serial.print("\n");
-  Serial.print("P: ");
-  Serial.print((float)ph/10.0);
-  Serial.print("\n");
+  Serial.flush();
 }
 
 void setup()
 {
+  char serial_buffer[MAX_COLLECTION_SIZE];
+  char conversion[MAX_COLLECTION_SIZE];
   lcd.begin(16, 2);
   lcd.clear();
   lcd.setCursor(0, 1);
   setSyncProvider(RTC.get);
-  TimeChangeRule usEDT = {"EDT", Second, Sun, Mar, 2, -240};  //UTC - 4 hours
-  TimeChangeRule usEST = {"EST", First, Sun, Nov, 2, -300};   //UTC - 5 hours
-  localTz = new Timezone(usEDT, usEST);
   Serial.begin(9600);
   pinMode(13, OUTPUT);
+  int daylight = -1;
+  int standard = -1;
+  while (THERMISTORPIN == -1 || PHPIN == -1 || daylight == -1 || standard == -1)
+  {
+    int readCount = Serial.readBytes(serial_buffer, 199);
+    serial_buffer[readCount] = '\0';
+    StaticJsonBuffer<MAX_COLLECTION_SIZE> jsonBuffer;
+    JsonObject& root = jsonBuffer.parseObject(serial_buffer);
+    if (root.success()) {
+      if (root.containsKey("thermistor_pin") && root.containsKey("ph_pin")) {
+        const char* temp = root["thermistor_pin"];
+        const char* ph = root["ph_pin"];
+        THERMISTORPIN = strtol(&temp[1], 0, 10);
+        PHPIN = strtol(&ph[1], 0, 10);
+      }
+      if (root.containsKey("daylight") && root.containsKey("standard")) {
+        daylight = root["daylight"];
+        standard = root["standard"];
+      }
+    }
+  }
+  logToSerial("thermistor pin set to: %d", THERMISTORPIN);
+  logToSerial("ph pin set to: %d", PHPIN);
+  TimeChangeRule DT = {"DT", Second, Sun, Mar, 2, daylight};
+  TimeChangeRule ST = {"ST", First, Sun, Nov, 2, standard};
+  logToSerial("daylight timezone offset set to:  %d", daylight);
+  logToSerial("standard timezone offset set to:  %d", standard);
+  localTz = new Timezone(DT, ST);
 }
 
 // Measure temperature and ph and pdate serial and LCD with
@@ -179,6 +220,7 @@ void display(int showSerial)
   if (timeStatus() != timeSet)
   {
     lcd.print("No time source");
+    logToSerial("no valid time source could be found");
   }
   else
   {

@@ -123,6 +123,10 @@ class TestFishTankMonitor(unittest.TestCase):
         self.assertEqual(config.lights_on_times[1], '15:00')
         self.assertEqual(config.lights_off_times[0], '11:00')
         self.assertEqual(config.lights_off_times[1], '22:30')
+        self.assertEqual(config.daylight_tz, -240)
+        self.assertEqual(config.standard_tz, -300)
+        self.assertEqual(config.ph_pin, 'A2')
+        self.assertEqual(config.temperature_pin, 'A1')
 
     def test_scheduler_time_parsing(self):
         self.assertFalse(scheduler.LightScheduler._is_valid_time_string(''))

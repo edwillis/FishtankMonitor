@@ -15,7 +15,15 @@ conn.execute('create table if not exists settings (last_calibration REAL)')
 
 def main_loop(notifiers):
     logger.debug("starting serial monitor")
-    monitor = SerialMonitor.create_and_start_monitor()
+    monitor = SerialMonitor.create_monitor()
+    alamode_cfg = { 
+                    "thermistor_pin": config.temperature_pin, 
+                    "ph_pin": config.ph_pin, 
+                    "daylight": config.daylight_tz, 
+                    "standard": config.standard_tz
+                  }
+    monitor.write_to_serial(alamode_cfg)
+    monitor.start_monitor()
     monitor.started.wait()
     logger.debug("starting light scheduler")
     light_scheduler = scheduler.LightScheduler()

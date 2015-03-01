@@ -18,6 +18,10 @@ x10_light_code = None
 lights_on_times = []
 lights_off_times = []
 x10_retries = None
+daylight_tz = None
+standard_tz = None
+ph_pin = None
+temperature_pin = None
 
 # set elsewhere
 last_calibration = None
@@ -28,10 +32,13 @@ def read_config():
     global SMTP_host, SMTP_port, SMTP_user, SMTP_password, SMTP_use_ttls, send_reports_interval
     global send_warnings_interval, email_to_address, email_from_address, months_between_calibrations
     global last_calibration, serial_device, x10_retries, x10_light_code, lights_on_times, lights_off_times
+    global daylight_tz, standard_tz, ph_pin, temperature_pin
     try:
         cfg = configparser.ConfigParser()
         cfg.read(config_filename)
         serial_device = cfg.get('hardware', 'serial device')
+        ph_pin = cfg.get('hardware', 'ph pin')
+        temperature_pin = cfg.get('hardware', 'temperature pin')
         SMTP_host = cfg.get('SMTP', 'host')
         SMTP_port = cfg.getint('SMTP', 'port')
         SMTP_user = cfg.get('SMTP', 'user')
@@ -44,6 +51,8 @@ def read_config():
         months_between_calibrations = cfg.getint('calibration', 'months_between_calibrations')
         x10_retries = cfg.getint('lights', 'x10 retries')
         x10_light_code = cfg.get('lights', 'x10 light code')
+        daylight_tz = cfg.getint('time', 'daylight timezone offset')
+        standard_tz = cfg.getint('time', 'standard timezone offset')
         if cfg.get('lights', 'lights on times').strip():
             for t in cfg.get('lights', 'lights on times').split(','):
                 lights_on_times.append(t.strip())
@@ -51,6 +60,10 @@ def read_config():
             for t in cfg.get('lights', 'lights off times').split(','):
                 lights_off_times.append(t.strip())
         logger.info("serial device from config is %r" %serial_device)
+        logger.info("ph pin from config is %r" %ph_pin)
+        logger.info("temperature pin from config is %r" %temperature_pin)
+        logger.info("standard timezone offset from config is %r" %daylight_tz)
+        logger.info("daylight timezone offset from config is %r" %standard_tz)
         logger.info("smtp host from config is %r" %SMTP_host)
         logger.info("smtp port from config is %r" %SMTP_port)
         logger.info("smtp user from config is %r" %SMTP_user)
