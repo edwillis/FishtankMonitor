@@ -1,14 +1,16 @@
-'''@package fishtank_monitor 
-The main function for the Fishtank Monitor
-
-@author  Ed Willis
-@license  public domain
+"""The main function for the Fishtank Monitor
 
 This module implements the main entry point for the Fishtank Monitor as well
 as the principle exception handling strategy, which is to log, discard and
 reconstruct affected objects and carry on.
 
-In addition, all database interaction (such as it is) is handled here.'''
+In addition, all database interaction (such as it is) is handled here.
+
+@package fishtank_monitor
+@author  Ed Willis
+@copyright Ed Willis, 2015, all rights reserved
+@license  This software is released into the public domain
+"""
 
 import time
 import sqlite3

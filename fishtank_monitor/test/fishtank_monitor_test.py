@@ -42,6 +42,8 @@ class TestFishTankMonitor(unittest.TestCase):
         self.monitor.ard = None
 
     def test_basic(self):
+        ''' @test Test parsing the serial json object in a perfect case'''
+
         lines = [b'{"temperature":21.0, "ph":6.5}']
         self.monitor.ard = FakeSerial(lines)
         self.monitor.start()
@@ -51,6 +53,9 @@ class TestFishTankMonitor(unittest.TestCase):
         self.assertEqual(notifications.time_last_warned, 0)
 
     def test_odd_prefix(self):
+        ''' @test Test parsing the serial json object when there is unparseable data before
+        the valid json'''
+
         lines = [b'.0, "ph" :5.5}\n{"temperature":21.0, "ph":6.5}']
         self.monitor.ard = FakeSerial(lines)
         self.monitor.start()
@@ -60,6 +65,9 @@ class TestFishTankMonitor(unittest.TestCase):
         self.assertEqual(notifications.time_last_warned, 0)
 
     def test_odd_pre_and_postfix(self):
+        ''' @test Test parsing the serial json object when there is unparseable data before
+        and after the valid json'''
+
         lines = [b'.0, "ph":5.5}\n{"temperature":21.0, "ph":6.5}\n{"temperature":20.5, "ph":4.0']
         self.monitor.ard = FakeSerial(lines)
         self.monitor.start()
@@ -69,6 +77,9 @@ class TestFishTankMonitor(unittest.TestCase):
         self.assertEqual(notifications.time_last_warned, 0)
 
     def test_bad_temp(self):
+        ''' @test Test that notifications are triggered when an out of bounds temperature
+        reading is seen'''
+
         lines = [b'{"temperature":1.0, "ph":6.5}\n']
         self.monitor.ard = FakeSerial(lines)
         self.monitor.start()
@@ -80,6 +91,9 @@ class TestFishTankMonitor(unittest.TestCase):
         self.assertNotEqual(notifier.time_last_warned, 0)
 
     def test_bad_ph(self):
+        ''' @test Test that notifications are triggered when an out of bounds ph
+        reading is seen'''
+
         lines = [b'{"temperature":21.0, "ph":5.5}']
         self.monitor.ard = FakeSerial(lines)
         self.monitor.start()
@@ -91,11 +105,16 @@ class TestFishTankMonitor(unittest.TestCase):
         self.assertNotEqual(notifier.time_last_warned, 0)
 
     def test_inform(self):
+        ''' @test Test informational notifications trigger when explicitly called'''
+
         notifier = notifications.NotifyInformationalReports()
         notifier(ftm.conn, self.monitor)
         self.assertNotEqual(notifier.time_last_informed, 0)
 
     def test_notify_calibration(self):
+        ''' @test Test the calibration notifications are triggered when called and
+        when the elapsed time has expired'''
+
         now = time.time()
         then = now - (30*24*60*60 + 1)
         config.last_calibration = then
@@ -104,6 +123,8 @@ class TestFishTankMonitor(unittest.TestCase):
         self.assertNotEqual(then, config.last_calibration)
 
     def test_config(self):
+        ''' @test Exhaustively test the config file parsing and resulting data'''
+
         self.assertEqual(config.serial_device, '/dev/ttyS0')
         self.assertEqual(config.SMTP_host, 'smtphost')
         self.assertEqual(config.SMTP_port, 0)
@@ -129,6 +150,8 @@ class TestFishTankMonitor(unittest.TestCase):
         self.assertEqual(config.temperature_pin, 'A1')
 
     def test_scheduler_time_parsing(self):
+        ''' @test Test the time series parsing for the LightScheduler '''
+
         self.assertFalse(scheduler.LightScheduler._is_valid_time_string(''))
         self.assertFalse(scheduler.LightScheduler._is_valid_time_string(' '))
         self.assertFalse(scheduler.LightScheduler._is_valid_time_string(' :'))
@@ -146,6 +169,9 @@ class TestFishTankMonitor(unittest.TestCase):
         self.assertTrue(scheduler.LightScheduler._is_valid_time_string('11:11'))
 
     def test_scheduler(self):
+        ''' @test Test the scheduler calls the registered functors on specified time
+        intervals.  This test is timeconsuming and will not be run unless the
+        environment variable RUN is set to all.'''
 
         if os.environ.get('RUN') != 'all':
             print("\nskipping test_scheduler - use test.sh all to run")
