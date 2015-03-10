@@ -1,3 +1,15 @@
+'''@package fishtank_monitor 
+The main function for the Fishtank Monitor
+
+@author  Ed Willis
+@license  public domain
+
+This module implements the main entry point for the Fishtank Monitor as well
+as the principle exception handling strategy, which is to log, discard and
+reconstruct affected objects and carry on.
+
+In addition, all database interaction (such as it is) is handled here.'''
+
 import time
 import sqlite3
 from serial_monitor import SerialMonitor
