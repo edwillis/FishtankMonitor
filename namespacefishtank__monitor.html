@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Fishtank Monitor: Main Page</title>
+<title>Fishtank Monitor: fishtank_monitor Namespace Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -35,8 +35,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
-      <li class="current"><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
+      <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li class="current"><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -57,7 +57,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       </li>
     </ul>
   </div>
-</div><!-- top -->
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="namespaces.html"><span>Namespace&#160;List</span></a></li>
+    </ul>
+  </div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -72,12 +76,42 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
+</div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
-<div class="title">Fishtank Monitor Documentation</div>  </div>
+<div class="title">fishtank_monitor Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-</div><!-- contents -->
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a95c960eb49ce01ffb4c9a5af5de850b1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a95c960eb49ce01ffb4c9a5af5de850b1"></a>
+def&#160;</td><td class="memItemRight" valign="bottom"><b>main_loop</b></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a894fb86cf371f3c6e14c83f72331a14f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a894fb86cf371f3c6e14c83f72331a14f"></a>
+tuple&#160;</td><td class="memItemRight" valign="bottom"><b>logger</b> = get_logger(__name__)</td></tr>
+<tr class="memitem:a6f1ae41684d3a37da462d57e85a57c7b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6f1ae41684d3a37da462d57e85a57c7b"></a>
+tuple&#160;</td><td class="memItemRight" valign="bottom"><b>conn</b> = sqlite3.Connection('./fishtank.db')</td></tr>
+<tr class="memitem:aa8fcbba65ecaae02c6def95917f96c8d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa8fcbba65ecaae02c6def95917f96c8d"></a>
+tuple&#160;</td><td class="memItemRight" valign="bottom"><b>notifiers</b> = get_notifiers()</td></tr>
+</table>
+<a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><pre class="fragment">@package fishtank_monitor 
+The main function for the Fishtank Monitor
+
+@author  Ed Willis
+@license  public domain
+
+This module implements the main entry point for the Fishtank Monitor as well
+as the principle exception handling strategy, which is to log, discard and
+reconstruct affected objects and carry on.
+
+In addition, all database interaction (such as it is) is handled here.</pre> </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated on Mon Mar 9 2015 22:20:30 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">

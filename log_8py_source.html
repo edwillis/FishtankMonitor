@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Fishtank Monitor: Main Page</title>
+<title>Fishtank Monitor: fishtank_monitor/log.py Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -35,10 +35,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
-      <li class="current"><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
-      <li><a href="files.html"><span>Files</span></a></li>
+      <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -57,7 +57,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       </li>
     </ul>
   </div>
-</div><!-- top -->
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>File&#160;List</span></a></li>
+    </ul>
+  </div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -72,15 +76,34 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_6aa3edec2d1b37a014dec11f1986df60.html">fishtank_monitor</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">Fishtank Monitor Documentation</div>  </div>
+<div class="title">log.py</div>  </div>
 </div><!--header-->
 <div class="contents">
-</div><!-- contents -->
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="keyword">import</span> logging, logging.handlers</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;log_handler = logging.handlers.TimedRotatingFileHandler(<span class="stringliteral">&quot;log/fishtank_monitor.log&quot;</span>,</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;                                                         backupCount=5,</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;                                                         when=<span class="stringliteral">&quot;midnight&quot;</span>)</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;log_formatter = logging.Formatter(<span class="stringliteral">&#39;%(asctime)s | %(module)16s | %(levelname)5s | %(message)s&#39;</span>)</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;log_handler.setFormatter(log_formatter)</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">def </span>get_logger(name):</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    l = logging.getLogger(name)</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    l.addHandler(log_handler)</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    l.setLevel(logging.INFO)</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordflow">return</span> l</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+</div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Mar 9 2015 22:20:30 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Mar 9 2015 22:20:29 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>
