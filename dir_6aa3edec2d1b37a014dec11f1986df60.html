@@ -36,6 +36,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -60,7 +62,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-</div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -83,11 +85,22 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <tr class="heading"><td colspan="2"><h2><a name="subdirs"></a>
 Directories</h2></td></tr>
 <tr class="memitem:dir_6beeed723eefacc0bd12062c6d0e7326"><td class="memItemLeft" align="right" valign="top">directory &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dir_6beeed723eefacc0bd12062c6d0e7326.html">sketchbook</a></td></tr>
+<tr class="memitem:dir_3a3d0789154c857479b95088b435b9d1"><td class="memItemLeft" align="right" valign="top">directory &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dir_3a3d0789154c857479b95088b435b9d1.html">test</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="files"></a>
+Files</h2></td></tr>
+<tr class="memitem:conf_8py"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>conf.py</b> <a href="conf_8py_source.html">[code]</a></td></tr>
+<tr class="memitem:config_8py"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>config.py</b> <a href="config_8py_source.html">[code]</a></td></tr>
+<tr class="memitem:fishtank__monitor_8py"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>fishtank_monitor.py</b> <a href="fishtank__monitor_8py_source.html">[code]</a></td></tr>
+<tr class="memitem:log_8py"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>log.py</b> <a href="log_8py_source.html">[code]</a></td></tr>
+<tr class="memitem:notifications_8py"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>notifications.py</b> <a href="notifications_8py_source.html">[code]</a></td></tr>
+<tr class="memitem:scheduler_8py"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>scheduler.py</b> <a href="scheduler_8py_source.html">[code]</a></td></tr>
+<tr class="memitem:serial__monitor_8py"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>serial_monitor.py</b> <a href="serial__monitor_8py_source.html">[code]</a></td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Mar 9 2015 23:04:04 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Mar 11 2015 21:03:39 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>
