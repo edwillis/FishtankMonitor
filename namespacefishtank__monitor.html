@@ -60,6 +60,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="namespaces.html"><span>Namespace&#160;List</span></a></li>
+      <li><a href="namespacemembers.html"><span>Namespace&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -88,8 +89,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a95c960eb49ce01ffb4c9a5af5de850b1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a95c960eb49ce01ffb4c9a5af5de850b1"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>main_loop</b></td></tr>
+<tr class="memitem:a95c960eb49ce01ffb4c9a5af5de850b1"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefishtank__monitor.html#a95c960eb49ce01ffb4c9a5af5de850b1">main_loop</a></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -109,14 +109,43 @@ reconstruct affected objects and carry on.
 
 In addition, all database interaction (such as it is) is handled here.
 
-@package fishtank_monitor
 @author  Ed Willis
 @copyright Ed Willis, 2015, all rights reserved
 @license  This software is released into the public domain
-</pre> </div></div><!-- contents -->
+</pre> </div><h2>Function Documentation</h2>
+<a class="anchor" id="a95c960eb49ce01ffb4c9a5af5de850b1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def fishtank_monitor.main_loop </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>notifiers</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">The main functional loop of the fishtank monitor.
+
+This function arranges for the following:
+* Set up serial monitoring
+* Configure the parameters to use on the alamode
+* Set up and start the light scheduler
+And then enter the main loop where we:
+* Read temperature and PH readings from the alamode
+* Log the readings to our database
+* Trigger the notifiers to send out warnings or informational messages
+This function is also responsible for monitoring the health of the serial
+monitor thread and restarting it on failures. </pre> 
+<p>Definition at line <a class="el" href="fishtank__monitor_8py_source.html#l00029">29</a> of file <a class="el" href="fishtank__monitor_8py_source.html">fishtank_monitor.py</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Mar 11 2015 21:03:38 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Mar 11 2015 23:17:37 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>
