@@ -2,5 +2,5 @@
 <area shape="rect" id="node1" href="$classnotifications_1_1NotifierBase.html" title="The notification base class." alt="" coords="5,67,173,96"/>
 <area shape="rect" id="node3" href="$classnotifications_1_1NotifyCalibration.html" title="Send the user reminder emails when their PH monitor is due for calibration." alt="" coords="229,5,421,35"/>
 <area shape="rect" id="node5" href="$classnotifications_1_1NotifyInformationalReports.html" title="Send the user periodic informational reports (with graphs)" alt="" coords="223,58,428,105"/>
-<area shape="rect" id="node7" href="$classnotifications_1_1NotifyWarnings.html" title="Examine the current ph and temperature values and warn the user by email if they exceed limits..." alt="" coords="232,128,419,157"/>
+<area shape="rect" id="node7" href="$classnotifications_1_1NotifyWarnings.html" title="Send emails when bad temperature or ph readings are seen." alt="" coords="232,128,419,157"/>
 </map>
