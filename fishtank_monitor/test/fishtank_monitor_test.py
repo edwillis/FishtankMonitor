@@ -1,3 +1,10 @@
+## @package fishtank_monitor_test
+#  Unit tests spanning the modules of the fishtank monitor
+#
+#  @author  Ed Willis
+#  @copyright Ed Willis, 2015, all rights reserved
+#  @license  This software is released into the public domain
+
 import sys
 import os
 import unittest
@@ -11,11 +18,18 @@ import time
 import datetime
 import dateutil
 
+## Helper class to mock the SerialMonitor
 class FakeSerial():
 
+    ## Constructor
+    #  @param lines the lines of test to return on calls to readline
     def __init__(self, lines):
         self.lines = lines
 
+    ## Readline mock method
+    #  Uses the lines argument passed in in the constructor to mimic reads from
+    #  serial
+    #  @return in bytes, the next line of fake serial output on each call
     def readline(self):
         try:
             ret = self.lines[0]
@@ -41,9 +55,8 @@ class TestFishTankMonitor(unittest.TestCase):
         self.monitor.temperature = None
         self.monitor.ard = None
 
+    ## @test Test parsing the serial json object in a perfect case
     def test_basic(self):
-        ''' @test Test parsing the serial json object in a perfect case'''
-
         lines = [b'{"temperature":21.0, "ph":6.5}']
         self.monitor.ard = FakeSerial(lines)
         self.monitor.start()
@@ -52,10 +65,9 @@ class TestFishTankMonitor(unittest.TestCase):
         self.assertEqual(self.monitor.temperature, 21.0)
         self.assertEqual(notifications.time_last_warned, 0)
 
+    ## @test Test parsing the serial json object when there is unparseable data before
+    #  the valid json
     def test_odd_prefix(self):
-        ''' @test Test parsing the serial json object when there is unparseable data before
-        the valid json'''
-
         lines = [b'.0, "ph" :5.5}\n{"temperature":21.0, "ph":6.5}']
         self.monitor.ard = FakeSerial(lines)
         self.monitor.start()
@@ -64,10 +76,9 @@ class TestFishTankMonitor(unittest.TestCase):
         self.assertEqual(self.monitor.temperature, 21.0)
         self.assertEqual(notifications.time_last_warned, 0)
 
+    ## @test Test parsing the serial json object when there is unparseable data before
+    #  and after the valid json
     def test_odd_pre_and_postfix(self):
-        ''' @test Test parsing the serial json object when there is unparseable data before
-        and after the valid json'''
-
         lines = [b'.0, "ph":5.5}\n{"temperature":21.0, "ph":6.5}\n{"temperature":20.5, "ph":4.0']
         self.monitor.ard = FakeSerial(lines)
         self.monitor.start()
@@ -76,10 +87,9 @@ class TestFishTankMonitor(unittest.TestCase):
         self.assertEqual(self.monitor.temperature, 21.0)
         self.assertEqual(notifications.time_last_warned, 0)
 
+    ## @test Test that notifications are triggered when an out of bounds temperature
+    #  reading is seen
     def test_bad_temp(self):
-        ''' @test Test that notifications are triggered when an out of bounds temperature
-        reading is seen'''
-
         lines = [b'{"temperature":1.0, "ph":6.5}\n']
         self.monitor.ard = FakeSerial(lines)
         self.monitor.start()
@@ -90,10 +100,9 @@ class TestFishTankMonitor(unittest.TestCase):
         self.assertEqual(self.monitor.temperature, 1.0)
         self.assertNotEqual(notifier.time_last_warned, 0)
 
+    ## @test Test that notifications are triggered when an out of bounds ph
+    #  reading is seen
     def test_bad_ph(self):
-        ''' @test Test that notifications are triggered when an out of bounds ph
-        reading is seen'''
-
         lines = [b'{"temperature":21.0, "ph":5.5}']
         self.monitor.ard = FakeSerial(lines)
         self.monitor.start()
@@ -104,17 +113,15 @@ class TestFishTankMonitor(unittest.TestCase):
         self.assertEqual(self.monitor.temperature, 21.0)
         self.assertNotEqual(notifier.time_last_warned, 0)
 
+    ## @test Test informational notifications trigger when explicitly called
     def test_inform(self):
-        ''' @test Test informational notifications trigger when explicitly called'''
-
         notifier = notifications.NotifyInformationalReports()
         notifier(ftm.conn, self.monitor)
         self.assertNotEqual(notifier.time_last_informed, 0)
 
+    ## @test Test the calibration notifications are triggered when called and
+    #  when the elapsed time has expired
     def test_notify_calibration(self):
-        ''' @test Test the calibration notifications are triggered when called and
-        when the elapsed time has expired'''
-
         now = time.time()
         then = now - (30*24*60*60 + 1)
         config.last_calibration = then
@@ -122,9 +129,8 @@ class TestFishTankMonitor(unittest.TestCase):
         notifier(ftm.conn, self.monitor)
         self.assertNotEqual(then, config.last_calibration)
 
+    ## @test Exhaustively test the config file parsing and resulting data
     def test_config(self):
-        ''' @test Exhaustively test the config file parsing and resulting data'''
-
         self.assertEqual(config.serial_device, '/dev/ttyS0')
         self.assertEqual(config.SMTP_host, 'smtphost')
         self.assertEqual(config.SMTP_port, 0)
@@ -149,9 +155,8 @@ class TestFishTankMonitor(unittest.TestCase):
         self.assertEqual(config.ph_pin, 'A2')
         self.assertEqual(config.temperature_pin, 'A1')
 
+    ## @test Test the time series parsing for the LightScheduler
     def test_scheduler_time_parsing(self):
-        ''' @test Test the time series parsing for the LightScheduler '''
-
         self.assertFalse(scheduler.LightScheduler._is_valid_time_string(''))
         self.assertFalse(scheduler.LightScheduler._is_valid_time_string(' '))
         self.assertFalse(scheduler.LightScheduler._is_valid_time_string(' :'))
@@ -168,11 +173,10 @@ class TestFishTankMonitor(unittest.TestCase):
         self.assertTrue(scheduler.LightScheduler._is_valid_time_string('01:10'))
         self.assertTrue(scheduler.LightScheduler._is_valid_time_string('11:11'))
 
+    ## @test Test the scheduler calls the registered functors on specified time
+    #  intervals.  This test is timeconsuming and will not be run unless the
+    #  environment variable RUN is set to all.
     def test_scheduler(self):
-        ''' @test Test the scheduler calls the registered functors on specified time
-        intervals.  This test is timeconsuming and will not be run unless the
-        environment variable RUN is set to all.'''
-
         if os.environ.get('RUN') != 'all':
             print("\nskipping test_scheduler - use test.sh all to run")
             return

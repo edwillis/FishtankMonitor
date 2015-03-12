@@ -1,3 +1,17 @@
+## @package notifications
+#  Functor class hierarchy responsible for user notification of significant events
+#
+#  This module defines a clas hierarchy of functors used to send emailed
+#  communications to the user when:
+#
+#  * conditions in the tank become unsafe
+#  * the user-specified informational period has arrived
+#  * it's time to redo the ph sensor calibration
+#
+#  @author  Ed Willis
+#  @copyright Ed Willis, 2015, all rights reserved
+#  @license  This software is released into the public domain
+
 import smtplib
 import pygal
 import time
@@ -9,8 +23,19 @@ import config
 
 logger = get_logger(__name__)
 
+## The notification base class
+#
+#  Defines email helper methods and a common template method functor
+#  interface for callers to trigger evaluation of the notification
+#  schedule and emailed communications should the conditions meet the
+#  notifier-specific criteria.
 class NotifierBase:
 
+    ## The functor method to be provided by derived classes
+    #
+    #  @param conn the database connection to use if needed
+    #  @param monitor the serial monitor from which to see the current
+    #         temperature and ph
     def __call__(self, conn, monitor):
         pass
 

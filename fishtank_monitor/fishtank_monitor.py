@@ -1,16 +1,15 @@
-"""The main function for the Fishtank Monitor
-
-This module implements the main entry point for the Fishtank Monitor as well
-as the principle exception handling strategy, which is to log, discard and
-reconstruct affected objects and carry on.
-
-In addition, all database interaction (such as it is) is handled here.
-
-@package fishtank_monitor
-@author  Ed Willis
-@copyright Ed Willis, 2015, all rights reserved
-@license  This software is released into the public domain
-"""
+## @package fishtank_monitor
+#  The main function for the Fishtank Monitor
+#
+#  This module implements the main entry point for the Fishtank Monitor as well
+#  as the principle exception handling strategy, which is to log, discard and
+#  reconstruct affected objects and carry on.
+# 
+#  In addition, all database interaction (such as it is) is handled here.
+#
+#  @author  Ed Willis
+#  @copyright Ed Willis, 2015, all rights reserved
+#  @license  This software is released into the public domain
 
 import time
 import sqlite3
@@ -26,6 +25,21 @@ conn = sqlite3.Connection('./fishtank.db')
 
 conn.execute('create table if not exists measurements (time INT, temp REAL, ph REAL)')
 conn.execute('create table if not exists settings (last_calibration REAL)')
+
+## The main functional loop of the fishtank monitor.
+#
+#  This function arranges for the following:
+#  * Set up serial monitoring
+#  * Configure the parameters to use on the alamode
+#  * Set up and start the light scheduler
+#  And then enter the main loop where we:
+#  * Read temperature and PH readings from the alamode
+#  * Log the readings to our database
+#  * Trigger the notifiers to send out warnings or informational messages
+#  This function is also responsible for monitoring the health of the serial
+#  monitor thread and restarting it on failures.
+#
+#  @param notifiers [in] the list of notifier functors to call each iteration
 
 def main_loop(notifiers):
     logger.debug("starting serial monitor")
