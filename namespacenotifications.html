@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Fishtank Monitor: Namespace Members</title>
+<title>Fishtank Monitor: notifications Namespace Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -60,16 +60,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="namespaces.html"><span>Namespace&#160;List</span></a></li>
-      <li class="current"><a href="namespacemembers.html"><span>Namespace&#160;Members</span></a></li>
+      <li><a href="namespacemembers.html"><span>Namespace&#160;Members</span></a></li>
     </ul>
   </div>
-  <div id="navrow3" class="tabs2">
-    <ul class="tablist">
-      <li><a href="namespacemembers.html"><span>All</span></a></li>
-      <li class="current"><a href="namespacemembers_func.html"><span>Functions</span></a></li>
-    </ul>
-  </div>
-</div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -84,16 +77,54 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle">
+<div class="title">notifications Namespace Reference</div>  </div>
+</div><!--header-->
 <div class="contents">
-&#160;<ul>
-<li>main_loop()
-: <a class="el" href="namespacefishtank__monitor.html#a95c960eb49ce01ffb4c9a5af5de850b1">fishtank_monitor</a>
-</li>
-</ul>
-</div><!-- contents -->
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnotifications_1_1NotifierBase.html">NotifierBase</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnotifications_1_1NotifyWarnings.html">NotifyWarnings</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnotifications_1_1NotifyInformationalReports.html">NotifyInformationalReports</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnotifications_1_1NotifyCalibration.html">NotifyCalibration</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a9243897dad141dfaa0ef7a19c4ae4dba"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9243897dad141dfaa0ef7a19c4ae4dba"></a>
+def&#160;</td><td class="memItemRight" valign="bottom"><b>get_notifiers</b></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a7df62413788561d0b25940ced892ef76"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7df62413788561d0b25940ced892ef76"></a>
+tuple&#160;</td><td class="memItemRight" valign="bottom"><b>logger</b> = get_logger(__name__)</td></tr>
+<tr class="memitem:a5b603cc1b53adcedbe5a8cd95193bd8f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5b603cc1b53adcedbe5a8cd95193bd8f"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>_notifiers</b> = None</td></tr>
+</table>
+<a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><pre class="fragment">@package notifications
+Functor class hierarchy responsible for user notification of significant events
+
+This module defines a clas hierarchy of functors used to send emailed
+communications to the user when:
+
+* conditions in the tank become unsafe
+* the user-specified informational period has arrived
+* it's time to redo the ph sensor calibration
+
+@author  Ed Willis
+@copyright Ed Willis, 2015, all rights reserved
+@license  This software is released into the public domain
+</pre> </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Mar 11 2015 23:34:27 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Mar 11 2015 23:34:26 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

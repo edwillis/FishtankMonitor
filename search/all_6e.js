@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['notifications',['notifications',['../namespacenotifications.html',1,'']]],
   ['notifierbase',['NotifierBase',['../classnotifications_1_1NotifierBase.html',1,'notifications']]],
   ['notifycalibration',['NotifyCalibration',['../classnotifications_1_1NotifyCalibration.html',1,'notifications']]],
   ['notifyinformationalreports',['NotifyInformationalReports',['../classnotifications_1_1NotifyInformationalReports.html',1,'notifications']]],
