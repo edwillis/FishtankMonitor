@@ -86,222 +86,236 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">fishtank_monitor_test.py</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="keyword">import</span> sys</div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="keyword">import</span> os</div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">import</span> unittest</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">import</span> fishtank_monitor <span class="keyword">as</span> ftm</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">import</span> config</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">import</span> notifications</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">import</span> serial_monitor</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">import</span> scheduler</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">import</span> threading</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">import</span> time</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">import</span> datetime</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">import</span> dateutil</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="code" href="classfishtank__monitor__test_1_1FakeSerial.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="classfishtank__monitor__test_1_1FakeSerial.html">FakeSerial</a>():</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">def </span>__init__(self, lines):</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        self.<a class="code" href="classfishtank__monitor__test_1_1FakeSerial.html#a9d63f710ce53948f306d105420f94587">lines</a> = lines</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">def </span>readline(self):</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordflow">try</span>:</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            ret = self.<a class="code" href="classfishtank__monitor__test_1_1FakeSerial.html#a9d63f710ce53948f306d105420f94587">lines</a>[0]</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            self.<a class="code" href="classfishtank__monitor__test_1_1FakeSerial.html#a9d63f710ce53948f306d105420f94587">lines</a> = self.<a class="code" href="classfishtank__monitor__test_1_1FakeSerial.html#a9d63f710ce53948f306d105420f94587">lines</a>[1:]</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            <span class="keywordflow">return</span> ret</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordflow">except</span>:</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            <span class="keywordflow">return</span> b<span class="stringliteral">&#39;&#39;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;SLEEP_INT = 0.25</div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="code" href="namespacefishtank__monitor__test.html">    1</a></span>&#160;<span class="comment">## @package fishtank_monitor_test</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">#  Unit tests spanning the modules of the fishtank monitor</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">#</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">#  @author  Ed Willis</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">#  @copyright Ed Willis, 2015, all rights reserved</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">#  @license  This software is released into the public domain</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">import</span> sys</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">import</span> os</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">import</span> unittest</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">import</span> fishtank_monitor <span class="keyword">as</span> ftm</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">import</span> config</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">import</span> notifications</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">import</span> serial_monitor</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">import</span> scheduler</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">import</span> threading</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">import</span> time</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">import</span> datetime</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">import</span> dateutil</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">## Helper class to mock the SerialMonitor</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="code" href="classfishtank__monitor__test_1_1FakeSerial.html">   22</a></span>&#160;<span class="keyword">class </span><a class="code" href="classfishtank__monitor__test_1_1FakeSerial.html" title="Helper class to mock the SerialMonitor.">FakeSerial</a>():</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="comment">## Constructor</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="comment">#  @param lines the lines of test to return on calls to readline</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="code" href="classfishtank__monitor__test_1_1FakeSerial.html#aad391721cb1919b98c5424fa83ec505d">   26</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classfishtank__monitor__test_1_1FakeSerial.html#aad391721cb1919b98c5424fa83ec505d" title="Constructor.">__init__</a>(self, lines):</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        self.<a class="code" href="classfishtank__monitor__test_1_1FakeSerial.html#a9d63f710ce53948f306d105420f94587">lines</a> = lines</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html">   29</a></span>&#160;<span class="keyword">class </span><a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html">TestFishTankMonitor</a>(unittest.TestCase):</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    @classmethod</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">def </span>setUpClass(cls):</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        config.config_filename = <span class="stringliteral">&#39;./test/fishtank_monitor.cfg&#39;</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <a class="code" href="namespaceconfig.html#aa4806cc2c75c55fa89bd07ffa6e1d8be">config.read_config</a>()</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">def </span>setUp(self):</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        self.<a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#a67389b41ce2a32c899cee2ee81f4d481">monitor</a> = <a class="code" href="classserial__monitor_1_1SerialMonitor.html">serial_monitor.SerialMonitor</a>(config.serial_device)</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        self.monitor.stop = <span class="keyword">False</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        notifications.time_last_warned = 0</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        self.monitor.ph = <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        self.monitor.temperature = <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        self.monitor.ard = <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#a8d323cf8b414e3723037065ede0598da">   44</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#a8d323cf8b414e3723037065ede0598da">test_basic</a>(self):</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="stringliteral">&#39;&#39;&#39; @test Test parsing the serial json object in a perfect case&#39;&#39;&#39;</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        lines = [b<span class="stringliteral">&#39;{&quot;temperature&quot;:21.0, &quot;ph&quot;:6.5}&#39;</span>]</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        self.monitor.ard = <a class="code" href="classfishtank__monitor__test_1_1FakeSerial.html">FakeSerial</a>(lines)</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        self.monitor.start()</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        time.sleep(SLEEP_INT)</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        self.assertEqual(self.monitor.ph, 6.5)</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        self.assertEqual(self.monitor.temperature, 21.0)</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        self.assertEqual(notifications.time_last_warned, 0)</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#a5b40e03a08c074647c169381e57e4e39">   55</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#a5b40e03a08c074647c169381e57e4e39">test_odd_prefix</a>(self):</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="stringliteral">&#39;&#39;&#39; @test Test parsing the serial json object when there is unparseable data before</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="stringliteral">        the valid json&#39;&#39;&#39;</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        lines = [b<span class="stringliteral">&#39;.0, &quot;ph&quot; :5.5}\n{&quot;temperature&quot;:21.0, &quot;ph&quot;:6.5}&#39;</span>]</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        self.monitor.ard = <a class="code" href="classfishtank__monitor__test_1_1FakeSerial.html">FakeSerial</a>(lines)</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        self.monitor.start()</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        time.sleep(SLEEP_INT)</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        self.assertEqual(self.monitor.ph, 6.5)</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        self.assertEqual(self.monitor.temperature, 21.0)</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        self.assertEqual(notifications.time_last_warned, 0)</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno"><a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#ac28c488c8592b57222c605f5440ba7ab">   67</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#ac28c488c8592b57222c605f5440ba7ab">test_odd_pre_and_postfix</a>(self):</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="stringliteral">&#39;&#39;&#39; @test Test parsing the serial json object when there is unparseable data before</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="stringliteral">        and after the valid json&#39;&#39;&#39;</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        lines = [b<span class="stringliteral">&#39;.0, &quot;ph&quot;:5.5}\n{&quot;temperature&quot;:21.0, &quot;ph&quot;:6.5}\n{&quot;temperature&quot;:20.5, &quot;ph&quot;:4.0&#39;</span>]</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        self.monitor.ard = <a class="code" href="classfishtank__monitor__test_1_1FakeSerial.html">FakeSerial</a>(lines)</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        self.monitor.start()</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        time.sleep(SLEEP_INT)</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        self.assertEqual(self.monitor.ph, 6.5)</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        self.assertEqual(self.monitor.temperature, 21.0)</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        self.assertEqual(notifications.time_last_warned, 0)</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00079"></a><span class="lineno"><a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#a3c6b59fa937eb962826c14ba8ccf048e">   79</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#a3c6b59fa937eb962826c14ba8ccf048e">test_bad_temp</a>(self):</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="stringliteral">&#39;&#39;&#39; @test Test that notifications are triggered when an out of bounds temperature</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="stringliteral">        reading is seen&#39;&#39;&#39;</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        lines = [b<span class="stringliteral">&#39;{&quot;temperature&quot;:1.0, &quot;ph&quot;:6.5}\n&#39;</span>]</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        self.monitor.ard = <a class="code" href="classfishtank__monitor__test_1_1FakeSerial.html">FakeSerial</a>(lines)</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        self.monitor.start()</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        time.sleep(SLEEP_INT)</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        notifier = <a class="code" href="classnotifications_1_1NotifyWarnings.html">notifications.NotifyWarnings</a>()</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        notifier(ftm.conn, self.<a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#a67389b41ce2a32c899cee2ee81f4d481">monitor</a>)</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="comment">## Readline mock method</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="comment">#  Uses the lines argument passed in in the constructor to mimic reads from</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="comment">#  serial</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="comment">#  @return in bytes, the next line of fake serial output on each call</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="code" href="classfishtank__monitor__test_1_1FakeSerial.html#af762c5954c17f3a1f0dd05c7d883b625">   33</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classfishtank__monitor__test_1_1FakeSerial.html#af762c5954c17f3a1f0dd05c7d883b625" title="Readline mock method Uses the lines argument passed in in the constructor to mimic reads from serial...">readline</a>(self):</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordflow">try</span>:</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            ret = self.<a class="code" href="classfishtank__monitor__test_1_1FakeSerial.html#a9d63f710ce53948f306d105420f94587">lines</a>[0]</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            self.<a class="code" href="classfishtank__monitor__test_1_1FakeSerial.html#a9d63f710ce53948f306d105420f94587">lines</a> = self.<a class="code" href="classfishtank__monitor__test_1_1FakeSerial.html#a9d63f710ce53948f306d105420f94587">lines</a>[1:]</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            <span class="keywordflow">return</span> ret</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordflow">except</span>:</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            <span class="keywordflow">return</span> b<span class="stringliteral">&#39;&#39;</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;SLEEP_INT = 0.25</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html">   43</a></span>&#160;<span class="keyword">class </span><a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html">TestFishTankMonitor</a>(unittest.TestCase):</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    @classmethod</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">def </span>setUpClass(cls):</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        config.config_filename = <span class="stringliteral">&#39;./test/fishtank_monitor.cfg&#39;</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <a class="code" href="namespaceconfig.html#aa4806cc2c75c55fa89bd07ffa6e1d8be">config.read_config</a>()</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">def </span>setUp(self):</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        self.<a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#a67389b41ce2a32c899cee2ee81f4d481">monitor</a> = <a class="code" href="classserial__monitor_1_1SerialMonitor.html">serial_monitor.SerialMonitor</a>(config.serial_device)</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        self.monitor.stop = <span class="keyword">False</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        notifications.time_last_warned = 0</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        self.monitor.ph = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        self.monitor.temperature = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        self.monitor.ard = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#a8d323cf8b414e3723037065ede0598da">   58</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#a8d323cf8b414e3723037065ede0598da">test_basic</a>(self):</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="stringliteral">&#39;&#39;&#39; @test Test parsing the serial json object in a perfect case&#39;&#39;&#39;</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        lines = [b<span class="stringliteral">&#39;{&quot;temperature&quot;:21.0, &quot;ph&quot;:6.5}&#39;</span>]</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        self.monitor.ard = <a class="code" href="classfishtank__monitor__test_1_1FakeSerial.html" title="Helper class to mock the SerialMonitor.">FakeSerial</a>(lines)</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        self.monitor.start()</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        time.sleep(SLEEP_INT)</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        self.assertEqual(self.monitor.ph, 6.5)</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        self.assertEqual(self.monitor.temperature, 21.0)</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        self.assertEqual(notifications.time_last_warned, 0)</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#a5b40e03a08c074647c169381e57e4e39">   69</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#a5b40e03a08c074647c169381e57e4e39">test_odd_prefix</a>(self):</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="stringliteral">&#39;&#39;&#39; @test Test parsing the serial json object when there is unparseable data before</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="stringliteral">        the valid json&#39;&#39;&#39;</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        lines = [b<span class="stringliteral">&#39;.0, &quot;ph&quot; :5.5}\n{&quot;temperature&quot;:21.0, &quot;ph&quot;:6.5}&#39;</span>]</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        self.monitor.ard = <a class="code" href="classfishtank__monitor__test_1_1FakeSerial.html" title="Helper class to mock the SerialMonitor.">FakeSerial</a>(lines)</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        self.monitor.start()</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        time.sleep(SLEEP_INT)</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        self.assertEqual(self.monitor.ph, 6.5)</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        self.assertEqual(self.monitor.temperature, 21.0)</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        self.assertEqual(notifications.time_last_warned, 0)</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#ac28c488c8592b57222c605f5440ba7ab">   81</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#ac28c488c8592b57222c605f5440ba7ab">test_odd_pre_and_postfix</a>(self):</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="stringliteral">&#39;&#39;&#39; @test Test parsing the serial json object when there is unparseable data before</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="stringliteral">        and after the valid json&#39;&#39;&#39;</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        lines = [b<span class="stringliteral">&#39;.0, &quot;ph&quot;:5.5}\n{&quot;temperature&quot;:21.0, &quot;ph&quot;:6.5}\n{&quot;temperature&quot;:20.5, &quot;ph&quot;:4.0&#39;</span>]</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        self.monitor.ard = <a class="code" href="classfishtank__monitor__test_1_1FakeSerial.html" title="Helper class to mock the SerialMonitor.">FakeSerial</a>(lines)</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        self.monitor.start()</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        time.sleep(SLEEP_INT)</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        self.assertEqual(self.monitor.ph, 6.5)</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        self.assertEqual(self.monitor.temperature, 1.0)</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        self.assertNotEqual(notifier.time_last_warned, 0)</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        self.assertEqual(self.monitor.temperature, 21.0)</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        self.assertEqual(notifications.time_last_warned, 0)</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
-<div class="line"><a name="l00093"></a><span class="lineno"><a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#a4dbb39dd962e7c180565536710b7c8ba">   93</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#a4dbb39dd962e7c180565536710b7c8ba">test_bad_ph</a>(self):</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="stringliteral">&#39;&#39;&#39; @test Test that notifications are triggered when an out of bounds ph</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#a3c6b59fa937eb962826c14ba8ccf048e">   93</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#a3c6b59fa937eb962826c14ba8ccf048e">test_bad_temp</a>(self):</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="stringliteral">&#39;&#39;&#39; @test Test that notifications are triggered when an out of bounds temperature</span></div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="stringliteral">        reading is seen&#39;&#39;&#39;</span></div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        lines = [b<span class="stringliteral">&#39;{&quot;temperature&quot;:21.0, &quot;ph&quot;:5.5}&#39;</span>]</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        self.monitor.ard = <a class="code" href="classfishtank__monitor__test_1_1FakeSerial.html">FakeSerial</a>(lines)</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        lines = [b<span class="stringliteral">&#39;{&quot;temperature&quot;:1.0, &quot;ph&quot;:6.5}\n&#39;</span>]</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        self.monitor.ard = <a class="code" href="classfishtank__monitor__test_1_1FakeSerial.html" title="Helper class to mock the SerialMonitor.">FakeSerial</a>(lines)</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        self.monitor.start()</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        time.sleep(SLEEP_INT)</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        notifier = <a class="code" href="classnotifications_1_1NotifyWarnings.html">notifications.NotifyWarnings</a>()</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        notifier(ftm.conn, self.<a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#a67389b41ce2a32c899cee2ee81f4d481">monitor</a>)</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        self.assertEqual(self.monitor.ph, 5.5)</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        self.assertEqual(self.monitor.temperature, 21.0)</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        self.assertEqual(self.monitor.ph, 6.5)</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        self.assertEqual(self.monitor.temperature, 1.0)</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        self.assertNotEqual(notifier.time_last_warned, 0)</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
-<div class="line"><a name="l00107"></a><span class="lineno"><a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#a5e40490935f309e0f61de08496390662">  107</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#a5e40490935f309e0f61de08496390662">test_inform</a>(self):</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="stringliteral">&#39;&#39;&#39; @test Test informational notifications trigger when explicitly called&#39;&#39;&#39;</span></div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        notifier = <a class="code" href="classnotifications_1_1NotifyInformationalReports.html">notifications.NotifyInformationalReports</a>()</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        notifier(ftm.conn, self.<a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#a67389b41ce2a32c899cee2ee81f4d481">monitor</a>)</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        self.assertNotEqual(notifier.time_last_informed, 0)</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
-<div class="line"><a name="l00114"></a><span class="lineno"><a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#a36f8c805e7f4a511d14366e14d813f20">  114</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#a36f8c805e7f4a511d14366e14d813f20">test_notify_calibration</a>(self):</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <span class="stringliteral">&#39;&#39;&#39; @test Test the calibration notifications are triggered when called and</span></div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="stringliteral">        when the elapsed time has expired&#39;&#39;&#39;</span></div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        now = time.time()</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        then = now - (30*24*60*60 + 1)</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        config.last_calibration = then</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        notifier = <a class="code" href="classnotifications_1_1NotifyCalibration.html">notifications.NotifyCalibration</a>()</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        notifier(ftm.conn, self.<a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#a67389b41ce2a32c899cee2ee81f4d481">monitor</a>)</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        self.assertNotEqual(then, config.last_calibration)</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
-<div class="line"><a name="l00125"></a><span class="lineno"><a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#a94d545f5a70f6641b088328fb3ff78c0">  125</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#a94d545f5a70f6641b088328fb3ff78c0">test_config</a>(self):</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        <span class="stringliteral">&#39;&#39;&#39; @test Exhaustively test the config file parsing and resulting data&#39;&#39;&#39;</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno"><a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#a4dbb39dd962e7c180565536710b7c8ba">  107</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#a4dbb39dd962e7c180565536710b7c8ba">test_bad_ph</a>(self):</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="stringliteral">&#39;&#39;&#39; @test Test that notifications are triggered when an out of bounds ph</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="stringliteral">        reading is seen&#39;&#39;&#39;</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        lines = [b<span class="stringliteral">&#39;{&quot;temperature&quot;:21.0, &quot;ph&quot;:5.5}&#39;</span>]</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        self.monitor.ard = <a class="code" href="classfishtank__monitor__test_1_1FakeSerial.html" title="Helper class to mock the SerialMonitor.">FakeSerial</a>(lines)</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        self.monitor.start()</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        time.sleep(SLEEP_INT)</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        notifier = <a class="code" href="classnotifications_1_1NotifyWarnings.html">notifications.NotifyWarnings</a>()</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        notifier(ftm.conn, self.<a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#a67389b41ce2a32c899cee2ee81f4d481">monitor</a>)</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        self.assertEqual(self.monitor.ph, 5.5)</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        self.assertEqual(self.monitor.temperature, 21.0)</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        self.assertNotEqual(notifier.time_last_warned, 0)</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
+<div class="line"><a name="l00121"></a><span class="lineno"><a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#a5e40490935f309e0f61de08496390662">  121</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#a5e40490935f309e0f61de08496390662">test_inform</a>(self):</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <span class="stringliteral">&#39;&#39;&#39; @test Test informational notifications trigger when explicitly called&#39;&#39;&#39;</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        notifier = <a class="code" href="classnotifications_1_1NotifyInformationalReports.html">notifications.NotifyInformationalReports</a>()</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        notifier(ftm.conn, self.<a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#a67389b41ce2a32c899cee2ee81f4d481">monitor</a>)</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        self.assertNotEqual(notifier.time_last_informed, 0)</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        self.assertEqual(config.serial_device, <span class="stringliteral">&#39;/dev/ttyS0&#39;</span>)</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        self.assertEqual(config.SMTP_host, <span class="stringliteral">&#39;smtphost&#39;</span>)</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        self.assertEqual(config.SMTP_port, 0)</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        self.assertEqual(config.SMTP_user, <span class="stringliteral">&#39;username&#39;</span>)</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        self.assertEqual(config.SMTP_password, <span class="stringliteral">&#39;password&#39;</span>)</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        self.assertEqual(config.SMTP_use_ttls, <span class="keyword">True</span>)</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        self.assertEqual(config.send_reports_interval, 0)</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        self.assertEqual(config.send_warnings_interval, 0)</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        self.assertEqual(config.email_to_address, <span class="stringliteral">&#39;you@domain.com&#39;</span>)</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        self.assertEqual(config.email_from_address, <span class="stringliteral">&#39;pi@domain.com&#39;</span>)</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;        self.assertEqual(config.months_between_calibrations, 0)</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        self.assertEqual(config.x10_retries, 3)</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        self.assertEqual(config.x10_light_code, <span class="stringliteral">&#39;i8&#39;</span>)</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;        self.assertEqual(len(config.lights_on_times), 2)</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        self.assertEqual(len(config.lights_off_times), 2)</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        self.assertEqual(config.lights_on_times[0], <span class="stringliteral">&#39;7:00&#39;</span>)</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        self.assertEqual(config.lights_on_times[1], <span class="stringliteral">&#39;15:00&#39;</span>)</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        self.assertEqual(config.lights_off_times[0], <span class="stringliteral">&#39;11:00&#39;</span>)</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        self.assertEqual(config.lights_off_times[1], <span class="stringliteral">&#39;22:30&#39;</span>)</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        self.assertEqual(config.daylight_tz, -240)</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        self.assertEqual(config.standard_tz, -300)</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        self.assertEqual(config.ph_pin, <span class="stringliteral">&#39;A2&#39;</span>)</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        self.assertEqual(config.temperature_pin, <span class="stringliteral">&#39;A1&#39;</span>)</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;</div>
-<div class="line"><a name="l00152"></a><span class="lineno"><a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#aacbb4f2fa10f8c6efdcbda3015b74a6d">  152</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#aacbb4f2fa10f8c6efdcbda3015b74a6d">test_scheduler_time_parsing</a>(self):</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        <span class="stringliteral">&#39;&#39;&#39; @test Test the time series parsing for the LightScheduler &#39;&#39;&#39;</span></div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        self.assertFalse(<a class="code" href="classscheduler_1_1LightScheduler.html#ab916a555d929a525273ecc700ef34ecf">scheduler.LightScheduler._is_valid_time_string</a>(<span class="stringliteral">&#39;&#39;</span>))</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        self.assertFalse(<a class="code" href="classscheduler_1_1LightScheduler.html#ab916a555d929a525273ecc700ef34ecf">scheduler.LightScheduler._is_valid_time_string</a>(<span class="stringliteral">&#39; &#39;</span>))</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        self.assertFalse(<a class="code" href="classscheduler_1_1LightScheduler.html#ab916a555d929a525273ecc700ef34ecf">scheduler.LightScheduler._is_valid_time_string</a>(<span class="stringliteral">&#39; :&#39;</span>))</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        self.assertFalse(<a class="code" href="classscheduler_1_1LightScheduler.html#ab916a555d929a525273ecc700ef34ecf">scheduler.LightScheduler._is_valid_time_string</a>(<span class="stringliteral">&#39;: &#39;</span>))</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        self.assertFalse(<a class="code" href="classscheduler_1_1LightScheduler.html#ab916a555d929a525273ecc700ef34ecf">scheduler.LightScheduler._is_valid_time_string</a>(<span class="stringliteral">&#39; :  &#39;</span>))</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        self.assertFalse(<a class="code" href="classscheduler_1_1LightScheduler.html#ab916a555d929a525273ecc700ef34ecf">scheduler.LightScheduler._is_valid_time_string</a>(<span class="stringliteral">&#39;1:1&#39;</span>))</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        self.assertFalse(<a class="code" href="classscheduler_1_1LightScheduler.html#ab916a555d929a525273ecc700ef34ecf">scheduler.LightScheduler._is_valid_time_string</a>(<span class="stringliteral">&#39; 1:00&#39;</span>))</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;        self.assertFalse(<a class="code" href="classscheduler_1_1LightScheduler.html#ab916a555d929a525273ecc700ef34ecf">scheduler.LightScheduler._is_valid_time_string</a>(<span class="stringliteral">&#39; 10:00&#39;</span>))</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        self.assertFalse(<a class="code" href="classscheduler_1_1LightScheduler.html#ab916a555d929a525273ecc700ef34ecf">scheduler.LightScheduler._is_valid_time_string</a>(<span class="stringliteral">&#39;10:00 &#39;</span>))</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        self.assertFalse(<a class="code" href="classscheduler_1_1LightScheduler.html#ab916a555d929a525273ecc700ef34ecf">scheduler.LightScheduler._is_valid_time_string</a>(<span class="stringliteral">&#39;10:000&#39;</span>))</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        self.assertFalse(<a class="code" href="classscheduler_1_1LightScheduler.html#ab916a555d929a525273ecc700ef34ecf">scheduler.LightScheduler._is_valid_time_string</a>(<span class="stringliteral">&#39;10:0&#39;</span>))</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        self.assertFalse(<a class="code" href="classscheduler_1_1LightScheduler.html#ab916a555d929a525273ecc700ef34ecf">scheduler.LightScheduler._is_valid_time_string</a>(<span class="stringliteral">&#39;100:00&#39;</span>))</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        self.assertTrue(<a class="code" href="classscheduler_1_1LightScheduler.html#ab916a555d929a525273ecc700ef34ecf">scheduler.LightScheduler._is_valid_time_string</a>(<span class="stringliteral">&#39;1:10&#39;</span>))</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        self.assertTrue(<a class="code" href="classscheduler_1_1LightScheduler.html#ab916a555d929a525273ecc700ef34ecf">scheduler.LightScheduler._is_valid_time_string</a>(<span class="stringliteral">&#39;01:10&#39;</span>))</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        self.assertTrue(<a class="code" href="classscheduler_1_1LightScheduler.html#ab916a555d929a525273ecc700ef34ecf">scheduler.LightScheduler._is_valid_time_string</a>(<span class="stringliteral">&#39;11:11&#39;</span>))</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;</div>
-<div class="line"><a name="l00171"></a><span class="lineno"><a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#a327790de647050ebf1a0e5dbba34541a">  171</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#a327790de647050ebf1a0e5dbba34541a">test_scheduler</a>(self):</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        <span class="stringliteral">&#39;&#39;&#39; @test Test the scheduler calls the registered functors on specified time</span></div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;<span class="stringliteral">        intervals.  This test is timeconsuming and will not be run unless the</span></div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<span class="stringliteral">        environment variable RUN is set to all.&#39;&#39;&#39;</span></div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        <span class="keywordflow">if</span> os.environ.get(<span class="stringliteral">&#39;RUN&#39;</span>) != <span class="stringliteral">&#39;all&#39;</span>:</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;            print(<span class="stringliteral">&quot;\nskipping test_scheduler - use test.sh all to run&quot;</span>)</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;            <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;        <span class="keyword">def </span>new_call(self):</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;            <span class="keywordflow">if</span> <span class="keywordflow">not</span> hasattr(self, <span class="stringliteral">&#39;count&#39;</span>):</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;                self.<a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#a24e0d0117a1277ef359e382e50ea05b3">count</a> = 0</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;            self.<a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#a24e0d0117a1277ef359e382e50ea05b3">count</a> += 1</div>
+<div class="line"><a name="l00128"></a><span class="lineno"><a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#a36f8c805e7f4a511d14366e14d813f20">  128</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#a36f8c805e7f4a511d14366e14d813f20">test_notify_calibration</a>(self):</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        <span class="stringliteral">&#39;&#39;&#39; @test Test the calibration notifications are triggered when called and</span></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="stringliteral">        when the elapsed time has expired&#39;&#39;&#39;</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        now = time.time()</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        then = now - (30*24*60*60 + 1)</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        config.last_calibration = then</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        notifier = <a class="code" href="classnotifications_1_1NotifyCalibration.html">notifications.NotifyCalibration</a>()</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        notifier(ftm.conn, self.<a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#a67389b41ce2a32c899cee2ee81f4d481">monitor</a>)</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        self.assertNotEqual(then, config.last_calibration)</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;</div>
+<div class="line"><a name="l00139"></a><span class="lineno"><a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#a94d545f5a70f6641b088328fb3ff78c0">  139</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#a94d545f5a70f6641b088328fb3ff78c0">test_config</a>(self):</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        <span class="stringliteral">&#39;&#39;&#39; @test Exhaustively test the config file parsing and resulting data&#39;&#39;&#39;</span></div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        self.assertEqual(config.serial_device, <span class="stringliteral">&#39;/dev/ttyS0&#39;</span>)</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        self.assertEqual(config.SMTP_host, <span class="stringliteral">&#39;smtphost&#39;</span>)</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        self.assertEqual(config.SMTP_port, 0)</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        self.assertEqual(config.SMTP_user, <span class="stringliteral">&#39;username&#39;</span>)</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        self.assertEqual(config.SMTP_password, <span class="stringliteral">&#39;password&#39;</span>)</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        self.assertEqual(config.SMTP_use_ttls, <span class="keyword">True</span>)</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        self.assertEqual(config.send_reports_interval, 0)</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        self.assertEqual(config.send_warnings_interval, 0)</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        self.assertEqual(config.email_to_address, <span class="stringliteral">&#39;you@domain.com&#39;</span>)</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        self.assertEqual(config.email_from_address, <span class="stringliteral">&#39;pi@domain.com&#39;</span>)</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        self.assertEqual(config.months_between_calibrations, 0)</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        self.assertEqual(config.x10_retries, 3)</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        self.assertEqual(config.x10_light_code, <span class="stringliteral">&#39;i8&#39;</span>)</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        self.assertEqual(len(config.lights_on_times), 2)</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        self.assertEqual(len(config.lights_off_times), 2)</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        self.assertEqual(config.lights_on_times[0], <span class="stringliteral">&#39;7:00&#39;</span>)</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        self.assertEqual(config.lights_on_times[1], <span class="stringliteral">&#39;15:00&#39;</span>)</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        self.assertEqual(config.lights_off_times[0], <span class="stringliteral">&#39;11:00&#39;</span>)</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        self.assertEqual(config.lights_off_times[1], <span class="stringliteral">&#39;22:30&#39;</span>)</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        self.assertEqual(config.daylight_tz, -240)</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;        self.assertEqual(config.standard_tz, -300)</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        self.assertEqual(config.ph_pin, <span class="stringliteral">&#39;A2&#39;</span>)</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        self.assertEqual(config.temperature_pin, <span class="stringliteral">&#39;A1&#39;</span>)</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;</div>
+<div class="line"><a name="l00166"></a><span class="lineno"><a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#aacbb4f2fa10f8c6efdcbda3015b74a6d">  166</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#aacbb4f2fa10f8c6efdcbda3015b74a6d">test_scheduler_time_parsing</a>(self):</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        <span class="stringliteral">&#39;&#39;&#39; @test Test the time series parsing for the LightScheduler &#39;&#39;&#39;</span></div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        self.assertFalse(<a class="code" href="classscheduler_1_1LightScheduler.html#ab916a555d929a525273ecc700ef34ecf">scheduler.LightScheduler._is_valid_time_string</a>(<span class="stringliteral">&#39;&#39;</span>))</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        self.assertFalse(<a class="code" href="classscheduler_1_1LightScheduler.html#ab916a555d929a525273ecc700ef34ecf">scheduler.LightScheduler._is_valid_time_string</a>(<span class="stringliteral">&#39; &#39;</span>))</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        self.assertFalse(<a class="code" href="classscheduler_1_1LightScheduler.html#ab916a555d929a525273ecc700ef34ecf">scheduler.LightScheduler._is_valid_time_string</a>(<span class="stringliteral">&#39; :&#39;</span>))</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        self.assertFalse(<a class="code" href="classscheduler_1_1LightScheduler.html#ab916a555d929a525273ecc700ef34ecf">scheduler.LightScheduler._is_valid_time_string</a>(<span class="stringliteral">&#39;: &#39;</span>))</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        self.assertFalse(<a class="code" href="classscheduler_1_1LightScheduler.html#ab916a555d929a525273ecc700ef34ecf">scheduler.LightScheduler._is_valid_time_string</a>(<span class="stringliteral">&#39; :  &#39;</span>))</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        self.assertFalse(<a class="code" href="classscheduler_1_1LightScheduler.html#ab916a555d929a525273ecc700ef34ecf">scheduler.LightScheduler._is_valid_time_string</a>(<span class="stringliteral">&#39;1:1&#39;</span>))</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        self.assertFalse(<a class="code" href="classscheduler_1_1LightScheduler.html#ab916a555d929a525273ecc700ef34ecf">scheduler.LightScheduler._is_valid_time_string</a>(<span class="stringliteral">&#39; 1:00&#39;</span>))</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        self.assertFalse(<a class="code" href="classscheduler_1_1LightScheduler.html#ab916a555d929a525273ecc700ef34ecf">scheduler.LightScheduler._is_valid_time_string</a>(<span class="stringliteral">&#39; 10:00&#39;</span>))</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        self.assertFalse(<a class="code" href="classscheduler_1_1LightScheduler.html#ab916a555d929a525273ecc700ef34ecf">scheduler.LightScheduler._is_valid_time_string</a>(<span class="stringliteral">&#39;10:00 &#39;</span>))</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;        self.assertFalse(<a class="code" href="classscheduler_1_1LightScheduler.html#ab916a555d929a525273ecc700ef34ecf">scheduler.LightScheduler._is_valid_time_string</a>(<span class="stringliteral">&#39;10:000&#39;</span>))</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        self.assertFalse(<a class="code" href="classscheduler_1_1LightScheduler.html#ab916a555d929a525273ecc700ef34ecf">scheduler.LightScheduler._is_valid_time_string</a>(<span class="stringliteral">&#39;10:0&#39;</span>))</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;        self.assertFalse(<a class="code" href="classscheduler_1_1LightScheduler.html#ab916a555d929a525273ecc700ef34ecf">scheduler.LightScheduler._is_valid_time_string</a>(<span class="stringliteral">&#39;100:00&#39;</span>))</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        self.assertTrue(<a class="code" href="classscheduler_1_1LightScheduler.html#ab916a555d929a525273ecc700ef34ecf">scheduler.LightScheduler._is_valid_time_string</a>(<span class="stringliteral">&#39;1:10&#39;</span>))</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        self.assertTrue(<a class="code" href="classscheduler_1_1LightScheduler.html#ab916a555d929a525273ecc700ef34ecf">scheduler.LightScheduler._is_valid_time_string</a>(<span class="stringliteral">&#39;01:10&#39;</span>))</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        self.assertTrue(<a class="code" href="classscheduler_1_1LightScheduler.html#ab916a555d929a525273ecc700ef34ecf">scheduler.LightScheduler._is_valid_time_string</a>(<span class="stringliteral">&#39;11:11&#39;</span>))</div>
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;        old_validator = scheduler.LightScheduler._is_valid_time_string</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        old_call = scheduler.LightScheduler.__call__</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        old_config_on_times = config.lights_on_times</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        old_config_off_times = config.lights_off_times</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        <span class="keywordflow">try</span>:</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;            scheduler.LightScheduler._is_valid_time_string = <span class="keyword">lambda</span> x, y:  <span class="keyword">True</span></div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;            scheduler.LightFunctor.__call__ = new_call</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;            times = []</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;            <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(3):</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;                times.append((datetime.datetime.now() + datetime.timedelta(minutes = 1+i)).strftime(<span class="stringliteral">&quot;%H:%M&quot;</span>))</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;            config.lights_on_times = times</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;            config.lights_off_times = times</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;            s = <a class="code" href="classscheduler_1_1LightScheduler.html">scheduler.LightScheduler</a>()</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;            s.start()</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;            time.sleep(4*60)</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;            self.assertEqual(s._on.count, 3)</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;            self.assertEqual(s._off.count, 3)</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        <span class="keywordflow">finally</span>:</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;            scheduler.LightScheduler._is_valid_time_string = old_validator</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;            scheduler.LightFunctor.__call__ = old_call</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;            config.lights_on_times = old_config_on_times</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;            config.lights_off_times = old_config_off_times</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    <span class="keyword">def </span>tearDown(self):</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        self.monitor.stop = <span class="keyword">True</span></div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;        self.<a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#a67389b41ce2a32c899cee2ee81f4d481">monitor</a> = <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;unittest.main()</div>
+<div class="line"><a name="l00185"></a><span class="lineno"><a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#a327790de647050ebf1a0e5dbba34541a">  185</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#a327790de647050ebf1a0e5dbba34541a">test_scheduler</a>(self):</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        <span class="stringliteral">&#39;&#39;&#39; @test Test the scheduler calls the registered functors on specified time</span></div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;<span class="stringliteral">        intervals.  This test is timeconsuming and will not be run unless the</span></div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;<span class="stringliteral">        environment variable RUN is set to all.&#39;&#39;&#39;</span></div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        <span class="keywordflow">if</span> os.environ.get(<span class="stringliteral">&#39;RUN&#39;</span>) != <span class="stringliteral">&#39;all&#39;</span>:</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;            print(<span class="stringliteral">&quot;\nskipping test_scheduler - use test.sh all to run&quot;</span>)</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;            <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        <span class="keyword">def </span>new_call(self):</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;            <span class="keywordflow">if</span> <span class="keywordflow">not</span> hasattr(self, <span class="stringliteral">&#39;count&#39;</span>):</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;                self.<a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#a24e0d0117a1277ef359e382e50ea05b3">count</a> = 0</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;            self.<a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#a24e0d0117a1277ef359e382e50ea05b3">count</a> += 1</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        old_validator = scheduler.LightScheduler._is_valid_time_string</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        old_call = scheduler.LightScheduler.__call__</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        old_config_on_times = config.lights_on_times</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        old_config_off_times = config.lights_off_times</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        <span class="keywordflow">try</span>:</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;            scheduler.LightScheduler._is_valid_time_string = <span class="keyword">lambda</span> x, y:  <span class="keyword">True</span></div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;            scheduler.LightFunctor.__call__ = new_call</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;            times = []</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;            <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(3):</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;                times.append((datetime.datetime.now() + datetime.timedelta(minutes = 1+i)).strftime(<span class="stringliteral">&quot;%H:%M&quot;</span>))</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;            config.lights_on_times = times</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;            config.lights_off_times = times</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;            s = <a class="code" href="classscheduler_1_1LightScheduler.html">scheduler.LightScheduler</a>()</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;            s.start()</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;            time.sleep(4*60)</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;            self.assertEqual(s._on.count, 3)</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;            self.assertEqual(s._off.count, 3)</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;        <span class="keywordflow">finally</span>:</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;            scheduler.LightScheduler._is_valid_time_string = old_validator</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;            scheduler.LightFunctor.__call__ = old_call</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;            config.lights_on_times = old_config_on_times</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;            config.lights_off_times = old_config_off_times</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    <span class="keyword">def </span>tearDown(self):</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;        self.monitor.stop = <span class="keyword">True</span></div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;        self.<a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#a67389b41ce2a32c899cee2ee81f4d481">monitor</a> = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;unittest.main()</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Mar 11 2015 23:43:00 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Mar 11 2015 23:51:19 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>
