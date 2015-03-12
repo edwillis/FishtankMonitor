@@ -68,7 +68,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -183,7 +183,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        self.monitor.ard = <a class="code" href="classfishtank__monitor__test_1_1FakeSerial.html" title="Helper class to mock the SerialMonitor.">FakeSerial</a>(lines)</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        self.monitor.start()</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        time.sleep(SLEEP_INT)</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        notifier = <a class="code" href="classnotifications_1_1NotifyWarnings.html">notifications.NotifyWarnings</a>()</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        notifier = <a class="code" href="classnotifications_1_1NotifyWarnings.html" title="Examine the current ph and temperature values and warn the user by email if they exceed limits...">notifications.NotifyWarnings</a>()</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        notifier(ftm.conn, self.<a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#a67389b41ce2a32c899cee2ee81f4d481">monitor</a>)</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        self.assertEqual(self.monitor.ph, 6.5)</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        self.assertEqual(self.monitor.temperature, 1.0)</div>
@@ -196,7 +196,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        self.monitor.ard = <a class="code" href="classfishtank__monitor__test_1_1FakeSerial.html" title="Helper class to mock the SerialMonitor.">FakeSerial</a>(lines)</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        self.monitor.start()</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        time.sleep(SLEEP_INT)</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        notifier = <a class="code" href="classnotifications_1_1NotifyWarnings.html">notifications.NotifyWarnings</a>()</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        notifier = <a class="code" href="classnotifications_1_1NotifyWarnings.html" title="Examine the current ph and temperature values and warn the user by email if they exceed limits...">notifications.NotifyWarnings</a>()</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        notifier(ftm.conn, self.<a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#a67389b41ce2a32c899cee2ee81f4d481">monitor</a>)</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        self.assertEqual(self.monitor.ph, 5.5)</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        self.assertEqual(self.monitor.temperature, 21.0)</div>
@@ -204,7 +204,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="comment">## @test Test informational notifications trigger when explicitly called</span></div>
 <div class="line"><a name="l00117"></a><span class="lineno"><a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#a5e40490935f309e0f61de08496390662">  117</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#a5e40490935f309e0f61de08496390662">test_inform</a>(self):</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        notifier = <a class="code" href="classnotifications_1_1NotifyInformationalReports.html">notifications.NotifyInformationalReports</a>()</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        notifier = <a class="code" href="classnotifications_1_1NotifyInformationalReports.html" title="Send the user periodic informational reports (with graphs)">notifications.NotifyInformationalReports</a>()</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        notifier(ftm.conn, self.<a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#a67389b41ce2a32c899cee2ee81f4d481">monitor</a>)</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        self.assertNotEqual(notifier.time_last_informed, 0)</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;</div>
@@ -214,7 +214,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        now = time.time()</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        then = now - (30*24*60*60 + 1)</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        config.last_calibration = then</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        notifier = <a class="code" href="classnotifications_1_1NotifyCalibration.html">notifications.NotifyCalibration</a>()</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        notifier = <a class="code" href="classnotifications_1_1NotifyCalibration.html" title="Send the user reminder emails when their PH monitor is due for calibration.">notifications.NotifyCalibration</a>()</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        notifier(ftm.conn, self.<a class="code" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#a67389b41ce2a32c899cee2ee81f4d481">monitor</a>)</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        self.assertNotEqual(then, config.last_calibration)</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div>
@@ -306,7 +306,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Mar 12 2015 00:34:54 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 12 2015 00:44:47 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

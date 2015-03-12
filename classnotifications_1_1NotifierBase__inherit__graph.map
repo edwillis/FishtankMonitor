@@ -1,5 +1,5 @@
 <map id="notifications.NotifierBase" name="notifications.NotifierBase">
-<area shape="rect" id="node3" href="$classnotifications_1_1NotifyCalibration.html" title="notifications.NotifyCalibration" alt="" coords="229,5,421,35"/>
-<area shape="rect" id="node5" href="$classnotifications_1_1NotifyInformationalReports.html" title="notifications.NotifyInformational\lReports" alt="" coords="223,58,428,105"/>
-<area shape="rect" id="node7" href="$classnotifications_1_1NotifyWarnings.html" title="notifications.NotifyWarnings" alt="" coords="232,128,419,157"/>
+<area shape="rect" id="node3" href="$classnotifications_1_1NotifyCalibration.html" title="Send the user reminder emails when their PH monitor is due for calibration." alt="" coords="229,5,421,35"/>
+<area shape="rect" id="node5" href="$classnotifications_1_1NotifyInformationalReports.html" title="Send the user periodic informational reports (with graphs)" alt="" coords="223,58,428,105"/>
+<area shape="rect" id="node7" href="$classnotifications_1_1NotifyWarnings.html" title="Examine the current ph and temperature values and warn the user by email if they exceed limits..." alt="" coords="232,128,419,157"/>
 </map>

@@ -11,5 +11,6 @@ var searchData=
   ['test_5fodd_5fprefix',['test_odd_prefix',['../classfishtank__monitor__test_1_1TestFishTankMonitor.html#a5b40e03a08c074647c169381e57e4e39',1,'fishtank_monitor_test::TestFishTankMonitor']]],
   ['test_5fscheduler',['test_scheduler',['../classfishtank__monitor__test_1_1TestFishTankMonitor.html#a327790de647050ebf1a0e5dbba34541a',1,'fishtank_monitor_test::TestFishTankMonitor']]],
   ['test_5fscheduler_5ftime_5fparsing',['test_scheduler_time_parsing',['../classfishtank__monitor__test_1_1TestFishTankMonitor.html#aacbb4f2fa10f8c6efdcbda3015b74a6d',1,'fishtank_monitor_test::TestFishTankMonitor']]],
-  ['testfishtankmonitor',['TestFishTankMonitor',['../classfishtank__monitor__test_1_1TestFishTankMonitor.html',1,'fishtank_monitor_test']]]
+  ['testfishtankmonitor',['TestFishTankMonitor',['../classfishtank__monitor__test_1_1TestFishTankMonitor.html',1,'fishtank_monitor_test']]],
+  ['time_5flast_5fwarned',['time_last_warned',['../classnotifications_1_1NotifyWarnings.html#adb3ff71032d23589683f0c981a4dfb95',1,'notifications::NotifyWarnings']]]
 ];

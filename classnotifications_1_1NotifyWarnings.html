@@ -71,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -94,6 +94,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">notifications.NotifyWarnings Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Examine the current ph and temperature values and warn the user by email if they exceed limits.  
+ <a href="classnotifications_1_1NotifyWarnings.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for notifications.NotifyWarnings:</div>
 <div class="dyncontent">
@@ -122,11 +125,13 @@ Data Fields</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:adb3ff71032d23589683f0c981a4dfb95"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adb3ff71032d23589683f0c981a4dfb95"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>time_last_warned</b> = 0</td></tr>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnotifications_1_1NotifyWarnings.html#adb3ff71032d23589683f0c981a4dfb95">time_last_warned</a> = 0</td></tr>
+<tr class="memdesc:adb3ff71032d23589683f0c981a4dfb95"><td class="mdescLeft">&#160;</td><td class="mdescRight">The last time we warned the user by email. <br/></td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="notifications_8py_source.html#l00054">54</a> of file <a class="el" href="notifications_8py_source.html">notifications.py</a>.</p>
+<div class="textblock"><p>Examine the current ph and temperature values and warn the user by email if they exceed limits. </p>
+
+<p>Definition at line <a class="el" href="notifications_8py_source.html#l00063">63</a> of file <a class="el" href="notifications_8py_source.html">notifications.py</a>.</p>
 </div><h2>Member Function Documentation</h2>
 <a class="anchor" id="a50cdb1c7f197591008a55f2d2d89fe1c"></a>
 <div class="memitem">
@@ -169,7 +174,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>time_last_warned</b> =
 
 <p>Reimplemented from <a class="el" href="classnotifications_1_1NotifierBase.html#adaefbe5fdb0c93520680d8f0f2cf5f98">notifications.NotifierBase</a>.</p>
 
-<p>Definition at line <a class="el" href="notifications_8py_source.html#l00058">58</a> of file <a class="el" href="notifications_8py_source.html">notifications.py</a>.</p>
+<p>Definition at line <a class="el" href="notifications_8py_source.html#l00068">68</a> of file <a class="el" href="notifications_8py_source.html">notifications.py</a>.</p>
 
 </div>
 </div>
@@ -179,7 +184,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>time_last_warned</b> =
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Mar 12 2015 00:34:54 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 12 2015 00:44:48 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>
