@@ -87,10 +87,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">notifications Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Functor class hierarchy responsible for user notification of significant events.  
+<a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnotifications_1_1NotifierBase.html">NotifierBase</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The notification base class.  <a href="classnotifications_1_1NotifierBase.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnotifications_1_1NotifyWarnings.html">NotifyWarnings</a></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnotifications_1_1NotifyInformationalReports.html">NotifyInformationalReports</a></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnotifications_1_1NotifyCalibration.html">NotifyCalibration</a></td></tr>
@@ -108,23 +112,20 @@ tuple&#160;</td><td class="memItemRight" valign="bottom"><b>logger</b> = get_log
 &#160;</td><td class="memItemRight" valign="bottom"><b>_notifiers</b> = None</td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><pre class="fragment">@package notifications
-Functor class hierarchy responsible for user notification of significant events
-
-This module defines a clas hierarchy of functors used to send emailed
-communications to the user when:
-
-* conditions in the tank become unsafe
-* the user-specified informational period has arrived
-* it's time to redo the ph sensor calibration
-
-@author  Ed Willis
-@copyright Ed Willis, 2015, all rights reserved
-@license  This software is released into the public domain
-</pre> </div></div><!-- contents -->
+<div class="textblock"><p>Functor class hierarchy responsible for user notification of significant events. </p>
+<p>This module defines a clas hierarchy of functors used to send emailed communications to the user when:</p>
+<ul>
+<li>conditions in the tank become unsafe</li>
+<li>the user-specified informational period has arrived</li>
+<li>it's time to redo the ph sensor calibration</li>
+</ul>
+<dl class="section author"><dt>Author</dt><dd>Ed Willis </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>Ed Willis, 2015, all rights reserved </dd></dl>
+<dl class="section user"><dt>License:</dt><dd>This software is released into the public domain </dd></dl>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Mar 11 2015 23:36:33 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Mar 11 2015 23:43:00 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

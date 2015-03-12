@@ -86,10 +86,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">fishtank_monitor Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>The main function for the Fishtank Monitor.  
+<a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a95c960eb49ce01ffb4c9a5af5de850b1"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefishtank__monitor.html#a95c960eb49ce01ffb4c9a5af5de850b1">main_loop</a></td></tr>
+<tr class="memdesc:a95c960eb49ce01ffb4c9a5af5de850b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">The main functional loop of the fishtank monitor.  <a href="#a95c960eb49ce01ffb4c9a5af5de850b1"></a><br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -101,19 +105,13 @@ tuple&#160;</td><td class="memItemRight" valign="bottom"><b>conn</b> = sqlite3.C
 tuple&#160;</td><td class="memItemRight" valign="bottom"><b>notifiers</b> = get_notifiers()</td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><pre class="fragment">@package fishtank_monitor
-The main function for the Fishtank Monitor
-
-This module implements the main entry point for the Fishtank Monitor as well
-as the principle exception handling strategy, which is to log, discard and
-reconstruct affected objects and carry on.
-
-In addition, all database interaction (such as it is) is handled here.
-
-@author  Ed Willis
-@copyright Ed Willis, 2015, all rights reserved
-@license  This software is released into the public domain
-</pre> </div><h2>Function Documentation</h2>
+<div class="textblock"><p>The main function for the Fishtank Monitor. </p>
+<p>This module implements the main entry point for the Fishtank Monitor as well as the principle exception handling strategy, which is to log, discard and reconstruct affected objects and carry on.</p>
+<p>In addition, all database interaction (such as it is) is handled here.</p>
+<dl class="section author"><dt>Author</dt><dd>Ed Willis </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>Ed Willis, 2015, all rights reserved </dd></dl>
+<dl class="section user"><dt>License:</dt><dd>This software is released into the public domain </dd></dl>
+</div><h2>Function Documentation</h2>
 <a class="anchor" id="a95c960eb49ce01ffb4c9a5af5de850b1"></a>
 <div class="memitem">
 <div class="memproto">
@@ -127,28 +125,32 @@ In addition, all database interaction (such as it is) is handled here.
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">@brief The main functional loop of the fishtank monitor.
 
-This function arranges for the following:
-* Set up serial monitoring
-* Configure the parameters to use on the alamode
-* Set up and start the light scheduler
-And then enter the main loop where we:
-* Read temperature and PH readings from the alamode
-* Log the readings to our database
-* Trigger the notifiers to send out warnings or informational messages
-This function is also responsible for monitoring the health of the serial
-monitor thread and restarting it on failures. 
+<p>The main functional loop of the fishtank monitor. </p>
+<p>This function arranges for the following:</p>
+<ul>
+<li>Set up serial monitoring</li>
+<li>Configure the parameters to use on the alamode</li>
+<li>Set up and start the light scheduler And then enter the main loop where we:</li>
+<li>Read temperature and PH readings from the alamode</li>
+<li>Log the readings to our database</li>
+<li>Trigger the notifiers to send out warnings or informational messages This function is also responsible for monitoring the health of the serial monitor thread and restarting it on failures.</li>
+</ul>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">notifiers</td><td>[in] the list of notifier functors to call each iteration </td></tr>
+  </table>
+  </dd>
+</dl>
 
-@param notifiers [in] the list of notifier functors to call each iteration</pre> 
-<p>Definition at line <a class="el" href="fishtank__monitor_8py_source.html#l00030">30</a> of file <a class="el" href="fishtank__monitor_8py_source.html">fishtank_monitor.py</a>.</p>
+<p>Definition at line <a class="el" href="fishtank__monitor_8py_source.html#l00044">44</a> of file <a class="el" href="fishtank__monitor_8py_source.html">fishtank_monitor.py</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Mar 11 2015 23:36:33 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Mar 11 2015 23:43:00 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>
