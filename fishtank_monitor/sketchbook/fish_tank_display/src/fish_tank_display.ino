@@ -7,58 +7,103 @@
 #include <LCDKeypad.h>
 #include <ArduinoJson.h>
 
+/** the object representing the LCD display
+ */
 LCDKeypad lcd;
 
+/** the local timezone
+ */
 Timezone* localTz = 0;
 
-// TEMPERATURE CONSTANTS
+/** @defgroup TEMP_CONSTANTS constants and variables used in temperature sensor handling
+ */
 
-// the value of the 'other' resistor
+/** @addtogroup TEMP_CONSTANTS 
+ *  @{
+ */
+
+/** the value of the 'other' resistor
+ */
 #define SERIESRESISTOR 10000    
  
-// the anaog pin the sensor is connected to
+/** the analog pin the sensor is connected to
+ */
 int THERMISTORPIN = -1;
 
+/** how many samples to take to produce a temperature reading
+ */
 #define NUM_TEMP_SAMPLES 25
 
+/** how long to wait between temperature samples in ms
+ */
 #define WAIT_BETWEEN_TEMP_SAMPLES 25
 
-// resistance at 25 degrees C
+/** resistance at 25 degrees C
+ */
 #define THERMISTORNOMINAL 10000      
 
-// temp. for nominal resistance (almost always 25 C)
+/** temperature for nominal resistance (almost always 25 C)
+ */
 #define TEMPERATURENOMINAL 25   
 
-// The beta coefficient of the thermistor (usually 3000-4000)
+/** the beta coefficient of the thermistor (usually 3000-4000)
+ */
 #define BCOEFFICIENT 3950
 
-// the value of the 'other' resistor
-#define SERIESRESISTOR 10000    
+/** @}
+ */
 
-// common size limit
+/** common size limit
+ */
 #define MAX_COLLECTION_SIZE 200
 
-// PH CONSTANTS AND VARIABLES
+/** @defgroup PH_CONSTANTS constants and variables used in PH sensor handling
+ */
 
-// the analog pin the ph sensor is connected to
+/** @addtogroup PH_CONSTANTS
+ *  @{
+ */
+
+/** the analog pin the ph sensor is connected to
+ */
 int PHPIN = -1;
 
-#define OFFSET -0.23           //deviation compensate
+/** linear deviation compensate for PH value
+ */
+#define OFFSET -0.23
 
+/** the number of samples to take to produce a PH reading
+ */
 #define NUM_PH_SAMPLES 5
 
+/** how long to wait between PH samples in ms
+ */
 #define WAIT_BETWEEN_PH_SAMPLES 25
 
-// 10s of degrees
+/** convert a a Celcius value into Farenheit but scaled up by 10
+ * 
+ *  For example, 200 -> 680
+ *
+ *  @param celcius the value to convert (in 0.1s of degrees Celcius)
+ *  @return the equivalent Farenheit value (in 0.1s of degrees Farenheit)
+ */
 int celciusToFarenheit(int celcius)
 {
   return (int) ((int)((9 * celcius)/5) + 320);
 }
 
-// Print to the current cursor on lcd a floating point value
-// represented as an integer for the portion to the left of the
-// decimal and another integer for the portion to the right.
-// Units is a string which is appended to the output.
+/** print a floating point number at the current cursor on the LCD 
+ *
+ *  Print to the current cursor on lcd a floating point value represented as
+ *  an integer for the portion to the left of the decimal and another integer
+ *  for the portion to the right.
+ *
+ *  @param lcd the display to write to
+ *  @param left the integer value to right to the left of the decimal
+ *  @param right the integer value to write to the right of the decimal
+ *  @param units  a string which is appended to the output
+ *  @param showZero 0 if only the left will be shown, 1 if the complete output will be
+ */
 void printPseudoFloat(LCDKeypad lcd, int left, int right, char * units, int showZero)
 {
   lcd.print(left);
@@ -70,8 +115,11 @@ void printPseudoFloat(LCDKeypad lcd, int left, int right, char * units, int show
   lcd.print(units);
 }
 
-// Measure temperature from the thermistor, taking multiple readings to 
-// arrive at a more consistent value
+/** get a temperature reading
+ *
+ *  measure temperature from the thermistor, taking multiple readings to 
+ *  arrive at a more consistent value
+ */
 float getTemp()
 {
   float reading = 0.0;
@@ -97,6 +145,11 @@ float getTemp()
   return steinhart;
 }
 
+/** get a PH reading
+ *
+ *  get a PH reading, taking multiple samples to arrive at a more consistent
+ *  value
+ */
 float getPh()
 {
   float ph=0.0;
@@ -116,9 +169,15 @@ float getPh()
   return ph;
 }
 
-// Send temperature and ph readings back to pi. Both arguments are 
-// assumed to be 10 times larger than the actual values.  So 0.1s 
-// of degree C and 0.1s of units of PH
+/** send sensor measurements to the Raspberry Pi over serial
+ *
+ *  send temperature and ph readings back to pi. Both arguments are 
+ *  assumed to be 10 times larger than the actual values.  So 0.1s 
+ *  of degree C and 0.1s of units of PH.
+ *
+ *  @param temp the temperature reading
+ *  @param ph the PH reading
+ */
 void printTempAndPhToSerial(int temp, int ph)
 {
   StaticJsonBuffer<MAX_COLLECTION_SIZE> jsonBuffer;
@@ -130,6 +189,11 @@ void printTempAndPhToSerial(int temp, int ph)
   Serial.flush();
 }
 
+/** send a log message to serial so the Raspberry Pi can incude it in its logs
+ *
+ *  @param message the format string for the var_args message followed by
+ *  additional parameters
+ */
 void logToSerial(const char * const message, ...)
 {
   StaticJsonBuffer<MAX_COLLECTION_SIZE> jsonBuffer;
@@ -145,6 +209,12 @@ void logToSerial(const char * const message, ...)
   Serial.flush();
 }
 
+/** initiaize the system and prepare to start takng measurements
+ *
+ *  prepare LCD, serial, read the sensor pin configuration from serial
+ *  and initialize the temperature and PH sensors and read the timezone
+ *  configuration and initialize the timezone handling
+ */ 
 void setup()
 {
   char serial_buffer[MAX_COLLECTION_SIZE];
@@ -185,8 +255,10 @@ void setup()
   localTz = new Timezone(DT, ST);
 }
 
-// Measure temperature and ph and pdate serial and LCD with
-// these values
+/** Measure temperature and ph and update serial and LCD with these values
+ *
+ *  @param showSerial 1, if we want the display updated with the sensor values
+ */
 void display(int showSerial)
 {
   lcd.setCursor(0, 1);
@@ -249,10 +321,16 @@ void display(int showSerial)
   }
 }
 
+/** how often to take measurements of the sensors
+ */
 #define SERIAL_PERIOD 60*15
 
+/** a counter used to determine whether or not to update the LCD with sensor data
+ */
 int serial_output_counter = 0;
 
+/** the main alamode loop
+ */
 void loop()
 {
   int showSerial;

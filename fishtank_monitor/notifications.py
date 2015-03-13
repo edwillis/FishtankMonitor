@@ -1,7 +1,7 @@
 ## @package notifications
 #  Functor class hierarchy responsible for user notification of significant events
 #
-#  This module defines a clas hierarchy of functors used to send emailed
+#  This module defines a class hierarchy of functors used to send emailed
 #  communications to the user when:
 #
 #  * conditions in the tank become unsafe
@@ -39,6 +39,13 @@ class NotifierBase:
     def __call__(self, conn, monitor):
         pass
 
+    ## Email sending helper method
+    #
+    #  Using the configuration specified in the config file, open a
+    #  connection to the user's mail server and send the argument email
+    #  using the user's credentials.
+    #
+    # @param [in] email the MIMETest object to send
     @staticmethod
     def _send_email(email):
         s = smtplib.SMTP(config.SMTP_host, config.SMTP_port)
@@ -51,8 +58,13 @@ class NotifierBase:
         s.sendmail(config.email_to_address, [config.email_to_address], email.as_string())
         s.quit()
 
+## Send emails when bad temperature or ph readings are seen
+#
+#  Examine the current ph and temperature values and warn the user by email if
+#  they exceed limits
 class NotifyWarnings(NotifierBase):
 
+    ## The last time we warned the user by email
     time_last_warned = 0
 
     def __call__(self, conn, monitor):
@@ -82,6 +94,11 @@ class NotifyWarnings(NotifierBase):
                 msg['To'] = config.email_to_address
                 self._send_email(msg)
 
+## Send the user periodic informational reports (with graphs)
+#
+# Determine how long it's been since we sent the user an informational
+# report if one is due.  Include a graphic plotting ph and temperature
+# values over time.
 class NotifyInformationalReports(NotifierBase):
 
     time_last_informed = 0
@@ -115,6 +132,7 @@ class NotifyInformationalReports(NotifierBase):
                     msg.attach(MIMEImage(f.read(), name='chart.svg', _subtype="svg"))
                 self._send_email(msg)
 
+## Send the user reminder emails when their PH monitor is due for calibration
 class NotifyCalibration(NotifierBase):
 
     def __call__(self, conn, monitor):
@@ -134,8 +152,10 @@ class NotifyCalibration(NotifierBase):
                 msg['To'] = config.email_to_address
                 self._send_email(msg)
 
+## Global list of notitification functors
 _notifiers = None
 
+## Lazy instantiator for the global list of functors
 def get_notifiers():
     global _notifiers
     if _notifiers is None:
