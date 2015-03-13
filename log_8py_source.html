@@ -61,7 +61,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
-      <li><a href="globals.html"><span>Globals</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -69,7 +68,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -88,15 +87,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">log.py</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="log_8py.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="code" href="namespacelog.html">    1</a></span>&#160;<span class="keyword">import</span> logging, logging.handlers</div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="keyword">import</span> logging, logging.handlers</div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
-<div class="line"><a name="l00003"></a><span class="lineno"><a class="code" href="namespacelog.html#aa808be7c62601b8ab2ea966bd9abc005">    3</a></span>&#160;log_handler = logging.handlers.TimedRotatingFileHandler(<span class="stringliteral">&quot;log/fishtank_monitor.log&quot;</span>,</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;log_handler = logging.handlers.TimedRotatingFileHandler(<span class="stringliteral">&quot;log/fishtank_monitor.log&quot;</span>,</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;                                                         backupCount=5,</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;                                                         when=<span class="stringliteral">&quot;midnight&quot;</span>)</div>
-<div class="line"><a name="l00006"></a><span class="lineno"><a class="code" href="namespacelog.html#a638a3cb8d16d8d38700a64bd145c8f40">    6</a></span>&#160;log_formatter = logging.Formatter(<span class="stringliteral">&#39;%(asctime)s | %(module)16s | %(levelname)5s | %(message)s&#39;</span>)</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;log_formatter = logging.Formatter(<span class="stringliteral">&#39;%(asctime)s | %(module)16s | %(levelname)5s | %(message)s&#39;</span>)</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;log_handler.setFormatter(log_formatter)</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="code" href="namespacelog.html#ab223427c9823034c3457c827cebdd19e">    9</a></span>&#160;<span class="keyword">def </span><a class="code" href="namespacelog.html#ab223427c9823034c3457c827cebdd19e">get_logger</a>(name):</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">def </span>get_logger(name):</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    l = logging.getLogger(name)</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    l.addHandler(log_handler)</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    l.setLevel(logging.INFO)</div>
@@ -105,7 +104,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Mar 12 2015 22:25:51 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 12 2015 22:30:12 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

@@ -61,7 +61,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
-      <li><a href="globals.html"><span>Globals</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -69,7 +68,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -88,7 +87,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">notifications.py</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="notifications_8py.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="code" href="namespacenotifications.html">    1</a></span>&#160;<span class="comment">## @package notifications</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="code" href="namespacenotifications.html">    1</a></span>&#160;<span class="comment">## @package notifications</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">#  Functor class hierarchy responsible for user notification of significant events</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">#</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">#  This module defines a class hierarchy of functors used to send emailed</span></div>
@@ -111,7 +110,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">from</span> log <span class="keyword">import</span> get_logger</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">import</span> config</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="code" href="namespacenotifications.html#a7df62413788561d0b25940ced892ef76">   24</a></span>&#160;logger = <a class="code" href="namespacelog.html#ab223427c9823034c3457c827cebdd19e">get_logger</a>(__name__)</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;logger = get_logger(__name__)</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">## The notification base class</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">#</span></div>
@@ -174,7 +173,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            msg += <span class="stringliteral">&#39;Fishtank temperature is unsafe:  %r\n&#39;</span>%monitor.temperature</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            logger.warn(<span class="stringliteral">&quot;unsafe temperature, will email&quot;</span>)</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keywordflow">if</span> msg <span class="keywordflow">and</span> time.time() - self.<a class="code" href="classnotifications_1_1NotifyWarnings.html#adb3ff71032d23589683f0c981a4dfb95" title="The last time we warned the user by email.">time_last_warned</a> &gt; config.send_warnings_interval:</div>
-<div class="line"><a name="l00087"></a><span class="lineno"><a class="code" href="classnotifications_1_1NotifyWarnings.html#a5141e226bff57c6f9a10726a592578e8">   87</a></span>&#160;            self.<a class="code" href="classnotifications_1_1NotifyWarnings.html#adb3ff71032d23589683f0c981a4dfb95" title="The last time we warned the user by email.">time_last_warned</a> = time.time()</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            self.<a class="code" href="classnotifications_1_1NotifyWarnings.html#adb3ff71032d23589683f0c981a4dfb95" title="The last time we warned the user by email.">time_last_warned</a> = time.time()</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            logger.info(<span class="stringliteral">&quot;setting time_last_warned to %r&quot;</span> %self.<a class="code" href="classnotifications_1_1NotifyWarnings.html#adb3ff71032d23589683f0c981a4dfb95" title="The last time we warned the user by email.">time_last_warned</a>)</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            <span class="keywordflow">if</span> config.send_warnings_interval &gt; 0:</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                logger.info(<span class="stringliteral">&quot;sending warning email&quot;</span>)</div>
@@ -191,11 +190,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="comment"># values over time.</span></div>
 <div class="line"><a name="l00102"></a><span class="lineno"><a class="code" href="classnotifications_1_1NotifyInformationalReports.html">  102</a></span>&#160;<span class="keyword">class </span><a class="code" href="classnotifications_1_1NotifyInformationalReports.html" title="Send the user periodic informational reports (with graphs)">NotifyInformationalReports</a>(<a class="code" href="classnotifications_1_1NotifierBase.html" title="The notification base class.">NotifierBase</a>):</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
-<div class="line"><a name="l00104"></a><span class="lineno"><a class="code" href="classnotifications_1_1NotifyInformationalReports.html#ab5acf88553880676134d376f29f8f172">  104</a></span>&#160;    time_last_informed = 0</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    time_last_informed = 0</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
 <div class="line"><a name="l00106"></a><span class="lineno"><a class="code" href="classnotifications_1_1NotifyInformationalReports.html#a5f1830c5657d9776cd9c00ddb003ba96">  106</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classnotifications_1_1NotifyInformationalReports.html#a5f1830c5657d9776cd9c00ddb003ba96" title="The functor method to be provided by derived classes.">__call__</a>(self, conn, monitor):</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="keywordflow">if</span> time.time() - self.<a class="code" href="classnotifications_1_1NotifyInformationalReports.html#ab5acf88553880676134d376f29f8f172">time_last_informed</a> &gt; config.send_reports_interval:</div>
-<div class="line"><a name="l00108"></a><span class="lineno"><a class="code" href="classnotifications_1_1NotifyInformationalReports.html#af745f8e26a635455a3efdef6a7c33c79">  108</a></span>&#160;            self.<a class="code" href="classnotifications_1_1NotifyInformationalReports.html#ab5acf88553880676134d376f29f8f172">time_last_informed</a> = time.time()</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;            self.<a class="code" href="classnotifications_1_1NotifyInformationalReports.html#ab5acf88553880676134d376f29f8f172">time_last_informed</a> = time.time()</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            logger.info(<span class="stringliteral">&quot;setting time_last_informed to %r&quot;</span> %self.<a class="code" href="classnotifications_1_1NotifyInformationalReports.html#ab5acf88553880676134d376f29f8f172">time_last_informed</a>)</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;            <span class="keywordflow">if</span> config.send_reports_interval &gt; 0:</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                logger.info(<span class="stringliteral">&quot;sending daily report (time_last_informed is %r)&quot;</span>%self.<a class="code" href="classnotifications_1_1NotifyInformationalReports.html#ab5acf88553880676134d376f29f8f172">time_last_informed</a>)</div>
@@ -254,7 +253,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Mar 12 2015 22:25:51 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 12 2015 22:30:12 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

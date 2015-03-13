@@ -69,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -105,14 +105,17 @@ Data Structures</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a9243897dad141dfaa0ef7a19c4ae4dba"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenotifications.html#a9243897dad141dfaa0ef7a19c4ae4dba">get_notifiers</a></td></tr>
-<tr class="memdesc:a9243897dad141dfaa0ef7a19c4ae4dba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lazy instantiator for the global list of functors.  <a href="#a9243897dad141dfaa0ef7a19c4ae4dba"></a><br/></td></tr>
+<tr class="memitem:a9243897dad141dfaa0ef7a19c4ae4dba"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9243897dad141dfaa0ef7a19c4ae4dba"></a>
+def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenotifications.html#a9243897dad141dfaa0ef7a19c4ae4dba">get_notifiers</a></td></tr>
+<tr class="memdesc:a9243897dad141dfaa0ef7a19c4ae4dba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lazy instantiator for the global list of functors. <br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a7df62413788561d0b25940ced892ef76"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenotifications.html#a7df62413788561d0b25940ced892ef76">logger</a> = get_logger(__name__)</td></tr>
-<tr class="memitem:a5b603cc1b53adcedbe5a8cd95193bd8f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenotifications.html#a5b603cc1b53adcedbe5a8cd95193bd8f">_notifiers</a> = None</td></tr>
-<tr class="memdesc:a5b603cc1b53adcedbe5a8cd95193bd8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Global list of notitification functors.  <a href="#a5b603cc1b53adcedbe5a8cd95193bd8f"></a><br/></td></tr>
+<tr class="memitem:a7df62413788561d0b25940ced892ef76"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7df62413788561d0b25940ced892ef76"></a>
+tuple&#160;</td><td class="memItemRight" valign="bottom"><b>logger</b> = get_logger(__name__)</td></tr>
+<tr class="memitem:a5b603cc1b53adcedbe5a8cd95193bd8f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5b603cc1b53adcedbe5a8cd95193bd8f"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenotifications.html#a5b603cc1b53adcedbe5a8cd95193bd8f">_notifiers</a> = None</td></tr>
+<tr class="memdesc:a5b603cc1b53adcedbe5a8cd95193bd8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Global list of notitification functors. <br/></td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Functor class hierarchy responsible for user notification of significant events. </p>
@@ -125,61 +128,10 @@ Variables</h2></td></tr>
 <dl class="section author"><dt>Author</dt><dd>Ed Willis </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Ed Willis, 2015, all rights reserved </dd></dl>
 <dl class="section user"><dt>License:</dt><dd>This software is released into the public domain </dd></dl>
-</div><h2>Function Documentation</h2>
-<a class="anchor" id="a9243897dad141dfaa0ef7a19c4ae4dba"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">def notifications.get_notifiers </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Lazy instantiator for the global list of functors. </p>
-
-<p>Definition at line <a class="el" href="notifications_8py_source.html#l00159">159</a> of file <a class="el" href="notifications_8py_source.html">notifications.py</a>.</p>
-
-</div>
-</div>
-<h2>Variable Documentation</h2>
-<a class="anchor" id="a5b603cc1b53adcedbe5a8cd95193bd8f"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">notifications._notifiers = None</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Global list of notitification functors. </p>
-
-<p>Definition at line <a class="el" href="notifications_8py_source.html#l00156">156</a> of file <a class="el" href="notifications_8py_source.html">notifications.py</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a7df62413788561d0b25940ced892ef76"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">tuple notifications.logger = get_logger(__name__)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="notifications_8py_source.html#l00024">24</a> of file <a class="el" href="notifications_8py_source.html">notifications.py</a>.</p>
-
-</div>
-</div>
-</div><!-- contents -->
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Mar 12 2015 22:25:53 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 12 2015 22:30:13 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

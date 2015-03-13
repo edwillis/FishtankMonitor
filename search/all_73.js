@@ -1,26 +1,9 @@
 var searchData=
 [
-  ['scheduler',['scheduler',['../namespacescheduler.html',1,'']]],
-  ['scheduler_2epy',['scheduler.py',['../scheduler_8py.html',1,'']]],
   ['send_5freports_5finterval',['send_reports_interval',['../namespaceconfig.html#adb8d27dbca4ad7552e28bd43fb545fdd',1,'config']]],
   ['send_5fwarnings_5finterval',['send_warnings_interval',['../namespaceconfig.html#a9ce20c6f563529e90e82d0172ec21039',1,'config']]],
-  ['serial_5fdevice',['serial_device',['../classserial__monitor_1_1SerialMonitor.html#af44611672652eb03cb7e0264c1764f55',1,'serial_monitor.SerialMonitor.serial_device()'],['../namespaceconfig.html#a4eae281ce888818e77c53d8062d909fa',1,'config.serial_device()']]],
-  ['serial_5fmonitor',['serial_monitor',['../namespaceserial__monitor.html',1,'']]],
-  ['serial_5fmonitor_2epy',['serial_monitor.py',['../serial__monitor_8py.html',1,'']]],
-  ['serial_5foutput_5fcounter',['serial_output_counter',['../fish__tank__display_8ino.html#a9e5b612f7453f4a6ef18033b6f67a113',1,'fish_tank_display.ino']]],
-  ['serial_5fperiod',['SERIAL_PERIOD',['../fish__tank__display_8ino.html#a62f1c6dae8689cf86153d81cdd07955e',1,'fish_tank_display.ino']]],
+  ['serial_5fdevice',['serial_device',['../namespaceconfig.html#a4eae281ce888818e77c53d8062d909fa',1,'config']]],
   ['serialmonitor',['SerialMonitor',['../classserial__monitor_1_1SerialMonitor.html',1,'serial_monitor']]],
-  ['seriesresistor',['SERIESRESISTOR',['../fish__tank__display_8ino.html#aeda514ffe2696b78d945bc12a07b63cf',1,'SERIESRESISTOR():&#160;fish_tank_display.ino'],['../fish__tank__display_8ino.html#aeda514ffe2696b78d945bc12a07b63cf',1,'SERIESRESISTOR():&#160;fish_tank_display.ino']]],
-  ['setup',['setUp',['../classfishtank__monitor__test_1_1TestFishTankMonitor.html#ad9e553d7de0aa20e779581485c92a3f5',1,'fishtank_monitor_test.TestFishTankMonitor.setUp()'],['../fish__tank__display_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;fish_tank_display.ino']]],
-  ['setupclass',['setUpClass',['../classfishtank__monitor__test_1_1TestFishTankMonitor.html#a7104fac889d47683e44ef673e12dba06',1,'fishtank_monitor_test::TestFishTankMonitor']]],
-  ['sleep_5fint',['SLEEP_INT',['../namespacefishtank__monitor__test.html#a914c2103d29cc6071ba1a4c13129a644',1,'fishtank_monitor_test']]],
-  ['smtp_5fhost',['SMTP_host',['../namespaceconfig.html#a4fc9e77e1e51ef3d27f1aa8ba0399249',1,'config']]],
   ['smtp_5fpassword',['SMTP_password',['../namespaceconfig.html#a4398370e02c38cf5f2cd358ed304bfb9',1,'config']]],
-  ['smtp_5fport',['SMTP_port',['../namespaceconfig.html#a979992e4f89c1a0835234dc8a4aa3b8a',1,'config']]],
-  ['smtp_5fuse_5fttls',['SMTP_use_ttls',['../namespaceconfig.html#af7906cc97825970f8d620d606b9d261f',1,'config']]],
-  ['smtp_5fuser',['SMTP_user',['../namespaceconfig.html#a08bff852b0455b2a4391588e38cbbc83',1,'config']]],
-  ['source_5fsuffix',['source_suffix',['../namespaceconf.html#a10af2a769eb3bd3322e874f677e435b1',1,'conf']]],
-  ['standard_5ftz',['standard_tz',['../namespaceconfig.html#a6c6c8cf93b39ed725df3549c90a2a261',1,'config']]],
-  ['start_5fmonitor',['start_monitor',['../classserial__monitor_1_1SerialMonitor.html#ad38ca7fbadb72bc4665a05c07822c16b',1,'serial_monitor::SerialMonitor']]],
-  ['started',['started',['../classserial__monitor_1_1SerialMonitor.html#a75eff8a74282a197b06cc53a25a28ffb',1,'serial_monitor::SerialMonitor']]]
+  ['standard_5ftz',['standard_tz',['../namespaceconfig.html#a6c6c8cf93b39ed725df3549c90a2a261',1,'config']]]
 ];

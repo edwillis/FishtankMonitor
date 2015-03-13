@@ -61,7 +61,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
-      <li><a href="globals.html"><span>Globals</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -69,7 +68,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -88,28 +87,28 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">serial_monitor.py</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="serial__monitor_8py.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="code" href="namespaceserial__monitor.html">    1</a></span>&#160;<span class="keyword">import</span> time</div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="keyword">import</span> time</div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="keyword">import</span> serial</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">import</span> threading</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">import</span> config</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">import</span> json</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">from</span> log <span class="keyword">import</span> get_logger</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno"><a class="code" href="namespaceserial__monitor.html#a4749f32e5448aea71df322d548c08338">    8</a></span>&#160;logger = <a class="code" href="namespacelog.html#ab223427c9823034c3457c827cebdd19e">get_logger</a>(__name__)</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;logger = get_logger(__name__)</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
 <div class="line"><a name="l00011"></a><span class="lineno"><a class="code" href="classserial__monitor_1_1SerialMonitor.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="classserial__monitor_1_1SerialMonitor.html">SerialMonitor</a>(threading.Thread):</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="code" href="classserial__monitor_1_1SerialMonitor.html#a6365423408ff3a8185cc602c3ccb0ba6">   13</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classserial__monitor_1_1SerialMonitor.html#a6365423408ff3a8185cc602c3ccb0ba6">__init__</a>(self, serial_device):</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        super().<a class="code" href="classserial__monitor_1_1SerialMonitor.html#a6365423408ff3a8185cc602c3ccb0ba6">__init__</a>()</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="code" href="classserial__monitor_1_1SerialMonitor.html#a39ce525098e27fc89b78d500533e2a05">   15</a></span>&#160;        self.<a class="code" href="classserial__monitor_1_1SerialMonitor.html#a39ce525098e27fc89b78d500533e2a05">ph</a> = <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="code" href="classserial__monitor_1_1SerialMonitor.html#ae8234d6c54e09f2f00754d8683474854">   16</a></span>&#160;        self.<a class="code" href="classserial__monitor_1_1SerialMonitor.html#ae8234d6c54e09f2f00754d8683474854">temperature</a> = <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="code" href="classserial__monitor_1_1SerialMonitor.html#a75eff8a74282a197b06cc53a25a28ffb">   17</a></span>&#160;        self.<a class="code" href="classserial__monitor_1_1SerialMonitor.html#a75eff8a74282a197b06cc53a25a28ffb">started</a> = threading.Event()</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="code" href="classserial__monitor_1_1SerialMonitor.html#af44611672652eb03cb7e0264c1764f55">   18</a></span>&#160;        self.<a class="code" href="classserial__monitor_1_1SerialMonitor.html#af44611672652eb03cb7e0264c1764f55">serial_device</a> = serial_device</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="code" href="classserial__monitor_1_1SerialMonitor.html#ad55ddd61c77a6457de947938da81a4f8">   19</a></span>&#160;        self.<a class="code" href="classserial__monitor_1_1SerialMonitor.html#ad55ddd61c77a6457de947938da81a4f8">ard</a> = serial.Serial(self.<a class="code" href="classserial__monitor_1_1SerialMonitor.html#af44611672652eb03cb7e0264c1764f55">serial_device</a>)</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="code" href="classserial__monitor_1_1SerialMonitor.html#aa30e103e10bafd1ba8d405c8f605d7db">   20</a></span>&#160;        self.<a class="code" href="classserial__monitor_1_1SerialMonitor.html#aa30e103e10bafd1ba8d405c8f605d7db">daemon</a> = <span class="keyword">True</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">def </span>__init__(self, serial_device):</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        super().__init__()</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        self.<a class="code" href="classserial__monitor_1_1SerialMonitor.html#a39ce525098e27fc89b78d500533e2a05">ph</a> = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        self.<a class="code" href="classserial__monitor_1_1SerialMonitor.html#ae8234d6c54e09f2f00754d8683474854">temperature</a> = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        self.<a class="code" href="classserial__monitor_1_1SerialMonitor.html#a75eff8a74282a197b06cc53a25a28ffb">started</a> = threading.Event()</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        self.<a class="code" href="classserial__monitor_1_1SerialMonitor.html#af44611672652eb03cb7e0264c1764f55">serial_device</a> = serial_device</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        self.<a class="code" href="classserial__monitor_1_1SerialMonitor.html#ad55ddd61c77a6457de947938da81a4f8">ard</a> = serial.Serial(self.<a class="code" href="classserial__monitor_1_1SerialMonitor.html#af44611672652eb03cb7e0264c1764f55">serial_device</a>)</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        self.<a class="code" href="classserial__monitor_1_1SerialMonitor.html#aa30e103e10bafd1ba8d405c8f605d7db">daemon</a> = <span class="keyword">True</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="code" href="classserial__monitor_1_1SerialMonitor.html#aac39079de9cc6929cff173092a5eb2e4">   22</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classserial__monitor_1_1SerialMonitor.html#aac39079de9cc6929cff173092a5eb2e4">write_to_serial</a>(self, json_message):</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">def </span>write_to_serial(self, json_message):</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        logger.info(<span class="stringliteral">&quot;writing to serial:  %r&quot;</span> %json.dumps(json_message))</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        self.ard.writelines([json.dumps(json_message).encode(<span class="stringliteral">&#39;UTF8&#39;</span>)])</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
@@ -126,7 +125,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            <span class="keywordflow">return</span> message</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordflow">return</span> <span class="keywordtype">None</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="code" href="classserial__monitor_1_1SerialMonitor.html#a9f025f53cab070761ec4712f1207e789">   39</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classserial__monitor_1_1SerialMonitor.html#a9f025f53cab070761ec4712f1207e789">run</a>(self):</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">def </span>run(self):</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordflow">try</span>:</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            stop = <span class="keyword">False</span></div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            <span class="keywordflow">while</span> <span class="keywordflow">not</span> stop:</div>
@@ -141,11 +140,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            logger.exception(<span class="stringliteral">&quot;exception encountered in monitor_serial:  %r&quot;</span> %e)</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    @classmethod</div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="code" href="classserial__monitor_1_1SerialMonitor.html#a657f2f3ef8c37f184d32d5f4d296095d">   54</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classserial__monitor_1_1SerialMonitor.html#a657f2f3ef8c37f184d32d5f4d296095d">create_monitor</a>(cls):</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">def </span>create_monitor(cls):</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        monitor = <a class="code" href="classserial__monitor_1_1SerialMonitor.html">SerialMonitor</a>(config.serial_device)</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordflow">return</span> monitor</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="code" href="classserial__monitor_1_1SerialMonitor.html#ad38ca7fbadb72bc4665a05c07822c16b">   58</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classserial__monitor_1_1SerialMonitor.html#ad38ca7fbadb72bc4665a05c07822c16b">start_monitor</a>(self):</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keyword">def </span>start_monitor(self):</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        logger.info(<span class="stringliteral">&quot;starting monitor&quot;</span>)</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        self.start()</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        time.sleep(2)</div>
@@ -154,7 +153,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Mar 12 2015 22:25:51 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 12 2015 22:30:12 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>
