@@ -85,36 +85,129 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:gaeda514ffe2696b78d945bc12a07b63cf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaeda514ffe2696b78d945bc12a07b63cf"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__TEMP__CONSTANTS.html#gaeda514ffe2696b78d945bc12a07b63cf">SERIESRESISTOR</a>&#160;&#160;&#160;10000</td></tr>
-<tr class="memdesc:gaeda514ffe2696b78d945bc12a07b63cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">the value of the 'other' resistor <br/></td></tr>
-<tr class="memitem:ga4098edc51400d391129d4250ddd6cb16"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga4098edc51400d391129d4250ddd6cb16"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__TEMP__CONSTANTS.html#ga4098edc51400d391129d4250ddd6cb16">NUM_TEMP_SAMPLES</a>&#160;&#160;&#160;25</td></tr>
-<tr class="memdesc:ga4098edc51400d391129d4250ddd6cb16"><td class="mdescLeft">&#160;</td><td class="mdescRight">how many samples to take to produce a temperature reading <br/></td></tr>
-<tr class="memitem:gabde63d0b7565b65519e2db9f844cf223"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gabde63d0b7565b65519e2db9f844cf223"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__TEMP__CONSTANTS.html#gabde63d0b7565b65519e2db9f844cf223">WAIT_BETWEEN_TEMP_SAMPLES</a>&#160;&#160;&#160;25</td></tr>
-<tr class="memdesc:gabde63d0b7565b65519e2db9f844cf223"><td class="mdescLeft">&#160;</td><td class="mdescRight">how long to wait between temperature samples in ms <br/></td></tr>
-<tr class="memitem:ga38f2d877dee7ea0fbb35efd14ee2ca42"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga38f2d877dee7ea0fbb35efd14ee2ca42"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__TEMP__CONSTANTS.html#ga38f2d877dee7ea0fbb35efd14ee2ca42">THERMISTORNOMINAL</a>&#160;&#160;&#160;10000</td></tr>
-<tr class="memdesc:ga38f2d877dee7ea0fbb35efd14ee2ca42"><td class="mdescLeft">&#160;</td><td class="mdescRight">resistance at 25 degrees C <br/></td></tr>
-<tr class="memitem:gad131decb98217dffe7e5c6d0f7fcb453"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gad131decb98217dffe7e5c6d0f7fcb453"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__TEMP__CONSTANTS.html#gad131decb98217dffe7e5c6d0f7fcb453">TEMPERATURENOMINAL</a>&#160;&#160;&#160;25</td></tr>
-<tr class="memdesc:gad131decb98217dffe7e5c6d0f7fcb453"><td class="mdescLeft">&#160;</td><td class="mdescRight">temperature for nominal resistance (almost always 25 C) <br/></td></tr>
-<tr class="memitem:ga4ea9e58bc3ede78b23d4ed2f84f8ef97"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga4ea9e58bc3ede78b23d4ed2f84f8ef97"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__TEMP__CONSTANTS.html#ga4ea9e58bc3ede78b23d4ed2f84f8ef97">BCOEFFICIENT</a>&#160;&#160;&#160;3950</td></tr>
-<tr class="memdesc:ga4ea9e58bc3ede78b23d4ed2f84f8ef97"><td class="mdescLeft">&#160;</td><td class="mdescRight">the beta coefficient of the thermistor (usually 3000-4000) <br/></td></tr>
+<tr class="memitem:gaeda514ffe2696b78d945bc12a07b63cf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__TEMP__CONSTANTS.html#gaeda514ffe2696b78d945bc12a07b63cf">SERIESRESISTOR</a>&#160;&#160;&#160;10000</td></tr>
+<tr class="memitem:ga4098edc51400d391129d4250ddd6cb16"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__TEMP__CONSTANTS.html#ga4098edc51400d391129d4250ddd6cb16">NUM_TEMP_SAMPLES</a>&#160;&#160;&#160;25</td></tr>
+<tr class="memitem:gabde63d0b7565b65519e2db9f844cf223"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__TEMP__CONSTANTS.html#gabde63d0b7565b65519e2db9f844cf223">WAIT_BETWEEN_TEMP_SAMPLES</a>&#160;&#160;&#160;25</td></tr>
+<tr class="memitem:ga38f2d877dee7ea0fbb35efd14ee2ca42"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__TEMP__CONSTANTS.html#ga38f2d877dee7ea0fbb35efd14ee2ca42">THERMISTORNOMINAL</a>&#160;&#160;&#160;10000</td></tr>
+<tr class="memitem:gad131decb98217dffe7e5c6d0f7fcb453"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__TEMP__CONSTANTS.html#gad131decb98217dffe7e5c6d0f7fcb453">TEMPERATURENOMINAL</a>&#160;&#160;&#160;25</td></tr>
+<tr class="memitem:ga4ea9e58bc3ede78b23d4ed2f84f8ef97"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__TEMP__CONSTANTS.html#ga4ea9e58bc3ede78b23d4ed2f84f8ef97">BCOEFFICIENT</a>&#160;&#160;&#160;3950</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:ga576473af03cd34ffc2479cf7dbf00f34"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga576473af03cd34ffc2479cf7dbf00f34"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__TEMP__CONSTANTS.html#ga576473af03cd34ffc2479cf7dbf00f34">THERMISTORPIN</a> = -1</td></tr>
-<tr class="memdesc:ga576473af03cd34ffc2479cf7dbf00f34"><td class="mdescLeft">&#160;</td><td class="mdescRight">the anaog pin the sensor is connected to <br/></td></tr>
+<tr class="memitem:ga576473af03cd34ffc2479cf7dbf00f34"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__TEMP__CONSTANTS.html#ga576473af03cd34ffc2479cf7dbf00f34">THERMISTORPIN</a> = -1</td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
+<h2>Macro Definition Documentation</h2>
+<a class="anchor" id="ga4ea9e58bc3ede78b23d4ed2f84f8ef97"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BCOEFFICIENT&#160;&#160;&#160;3950</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>the beta coefficient of the thermistor (usually 3000-4000) </p>
+
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00051">51</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga4098edc51400d391129d4250ddd6cb16"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define NUM_TEMP_SAMPLES&#160;&#160;&#160;25</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>how many samples to take to produce a temperature reading </p>
+
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00035">35</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gaeda514ffe2696b78d945bc12a07b63cf"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SERIESRESISTOR&#160;&#160;&#160;10000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>the value of the 'other' resistor </p>
+
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00027">27</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gad131decb98217dffe7e5c6d0f7fcb453"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TEMPERATURENOMINAL&#160;&#160;&#160;25</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>temperature for nominal resistance (almost always 25 C) </p>
+
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00047">47</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga38f2d877dee7ea0fbb35efd14ee2ca42"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define THERMISTORNOMINAL&#160;&#160;&#160;10000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>resistance at 25 degrees C </p>
+
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00043">43</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gabde63d0b7565b65519e2db9f844cf223"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define WAIT_BETWEEN_TEMP_SAMPLES&#160;&#160;&#160;25</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>how long to wait between temperature samples in ms </p>
+
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00039">39</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+
+</div>
+</div>
+<h2>Variable Documentation</h2>
+<a class="anchor" id="ga576473af03cd34ffc2479cf7dbf00f34"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int THERMISTORPIN = -1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>the analog pin the sensor is connected to </p>
+
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00031">31</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Mar 12 2015 22:39:44 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 12 2015 22:44:53 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>
