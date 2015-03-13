@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Fishtank Monitor: scheduler.LightScheduler Class Reference</title>
+<title>Fishtank Monitor: constants and variables used in temperature sensor handling</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -39,7 +39,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Packages</span></a></li>
-      <li class="current"><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
+      <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -59,14 +59,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       </li>
     </ul>
   </div>
-  <div id="navrow2" class="tabs2">
-    <ul class="tablist">
-      <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
-      <li><a href="classes.html"><span>Data&#160;Structure&#160;Index</span></a></li>
-      <li><a href="inherits.html"><span>Class&#160;Hierarchy</span></a></li>
-      <li><a href="functions.html"><span>Data&#160;Fields</span></a></li>
-    </ul>
-  </div>
+</div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -81,38 +74,43 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><b>scheduler</b></li><li class="navelem"><a class="el" href="classscheduler_1_1LightScheduler.html">LightScheduler</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Data Fields</a>  </div>
+<a href="#define-members">Macros</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
-<div class="title">scheduler.LightScheduler Class Reference</div>  </div>
+<div class="title">constants and variables used in temperature sensor handling</div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:a9384e642f374b257d9c415ca15fb8d76"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9384e642f374b257d9c415ca15fb8d76"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>__init__</b></td></tr>
-<tr class="memitem:a1ca693ed1b6b4742d832809ebb15b2d4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1ca693ed1b6b4742d832809ebb15b2d4"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>run</b></td></tr>
+<tr class="heading"><td colspan="2"><h2><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:gaeda514ffe2696b78d945bc12a07b63cf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaeda514ffe2696b78d945bc12a07b63cf"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__TEMP__CONSTANTS.html#gaeda514ffe2696b78d945bc12a07b63cf">SERIESRESISTOR</a>&#160;&#160;&#160;10000</td></tr>
+<tr class="memdesc:gaeda514ffe2696b78d945bc12a07b63cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">the value of the 'other' resistor <br/></td></tr>
+<tr class="memitem:ga4098edc51400d391129d4250ddd6cb16"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga4098edc51400d391129d4250ddd6cb16"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__TEMP__CONSTANTS.html#ga4098edc51400d391129d4250ddd6cb16">NUM_TEMP_SAMPLES</a>&#160;&#160;&#160;25</td></tr>
+<tr class="memdesc:ga4098edc51400d391129d4250ddd6cb16"><td class="mdescLeft">&#160;</td><td class="mdescRight">how many samples to take to produce a temperature reading <br/></td></tr>
+<tr class="memitem:gabde63d0b7565b65519e2db9f844cf223"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gabde63d0b7565b65519e2db9f844cf223"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__TEMP__CONSTANTS.html#gabde63d0b7565b65519e2db9f844cf223">WAIT_BETWEEN_TEMP_SAMPLES</a>&#160;&#160;&#160;25</td></tr>
+<tr class="memdesc:gabde63d0b7565b65519e2db9f844cf223"><td class="mdescLeft">&#160;</td><td class="mdescRight">how long to wait between temperature samples in ms <br/></td></tr>
+<tr class="memitem:ga38f2d877dee7ea0fbb35efd14ee2ca42"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga38f2d877dee7ea0fbb35efd14ee2ca42"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__TEMP__CONSTANTS.html#ga38f2d877dee7ea0fbb35efd14ee2ca42">THERMISTORNOMINAL</a>&#160;&#160;&#160;10000</td></tr>
+<tr class="memdesc:ga38f2d877dee7ea0fbb35efd14ee2ca42"><td class="mdescLeft">&#160;</td><td class="mdescRight">resistance at 25 degrees C <br/></td></tr>
+<tr class="memitem:gad131decb98217dffe7e5c6d0f7fcb453"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gad131decb98217dffe7e5c6d0f7fcb453"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__TEMP__CONSTANTS.html#gad131decb98217dffe7e5c6d0f7fcb453">TEMPERATURENOMINAL</a>&#160;&#160;&#160;25</td></tr>
+<tr class="memdesc:gad131decb98217dffe7e5c6d0f7fcb453"><td class="mdescLeft">&#160;</td><td class="mdescRight">temperature for nominal resistance (almost always 25 C) <br/></td></tr>
+<tr class="memitem:ga4ea9e58bc3ede78b23d4ed2f84f8ef97"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga4ea9e58bc3ede78b23d4ed2f84f8ef97"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__TEMP__CONSTANTS.html#ga4ea9e58bc3ede78b23d4ed2f84f8ef97">BCOEFFICIENT</a>&#160;&#160;&#160;3950</td></tr>
+<tr class="memdesc:ga4ea9e58bc3ede78b23d4ed2f84f8ef97"><td class="mdescLeft">&#160;</td><td class="mdescRight">the beta coefficient of the thermistor (usually 3000-4000) <br/></td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2><a name="pub-attribs"></a>
-Data Fields</h2></td></tr>
-<tr class="memitem:a1c529c13b79133a43790e575a5ea8efb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1c529c13b79133a43790e575a5ea8efb"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>daemon</b></td></tr>
+<tr class="heading"><td colspan="2"><h2><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ga576473af03cd34ffc2479cf7dbf00f34"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga576473af03cd34ffc2479cf7dbf00f34"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__TEMP__CONSTANTS.html#ga576473af03cd34ffc2479cf7dbf00f34">THERMISTORPIN</a> = -1</td></tr>
+<tr class="memdesc:ga576473af03cd34ffc2479cf7dbf00f34"><td class="mdescLeft">&#160;</td><td class="mdescRight">the anaog pin the sensor is connected to <br/></td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="scheduler_8py_source.html#l00027">27</a> of file <a class="el" href="scheduler_8py_source.html">scheduler.py</a>.</p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
-<li>fishtank_monitor/<a class="el" href="scheduler_8py_source.html">scheduler.py</a></li>
-</ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -37,6 +37,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Packages</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
@@ -68,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -102,33 +103,22 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">// the local timezone</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;Timezone* localTz = 0;</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">// @defgroup TEMP_CONSTANTS constants and variables used in temperature sensor handling</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">// @addtogroup TEMP_CONSTANTS </span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">// @{</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">// the value of the &#39;other&#39; resistor</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#define SERIESRESISTOR 10000    </span></div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="code" href="group__TEMP__CONSTANTS.html#gaeda514ffe2696b78d945bc12a07b63cf">   22</a></span>&#160;<span class="preprocessor">#define SERIESRESISTOR 10000    </span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor"></span> </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">// the anaog pin the sensor is connected to</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keywordtype">int</span> THERMISTORPIN = -1;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="code" href="group__TEMP__CONSTANTS.html#ga576473af03cd34ffc2479cf7dbf00f34">   25</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="group__TEMP__CONSTANTS.html#ga576473af03cd34ffc2479cf7dbf00f34" title="the anaog pin the sensor is connected to">THERMISTORPIN</a> = -1;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">// how many samples to take to produce a temperature reading</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#define NUM_TEMP_SAMPLES 25</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="code" href="group__TEMP__CONSTANTS.html#ga4098edc51400d391129d4250ddd6cb16">   28</a></span>&#160;<span class="preprocessor">#define NUM_TEMP_SAMPLES 25</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">// how long to wait between temperature samples in ms</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#define WAIT_BETWEEN_TEMP_SAMPLES 25</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="code" href="group__TEMP__CONSTANTS.html#gabde63d0b7565b65519e2db9f844cf223">   31</a></span>&#160;<span class="preprocessor">#define WAIT_BETWEEN_TEMP_SAMPLES 25</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">// resistance at 25 degrees C</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#define THERMISTORNOMINAL 10000      </span></div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="code" href="group__TEMP__CONSTANTS.html#ga38f2d877dee7ea0fbb35efd14ee2ca42">   34</a></span>&#160;<span class="preprocessor">#define THERMISTORNOMINAL 10000      </span></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">// temperature for nominal resistance (almost always 25 C)</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#define TEMPERATURENOMINAL 25   </span></div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="code" href="group__TEMP__CONSTANTS.html#gad131decb98217dffe7e5c6d0f7fcb453">   37</a></span>&#160;<span class="preprocessor">#define TEMPERATURENOMINAL 25   </span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">// the beta coefficient of the thermistor (usually 3000-4000)</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#define BCOEFFICIENT 3950</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="code" href="group__TEMP__CONSTANTS.html#ga4ea9e58bc3ede78b23d4ed2f84f8ef97">   40</a></span>&#160;<span class="preprocessor">#define BCOEFFICIENT 3950</span></div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">// @}</span></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">// common size limit</span></div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#define MAX_COLLECTION_SIZE 200</span></div>
@@ -173,22 +163,22 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;{</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <span class="keywordtype">float</span> reading = 0.0;</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  <span class="keywordtype">int</span> i = 0;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  <span class="keywordflow">for</span> (i = 0; i&lt;NUM_TEMP_SAMPLES; i++)</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  <span class="keywordflow">for</span> (i = 0; i&lt;<a class="code" href="group__TEMP__CONSTANTS.html#ga4098edc51400d391129d4250ddd6cb16" title="how many samples to take to produce a temperature reading">NUM_TEMP_SAMPLES</a>; i++)</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  {</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">float</span> next = analogRead(THERMISTORPIN);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">float</span> next = analogRead(<a class="code" href="group__TEMP__CONSTANTS.html#ga576473af03cd34ffc2479cf7dbf00f34" title="the anaog pin the sensor is connected to">THERMISTORPIN</a>);</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    reading += next;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    delay(WAIT_BETWEEN_TEMP_SAMPLES);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    delay(<a class="code" href="group__TEMP__CONSTANTS.html#gabde63d0b7565b65519e2db9f844cf223" title="how long to wait between temperature samples in ms">WAIT_BETWEEN_TEMP_SAMPLES</a>);</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  }</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  reading /= (float) NUM_TEMP_SAMPLES;</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  <span class="comment">// convert the value to resistance</span></div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  reading = (float) 1023 / reading - 1;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  reading = SERIESRESISTOR / reading;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  reading = <a class="code" href="group__TEMP__CONSTANTS.html#gaeda514ffe2696b78d945bc12a07b63cf" title="the value of the &#39;other&#39; resistor">SERIESRESISTOR</a> / reading;</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  <span class="keywordtype">float</span> steinhart;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  steinhart = reading / THERMISTORNOMINAL;     <span class="comment">// (R/Ro)</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  steinhart = reading / <a class="code" href="group__TEMP__CONSTANTS.html#ga38f2d877dee7ea0fbb35efd14ee2ca42" title="resistance at 25 degrees C">THERMISTORNOMINAL</a>;     <span class="comment">// (R/Ro)</span></div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  steinhart = log(steinhart);                  <span class="comment">// ln(R/Ro)</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  steinhart /= BCOEFFICIENT;                   <span class="comment">// 1/B * ln(R/Ro)</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  steinhart += 1.0 / (TEMPERATURENOMINAL + 273.15); <span class="comment">// + (1/To)</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  steinhart /= <a class="code" href="group__TEMP__CONSTANTS.html#ga4ea9e58bc3ede78b23d4ed2f84f8ef97" title="the beta coefficient of the thermistor (usually 3000-4000)">BCOEFFICIENT</a>;                   <span class="comment">// 1/B * ln(R/Ro)</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  steinhart += 1.0 / (<a class="code" href="group__TEMP__CONSTANTS.html#gad131decb98217dffe7e5c6d0f7fcb453" title="temperature for nominal resistance (almost always 25 C)">TEMPERATURENOMINAL</a> + 273.15); <span class="comment">// + (1/To)</span></div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  steinhart = 1.0 / steinhart;                 <span class="comment">// Invert</span></div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  steinhart -= 273.15;                         <span class="comment">// convert to C</span></div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  <span class="keywordflow">return</span> steinhart;</div>
@@ -254,7 +244,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;  pinMode(13, OUTPUT);</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;  <span class="keywordtype">int</span> daylight = -1;</div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;  <span class="keywordtype">int</span> standard = -1;</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;  <span class="keywordflow">while</span> (THERMISTORPIN == -1 || PHPIN == -1 || daylight == -1 || standard == -1)</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;  <span class="keywordflow">while</span> (<a class="code" href="group__TEMP__CONSTANTS.html#ga576473af03cd34ffc2479cf7dbf00f34" title="the anaog pin the sensor is connected to">THERMISTORPIN</a> == -1 || PHPIN == -1 || daylight == -1 || standard == -1)</div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;  {</div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    <span class="keywordtype">int</span> readCount = Serial.readBytes(serial_buffer, 199);</div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    serial_buffer[readCount] = <span class="charliteral">&#39;\0&#39;</span>;</div>
@@ -264,7 +254,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;      <span class="keywordflow">if</span> (root.containsKey(<span class="stringliteral">&quot;thermistor_pin&quot;</span>) &amp;&amp; root.containsKey(<span class="stringliteral">&quot;ph_pin&quot;</span>)) {</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">char</span>* temp = root[<span class="stringliteral">&quot;thermistor_pin&quot;</span>];</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">char</span>* ph = root[<span class="stringliteral">&quot;ph_pin&quot;</span>];</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;        THERMISTORPIN = strtol(&amp;temp[1], 0, 10);</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;        <a class="code" href="group__TEMP__CONSTANTS.html#ga576473af03cd34ffc2479cf7dbf00f34" title="the anaog pin the sensor is connected to">THERMISTORPIN</a> = strtol(&amp;temp[1], 0, 10);</div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        PHPIN = strtol(&amp;ph[1], 0, 10);</div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;      }</div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;      <span class="keywordflow">if</span> (root.containsKey(<span class="stringliteral">&quot;daylight&quot;</span>) &amp;&amp; root.containsKey(<span class="stringliteral">&quot;standard&quot;</span>)) {</div>
@@ -273,7 +263,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;      }</div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    }</div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;  }</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;  logToSerial(<span class="stringliteral">&quot;thermistor pin set to: %d&quot;</span>, THERMISTORPIN);</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;  logToSerial(<span class="stringliteral">&quot;thermistor pin set to: %d&quot;</span>, <a class="code" href="group__TEMP__CONSTANTS.html#ga576473af03cd34ffc2479cf7dbf00f34" title="the anaog pin the sensor is connected to">THERMISTORPIN</a>);</div>
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;  logToSerial(<span class="stringliteral">&quot;ph pin set to: %d&quot;</span>, PHPIN);</div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;  TimeChangeRule DT = {<span class="stringliteral">&quot;DT&quot;</span>, Second, Sun, Mar, 2, daylight};</div>
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;  TimeChangeRule ST = {<span class="stringliteral">&quot;ST&quot;</span>, First, Sun, Nov, 2, standard};</div>
@@ -362,13 +352,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    showSerial = 0;</div>
 <div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;  }</div>
 <div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;  display(showSerial);</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;  delay(1000 - ((NUM_TEMP_SAMPLES * WAIT_BETWEEN_TEMP_SAMPLES) + (NUM_PH_SAMPLES * WAIT_BETWEEN_PH_SAMPLES))); <span class="comment">// one second</span></div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;  delay(1000 - ((<a class="code" href="group__TEMP__CONSTANTS.html#ga4098edc51400d391129d4250ddd6cb16" title="how many samples to take to produce a temperature reading">NUM_TEMP_SAMPLES</a> * <a class="code" href="group__TEMP__CONSTANTS.html#gabde63d0b7565b65519e2db9f844cf223" title="how long to wait between temperature samples in ms">WAIT_BETWEEN_TEMP_SAMPLES</a>) + (NUM_PH_SAMPLES * WAIT_BETWEEN_PH_SAMPLES))); <span class="comment">// one second</span></div>
 <div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;  serial_output_counter += 1;</div>
 <div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Mar 12 2015 22:37:13 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 12 2015 22:39:43 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>
