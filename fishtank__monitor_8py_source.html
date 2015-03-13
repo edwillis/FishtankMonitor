@@ -61,6 +61,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>Globals</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -68,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -87,7 +88,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">fishtank_monitor.py</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="code" href="namespacefishtank__monitor.html">    1</a></span>&#160;<span class="comment">## @package fishtank_monitor</span></div>
+<a href="fishtank__monitor_8py.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="code" href="namespacefishtank__monitor.html">    1</a></span>&#160;<span class="comment">## @package fishtank_monitor</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">#  The main function for the Fishtank Monitor</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">#</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">#  This module implements the main entry point for the Fishtank Monitor as well</span></div>
@@ -108,9 +109,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">import</span> scheduler</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">from</span> log <span class="keyword">import</span> get_logger</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;logger = get_logger(__name__)</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="code" href="namespacefishtank__monitor.html#a894fb86cf371f3c6e14c83f72331a14f">   22</a></span>&#160;logger = <a class="code" href="namespacelog.html#ab223427c9823034c3457c827cebdd19e">get_logger</a>(__name__)</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;conn = sqlite3.Connection(<span class="stringliteral">&#39;./fishtank.db&#39;</span>)</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="code" href="namespacefishtank__monitor.html#a6f1ae41684d3a37da462d57e85a57c7b">   24</a></span>&#160;conn = sqlite3.Connection(<span class="stringliteral">&#39;./fishtank.db&#39;</span>)</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;conn.execute(<span class="stringliteral">&#39;create table if not exists measurements (time INT, temp REAL, ph REAL)&#39;</span>)</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;conn.execute(<span class="stringliteral">&#39;create table if not exists settings (last_calibration REAL)&#39;</span>)</div>
@@ -163,7 +164,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keywordflow">if</span> __name__ == <span class="stringliteral">&quot;__main__&quot;</span>:</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    logger.info(<span class="stringliteral">&quot;getting parameters from config file&quot;</span>)</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <a class="code" href="namespaceconfig.html#aa4806cc2c75c55fa89bd07ffa6e1d8be" title="Read the config file and parse its contents into a series of global variables.">config.read_config</a>()</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    notifiers = get_notifiers()</div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="code" href="namespacefishtank__monitor.html#aa8fcbba65ecaae02c6def95917f96c8d">   77</a></span>&#160;    notifiers = <a class="code" href="namespacenotifications.html#a9243897dad141dfaa0ef7a19c4ae4dba" title="Lazy instantiator for the global list of functors.">get_notifiers</a>()</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordflow">if</span> config.months_between_calibrations:</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordflow">try</span>:</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            config.last_calibration = conn.execute(<span class="stringliteral">&#39;select last_calibration from settings&#39;</span>).fetchall()[0][0]</div>
@@ -182,7 +183,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Mar 12 2015 22:23:48 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 12 2015 22:25:51 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

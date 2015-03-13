@@ -61,6 +61,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>Globals</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -68,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -87,7 +88,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">config.py</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="code" href="namespaceconfig.html">    1</a></span>&#160;<span class="comment">## @package config</span></div>
+<a href="config_8py.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="code" href="namespaceconfig.html">    1</a></span>&#160;<span class="comment">## @package config</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">#  Read the user&#39;s choices from the config file and make them available to interested parties</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">#</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">#  See the config file cfg/fishtank_monitor.cfg.example for details but the heart of</span></div>
@@ -102,23 +103,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">import</span> configparser</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">from</span> log <span class="keyword">import</span> get_logger</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;logger = get_logger(__name__)</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="code" href="namespaceconfig.html#aeacf4f9f7df8a2d35794d4accd5f1594">   16</a></span>&#160;logger = <a class="code" href="namespacelog.html#ab223427c9823034c3457c827cebdd19e">get_logger</a>(__name__)</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">## The serialdevice to use for communicating with the alamode (e.g. /dev/ttyS0)</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno"><a class="code" href="namespaceconfig.html#a4eae281ce888818e77c53d8062d909fa">   19</a></span>&#160;serial_device = <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;SMTP_host = <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;SMTP_port = <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;SMTP_user = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="code" href="namespaceconfig.html#a4fc9e77e1e51ef3d27f1aa8ba0399249">   20</a></span>&#160;SMTP_host = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="code" href="namespaceconfig.html#a979992e4f89c1a0835234dc8a4aa3b8a">   21</a></span>&#160;SMTP_port = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="code" href="namespaceconfig.html#a08bff852b0455b2a4391588e38cbbc83">   22</a></span>&#160;SMTP_user = <span class="keywordtype">None</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">## The user&#39;s email password</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">#  @todo find a way to secure the user&#39;s email password</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno"><a class="code" href="namespaceconfig.html#a4398370e02c38cf5f2cd358ed304bfb9">   25</a></span>&#160;SMTP_password = <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;SMTP_use_ttls = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="code" href="namespaceconfig.html#af7906cc97825970f8d620d606b9d261f">   26</a></span>&#160;SMTP_use_ttls = <span class="keywordtype">None</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">## How often to email the user informational reports and graphics</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno"><a class="code" href="namespaceconfig.html#adb8d27dbca4ad7552e28bd43fb545fdd">   28</a></span>&#160;send_reports_interval = <span class="keywordtype">None</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">## How often to email warnings to the user when tank conditions are unsafe</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno"><a class="code" href="namespaceconfig.html#a9ce20c6f563529e90e82d0172ec21039">   30</a></span>&#160;send_warnings_interval = <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;email_to_address = <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;email_from_address = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="code" href="namespaceconfig.html#a4644639d854af833274cf37a873b1859">   31</a></span>&#160;email_to_address = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="code" href="namespaceconfig.html#a0da63d87c26266a58714fa441b918ab3">   32</a></span>&#160;email_from_address = <span class="keywordtype">None</span></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">## How often the user wishes to recalibrate their ph sensor</span></div>
 <div class="line"><a name="l00034"></a><span class="lineno"><a class="code" href="namespaceconfig.html#a044ad9264a7bd2d552f8844fc240cd11">   34</a></span>&#160;months_between_calibrations = <span class="keywordtype">None</span></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">## The X10 house and device code for controlling the lights (for example I8)</span></div>
@@ -133,8 +134,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00044"></a><span class="lineno"><a class="code" href="namespaceconfig.html#a53beb649d49d57e3e4c5cc2507d155bd">   44</a></span>&#160;daylight_tz = <span class="keywordtype">None</span></div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">## The local standard time offset from GMT in minutes</span></div>
 <div class="line"><a name="l00046"></a><span class="lineno"><a class="code" href="namespaceconfig.html#a6c6c8cf93b39ed725df3549c90a2a261">   46</a></span>&#160;standard_tz = <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;ph_pin = <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;temperature_pin = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="code" href="namespaceconfig.html#adcb862a7bcb267c1f62aa782d1bea268">   47</a></span>&#160;ph_pin = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="code" href="namespaceconfig.html#ab79cd9d326008e60e3d38fbf31635898">   48</a></span>&#160;temperature_pin = <span class="keywordtype">None</span></div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">## The last time we calibrated the ph sensor</span></div>
 <div class="line"><a name="l00051"></a><span class="lineno"><a class="code" href="namespaceconfig.html#aca17cb6bbaeebd5e8ac3177ed5ce06f2">   51</a></span>&#160;last_calibration = <span class="keywordtype">None</span></div>
@@ -200,7 +201,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Mar 12 2015 22:23:48 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 12 2015 22:25:51 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

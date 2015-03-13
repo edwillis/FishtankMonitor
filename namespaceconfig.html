@@ -69,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -93,67 +93,46 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aa4806cc2c75c55fa89bd07ffa6e1d8be"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa4806cc2c75c55fa89bd07ffa6e1d8be"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconfig.html#aa4806cc2c75c55fa89bd07ffa6e1d8be">read_config</a></td></tr>
-<tr class="memdesc:aa4806cc2c75c55fa89bd07ffa6e1d8be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the config file and parse its contents into a series of global variables. <br/></td></tr>
+<tr class="memitem:aa4806cc2c75c55fa89bd07ffa6e1d8be"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconfig.html#aa4806cc2c75c55fa89bd07ffa6e1d8be">read_config</a></td></tr>
+<tr class="memdesc:aa4806cc2c75c55fa89bd07ffa6e1d8be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the config file and parse its contents into a series of global variables.  <a href="#aa4806cc2c75c55fa89bd07ffa6e1d8be"></a><br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:aeacf4f9f7df8a2d35794d4accd5f1594"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeacf4f9f7df8a2d35794d4accd5f1594"></a>
-tuple&#160;</td><td class="memItemRight" valign="bottom"><b>logger</b> = get_logger(__name__)</td></tr>
+<tr class="memitem:aeacf4f9f7df8a2d35794d4accd5f1594"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconfig.html#aeacf4f9f7df8a2d35794d4accd5f1594">logger</a> = get_logger(__name__)</td></tr>
 <tr class="memitem:a4eae281ce888818e77c53d8062d909fa"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconfig.html#a4eae281ce888818e77c53d8062d909fa">serial_device</a> = None</td></tr>
 <tr class="memdesc:a4eae281ce888818e77c53d8062d909fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">The serialdevice to use for communicating with the alamode (e.g.  <a href="#a4eae281ce888818e77c53d8062d909fa"></a><br/></td></tr>
-<tr class="memitem:a4fc9e77e1e51ef3d27f1aa8ba0399249"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4fc9e77e1e51ef3d27f1aa8ba0399249"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>SMTP_host</b> = None</td></tr>
-<tr class="memitem:a979992e4f89c1a0835234dc8a4aa3b8a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a979992e4f89c1a0835234dc8a4aa3b8a"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>SMTP_port</b> = None</td></tr>
-<tr class="memitem:a08bff852b0455b2a4391588e38cbbc83"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a08bff852b0455b2a4391588e38cbbc83"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>SMTP_user</b> = None</td></tr>
+<tr class="memitem:a4fc9e77e1e51ef3d27f1aa8ba0399249"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconfig.html#a4fc9e77e1e51ef3d27f1aa8ba0399249">SMTP_host</a> = None</td></tr>
+<tr class="memitem:a979992e4f89c1a0835234dc8a4aa3b8a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconfig.html#a979992e4f89c1a0835234dc8a4aa3b8a">SMTP_port</a> = None</td></tr>
+<tr class="memitem:a08bff852b0455b2a4391588e38cbbc83"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconfig.html#a08bff852b0455b2a4391588e38cbbc83">SMTP_user</a> = None</td></tr>
 <tr class="memitem:a4398370e02c38cf5f2cd358ed304bfb9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconfig.html#a4398370e02c38cf5f2cd358ed304bfb9">SMTP_password</a> = None</td></tr>
 <tr class="memdesc:a4398370e02c38cf5f2cd358ed304bfb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">The user's email password.  <a href="#a4398370e02c38cf5f2cd358ed304bfb9"></a><br/></td></tr>
-<tr class="memitem:af7906cc97825970f8d620d606b9d261f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af7906cc97825970f8d620d606b9d261f"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>SMTP_use_ttls</b> = None</td></tr>
-<tr class="memitem:adb8d27dbca4ad7552e28bd43fb545fdd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adb8d27dbca4ad7552e28bd43fb545fdd"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconfig.html#adb8d27dbca4ad7552e28bd43fb545fdd">send_reports_interval</a> = None</td></tr>
-<tr class="memdesc:adb8d27dbca4ad7552e28bd43fb545fdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">How often to email the user informational reports and graphics. <br/></td></tr>
-<tr class="memitem:a9ce20c6f563529e90e82d0172ec21039"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9ce20c6f563529e90e82d0172ec21039"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconfig.html#a9ce20c6f563529e90e82d0172ec21039">send_warnings_interval</a> = None</td></tr>
-<tr class="memdesc:a9ce20c6f563529e90e82d0172ec21039"><td class="mdescLeft">&#160;</td><td class="mdescRight">How often to email warnings to the user when tank conditions are unsafe. <br/></td></tr>
-<tr class="memitem:a4644639d854af833274cf37a873b1859"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4644639d854af833274cf37a873b1859"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>email_to_address</b> = None</td></tr>
-<tr class="memitem:a0da63d87c26266a58714fa441b918ab3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0da63d87c26266a58714fa441b918ab3"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>email_from_address</b> = None</td></tr>
-<tr class="memitem:a044ad9264a7bd2d552f8844fc240cd11"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a044ad9264a7bd2d552f8844fc240cd11"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconfig.html#a044ad9264a7bd2d552f8844fc240cd11">months_between_calibrations</a> = None</td></tr>
-<tr class="memdesc:a044ad9264a7bd2d552f8844fc240cd11"><td class="mdescLeft">&#160;</td><td class="mdescRight">How often the user wishes to recalibrate their ph sensor. <br/></td></tr>
-<tr class="memitem:a0dab1ea9a183568b52ca6917aafb2113"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0dab1ea9a183568b52ca6917aafb2113"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconfig.html#a0dab1ea9a183568b52ca6917aafb2113">x10_light_code</a> = None</td></tr>
-<tr class="memdesc:a0dab1ea9a183568b52ca6917aafb2113"><td class="mdescLeft">&#160;</td><td class="mdescRight">The X10 house and device code for controlling the lights (for example I8) <br/></td></tr>
-<tr class="memitem:a14b5d0d6dc339580d7a42f5b7c5c4ae4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a14b5d0d6dc339580d7a42f5b7c5c4ae4"></a>
-list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconfig.html#a14b5d0d6dc339580d7a42f5b7c5c4ae4">lights_on_times</a> = []</td></tr>
-<tr class="memdesc:a14b5d0d6dc339580d7a42f5b7c5c4ae4"><td class="mdescLeft">&#160;</td><td class="mdescRight">A list of times in 24 hour format when we should turn on the lights. <br/></td></tr>
-<tr class="memitem:a3a4ecc6e80f2b8814ae907b2839113a6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3a4ecc6e80f2b8814ae907b2839113a6"></a>
-list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconfig.html#a3a4ecc6e80f2b8814ae907b2839113a6">lights_off_times</a> = []</td></tr>
-<tr class="memdesc:a3a4ecc6e80f2b8814ae907b2839113a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">A list of times in 24 hour format when we should turn off the lights. <br/></td></tr>
-<tr class="memitem:ae9ecb1914b31cc77b4b036fe1dc5e0c7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae9ecb1914b31cc77b4b036fe1dc5e0c7"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconfig.html#ae9ecb1914b31cc77b4b036fe1dc5e0c7">x10_retries</a> = None</td></tr>
-<tr class="memdesc:ae9ecb1914b31cc77b4b036fe1dc5e0c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">X10 isn't the most reliable protocol - how often should we retry each command. <br/></td></tr>
-<tr class="memitem:a53beb649d49d57e3e4c5cc2507d155bd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a53beb649d49d57e3e4c5cc2507d155bd"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconfig.html#a53beb649d49d57e3e4c5cc2507d155bd">daylight_tz</a> = None</td></tr>
-<tr class="memdesc:a53beb649d49d57e3e4c5cc2507d155bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">The local daylight savings time offset from GMT in minutes. <br/></td></tr>
-<tr class="memitem:a6c6c8cf93b39ed725df3549c90a2a261"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6c6c8cf93b39ed725df3549c90a2a261"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconfig.html#a6c6c8cf93b39ed725df3549c90a2a261">standard_tz</a> = None</td></tr>
-<tr class="memdesc:a6c6c8cf93b39ed725df3549c90a2a261"><td class="mdescLeft">&#160;</td><td class="mdescRight">The local standard time offset from GMT in minutes. <br/></td></tr>
-<tr class="memitem:adcb862a7bcb267c1f62aa782d1bea268"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adcb862a7bcb267c1f62aa782d1bea268"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ph_pin</b> = None</td></tr>
-<tr class="memitem:ab79cd9d326008e60e3d38fbf31635898"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab79cd9d326008e60e3d38fbf31635898"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>temperature_pin</b> = None</td></tr>
-<tr class="memitem:aca17cb6bbaeebd5e8ac3177ed5ce06f2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aca17cb6bbaeebd5e8ac3177ed5ce06f2"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconfig.html#aca17cb6bbaeebd5e8ac3177ed5ce06f2">last_calibration</a> = None</td></tr>
-<tr class="memdesc:aca17cb6bbaeebd5e8ac3177ed5ce06f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">The last time we calibrated the ph sensor. <br/></td></tr>
-<tr class="memitem:a4f7c954e578bec8971feeb3eb5e1edbc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4f7c954e578bec8971feeb3eb5e1edbc"></a>
-string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconfig.html#a4f7c954e578bec8971feeb3eb5e1edbc">config_filename</a> = './cfg/fishtank_monitor.cfg'</td></tr>
-<tr class="memdesc:a4f7c954e578bec8971feeb3eb5e1edbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">The path to the configuration file itself. <br/></td></tr>
+<tr class="memitem:af7906cc97825970f8d620d606b9d261f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconfig.html#af7906cc97825970f8d620d606b9d261f">SMTP_use_ttls</a> = None</td></tr>
+<tr class="memitem:adb8d27dbca4ad7552e28bd43fb545fdd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconfig.html#adb8d27dbca4ad7552e28bd43fb545fdd">send_reports_interval</a> = None</td></tr>
+<tr class="memdesc:adb8d27dbca4ad7552e28bd43fb545fdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">How often to email the user informational reports and graphics.  <a href="#adb8d27dbca4ad7552e28bd43fb545fdd"></a><br/></td></tr>
+<tr class="memitem:a9ce20c6f563529e90e82d0172ec21039"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconfig.html#a9ce20c6f563529e90e82d0172ec21039">send_warnings_interval</a> = None</td></tr>
+<tr class="memdesc:a9ce20c6f563529e90e82d0172ec21039"><td class="mdescLeft">&#160;</td><td class="mdescRight">How often to email warnings to the user when tank conditions are unsafe.  <a href="#a9ce20c6f563529e90e82d0172ec21039"></a><br/></td></tr>
+<tr class="memitem:a4644639d854af833274cf37a873b1859"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconfig.html#a4644639d854af833274cf37a873b1859">email_to_address</a> = None</td></tr>
+<tr class="memitem:a0da63d87c26266a58714fa441b918ab3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconfig.html#a0da63d87c26266a58714fa441b918ab3">email_from_address</a> = None</td></tr>
+<tr class="memitem:a044ad9264a7bd2d552f8844fc240cd11"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconfig.html#a044ad9264a7bd2d552f8844fc240cd11">months_between_calibrations</a> = None</td></tr>
+<tr class="memdesc:a044ad9264a7bd2d552f8844fc240cd11"><td class="mdescLeft">&#160;</td><td class="mdescRight">How often the user wishes to recalibrate their ph sensor.  <a href="#a044ad9264a7bd2d552f8844fc240cd11"></a><br/></td></tr>
+<tr class="memitem:a0dab1ea9a183568b52ca6917aafb2113"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconfig.html#a0dab1ea9a183568b52ca6917aafb2113">x10_light_code</a> = None</td></tr>
+<tr class="memdesc:a0dab1ea9a183568b52ca6917aafb2113"><td class="mdescLeft">&#160;</td><td class="mdescRight">The X10 house and device code for controlling the lights (for example I8)  <a href="#a0dab1ea9a183568b52ca6917aafb2113"></a><br/></td></tr>
+<tr class="memitem:a14b5d0d6dc339580d7a42f5b7c5c4ae4"><td class="memItemLeft" align="right" valign="top">list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconfig.html#a14b5d0d6dc339580d7a42f5b7c5c4ae4">lights_on_times</a> = []</td></tr>
+<tr class="memdesc:a14b5d0d6dc339580d7a42f5b7c5c4ae4"><td class="mdescLeft">&#160;</td><td class="mdescRight">A list of times in 24 hour format when we should turn on the lights.  <a href="#a14b5d0d6dc339580d7a42f5b7c5c4ae4"></a><br/></td></tr>
+<tr class="memitem:a3a4ecc6e80f2b8814ae907b2839113a6"><td class="memItemLeft" align="right" valign="top">list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconfig.html#a3a4ecc6e80f2b8814ae907b2839113a6">lights_off_times</a> = []</td></tr>
+<tr class="memdesc:a3a4ecc6e80f2b8814ae907b2839113a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">A list of times in 24 hour format when we should turn off the lights.  <a href="#a3a4ecc6e80f2b8814ae907b2839113a6"></a><br/></td></tr>
+<tr class="memitem:ae9ecb1914b31cc77b4b036fe1dc5e0c7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconfig.html#ae9ecb1914b31cc77b4b036fe1dc5e0c7">x10_retries</a> = None</td></tr>
+<tr class="memdesc:ae9ecb1914b31cc77b4b036fe1dc5e0c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">X10 isn't the most reliable protocol - how often should we retry each command.  <a href="#ae9ecb1914b31cc77b4b036fe1dc5e0c7"></a><br/></td></tr>
+<tr class="memitem:a53beb649d49d57e3e4c5cc2507d155bd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconfig.html#a53beb649d49d57e3e4c5cc2507d155bd">daylight_tz</a> = None</td></tr>
+<tr class="memdesc:a53beb649d49d57e3e4c5cc2507d155bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">The local daylight savings time offset from GMT in minutes.  <a href="#a53beb649d49d57e3e4c5cc2507d155bd"></a><br/></td></tr>
+<tr class="memitem:a6c6c8cf93b39ed725df3549c90a2a261"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconfig.html#a6c6c8cf93b39ed725df3549c90a2a261">standard_tz</a> = None</td></tr>
+<tr class="memdesc:a6c6c8cf93b39ed725df3549c90a2a261"><td class="mdescLeft">&#160;</td><td class="mdescRight">The local standard time offset from GMT in minutes.  <a href="#a6c6c8cf93b39ed725df3549c90a2a261"></a><br/></td></tr>
+<tr class="memitem:adcb862a7bcb267c1f62aa782d1bea268"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconfig.html#adcb862a7bcb267c1f62aa782d1bea268">ph_pin</a> = None</td></tr>
+<tr class="memitem:ab79cd9d326008e60e3d38fbf31635898"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconfig.html#ab79cd9d326008e60e3d38fbf31635898">temperature_pin</a> = None</td></tr>
+<tr class="memitem:aca17cb6bbaeebd5e8ac3177ed5ce06f2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconfig.html#aca17cb6bbaeebd5e8ac3177ed5ce06f2">last_calibration</a> = None</td></tr>
+<tr class="memdesc:aca17cb6bbaeebd5e8ac3177ed5ce06f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">The last time we calibrated the ph sensor.  <a href="#aca17cb6bbaeebd5e8ac3177ed5ce06f2"></a><br/></td></tr>
+<tr class="memitem:a4f7c954e578bec8971feeb3eb5e1edbc"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconfig.html#a4f7c954e578bec8971feeb3eb5e1edbc">config_filename</a> = './cfg/fishtank_monitor.cfg'</td></tr>
+<tr class="memdesc:a4f7c954e578bec8971feeb3eb5e1edbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">The path to the configuration file itself.  <a href="#a4f7c954e578bec8971feeb3eb5e1edbc"></a><br/></td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Read the user's choices from the config file and make them available to interested parties. </p>
@@ -161,7 +140,211 @@ string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="na
 <dl class="section author"><dt>Author</dt><dd>Ed Willis </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Ed Willis, 2015, all rights reserved </dd></dl>
 <dl class="section user"><dt>License:</dt><dd>This software is released into the public domain </dd></dl>
-</div><h2>Variable Documentation</h2>
+</div><h2>Function Documentation</h2>
+<a class="anchor" id="aa4806cc2c75c55fa89bd07ffa6e1d8be"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def config.read_config </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Read the config file and parse its contents into a series of global variables. </p>
+
+<p>Definition at line <a class="el" href="config_8py_source.html#l00057">57</a> of file <a class="el" href="config_8py_source.html">config.py</a>.</p>
+
+</div>
+</div>
+<h2>Variable Documentation</h2>
+<a class="anchor" id="a4f7c954e578bec8971feeb3eb5e1edbc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string config.config_filename = './cfg/fishtank_monitor.cfg'</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The path to the configuration file itself. </p>
+
+<p>Definition at line <a class="el" href="config_8py_source.html#l00054">54</a> of file <a class="el" href="config_8py_source.html">config.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a53beb649d49d57e3e4c5cc2507d155bd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">config.daylight_tz = None</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The local daylight savings time offset from GMT in minutes. </p>
+
+<p>Definition at line <a class="el" href="config_8py_source.html#l00044">44</a> of file <a class="el" href="config_8py_source.html">config.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0da63d87c26266a58714fa441b918ab3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">config.email_from_address = None</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="config_8py_source.html#l00032">32</a> of file <a class="el" href="config_8py_source.html">config.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4644639d854af833274cf37a873b1859"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">config.email_to_address = None</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="config_8py_source.html#l00031">31</a> of file <a class="el" href="config_8py_source.html">config.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aca17cb6bbaeebd5e8ac3177ed5ce06f2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">config.last_calibration = None</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The last time we calibrated the ph sensor. </p>
+
+<p>Definition at line <a class="el" href="config_8py_source.html#l00051">51</a> of file <a class="el" href="config_8py_source.html">config.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3a4ecc6e80f2b8814ae907b2839113a6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">list config.lights_off_times = []</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A list of times in 24 hour format when we should turn off the lights. </p>
+
+<p>Definition at line <a class="el" href="config_8py_source.html#l00040">40</a> of file <a class="el" href="config_8py_source.html">config.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a14b5d0d6dc339580d7a42f5b7c5c4ae4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">list config.lights_on_times = []</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A list of times in 24 hour format when we should turn on the lights. </p>
+
+<p>Definition at line <a class="el" href="config_8py_source.html#l00038">38</a> of file <a class="el" href="config_8py_source.html">config.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aeacf4f9f7df8a2d35794d4accd5f1594"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">tuple config.logger = get_logger(__name__)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="config_8py_source.html#l00016">16</a> of file <a class="el" href="config_8py_source.html">config.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a044ad9264a7bd2d552f8844fc240cd11"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">config.months_between_calibrations = None</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>How often the user wishes to recalibrate their ph sensor. </p>
+
+<p>Definition at line <a class="el" href="config_8py_source.html#l00034">34</a> of file <a class="el" href="config_8py_source.html">config.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="adcb862a7bcb267c1f62aa782d1bea268"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">config.ph_pin = None</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="config_8py_source.html#l00047">47</a> of file <a class="el" href="config_8py_source.html">config.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="adb8d27dbca4ad7552e28bd43fb545fdd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">config.send_reports_interval = None</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>How often to email the user informational reports and graphics. </p>
+
+<p>Definition at line <a class="el" href="config_8py_source.html#l00028">28</a> of file <a class="el" href="config_8py_source.html">config.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9ce20c6f563529e90e82d0172ec21039"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">config.send_warnings_interval = None</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>How often to email warnings to the user when tank conditions are unsafe. </p>
+
+<p>Definition at line <a class="el" href="config_8py_source.html#l00030">30</a> of file <a class="el" href="config_8py_source.html">config.py</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a4eae281ce888818e77c53d8062d909fa"></a>
 <div class="memitem">
 <div class="memproto">
@@ -176,6 +359,20 @@ string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="na
 <p>/dev/ttyS0) </p>
 
 <p>Definition at line <a class="el" href="config_8py_source.html#l00019">19</a> of file <a class="el" href="config_8py_source.html">config.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4fc9e77e1e51ef3d27f1aa8ba0399249"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">config.SMTP_host = None</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="config_8py_source.html#l00020">20</a> of file <a class="el" href="config_8py_source.html">config.py</a>.</p>
 
 </div>
 </div>
@@ -196,10 +393,114 @@ string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="na
 
 </div>
 </div>
+<a class="anchor" id="a979992e4f89c1a0835234dc8a4aa3b8a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">config.SMTP_port = None</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="config_8py_source.html#l00021">21</a> of file <a class="el" href="config_8py_source.html">config.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af7906cc97825970f8d620d606b9d261f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">config.SMTP_use_ttls = None</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="config_8py_source.html#l00026">26</a> of file <a class="el" href="config_8py_source.html">config.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a08bff852b0455b2a4391588e38cbbc83"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">config.SMTP_user = None</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="config_8py_source.html#l00022">22</a> of file <a class="el" href="config_8py_source.html">config.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6c6c8cf93b39ed725df3549c90a2a261"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">config.standard_tz = None</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The local standard time offset from GMT in minutes. </p>
+
+<p>Definition at line <a class="el" href="config_8py_source.html#l00046">46</a> of file <a class="el" href="config_8py_source.html">config.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab79cd9d326008e60e3d38fbf31635898"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">config.temperature_pin = None</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="config_8py_source.html#l00048">48</a> of file <a class="el" href="config_8py_source.html">config.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0dab1ea9a183568b52ca6917aafb2113"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">config.x10_light_code = None</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The X10 house and device code for controlling the lights (for example I8) </p>
+
+<p>Definition at line <a class="el" href="config_8py_source.html#l00036">36</a> of file <a class="el" href="config_8py_source.html">config.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae9ecb1914b31cc77b4b036fe1dc5e0c7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">config.x10_retries = None</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>X10 isn't the most reliable protocol - how often should we retry each command. </p>
+
+<p>Definition at line <a class="el" href="config_8py_source.html#l00042">42</a> of file <a class="el" href="config_8py_source.html">config.py</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Mar 12 2015 22:23:49 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 12 2015 22:25:52 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

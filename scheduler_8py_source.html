@@ -61,6 +61,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>Globals</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -68,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -87,20 +88,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">scheduler.py</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="keyword">import</span> threading</div>
+<a href="scheduler_8py.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="code" href="namespacescheduler.html">    1</a></span>&#160;<span class="keyword">import</span> threading</div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="keyword">import</span> subprocess</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">import</span> schedule</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">import</span> config</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">from</span> log <span class="keyword">import</span> get_logger</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;logger = get_logger(__name__)</div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="code" href="namespacescheduler.html#afbe8c89fe043b88501cac3666b42c96d">    7</a></span>&#160;logger = <a class="code" href="namespacelog.html#ab223427c9823034c3457c827cebdd19e">get_logger</a>(__name__)</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
 <div class="line"><a name="l00009"></a><span class="lineno"><a class="code" href="classscheduler_1_1LightFunctor.html">    9</a></span>&#160;<span class="keyword">class </span><a class="code" href="classscheduler_1_1LightFunctor.html">LightFunctor</a>():</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keyword">def </span>__init__(self, on=True):</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="code" href="classscheduler_1_1LightFunctor.html#a62faa8ee61288f966c4b548e686ea265">   11</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classscheduler_1_1LightFunctor.html#a62faa8ee61288f966c4b548e686ea265">__init__</a>(self, on=True):</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        self.<a class="code" href="classscheduler_1_1LightFunctor.html#a9d6422c26d4c6331b8d9d478b61a2576">_on</a> = on</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">def </span>__call__(self):</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="code" href="classscheduler_1_1LightFunctor.html#aac89023e57e31775023ae01ae3e4ae20">   14</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classscheduler_1_1LightFunctor.html#aac89023e57e31775023ae01ae3e4ae20">__call__</a>(self):</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keywordflow">try</span>:</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;            logger.info(<span class="stringliteral">&quot;turning lights %r&quot;</span> %(<span class="stringliteral">&#39;on&#39;</span> <span class="keywordflow">if</span> self.<a class="code" href="classscheduler_1_1LightFunctor.html#a9d6422c26d4c6331b8d9d478b61a2576">_on</a> <span class="keywordflow">else</span> <span class="stringliteral">&#39;off&#39;</span>))</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(1 + config.x10_retries):</div>
@@ -115,8 +116,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
 <div class="line"><a name="l00027"></a><span class="lineno"><a class="code" href="classscheduler_1_1LightScheduler.html">   27</a></span>&#160;<span class="keyword">class </span><a class="code" href="classscheduler_1_1LightScheduler.html">LightScheduler</a>(threading.Thread):</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">def </span>__init__(self):</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        super().__init__()</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="code" href="classscheduler_1_1LightScheduler.html#a9384e642f374b257d9c415ca15fb8d76">   29</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classscheduler_1_1LightScheduler.html#a9384e642f374b257d9c415ca15fb8d76">__init__</a>(self):</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        super().<a class="code" href="classscheduler_1_1LightScheduler.html#a9384e642f374b257d9c415ca15fb8d76">__init__</a>()</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        self.<a class="code" href="classscheduler_1_1LightScheduler.html#aa8c7024e318fbe3eced9d24a7635583c">_scheduler</a> = schedule.Scheduler()</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        self.<a class="code" href="classscheduler_1_1LightScheduler.html#afacbe3f0a3608a04f7debba8f75bbfdb">_on</a> = <a class="code" href="classscheduler_1_1LightFunctor.html">LightFunctor</a>()</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        self.<a class="code" href="classscheduler_1_1LightScheduler.html#ae8b4a40b1b228bfb27f7c3b1b2360775">_off</a> = <a class="code" href="classscheduler_1_1LightFunctor.html">LightFunctor</a>(<span class="keyword">False</span>)</div>
@@ -132,7 +133,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">for</span> t <span class="keywordflow">in</span> config.lights_off_times:</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            self._scheduler.every().day.at(t).do(self.<a class="code" href="classscheduler_1_1LightScheduler.html#ae8b4a40b1b228bfb27f7c3b1b2360775">_off</a>)</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            logger.info(<span class="stringliteral">&quot;scheduling light off time %r&quot;</span>%t)</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        self.<a class="code" href="classscheduler_1_1LightScheduler.html#a1c529c13b79133a43790e575a5ea8efb">daemon</a> = <span class="keyword">True</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="code" href="classscheduler_1_1LightScheduler.html#a1c529c13b79133a43790e575a5ea8efb">   46</a></span>&#160;        self.<a class="code" href="classscheduler_1_1LightScheduler.html#a1c529c13b79133a43790e575a5ea8efb">daemon</a> = <span class="keyword">True</span></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    @staticmethod</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">def </span>_is_valid_time_string(time_str):</div>
@@ -144,7 +145,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">False</span></div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">True</span></div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keyword">def </span>run(self):</div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="code" href="classscheduler_1_1LightScheduler.html#a1ca693ed1b6b4742d832809ebb15b2d4">   58</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classscheduler_1_1LightScheduler.html#a1ca693ed1b6b4742d832809ebb15b2d4">run</a>(self):</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        logger.info(<span class="stringliteral">&quot;light scheduler starting up&quot;</span>)</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordflow">while</span> <span class="keyword">True</span>:</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            self._scheduler.run_pending()</div>
@@ -152,7 +153,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Mar 12 2015 22:23:48 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 12 2015 22:25:51 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>
