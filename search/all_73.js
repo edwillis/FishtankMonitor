@@ -8,7 +8,6 @@ var searchData=
   ['serialmonitor',['SerialMonitor',['../classserial__monitor_1_1SerialMonitor.html',1,'serial_monitor']]],
   ['seriesresistor',['SERIESRESISTOR',['../group__TEMP__CONSTANTS.html#gaeda514ffe2696b78d945bc12a07b63cf',1,'fish_tank_display.ino']]],
   ['setup',['setup',['../group__PH__CONSTANTS.html#ga4fc01d736fe50cf5b977f755b675f11d',1,'fish_tank_display.ino']]],
-  ['setupclass',['setUpClass',['../classfishtank__monitor__test_1_1TestFishTankMonitor.html#a7104fac889d47683e44ef673e12dba06',1,'fishtank_monitor_test::TestFishTankMonitor']]],
   ['smtp_5fpassword',['SMTP_password',['../namespaceconfig.html#a4398370e02c38cf5f2cd358ed304bfb9',1,'config']]],
   ['standard_5ftz',['standard_tz',['../namespaceconfig.html#a6c6c8cf93b39ed725df3549c90a2a261',1,'config']]]
 ];
