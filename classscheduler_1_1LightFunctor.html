@@ -83,7 +83,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>scheduler</b></li><li class="navelem"><a class="el" href="classscheduler_1_1LightFunctor.html">LightFunctor</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacescheduler.html">scheduler</a></li><li class="navelem"><a class="el" href="classscheduler_1_1LightFunctor.html">LightFunctor</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -93,24 +93,67 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">scheduler.LightFunctor Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Function object used to turn the fishtank lights on or off via x10.  
+ <a href="classscheduler_1_1LightFunctor.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a62faa8ee61288f966c4b548e686ea265"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a62faa8ee61288f966c4b548e686ea265"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>__init__</b></td></tr>
+<tr class="memitem:a62faa8ee61288f966c4b548e686ea265"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscheduler_1_1LightFunctor.html#a62faa8ee61288f966c4b548e686ea265">__init__</a></td></tr>
+<tr class="memdesc:a62faa8ee61288f966c4b548e686ea265"><td class="mdescLeft">&#160;</td><td class="mdescRight">The contructor.  <a href="#a62faa8ee61288f966c4b548e686ea265"></a><br/></td></tr>
 <tr class="memitem:aac89023e57e31775023ae01ae3e4ae20"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aac89023e57e31775023ae01ae3e4ae20"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>__call__</b></td></tr>
+def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscheduler_1_1LightFunctor.html#aac89023e57e31775023ae01ae3e4ae20">__call__</a></td></tr>
+<tr class="memdesc:aac89023e57e31775023ae01ae3e4ae20"><td class="mdescLeft">&#160;</td><td class="mdescRight">The functor method which turns the lights on or off. <br/></td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="scheduler_8py_source.html#l00009">9</a> of file <a class="el" href="scheduler_8py_source.html">scheduler.py</a>.</p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
+<div class="textblock"><p>Function object used to turn the fishtank lights on or off via x10. </p>
+<p>On instantiation, the functor is configured to be either on or off. When called, the functor uses the heyu binary to set the lights to the indicated state and retries (necessary given the flakey nature of the x10 protocol) the number of times indicated by the user in the configuration file. </p>
+
+<p>Definition at line <a class="el" href="scheduler_8py_source.html#l00023">23</a> of file <a class="el" href="scheduler_8py_source.html">scheduler.py</a>.</p>
+</div><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a62faa8ee61288f966c4b548e686ea265"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def scheduler.LightFunctor.__init__ </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>on</em> = <code>True</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The contructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">on</td><td>true, if the function object will turn on the lights, off otherwise </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="scheduler_8py_source.html#l00028">28</a> of file <a class="el" href="scheduler_8py_source.html">scheduler.py</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>fishtank_monitor/<a class="el" href="scheduler_8py_source.html">scheduler.py</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 13 2015 20:31:59 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Mar 13 2015 20:46:54 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>
