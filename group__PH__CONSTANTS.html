@@ -125,7 +125,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>the number of samples to take to produce a PH reading </p>
+<p>The number of samples to take to produce a PH reading </p>
 
 <p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00090">90</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
 
@@ -140,7 +140,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>linear deviation compensate for PH value </p>
+<p>Linear deviation compensate for PH value </p>
 
 <p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00086">86</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
 
@@ -155,7 +155,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>how often to take measurements of the sensors </p>
+<p>How often to take measurements of the sensors </p>
 
 <p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00339">339</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
 
@@ -170,7 +170,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>how long to wait between PH samples in ms </p>
+<p>How long to wait between PH samples in ms </p>
 
 <p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00094">94</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
 
@@ -190,7 +190,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>convert a a Celcius value into Farenheit but scaled up by 10</p>
+<p>Convert a a Celcius value into Farenheit but scaled up by 10</p>
 <p>For example, 200 -&gt; 680</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -241,8 +241,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>get a PH reading</p>
-<p>get a PH reading, taking multiple samples to arrive at a more consistent value </p>
+<p>Get a PH reading</p>
+<p>Get a PH reading, taking multiple samples to arrive at a more consistent value. </p>
 
 <p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00166">166</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
 
@@ -260,8 +260,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>get a temperature reading</p>
-<p>measure temperature from the thermistor, taking multiple readings to arrive at a more consistent value </p>
+<p>Get a temperature reading</p>
+<p>Measure temperature from the thermistor, taking multiple readings to arrive at a more consistent value. </p>
 
 <p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00136">136</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
 
@@ -290,7 +290,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>send a log message to serial so the Raspberry Pi can incude it in its logs</p>
+<p>Send a log message to serial so the Raspberry Pi can incude it in its logs</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">message</td><td>the format string for the var_args message followed by additional parameters </td></tr>
@@ -314,7 +314,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>the main alamode loop </p>
+<p>The main alamode loop </p>
 
 <p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00347">347</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
 
@@ -361,7 +361,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>print a floating point number at the current cursor on the LCD</p>
+<p>Print a floating point number at the current cursor on the LCD</p>
 <p>Print to the current cursor on lcd a floating point value represented as an integer for the portion to the left of the decimal and another integer for the portion to the right.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -402,7 +402,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>send sensor measurements to the Raspberry Pi over serial</p>
-<p>send temperature and ph readings back to pi. Both arguments are assumed to be 10 times larger than the actual values. So 0.1s of degree C and 0.1s of units of PH.</p>
+<p>Send temperature and ph readings back to pi. Both arguments are assumed to be 10 times larger than the actual values. So 0.1s of degree C and 0.1s of units of PH.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">temp</td><td>the temperature reading </td></tr>
@@ -427,8 +427,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>initiaize the system and prepare to start takng measurements</p>
-<p>prepare LCD, serial, read the sensor pin configuration from serial and initialize the temperature and PH sensors and read the timezone configuration and initialize the timezone handling </p>
+<p>Initiaize the system and prepare to start takng measurements</p>
+<p>Prepare LCD, serial, read the sensor pin configuration from serial and initialize the temperature and PH sensors and read the timezone configuration and initialize the timezone handling. </p>
 
 <p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00231">231</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
 
@@ -444,7 +444,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>the analog pin the ph sensor is connected to </p>
+<p>The analog pin the ph sensor is connected to </p>
 
 <p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00082">82</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
 
@@ -459,7 +459,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>a counter used to determine whether or not to update the LCD with sensor data </p>
+<p>A counter used to determine whether or not to update the LCD with sensor data </p>
 
 <p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00343">343</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
 
@@ -468,7 +468,7 @@ Variables</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Mar 14 2015 11:01:57 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Mar 14 2015 11:20:36 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>
