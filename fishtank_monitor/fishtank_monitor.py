@@ -40,7 +40,6 @@ conn.execute('create table if not exists settings (last_calibration REAL)')
 #  monitor thread and restarting it on failures.
 #
 #  @param notifiers [in] the list of notifier functors to call each iteration
-
 def main_loop(notifiers):
     logger.debug("starting serial monitor")
     monitor = SerialMonitor.create_monitor()

@@ -27,6 +27,7 @@ class FakeSerial():
         self.lines = lines
 
     ## Readline mock method
+    #
     #  Uses the lines argument passed in in the constructor to mimic reads from
     #  serial
     #  @return in bytes, the next line of fake serial output on each call

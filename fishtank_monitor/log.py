@@ -11,11 +11,11 @@ log_handler = logging.handlers.TimedRotatingFileHandler("log/fishtank_monitor.lo
                                                          backupCount=5,
                                                          when="midnight")
 
-## the log format tracks time and module in addition to the message
+## The log format tracks time and module in addition to the message
 log_formatter = logging.Formatter('%(asctime)s | %(module)16s | %(levelname)5s | %(message)s')
 log_handler.setFormatter(log_formatter)
 
-## get a logger object specific to the calling module
+## Get a logger object specific to the calling module
 #
 #  @param name the module to build a logger for
 #  @return the logger object

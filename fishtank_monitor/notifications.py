@@ -96,9 +96,9 @@ class NotifyWarnings(NotifierBase):
 
 ## Send the user periodic informational reports (with graphs)
 #
-# Determine how long it's been since we sent the user an informational
-# report if one is due.  Include a graphic plotting ph and temperature
-# values over time.
+#  Determine how long it's been since we sent the user an informational
+#  report if one is due.  Include a graphic plotting ph and temperature
+#  values over time.
 class NotifyInformationalReports(NotifierBase):
 
     time_last_informed = 0

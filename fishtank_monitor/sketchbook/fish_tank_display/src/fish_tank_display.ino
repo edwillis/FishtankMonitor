@@ -2,7 +2,7 @@
  *  Functor class hierarchy responsible for user notification of significant events
  *
  *  This module defines a class hierarchy of functors used to send emailed
- * communications to the user when:
+ *  communications to the user when:
  *
  * * conditions in the tank become unsafe
  * * the user-specified informational period has arrived
@@ -21,11 +21,11 @@
 #include <LCDKeypad.h>
 #include <ArduinoJson.h>
 
-/** the object representing the LCD display
+/** The object representing the LCD display
  */
 LCDKeypad lcd;
 
-/** the local timezone
+/** The local timezone
  */
 Timezone* localTz = 0;
 
@@ -36,38 +36,38 @@ Timezone* localTz = 0;
  *  @{
  */
 
-/** the value of the 'other' resistor
+/** The value of the 'other' resistor
  */
 #define SERIESRESISTOR 10000    
  
-/** the analog pin the sensor is connected to
+/** The analog pin the sensor is connected to
  */
 int THERMISTORPIN = -1;
 
-/** how many samples to take to produce a temperature reading
+/** How many samples to take to produce a temperature reading
  */
 #define NUM_TEMP_SAMPLES 25
 
-/** how long to wait between temperature samples in ms
+/** How long to wait between temperature samples in ms
  */
 #define WAIT_BETWEEN_TEMP_SAMPLES 25
 
-/** resistance at 25 degrees C
+/** Resistance at 25 degrees C
  */
 #define THERMISTORNOMINAL 10000      
 
-/** temperature for nominal resistance (almost always 25 C)
+/** Temperature for nominal resistance (almost always 25 C)
  */
 #define TEMPERATURENOMINAL 25   
 
-/** the beta coefficient of the thermistor (usually 3000-4000)
+/** The beta coefficient of the thermistor (usually 3000-4000)
  */
 #define BCOEFFICIENT 3950
 
 /** @}
  */
 
-/** common size limit
+/** Common size limit
  */
 #define MAX_COLLECTION_SIZE 200
 
@@ -78,23 +78,23 @@ int THERMISTORPIN = -1;
  *  @{
  */
 
-/** the analog pin the ph sensor is connected to
+/** The analog pin the ph sensor is connected to
  */
 int PHPIN = -1;
 
-/** linear deviation compensate for PH value
+/** Linear deviation compensate for PH value
  */
 #define OFFSET -0.23
 
-/** the number of samples to take to produce a PH reading
+/** The number of samples to take to produce a PH reading
  */
 #define NUM_PH_SAMPLES 5
 
-/** how long to wait between PH samples in ms
+/** How long to wait between PH samples in ms
  */
 #define WAIT_BETWEEN_PH_SAMPLES 25
 
-/** convert a a Celcius value into Farenheit but scaled up by 10
+/** Convert a a Celcius value into Farenheit but scaled up by 10
  * 
  *  For example, 200 -> 680
  *
@@ -106,7 +106,7 @@ int celciusToFarenheit(int celcius)
   return (int) ((int)((9 * celcius)/5) + 320);
 }
 
-/** print a floating point number at the current cursor on the LCD 
+/** Print a floating point number at the current cursor on the LCD 
  *
  *  Print to the current cursor on lcd a floating point value represented as
  *  an integer for the portion to the left of the decimal and another integer
@@ -129,10 +129,10 @@ void printPseudoFloat(LCDKeypad lcd, int left, int right, char * units, int show
   lcd.print(units);
 }
 
-/** get a temperature reading
+/** Get a temperature reading
  *
- *  measure temperature from the thermistor, taking multiple readings to 
- *  arrive at a more consistent value
+ *  Measure temperature from the thermistor, taking multiple readings to 
+ *  arrive at a more consistent value.
  */
 float getTemp()
 {
@@ -159,10 +159,10 @@ float getTemp()
   return steinhart;
 }
 
-/** get a PH reading
+/** Get a PH reading
  *
- *  get a PH reading, taking multiple samples to arrive at a more consistent
- *  value
+ *  Get a PH reading, taking multiple samples to arrive at a more consistent
+ *  value.
  */
 float getPh()
 {
@@ -185,7 +185,7 @@ float getPh()
 
 /** send sensor measurements to the Raspberry Pi over serial
  *
- *  send temperature and ph readings back to pi. Both arguments are 
+ *  Send temperature and ph readings back to pi. Both arguments are 
  *  assumed to be 10 times larger than the actual values.  So 0.1s 
  *  of degree C and 0.1s of units of PH.
  *
@@ -203,7 +203,7 @@ void printTempAndPhToSerial(int temp, int ph)
   Serial.flush();
 }
 
-/** send a log message to serial so the Raspberry Pi can incude it in its logs
+/** Send a log message to serial so the Raspberry Pi can incude it in its logs
  *
  *  @param message the format string for the var_args message followed by
  *  additional parameters
@@ -223,11 +223,11 @@ void logToSerial(const char * const message, ...)
   Serial.flush();
 }
 
-/** initiaize the system and prepare to start takng measurements
+/** Initiaize the system and prepare to start takng measurements
  *
- *  prepare LCD, serial, read the sensor pin configuration from serial
+ *  Prepare LCD, serial, read the sensor pin configuration from serial
  *  and initialize the temperature and PH sensors and read the timezone
- *  configuration and initialize the timezone handling
+ *  configuration and initialize the timezone handling.
  */ 
 void setup()
 {
@@ -335,15 +335,15 @@ void display(int showSerial)
   }
 }
 
-/** how often to take measurements of the sensors
+/** How often to take measurements of the sensors
  */
 #define SERIAL_PERIOD 60*15
 
-/** a counter used to determine whether or not to update the LCD with sensor data
+/** A counter used to determine whether or not to update the LCD with sensor data
  */
 int serial_output_counter = 0;
 
-/** the main alamode loop
+/** The main alamode loop
  */
 void loop()
 {
