@@ -1,3 +1,17 @@
+/** @package notifications
+ *  Functor class hierarchy responsible for user notification of significant events
+ *
+ *  This module defines a class hierarchy of functors used to send emailed
+ * communications to the user when:
+ *
+ * * conditions in the tank become unsafe
+ * * the user-specified informational period has arrived
+ * * it's time to redo the ph sensor calibration
+ *
+ * @author  Ed Willis
+ * @copyright Ed Willis, 2015, all rights reserved
+ * @license  This software is released into the public domain
+ */
 #include <stdarg.h>
 #include <Wire.h>
 #include <Time.h>

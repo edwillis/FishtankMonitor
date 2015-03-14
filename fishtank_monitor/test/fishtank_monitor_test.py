@@ -40,6 +40,7 @@ class FakeSerial():
 
 SLEEP_INT = 0.25
 
+## The suite of unit tests covering the python portion of the Fishtank Monitor
 class TestFishTankMonitor(unittest.TestCase):
 
     @classmethod
