@@ -156,6 +156,7 @@ class TestFishTankMonitor(unittest.TestCase):
         self.assertEqual(config.standard_tz, -300)
         self.assertEqual(config.ph_pin, 'A2')
         self.assertEqual(config.temperature_pin, 'A1')
+        self.assertEqual(config.ph_offset, -0.23)
 
     ## @test Test the time series parsing for the LightScheduler
     def test_scheduler_time_parsing(self):

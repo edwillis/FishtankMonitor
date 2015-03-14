@@ -47,7 +47,8 @@ def main_loop(notifiers):
                     "thermistor_pin": config.temperature_pin, 
                     "ph_pin": config.ph_pin, 
                     "daylight": config.daylight_tz, 
-                    "standard": config.standard_tz
+                    "standard": config.standard_tz,
+                    "ph_offset": config.ph_offset
                   }
     monitor.write_to_serial(alamode_cfg)
     monitor.start_monitor()

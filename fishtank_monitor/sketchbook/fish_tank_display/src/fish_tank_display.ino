@@ -20,6 +20,7 @@
 #include <LiquidCrystal.h>
 #include <LCDKeypad.h>
 #include <ArduinoJson.h>
+#include <math.h>
 
 /** The object representing the LCD display
  */
@@ -84,7 +85,7 @@ int PHPIN = -1;
 
 /** Linear deviation compensate for PH value
  */
-#define OFFSET -0.23
+double OFFSET = -1.0;
 
 /** The number of samples to take to produce a PH reading
  */
@@ -179,7 +180,7 @@ float getPh()
   }
   measurement /= (float) NUM_PH_SAMPLES;
   voltage = measurement * 5.0 / 1024.0;
-  ph = 3.5 * voltage + OFFSET;
+  ph = 3.5 * voltage + (float) OFFSET;
   return ph;
 }
 
@@ -241,13 +242,16 @@ void setup()
   pinMode(13, OUTPUT);
   int daylight = -1;
   int standard = -1;
-  while (THERMISTORPIN == -1 || PHPIN == -1 || daylight == -1 || standard == -1)
+  while (OFFSET == -1.0 || THERMISTORPIN == -1 || PHPIN == -1 || daylight == -1 || standard == -1)
   {
     int readCount = Serial.readBytes(serial_buffer, 199);
     serial_buffer[readCount] = '\0';
     StaticJsonBuffer<MAX_COLLECTION_SIZE> jsonBuffer;
     JsonObject& root = jsonBuffer.parseObject(serial_buffer);
     if (root.success()) {
+      if (root.containsKey("ph_offset")) {
+        OFFSET = root["ph_offset"];
+      }
       if (root.containsKey("thermistor_pin") && root.containsKey("ph_pin")) {
         const char* temp = root["thermistor_pin"];
         const char* ph = root["ph_pin"];
@@ -262,6 +266,7 @@ void setup()
   }
   logToSerial("thermistor pin set to: %d", THERMISTORPIN);
   logToSerial("ph pin set to: %d", PHPIN);
+  logToSerial("ph calibration offset (*100) set to:  %d", round(OFFSET*100));
   TimeChangeRule DT = {"DT", Second, Sun, Mar, 2, daylight};
   TimeChangeRule ST = {"ST", First, Sun, Nov, 2, standard};
   logToSerial("daylight timezone offset set to:  %d", daylight);

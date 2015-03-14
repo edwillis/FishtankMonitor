@@ -44,8 +44,12 @@ x10_retries = None
 daylight_tz = None
 ## The local standard time offset from GMT in minutes
 standard_tz = None
+## The analog pin the PH monitor is connected to
 ph_pin = None
+## The analog pin the temperature sensor is connected to
 temperature_pin = None
+## The linear PH calibration offset to use on PH measurements
+ph_offset = None
 
 ## The last time we calibrated the ph sensor
 last_calibration = None
@@ -58,13 +62,14 @@ def read_config():
     global SMTP_host, SMTP_port, SMTP_user, SMTP_password, SMTP_use_ttls, send_reports_interval
     global send_warnings_interval, email_to_address, email_from_address, months_between_calibrations
     global last_calibration, serial_device, x10_retries, x10_light_code, lights_on_times, lights_off_times
-    global daylight_tz, standard_tz, ph_pin, temperature_pin
+    global daylight_tz, standard_tz, ph_pin, temperature_pin, ph_offset
     try:
         cfg = configparser.ConfigParser()
         cfg.read(config_filename)
         serial_device = cfg.get('hardware', 'serial device')
         ph_pin = cfg.get('hardware', 'ph pin')
         temperature_pin = cfg.get('hardware', 'temperature pin')
+        ph_offset = cfg.getfloat('hardware', 'ph calibration offset')
         SMTP_host = cfg.get('SMTP', 'host')
         SMTP_port = cfg.getint('SMTP', 'port')
         SMTP_user = cfg.get('SMTP', 'user')
@@ -88,6 +93,7 @@ def read_config():
         logger.info("serial device from config is %r" %serial_device)
         logger.info("ph pin from config is %r" %ph_pin)
         logger.info("temperature pin from config is %r" %temperature_pin)
+        logger.info("ph calibration offset from config is %r" %ph_offset)
         logger.info("standard timezone offset from config is %r" %daylight_tz)
         logger.info("daylight timezone offset from config is %r" %standard_tz)
         logger.info("smtp host from config is %r" %SMTP_host)
