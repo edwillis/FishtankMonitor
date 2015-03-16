@@ -93,6 +93,8 @@ class SerialMonitor(threading.Thread):
                     if message and 'temperature' in message and 'ph' in message:
                         self.temperature = message['temperature']
                         self.ph = message['ph']
+                        if not self.started.is_set():
+                            self.started.set()
         except Exception as e:
             logger.exception("exception encountered in monitor_serial:  %r" %e)
 
@@ -108,6 +110,4 @@ class SerialMonitor(threading.Thread):
     def start_monitor(self):
         logger.info("starting monitor")
         self.start()
-        time.sleep(2)
-        self.started.set()
 

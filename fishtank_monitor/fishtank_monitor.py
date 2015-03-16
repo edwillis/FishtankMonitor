@@ -39,7 +39,7 @@ conn.execute('create table if not exists settings (last_calibration REAL)')
 #  This function is also responsible for monitoring the health of the serial
 #  monitor thread and restarting it on failures.
 #
-#  @param notifiers [in] the list of notifier functors to call each iteration
+#  @param notifiers the list of notifier functors to call each iteration
 def main_loop(notifiers):
     logger.debug("starting serial monitor")
     monitor = SerialMonitor.create_monitor()
@@ -56,7 +56,7 @@ def main_loop(notifiers):
     logger.debug("starting light scheduler")
     light_scheduler = scheduler.LightScheduler()
     light_scheduler.start()
-    logger.debug("prior to while loop in main_loop, temperature is %r, ph is %r" %(monitor.temperature, monitor.ph))
+    logger.info("prior to while loop in main_loop, temperature is %r, ph is %r" %(monitor.temperature, monitor.ph))
     while True:
         if monitor.temperature is not None and monitor.ph is not None:
             logger.info("writing measurements to database ph is %r, temperature is %r" %(monitor.ph, monitor.temperature))

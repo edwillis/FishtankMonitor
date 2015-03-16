@@ -86,6 +86,8 @@ class NotifyWarnings(NotifierBase):
         if msg and time.time() - self.time_last_warned > config.send_warnings_interval:
             self.time_last_warned = time.time()
             logger.info("setting time_last_warned to %r" %self.time_last_warned)
+            msg += "\nWarning emailed notifications will continue every %r hours until the readings fall within expected ranges."\
+                    %(config.send_warnings_interval/(60*60))
             if config.send_warnings_interval > 0:
                 logger.info("sending warning email")
                 msg = MIMEText(msg)
@@ -102,6 +104,7 @@ class NotifyWarnings(NotifierBase):
 class NotifyInformationalReports(NotifierBase):
 
     time_last_informed = 0
+    number_of_recent_measurements_to_include = 5
 
     def __call__(self, conn, monitor):
         if time.time() - self.time_last_informed > config.send_reports_interval:
@@ -115,16 +118,21 @@ class NotifyInformationalReports(NotifierBase):
                 temp_values = [ i[1] for i in values ]
                 time_values = [ i[2] for i in values ]
                 timespan = time_values[0] - time_values[-1]
-                ph_values = list(zip(time_values, ph_values))
-                temp_values = list(zip(time_values, temp_values))
-                chart.add('PH', ph_values)
-                logger.debug("PH:  %r" %ph_values)
-                chart.add('Temperature', temp_values)
-                logger.debug("Temperature:  %r" %temp_values)
+                ph_pairs = list(zip(time_values, ph_values))
+                temp_pairs = list(zip(time_values, temp_values))
+                chart.add('PH', ph_pairs)
+                logger.debug("PH:  %r" %ph_pairs)
+                chart.add('Temperature', temp_pairs)
+                logger.debug("Temperature:  %r" %temp_pairs)
                 chart.x_label_format = "%Y-%m-%d"
                 chart.render_to_file('chart.svg')
                 msg = MIMEMultipart()
-                msg.attach(MIMEText('Daily measurements from your fishtank monitor.'))
+                txt = 'Daily measurements from your fishtank monitor.\n\n\
+The most recent temperature measurments are:  %r\n\
+The most recent ph measurements are:  %r\n'\
+                       %(temp_values[:self.number_of_recent_measurements_to_include],\
+                         ph_values[:self.number_of_recent_measurements_to_include])
+                msg.attach(MIMEText(txt))
                 msg['Subject'] = 'Fishtank status'
                 msg['From'] = config.email_from_address
                 msg['To'] = config.email_to_address

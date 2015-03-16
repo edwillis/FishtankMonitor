@@ -7,6 +7,7 @@
 
 import threading
 import subprocess
+import time
 import schedule
 import config
 from log import get_logger
@@ -86,4 +87,5 @@ class LightScheduler(threading.Thread):
         logger.info("light scheduler starting up")
         while True:
             self._scheduler.run_pending()
+            time.sleep(1)
 
