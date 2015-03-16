@@ -92,7 +92,6 @@ Packages</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:ga21005f9f4e2ce7597c5eb4351816d7e2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__PH__CONSTANTS.html#ga21005f9f4e2ce7597c5eb4351816d7e2">OFFSET</a>&#160;&#160;&#160;-0.23</td></tr>
 <tr class="memitem:ga470d99c7392f9aba85c747f9aa9f8951"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__PH__CONSTANTS.html#ga470d99c7392f9aba85c747f9aa9f8951">NUM_PH_SAMPLES</a>&#160;&#160;&#160;5</td></tr>
 <tr class="memitem:ga5d6f0f8fc30c0049fa193aee8fe6638a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__PH__CONSTANTS.html#ga5d6f0f8fc30c0049fa193aee8fe6638a">WAIT_BETWEEN_PH_SAMPLES</a>&#160;&#160;&#160;25</td></tr>
 <tr class="memitem:ga62f1c6dae8689cf86153d81cdd07955e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__PH__CONSTANTS.html#ga62f1c6dae8689cf86153d81cdd07955e">SERIAL_PERIOD</a>&#160;&#160;&#160;60*15</td></tr>
@@ -112,6 +111,7 @@ Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2><a name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:gae691603f357be6b8be38f5c7f975f9a5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__PH__CONSTANTS.html#gae691603f357be6b8be38f5c7f975f9a5">PHPIN</a> = -1</td></tr>
+<tr class="memitem:gaadec65200168fbdddae5840dde5b48ac"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__PH__CONSTANTS.html#gaadec65200168fbdddae5840dde5b48ac">OFFSET</a> = -1.0</td></tr>
 <tr class="memitem:ga9e5b612f7453f4a6ef18033b6f67a113"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__PH__CONSTANTS.html#ga9e5b612f7453f4a6ef18033b6f67a113">serial_output_counter</a> = 0</td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
@@ -127,22 +127,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>The number of samples to take to produce a PH reading </p>
 
-<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00090">90</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ga21005f9f4e2ce7597c5eb4351816d7e2"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define OFFSET&#160;&#160;&#160;-0.23</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Linear deviation compensate for PH value </p>
-
-<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00086">86</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00091">91</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
 
 </div>
 </div>
@@ -157,7 +142,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>How often to take measurements of the sensors </p>
 
-<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00339">339</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00344">344</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
 
 </div>
 </div>
@@ -172,7 +157,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>How long to wait between PH samples in ms </p>
 
-<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00094">94</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00095">95</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
 
 </div>
 </div>
@@ -200,7 +185,7 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the equivalent Farenheit value (in 0.1s of degrees Farenheit) </dd></dl>
 
-<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00103">103</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00104">104</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
 
 </div>
 </div>
@@ -225,7 +210,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00275">275</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00280">280</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
 
 </div>
 </div>
@@ -244,7 +229,7 @@ Variables</h2></td></tr>
 <p>Get a PH reading</p>
 <p>Get a PH reading, taking multiple samples to arrive at a more consistent value. </p>
 
-<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00166">166</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00167">167</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
 
 </div>
 </div>
@@ -263,7 +248,7 @@ Variables</h2></td></tr>
 <p>Get a temperature reading</p>
 <p>Measure temperature from the thermistor, taking multiple readings to arrive at a more consistent value. </p>
 
-<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00136">136</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00137">137</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
 
 </div>
 </div>
@@ -298,7 +283,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00210">210</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00211">211</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
 
 </div>
 </div>
@@ -316,7 +301,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>The main alamode loop </p>
 
-<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00347">347</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00352">352</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
 
 </div>
 </div>
@@ -374,7 +359,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00120">120</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00121">121</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
 
 </div>
 </div>
@@ -411,7 +396,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00194">194</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00195">195</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
 
 </div>
 </div>
@@ -430,11 +415,26 @@ Variables</h2></td></tr>
 <p>Initiaize the system and prepare to start takng measurements</p>
 <p>Prepare LCD, serial, read the sensor pin configuration from serial and initialize the temperature and PH sensors and read the timezone configuration and initialize the timezone handling. </p>
 
-<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00231">231</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00232">232</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
 
 </div>
 </div>
 <h2>Variable Documentation</h2>
+<a class="anchor" id="gaadec65200168fbdddae5840dde5b48ac"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double OFFSET = -1.0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Linear deviation compensate for PH value </p>
+
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00087">87</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="gae691603f357be6b8be38f5c7f975f9a5"></a>
 <div class="memitem">
 <div class="memproto">
@@ -446,7 +446,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>The analog pin the ph sensor is connected to </p>
 
-<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00082">82</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00083">83</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
 
 </div>
 </div>
@@ -461,14 +461,14 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>A counter used to determine whether or not to update the LCD with sensor data </p>
 
-<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00343">343</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00348">348</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Mar 14 2015 11:20:36 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Mar 15 2015 20:08:12 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

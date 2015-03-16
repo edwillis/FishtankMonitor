@@ -129,7 +129,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">#  This function is also responsible for monitoring the health of the serial</span></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">#  monitor thread and restarting it on failures.</span></div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">#</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">#  @param notifiers [in] the list of notifier functors to call each iteration</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">#  @param notifiers the list of notifier functors to call each iteration</span></div>
 <div class="line"><a name="l00043"></a><span class="lineno"><a class="code" href="namespacefishtank__monitor.html#a95c960eb49ce01ffb4c9a5af5de850b1">   43</a></span>&#160;<span class="keyword">def </span><a class="code" href="namespacefishtank__monitor.html#a95c960eb49ce01ffb4c9a5af5de850b1" title="The main functional loop of the fishtank monitor.">main_loop</a>(notifiers):</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    logger.debug(<span class="stringliteral">&quot;starting serial monitor&quot;</span>)</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    monitor = SerialMonitor.create_monitor()</div>
@@ -137,52 +137,53 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                    <span class="stringliteral">&quot;thermistor_pin&quot;</span>: config.temperature_pin, </div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                    <span class="stringliteral">&quot;ph_pin&quot;</span>: config.ph_pin, </div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                    <span class="stringliteral">&quot;daylight&quot;</span>: config.daylight_tz, </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                    <span class="stringliteral">&quot;standard&quot;</span>: config.standard_tz</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                  }</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    monitor.write_to_serial(alamode_cfg)</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    monitor.start_monitor()</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    monitor.started.wait()</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    logger.debug(<span class="stringliteral">&quot;starting light scheduler&quot;</span>)</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    light_scheduler = <a class="code" href="classscheduler_1_1LightScheduler.html" title="The LightScheduler controls the fishtank lights.">scheduler.LightScheduler</a>()</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    light_scheduler.start()</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    logger.debug(<span class="stringliteral">&quot;prior to while loop in main_loop, temperature is %r, ph is %r&quot;</span> %(monitor.temperature, monitor.ph))</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">while</span> <span class="keyword">True</span>:</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordflow">if</span> monitor.temperature <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span> <span class="keywordflow">and</span> monitor.ph <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span>:</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            logger.info(<span class="stringliteral">&quot;writing measurements to database ph is %r, temperature is %r&quot;</span> %(monitor.ph, monitor.temperature))</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            conn.execute(<span class="stringliteral">&#39;insert into measurements values(?, ?, ?)&#39;</span>,(int(time.time()), monitor.temperature, monitor.ph))</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            conn.commit()</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            logger.info(<span class="stringliteral">&quot;checking notifications&quot;</span>)</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keywordflow">for</span> notifier <span class="keywordflow">in</span> notifiers:</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                notifier(conn, monitor)</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <span class="keywordflow">if</span> <span class="keywordflow">not</span> monitor.is_alive():</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                logger.error(<span class="stringliteral">&quot;serial monitor died, restarting&quot;</span>)</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                monitor = SerialMonitor.create_and_start_monitor()</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        logger.info(<span class="stringliteral">&quot;sleeping until next check&quot;</span>)</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        time.sleep(60*60)</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keywordflow">if</span> __name__ == <span class="stringliteral">&quot;__main__&quot;</span>:</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    logger.info(<span class="stringliteral">&quot;getting parameters from config file&quot;</span>)</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <a class="code" href="namespaceconfig.html#aa4806cc2c75c55fa89bd07ffa6e1d8be" title="Read the config file and parse its contents into a series of global variables.">config.read_config</a>()</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    notifiers = get_notifiers()</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordflow">if</span> config.months_between_calibrations:</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordflow">try</span>:</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            config.last_calibration = conn.execute(<span class="stringliteral">&#39;select last_calibration from settings&#39;</span>).fetchall()[0][0]</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordflow">except</span>:</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            <span class="keywordflow">pass</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordflow">if</span> <span class="keywordflow">not</span> config.last_calibration:</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            config.last_calibration = time.time()</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            conn.execute(<span class="stringliteral">&#39;insert into settings values (%r)&#39;</span> %config.last_calibration)</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    logger.info(<span class="stringliteral">&quot;last_calibration from database is %r&quot;</span> %config.last_calibration)</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordflow">while</span> <span class="keyword">True</span>:</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keywordflow">try</span>:</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            logger.info(<span class="stringliteral">&quot;calling main_loop&quot;</span>)</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            <a class="code" href="namespacefishtank__monitor.html#a95c960eb49ce01ffb4c9a5af5de850b1" title="The main functional loop of the fishtank monitor.">main_loop</a>(notifiers)</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keywordflow">except</span> Exception <span class="keyword">as</span> e:</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            logger.exception(<span class="stringliteral">&quot;encountered exception in main_loop, retrying:  %r&quot;</span> %e)</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                    <span class="stringliteral">&quot;standard&quot;</span>: config.standard_tz,</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                    <span class="stringliteral">&quot;ph_offset&quot;</span>: config.ph_offset</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                  }</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    monitor.write_to_serial(alamode_cfg)</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    monitor.start_monitor()</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    monitor.started.wait()</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    logger.debug(<span class="stringliteral">&quot;starting light scheduler&quot;</span>)</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    light_scheduler = <a class="code" href="classscheduler_1_1LightScheduler.html" title="The LightScheduler controls the fishtank lights.">scheduler.LightScheduler</a>()</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    light_scheduler.start()</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    logger.info(<span class="stringliteral">&quot;prior to while loop in main_loop, temperature is %r, ph is %r&quot;</span> %(monitor.temperature, monitor.ph))</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">while</span> <span class="keyword">True</span>:</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordflow">if</span> monitor.temperature <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span> <span class="keywordflow">and</span> monitor.ph <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            logger.info(<span class="stringliteral">&quot;writing measurements to database ph is %r, temperature is %r&quot;</span> %(monitor.ph, monitor.temperature))</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            conn.execute(<span class="stringliteral">&#39;insert into measurements values(?, ?, ?)&#39;</span>,(int(time.time()), monitor.temperature, monitor.ph))</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            conn.commit()</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            logger.info(<span class="stringliteral">&quot;checking notifications&quot;</span>)</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <span class="keywordflow">for</span> notifier <span class="keywordflow">in</span> notifiers:</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                notifier(conn, monitor)</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            <span class="keywordflow">if</span> <span class="keywordflow">not</span> monitor.is_alive():</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                logger.error(<span class="stringliteral">&quot;serial monitor died, restarting&quot;</span>)</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                monitor = SerialMonitor.create_and_start_monitor()</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        logger.info(<span class="stringliteral">&quot;sleeping until next check&quot;</span>)</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        time.sleep(60*60)</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keywordflow">if</span> __name__ == <span class="stringliteral">&quot;__main__&quot;</span>:</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    logger.info(<span class="stringliteral">&quot;getting parameters from config file&quot;</span>)</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <a class="code" href="namespaceconfig.html#aa4806cc2c75c55fa89bd07ffa6e1d8be" title="Read the config file and parse its contents into a series of global variables.">config.read_config</a>()</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    notifiers = get_notifiers()</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordflow">if</span> config.months_between_calibrations:</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordflow">try</span>:</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            config.last_calibration = conn.execute(<span class="stringliteral">&#39;select last_calibration from settings&#39;</span>).fetchall()[0][0]</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordflow">except</span>:</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <span class="keywordflow">pass</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordflow">if</span> <span class="keywordflow">not</span> config.last_calibration:</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            config.last_calibration = time.time()</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            conn.execute(<span class="stringliteral">&#39;insert into settings values (%r)&#39;</span> %config.last_calibration)</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    logger.info(<span class="stringliteral">&quot;last_calibration from database is %r&quot;</span> %config.last_calibration)</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordflow">while</span> <span class="keyword">True</span>:</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keywordflow">try</span>:</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            logger.info(<span class="stringliteral">&quot;calling main_loop&quot;</span>)</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            <a class="code" href="namespacefishtank__monitor.html#a95c960eb49ce01ffb4c9a5af5de850b1" title="The main functional loop of the fishtank monitor.">main_loop</a>(notifiers)</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keywordflow">except</span> Exception <span class="keyword">as</span> e:</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            logger.exception(<span class="stringliteral">&quot;encountered exception in main_loop, retrying:  %r&quot;</span> %e)</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Mar 14 2015 11:20:35 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Mar 15 2015 20:08:11 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>
