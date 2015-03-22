@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Fishtank Monitor: Packages</title>
+<title>Fishtank Monitor: alamode Namespace Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -61,11 +61,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </div>
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
-      <li class="current"><a href="namespaces.html"><span>Packages</span></a></li>
+      <li><a href="namespaces.html"><span>Packages</span></a></li>
       <li><a href="namespacemembers.html"><span>Package&#160;Functions</span></a></li>
     </ul>
   </div>
-</div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -80,27 +79,22 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
+</div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">Packages</div>  </div>
+<div class="title">alamode Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock">Here are the packages with brief descriptions (if available):</div><div class="directory">
-<table class="directory">
-<tr id="row_0_" class="even"><td class="entry"><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2ns.png" alt="N" width="24" height="22" /><a class="el" href="namespacealamode.html" target="_self">alamode</a></td><td class="desc"></td></tr>
-<tr id="row_1_"><td class="entry"><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2ns.png" alt="N" width="24" height="22" /><a class="el" href="namespaceconfig.html" target="_self">config</a></td><td class="desc">Read the user's choices from the config file and make them available to interested parties</td></tr>
-<tr id="row_2_" class="even"><td class="entry"><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2ns.png" alt="N" width="24" height="22" /><a class="el" href="namespacefishtank__monitor.html" target="_self">fishtank_monitor</a></td><td class="desc">The main function for the Fishtank Monitor</td></tr>
-<tr id="row_3_"><td class="entry"><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2ns.png" alt="N" width="24" height="22" /><a class="el" href="namespacefishtank__monitor__test.html" target="_self">fishtank_monitor_test</a></td><td class="desc">Unit tests spanning the modules of the fishtank monitor</td></tr>
-<tr id="row_4_" class="even"><td class="entry"><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2ns.png" alt="N" width="24" height="22" /><a class="el" href="namespacelog.html" target="_self">log</a></td><td class="desc">Log utilities ensuring a common formatting for logging</td></tr>
-<tr id="row_5_"><td class="entry"><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2ns.png" alt="N" width="24" height="22" /><a class="el" href="namespacenotifications.html" target="_self">notifications</a></td><td class="desc">Functor class hierarchy responsible for user notification of significant events</td></tr>
-<tr id="row_6_" class="even"><td class="entry"><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2ns.png" alt="N" width="24" height="22" /><a class="el" href="namespacescheduler.html" target="_self">scheduler</a></td><td class="desc">Classes collaborating to manage the fishtank lighting</td></tr>
-<tr id="row_7_"><td class="entry"><img src="ftv2lastnode.png" alt="\" width="16" height="22" /><img src="ftv2ns.png" alt="N" width="24" height="22" /><a class="el" href="namespaceserial__monitor.html" target="_self">serial_monitor</a></td><td class="desc">Module responsible for communications between the raspberry pi and the alamode</td></tr>
-</table>
-</div><!-- directory -->
-</div><!-- contents -->
+<a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>Set of functions and constants responsible for monitoring the sensors</p>
+<p>Initialization is dependent on receipt of a JSON-formatted set of configuration parameters specifying such things as the pins the sensors are connected to. This configuration data arrives on Alamode over serial - once it's received, the Alamode transitions into a loop where it periodically reads new sensor measurements and reports them over serial tot he Raspberry Pi, as well as updating the LCD display with the current time and sensor measurements.</p>
+<dl class="section author"><dt>Author</dt><dd>Ed Willis </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>Ed Willis, 2015, all rights reserved </dd></dl>
+<dl class="section user"><dt>License:</dt><dd>This software is released into the public domain </dd></dl>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 22 2015 13:16:06 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Mar 22 2015 13:16:05 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

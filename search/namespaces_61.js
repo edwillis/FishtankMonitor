@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['alamode',['Alamode',['../namespaceAlamode.html',1,'']]]
+  ['alamode',['alamode',['../namespacealamode.html',1,'']]]
 ];
