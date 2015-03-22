@@ -84,10 +84,10 @@ Introduction</h1>
 <p>The decomposition of the software can be seen in each of the module pages. Here, we'll cover the dynamic behavior of the system and how it is initialized and does its work. But first we'll cover the basic responsibilities of the main hardware components in the system.</p>
 <h1><a class="anchor" id="HW"></a>
 The Raspberry Pi and the Alamode</h1>
-<p>At the coarsest level, the system breaks down into the two main hardware components: the Raspberry Pi and the Alamode (Arduino-compatible) board.</p>
+<p>At the coarsest level, the system breaks down into the two main hardware components: the Raspberry Pi and the <a class="el" href="namespaceAlamode.html">Alamode</a> (Arduino-compatible) board.</p>
 <h2><a class="anchor" id="Alamode"></a>
 The Alamode</h2>
-<p>The Alamode is responsible for:</p>
+<p>The <a class="el" href="namespaceAlamode.html">Alamode</a> is responsible for:</p>
 <ul>
 <li>receiving configuration parameters from the Raspberry Pi and applying them</li>
 <li>periodically taking temperature and ph measurements</li>
@@ -99,7 +99,7 @@ The Raspberry Pi</h2>
 <p>The Raspberry Pi is responsible for:</p>
 <ul>
 <li>reading configuration parameters frm the config file and making them available to the software components in the system.</li>
-<li>managing serial communications, including sending config parameters to the Alamode and subsequently reading measurements data and logs from it</li>
+<li>managing serial communications, including sending config parameters to the <a class="el" href="namespaceAlamode.html">Alamode</a> and subsequently reading measurements data and logs from it</li>
 <li>controlling the tank lights on a user-defined schedule</li>
 <li>managing the various email notifications, including informational (accompanied by charts) and warnings when tank conditions become unsafe</li>
 <li>storing sensor measurement data and some configuration parameters in the sqlite database</li>
@@ -110,8 +110,8 @@ Initialization and steady state operation</h1>
 <h2><a class="anchor" id="Alamode"></a>
 The Alamode</h2>
 <ul>
-<li>The Alamode starts up and configures some aspects of the hardware and then blocks, waiting on JSON-formatted configuration data for the remainder of the hardware setup()</li>
-<li>The Alamode then enters a :: loop where it periodically:<ul>
+<li>The <a class="el" href="namespaceAlamode.html">Alamode</a> starts up and configures some aspects of the hardware and then blocks, waiting on JSON-formatted configuration data for the remainder of the hardware ::setup</li>
+<li>The <a class="el" href="namespaceAlamode.html">Alamode</a> then enters a ::loop where it periodically:<ul>
 <li>updates the LCD with the current time and sensor measurements is ::display</li>
 <li>sends the Raspberry Pi JSON-formatted sensor measurements and logs</li>
 </ul>
@@ -125,7 +125,7 @@ The Raspberry Pi</h2>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 22 2015 12:51:22 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Mar 22 2015 12:59:45 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

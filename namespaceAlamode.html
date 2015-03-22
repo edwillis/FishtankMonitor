@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Fishtank Monitor: Package Functions</title>
+<title>Fishtank Monitor: Alamode Namespace Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -62,17 +62,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="namespaces.html"><span>Packages</span></a></li>
-      <li class="current"><a href="namespacemembers.html"><span>Package&#160;Functions</span></a></li>
+      <li><a href="namespacemembers.html"><span>Package&#160;Functions</span></a></li>
     </ul>
   </div>
-  <div id="navrow3" class="tabs2">
-    <ul class="tablist">
-      <li><a href="namespacemembers.html"><span>All</span></a></li>
-      <li class="current"><a href="namespacemembers_func.html"><span>Functions</span></a></li>
-      <li><a href="namespacemembers_vars.html"><span>Variables</span></a></li>
-    </ul>
-  </div>
-</div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -87,25 +79,22 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Alamode Namespace Reference</div>  </div>
+</div><!--header-->
 <div class="contents">
-&#160;<ul>
-<li>get_logger()
-: <a class="el" href="namespacelog.html#ab223427c9823034c3457c827cebdd19e">log</a>
-</li>
-<li>get_notifiers()
-: <a class="el" href="namespacenotifications.html#a9243897dad141dfaa0ef7a19c4ae4dba">notifications</a>
-</li>
-<li>main_loop()
-: <a class="el" href="namespacefishtank__monitor.html#a95c960eb49ce01ffb4c9a5af5de850b1">fishtank_monitor</a>
-</li>
-<li>read_config()
-: <a class="el" href="namespaceconfig.html#aa4806cc2c75c55fa89bd07ffa6e1d8be">config</a>
-</li>
-</ul>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>Set of functions and constants responsible for monitoring the sensors</p>
+<p>Initialization is dependent on receipt of a JSON-formatted set of configuration parameters specifying such things as the pins the sensors are connected to. This configuration data arrives on <a class="el" href="namespaceAlamode.html">Alamode</a> over serial - once it's received, the <a class="el" href="namespaceAlamode.html">Alamode</a> transitions into a loop where it periodically reads new sensor measurements and reports them over serial tot he Raspberry Pi, as well as updating the LCD display with the current time and sensor measurements.</p>
+<dl class="section author"><dt>Author</dt><dd>Ed Willis </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>Ed Willis, 2015, all rights reserved </dd></dl>
+<dl class="section user"><dt>License:</dt><dd>This software is released into the public domain </dd></dl>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 22 2015 12:59:45 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Mar 22 2015 12:59:44 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>
