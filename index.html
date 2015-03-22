@@ -87,7 +87,7 @@ Raspberry Pi</h1>
 <p>At the coarsest level, the system breaks down into the two main hardware components: the Raspberry Pi and the Alamode (Arduino-compatible) board.</p>
 <h2><a class="anchor" id="The"></a>
 Raspberry Pi</h2>
-<p>The ALamode is responsible for:</p>
+<p>The Alamode is responsible for:</p>
 <ul>
 <li>receiving configuration parameters from the Raspberry Pi and applying them</li>
 <li>periodically taking temperature and ph measurements</li>
@@ -102,12 +102,30 @@ Raspberry Pi</h2>
 <li>managing serial communications, including sending config parameters to the Alamode and subsequently reading measurements data and logs from it</li>
 <li>controlling the tank lights on a user-defined schedule</li>
 <li>managing the various email notifications, including informational (accompanied by charts) and warnings when tank conditions become unsafe</li>
-<li>storing sensor measurement data and some configuration parameters in the sqlite database </li>
+<li>storing sensor measurement data and some configuration parameters in the sqlite database</li>
+</ul>
+<h1><a class="anchor" id="Initialization"></a>
+and steady state operation</h1>
+<p>In rough detail, the dynamic behavior of the system is as follows:</p>
+<h2><a class="anchor" id="The"></a>
+Raspberry Pi</h2>
+<ul>
+<li>The Alamode starts up and configures some aspects of the hardware and then blocks, waiting on JSON-formatted configuration data for the remainder of the hardware :: setup</li>
+<li>The Alamode then enters a :: loop where it periodically:<ul>
+<li>updates the LCD with the current time and sensor measurements is :: display</li>
+<li>sends the Raspberry Pi JSON-formatted sensor measurements and logs</li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="The"></a>
+Raspberry Pi</h2>
+<ul>
+<li>The Raspberry Pi </li>
 </ul>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 22 2015 12:11:54 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Mar 22 2015 12:28:49 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>
