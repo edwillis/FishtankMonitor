@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['temp_5fconstants',['TEMP_CONSTANTS',['../group__TEMP__CONSTANTS.html',1,'']]]
+  ['temperature_20sensor_20constants',['Temperature Sensor Constants',['../group__TEMP__CONSTANTS.html',1,'']]]
 ];

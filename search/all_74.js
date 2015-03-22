@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['temp_5fconstants',['TEMP_CONSTANTS',['../group__TEMP__CONSTANTS.html',1,'']]],
+  ['temperature_20sensor_20constants',['Temperature Sensor Constants',['../group__TEMP__CONSTANTS.html',1,'']]],
   ['temperature_5fpin',['temperature_pin',['../namespaceconfig.html#ab79cd9d326008e60e3d38fbf31635898',1,'config']]],
   ['temperaturenominal',['TEMPERATURENOMINAL',['../group__TEMP__CONSTANTS.html#gad131decb98217dffe7e5c6d0f7fcb453',1,'fish_tank_display.ino']]],
   ['test_20list',['Test List',['../test.html',1,'']]],

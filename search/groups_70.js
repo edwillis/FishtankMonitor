@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ph_5fconstants',['PH_CONSTANTS',['../group__PH__CONSTANTS.html',1,'']]]
+  ['ph_20sensor_20constants',['PH Sensor Constants',['../group__PH__CONSTANTS.html',1,'']]]
 ];
