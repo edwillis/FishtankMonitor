@@ -80,13 +80,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><h1><a class="anchor" id="Introduction"></a>
-(Introduction)</h1>
+Introduction</h1>
 <p>The decomposition of the software can be seen in each of the module pages. Here, we'll cover the dynamic behavior of the system and how it is initialized and does its work. But first we'll cover the basic responsibilities of the main hardware components in the system.</p>
 <h1><a class="anchor" id="HW"></a>
-(The Raspberry Pi and the Alamode)</h1>
+The Raspberry Pi and the Alamode</h1>
 <p>At the coarsest level, the system breaks down into the two main hardware components: the Raspberry Pi and the Alamode (Arduino-compatible) board.</p>
 <h2><a class="anchor" id="Alamode"></a>
-(The Alamode)</h2>
+The Alamode</h2>
 <p>The Alamode is responsible for:</p>
 <ul>
 <li>receiving configuration parameters from the Raspberry Pi and applying them</li>
@@ -95,7 +95,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>communicating measurement data and logs to the Raspberry Pi</li>
 </ul>
 <h2><a class="anchor" id="PI"></a>
-(The Raspberry Pi)</h2>
+The Raspberry Pi</h2>
 <p>The Raspberry Pi is responsible for:</p>
 <ul>
 <li>reading configuration parameters frm the config file and making them available to the software components in the system.</li>
@@ -104,11 +104,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>managing the various email notifications, including informational (accompanied by charts) and warnings when tank conditions become unsafe</li>
 <li>storing sensor measurement data and some configuration parameters in the sqlite database</li>
 </ul>
-<h1><a class="anchor" id="Initializatio"></a>
-(Initialization and steady state operation)</h1>
+<h1><a class="anchor" id="Initialization"></a>
+Initialization and steady state operation</h1>
 <p>In rough detail, the dynamic behavior of the system is as follows:</p>
 <h2><a class="anchor" id="Alamode"></a>
-(The Alamode)</h2>
+The Alamode</h2>
 <ul>
 <li>The Alamode starts up and configures some aspects of the hardware and then blocks, waiting on JSON-formatted configuration data for the remainder of the hardware :: setup</li>
 <li>The Alamode then enters a :: loop where it periodically:<ul>
@@ -118,14 +118,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 </ul>
 <h2><a class="anchor" id="Pi"></a>
-(The Raspberry Pi)</h2>
+The Raspberry Pi</h2>
 <ul>
 <li>The Raspberry Pi </li>
 </ul>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 22 2015 12:35:42 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Mar 22 2015 12:37:24 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>
