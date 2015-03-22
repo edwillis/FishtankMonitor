@@ -71,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -88,7 +88,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Data Fields</a>  </div>
+<a href="#pub-attribs">Data Fields</a> &#124;
+<a href="#pri-static-methods">Static Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">scheduler.LightScheduler Class Reference</div>  </div>
 </div><!--header-->
@@ -99,30 +101,205 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a9384e642f374b257d9c415ca15fb8d76"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9384e642f374b257d9c415ca15fb8d76"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscheduler_1_1LightScheduler.html#a9384e642f374b257d9c415ca15fb8d76">__init__</a></td></tr>
-<tr class="memdesc:a9384e642f374b257d9c415ca15fb8d76"><td class="mdescLeft">&#160;</td><td class="mdescRight">The constructor builds the functors and calls them as the specified times. <br/></td></tr>
-<tr class="memitem:a1ca693ed1b6b4742d832809ebb15b2d4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1ca693ed1b6b4742d832809ebb15b2d4"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscheduler_1_1LightScheduler.html#a1ca693ed1b6b4742d832809ebb15b2d4">run</a></td></tr>
-<tr class="memdesc:a1ca693ed1b6b4742d832809ebb15b2d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">The thread's run method - starts the scheduler. <br/></td></tr>
+<tr class="memitem:a9384e642f374b257d9c415ca15fb8d76"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscheduler_1_1LightScheduler.html#a9384e642f374b257d9c415ca15fb8d76">__init__</a></td></tr>
+<tr class="memdesc:a9384e642f374b257d9c415ca15fb8d76"><td class="mdescLeft">&#160;</td><td class="mdescRight">The constructor builds the functors and calls them as the specified times.  <a href="#a9384e642f374b257d9c415ca15fb8d76"></a><br/></td></tr>
+<tr class="memitem:a1ca693ed1b6b4742d832809ebb15b2d4"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscheduler_1_1LightScheduler.html#a1ca693ed1b6b4742d832809ebb15b2d4">run</a></td></tr>
+<tr class="memdesc:a1ca693ed1b6b4742d832809ebb15b2d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">The thread's run method - starts the scheduler.  <a href="#a1ca693ed1b6b4742d832809ebb15b2d4"></a><br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:a1c529c13b79133a43790e575a5ea8efb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1c529c13b79133a43790e575a5ea8efb"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>daemon</b></td></tr>
+<tr class="memitem:a1c529c13b79133a43790e575a5ea8efb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscheduler_1_1LightScheduler.html#a1c529c13b79133a43790e575a5ea8efb">daemon</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-static-methods"></a>
+Static Private Member Functions</h2></td></tr>
+<tr class="memitem:ab916a555d929a525273ecc700ef34ecf"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscheduler_1_1LightScheduler.html#ab916a555d929a525273ecc700ef34ecf">_is_valid_time_string</a></td></tr>
+<tr class="memdesc:ab916a555d929a525273ecc700ef34ecf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses and validates the configuration file time specifications.  <a href="#ab916a555d929a525273ecc700ef34ecf"></a><br/></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:aa8c7024e318fbe3eced9d24a7635583c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscheduler_1_1LightScheduler.html#aa8c7024e318fbe3eced9d24a7635583c">_scheduler</a></td></tr>
+<tr class="memitem:afacbe3f0a3608a04f7debba8f75bbfdb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscheduler_1_1LightScheduler.html#afacbe3f0a3608a04f7debba8f75bbfdb">_on</a></td></tr>
+<tr class="memitem:ae8b4a40b1b228bfb27f7c3b1b2360775"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscheduler_1_1LightScheduler.html#ae8b4a40b1b228bfb27f7c3b1b2360775">_off</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="classscheduler_1_1LightScheduler.html" title="The LightScheduler controls the fishtank lights.">LightScheduler</a> controls the fishtank lights. </p>
 <p>The <a class="el" href="classscheduler_1_1LightScheduler.html" title="The LightScheduler controls the fishtank lights.">LightScheduler</a> arranges for the fishtank lights to be turned on or off on the schedule specified by the user in the configuration file. </p>
 
 <p>Definition at line <a class="el" href="scheduler_8py_source.html#l00050">50</a> of file <a class="el" href="scheduler_8py_source.html">scheduler.py</a>.</p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
+</div><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a9384e642f374b257d9c415ca15fb8d76"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def scheduler.LightScheduler.__init__ </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The constructor builds the functors and calls them as the specified times. </p>
+
+<p>Definition at line <a class="el" href="scheduler_8py_source.html#l00053">53</a> of file <a class="el" href="scheduler_8py_source.html">scheduler.py</a>.</p>
+
+</div>
+</div>
+<h2>Member Function Documentation</h2>
+<a class="anchor" id="ab916a555d929a525273ecc700ef34ecf"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">def scheduler.LightScheduler._is_valid_time_string </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>time_str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Parses and validates the configuration file time specifications. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">time_str</td><td>a string like "18:45,20:15" etc. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True, if the time_str was of valid form </dd></dl>
+
+<p>Definition at line <a class="el" href="scheduler_8py_source.html#l00076">76</a> of file <a class="el" href="scheduler_8py_source.html">scheduler.py</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classscheduler_1_1LightScheduler_ab916a555d929a525273ecc700ef34ecf_icgraph.png" border="0" usemap="#classscheduler_1_1LightScheduler_ab916a555d929a525273ecc700ef34ecf_icgraph" alt=""/></div>
+<map name="classscheduler_1_1LightScheduler_ab916a555d929a525273ecc700ef34ecf_icgraph" id="classscheduler_1_1LightScheduler_ab916a555d929a525273ecc700ef34ecf_icgraph">
+<area shape="rect" id="node3" href="classfishtank__monitor__test_1_1TestFishTankMonitor.html#aacbb4f2fa10f8c6efdcbda3015b74a6d" title="fishtank_monitor_test.Test\lFishTankMonitor.test_scheduler\l_time_parsing" alt="" coords="227,5,435,69"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a1ca693ed1b6b4742d832809ebb15b2d4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def scheduler.LightScheduler.run </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The thread's run method - starts the scheduler. </p>
+
+<p>Definition at line <a class="el" href="scheduler_8py_source.html#l00086">86</a> of file <a class="el" href="scheduler_8py_source.html">scheduler.py</a>.</p>
+
+</div>
+</div>
+<h2>Field Documentation</h2>
+<a class="anchor" id="ae8b4a40b1b228bfb27f7c3b1b2360775"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">scheduler.LightScheduler._off</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="scheduler_8py_source.html#l00057">57</a> of file <a class="el" href="scheduler_8py_source.html">scheduler.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afacbe3f0a3608a04f7debba8f75bbfdb"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">scheduler.LightScheduler._on</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="scheduler_8py_source.html#l00056">56</a> of file <a class="el" href="scheduler_8py_source.html">scheduler.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa8c7024e318fbe3eced9d24a7635583c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">scheduler.LightScheduler._scheduler</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="scheduler_8py_source.html#l00055">55</a> of file <a class="el" href="scheduler_8py_source.html">scheduler.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1c529c13b79133a43790e575a5ea8efb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">scheduler.LightScheduler.daemon</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="scheduler_8py_source.html#l00070">70</a> of file <a class="el" href="scheduler_8py_source.html">scheduler.py</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>fishtank_monitor/<a class="el" href="scheduler_8py_source.html">scheduler.py</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 22 2015 17:53:26 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Mar 22 2015 18:04:39 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

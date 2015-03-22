@@ -69,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -98,12 +98,9 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a894fb86cf371f3c6e14c83f72331a14f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a894fb86cf371f3c6e14c83f72331a14f"></a>
-tuple&#160;</td><td class="memItemRight" valign="bottom"><b>logger</b> = get_logger(__name__)</td></tr>
-<tr class="memitem:a6f1ae41684d3a37da462d57e85a57c7b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6f1ae41684d3a37da462d57e85a57c7b"></a>
-tuple&#160;</td><td class="memItemRight" valign="bottom"><b>conn</b> = sqlite3.Connection('./fishtank.db')</td></tr>
-<tr class="memitem:aa8fcbba65ecaae02c6def95917f96c8d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa8fcbba65ecaae02c6def95917f96c8d"></a>
-tuple&#160;</td><td class="memItemRight" valign="bottom"><b>notifiers</b> = get_notifiers()</td></tr>
+<tr class="memitem:a894fb86cf371f3c6e14c83f72331a14f"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefishtank__monitor.html#a894fb86cf371f3c6e14c83f72331a14f">logger</a> = get_logger(__name__)</td></tr>
+<tr class="memitem:a6f1ae41684d3a37da462d57e85a57c7b"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefishtank__monitor.html#a6f1ae41684d3a37da462d57e85a57c7b">conn</a> = sqlite3.Connection('./fishtank.db')</td></tr>
+<tr class="memitem:aa8fcbba65ecaae02c6def95917f96c8d"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefishtank__monitor.html#aa8fcbba65ecaae02c6def95917f96c8d">notifiers</a> = get_notifiers()</td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>The main function for the Fishtank Monitor. </p>
@@ -157,10 +154,53 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
+<h2>Variable Documentation</h2>
+<a class="anchor" id="a6f1ae41684d3a37da462d57e85a57c7b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">tuple fishtank_monitor.conn = sqlite3.Connection('./fishtank.db')</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="fishtank__monitor_8py_source.html#l00068">68</a> of file <a class="el" href="fishtank__monitor_8py_source.html">fishtank_monitor.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a894fb86cf371f3c6e14c83f72331a14f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">tuple fishtank_monitor.logger = get_logger(__name__)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="fishtank__monitor_8py_source.html#l00066">66</a> of file <a class="el" href="fishtank__monitor_8py_source.html">fishtank_monitor.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa8fcbba65ecaae02c6def95917f96c8d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">tuple fishtank_monitor.notifiers = get_notifiers()</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="fishtank__monitor_8py_source.html#l00121">121</a> of file <a class="el" href="fishtank__monitor_8py_source.html">fishtank_monitor.py</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 22 2015 17:53:26 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Mar 22 2015 18:04:39 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>
