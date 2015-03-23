@@ -11,6 +11,58 @@
 #  @copyright Ed Willis, 2015, all rights reserved
 #  @license  This software is released into the public domain
 
+## @mainpage
+#
+#  @section Introduction Introduction
+#  The decomposition of the software can be seen in each of the module pages.
+#  Here, we'll cover the dynamic behavior of the system and how it is initialized
+#  and does its work.  But first we'll cover the basic responsibilities of the main
+#  hardware components in the system.
+#
+#  @section HW The Raspberry Pi and the Alamode
+#  At the coarsest level, the system breaks down into the two main hardware
+#  components:  the Raspberry Pi and the Alamode (Arduino-compatible) board.
+#
+#  @subsection Alamode The Alamode
+#  The Alamode is responsible for:
+#  * receiving configuration parameters from the Raspberry Pi and applying them
+#  * periodically taking temperature and ph measurements
+#  * updating the LCD display with time/measurements et al
+#  * communicating measurement data and logs to the Raspberry Pi
+#
+#  @subsection PI The Raspberry Pi
+#  The Raspberry Pi is responsible for:
+#  * reading configuration parameters frm the config file and making them available
+#    to the software components in the system.
+#  * managing serial communications, including sending config parameters to the
+#    Alamode and subsequently reading measurements data and logs from it
+#  * controlling the tank lights on a user-defined schedule
+#  * managing the various email notifications, including informational (accompanied
+#    by charts) and warnings when tank conditions become unsafe
+#  * storing sensor measurement data and some configuration parameters in the sqlite
+#    database
+#
+#  @section Initialization Initialization and steady state operation
+#  In rough detail, the dynamic behavior of the system is presented below.
+#
+#  @subsection Alamode The Alamode
+#  * The Alamode starts up and configures some aspects of the hardware and then
+#    blocks, waiting on JSON-formatted configuration data for the remainder of the
+#    hardware ::setup
+#  * The Alamode then enters a ::loop where it periodically:
+#      * updates the LCD with the current time and sensor measurements is ::display
+#      * sends the Raspberry Pi JSON-formatted sensor measurements and logs
+#
+#  @subsection Pi The Raspberry Pi
+#  * The Raspberry Pi reads the config file makes the configuration parameters available
+#  * It creates the notifiers used to publish emailed reports and warnings
+#    via ::notifications::get_notifiers
+#  * It creates the ::serial_monitor::SerialMonitor and immediately uses it to send
+#    the alamode configuration data
+#  * It creates the ::scheduler::LightScheduler and starts it to manage the lights
+#  * Thereafter, it enters a loop of writing measurement data to the sqlite database,
+#    triggering the notifiers and detecting and recovering from certain errors
+
 import time
 import sqlite3
 from serial_monitor import SerialMonitor
@@ -26,7 +78,7 @@ conn = sqlite3.Connection('./fishtank.db')
 conn.execute('create table if not exists measurements (time INT, temp REAL, ph REAL)')
 conn.execute('create table if not exists settings (last_calibration REAL)')
 
-## The main functional loop of the fishtank monitor.
+## The main functional loop of ithe fishtank monitor.
 #
 #  This function arranges for the following:
 #  * Set up serial monitoring

@@ -1,17 +1,18 @@
-/** @package notifications
- *  Functor class hierarchy responsible for user notification of significant events
+/** Set of functions and constants responsible for monitoring the sensors
  *
- *  This module defines a class hierarchy of functors used to send emailed
- *  communications to the user when:
- *
- * * conditions in the tank become unsafe
- * * the user-specified informational period has arrived
- * * it's time to redo the ph sensor calibration
+ *  Initialization is dependent on receipt of a JSON-formatted set of
+ *  configuration parameters specifying such things as the pins the
+ *  sensors are connected to.  This configuration data arrives on Alamode
+ *  over serial - once it's received, the Alamode transitions into a loop
+ *  where it periodically reads new sensor measurements and reports them
+ *  over serial tot he Raspberry Pi, as well as updating the LCD display with
+ *  the current time and sensor measurements.
  *
  * @author  Ed Willis
  * @copyright Ed Willis, 2015, all rights reserved
  * @license  This software is released into the public domain
  */
+
 #include <stdarg.h>
 #include <Wire.h>
 #include <Time.h>
@@ -29,13 +30,6 @@ LCDKeypad lcd;
 /** The local timezone
  */
 Timezone* localTz = 0;
-
-/** @defgroup TEMP_CONSTANTS constants and variables used in temperature sensor handling
- */
-
-/** @addtogroup TEMP_CONSTANTS 
- *  @{
- */
 
 /** The value of the 'other' resistor
  */
@@ -65,19 +59,9 @@ int THERMISTORPIN = -1;
  */
 #define BCOEFFICIENT 3950
 
-/** @}
- */
-
 /** Common size limit
  */
 #define MAX_COLLECTION_SIZE 200
-
-/** @defgroup PH_CONSTANTS constants and variables used in PH sensor handling
- */
-
-/** @addtogroup PH_CONSTANTS
- *  @{
- */
 
 /** The analog pin the ph sensor is connected to
  */
@@ -95,7 +79,7 @@ double OFFSET = -1.0;
  */
 #define WAIT_BETWEEN_PH_SAMPLES 25
 
-/** Convert a a Celcius value into Farenheit but scaled up by 10
+/** Convert a Celcius value into Farenheit but scaled up by 10
  * 
  *  For example, 200 -> 680
  *
