@@ -27,6 +27,14 @@
  */
 LCDKeypad lcd;
 
+/** The width of the display in characters
+ */
+#define LCD_WIDTH 16
+
+/** The height of the display in rows
+ */
+#define LCD_HEIGHT 2
+
 /** The local timezone
  */
 Timezone* localTz = 0;
@@ -70,6 +78,10 @@ int PHPIN = -1;
 /** Linear deviation compensate for PH value
  */
 double OFFSET = -1.0;
+
+/** The IP address of the Raspberry Pi
+ */
+const char IP_ADDRESS[16] = {'\0'};
 
 /** The number of samples to take to produce a PH reading
  */
@@ -208,90 +220,14 @@ void logToSerial(const char * const message, ...)
   Serial.flush();
 }
 
-/** Initiaize the system and prepare to start takng measurements
+/** Display the current time on the lcd
  *
- *  Prepare LCD, serial, read the sensor pin configuration from serial
- *  and initialize the temperature and PH sensors and read the timezone
- *  configuration and initialize the timezone handling.
- */ 
-void setup()
-{
-  char serial_buffer[MAX_COLLECTION_SIZE];
-  char conversion[MAX_COLLECTION_SIZE];
-  lcd.begin(16, 2);
-  lcd.clear();
-  lcd.setCursor(0, 1);
-  setSyncProvider(RTC.get);
-  Serial.begin(9600);
-  pinMode(13, OUTPUT);
-  int daylight = -1;
-  int standard = -1;
-  while (OFFSET == -1.0 || THERMISTORPIN == -1 || PHPIN == -1 || daylight == -1 || standard == -1)
-  {
-    int readCount = Serial.readBytes(serial_buffer, 199);
-    serial_buffer[readCount] = '\0';
-    StaticJsonBuffer<MAX_COLLECTION_SIZE> jsonBuffer;
-    JsonObject& root = jsonBuffer.parseObject(serial_buffer);
-    if (root.success()) {
-      if (root.containsKey("ph_offset")) {
-        OFFSET = root["ph_offset"];
-      }
-      if (root.containsKey("thermistor_pin") && root.containsKey("ph_pin")) {
-        const char* temp = root["thermistor_pin"];
-        const char* ph = root["ph_pin"];
-        THERMISTORPIN = strtol(&temp[1], 0, 10);
-        PHPIN = strtol(&ph[1], 0, 10);
-      }
-      if (root.containsKey("daylight") && root.containsKey("standard")) {
-        daylight = root["daylight"];
-        standard = root["standard"];
-      }
-    }
-  }
-  logToSerial("thermistor pin set to: %d", THERMISTORPIN);
-  logToSerial("ph pin set to: %d", PHPIN);
-  logToSerial("ph calibration offset (*100) set to:  %d", round(OFFSET*100));
-  TimeChangeRule DT = {"DT", Second, Sun, Mar, 2, daylight};
-  TimeChangeRule ST = {"ST", First, Sun, Nov, 2, standard};
-  logToSerial("daylight timezone offset set to:  %d", daylight);
-  logToSerial("standard timezone offset set to:  %d", standard);
-  localTz = new Timezone(DT, ST);
-}
-
-/** Measure temperature and ph and update serial and LCD with these values
- *
- *  @param showSerial 1, if we want the display updated with the sensor values
+ *  Using the global lcd object and assuming the cursor has already been
+ *  positioned at the desired location, write the current time at that
+ *  position.
  */
-void display(int showSerial)
+void displayTime()
 {
-  lcd.setCursor(0, 1);
-  int tempC = (int) (getTemp() * 10);
-  int tempCelLeft = tempC / 10;
-  int tempCelRight = tempC % 10;
-  if (tempCelRight >= 5)
-  {
-    tempCelLeft += 1;
-  }
-  int tempF = (int)(celciusToFarenheit(tempC));
-  int tempFarLeft = tempF / 10;
-  int tempFarRight = tempF % 10;
-  if (tempFarRight >= 5)
-  {
-    tempFarLeft += 1;
-  }
-  printPseudoFloat(lcd, tempFarLeft, 0, "F", 0);
-  lcd.print("/");
-  printPseudoFloat(lcd, tempCelLeft, 0, "C", 0);
-  int phTimesTen = getPh() * 10;
-  int phLeft = phTimesTen / 10;
-  int phRight = phTimesTen % 10;
-  lcd.print("    ");
-  printPseudoFloat(lcd, phLeft, phRight, "PH", 1);
-  lcd.setCursor(0, 0);
-  if (showSerial)
-  {
-    printTempAndPhToSerial(tempC, phTimesTen);
-  }
   if (timeStatus() != timeSet)
   {
     lcd.print("No time source");
@@ -324,9 +260,134 @@ void display(int showSerial)
   }
 }
 
-/** How often to take measurements of the sensors
+/** Display the current sensor data on the lcd and optionally to serial
+ *
+ *  Using the global lcd object and assuming the cursor has already been
+ *  positioned at the desired location, write the current sensor readings
+ *  (temperature and ph) at that position.  Optionally also send the sensor
+ *  data back to the Raspberry Pi over serial.
+ *
+ *  @param showSerial 1, if we want the sensor values to be sent over serial
  */
-#define SERIAL_PERIOD 60*15
+void displaySensorData(unsigned int showSerial)
+{
+  int tempC = (int) (getTemp() * 10);
+  int tempCelLeft = tempC / 10;
+  int tempCelRight = tempC % 10;
+  if (tempCelRight >= 5)
+  {
+    tempCelLeft += 1;
+  }
+  int tempF = (int)(celciusToFarenheit(tempC));
+  int tempFarLeft = tempF / 10;
+  int tempFarRight = tempF % 10;
+  if (tempFarRight >= 5)
+  {
+    tempFarLeft += 1;
+  }
+  printPseudoFloat(lcd, tempFarLeft, 0, "F", 0);
+  lcd.print("/");
+  printPseudoFloat(lcd, tempCelLeft, 0, "C", 0);
+  int phTimesTen = getPh() * 10;
+  int phLeft = phTimesTen / 10;
+  int phRight = phTimesTen % 10;
+  lcd.print("    ");
+  printPseudoFloat(lcd, phLeft, phRight, "PH", 1);
+  if (showSerial)
+  {
+    printTempAndPhToSerial(tempC, phTimesTen);
+  }
+}
+
+/** Initiaize the system and prepare to start takng measurements
+ *
+ *  Prepare LCD, serial, read the sensor pin configuration from serial
+ *  and initialize the temperature and PH sensors and read the timezone
+ *  configuration and initialize the timezone handling.
+ */ 
+void setup()
+{
+  char serial_buffer[MAX_COLLECTION_SIZE];
+  char conversion[MAX_COLLECTION_SIZE];
+  lcd.begin(LCD_WIDTH, LCD_HEIGHT);
+  lcd.clear();
+  lcd.setCursor(0, 1);
+  setSyncProvider(RTC.get);
+  Serial.begin(9600);
+  pinMode(13, OUTPUT);
+  int daylight = -1;
+  int standard = -1;
+  int receivedConfiguration = 0;
+  while (!receivedConfiguration)
+  {
+    int readCount = Serial.readBytes(serial_buffer, 199);
+    serial_buffer[readCount] = '\0';
+    StaticJsonBuffer<MAX_COLLECTION_SIZE> jsonBuffer;
+    JsonObject& root = jsonBuffer.parseObject(serial_buffer);
+    if (root.success()) {
+      if (root.containsKey("ph_offset")) {
+        OFFSET = root["ph_offset"];
+      }
+      if (root.containsKey("thermistor_pin") && root.containsKey("ph_pin")) {
+        const char* temp = root["thermistor_pin"];
+        const char* ph = root["ph_pin"];
+        THERMISTORPIN = strtol(&temp[1], 0, 10);
+        PHPIN = strtol(&ph[1], 0, 10);
+      }
+      if (root.containsKey("daylight") && root.containsKey("standard")) {
+        daylight = root["daylight"];
+        standard = root["standard"];
+      }
+      if (root.containsKey("ip_address")) {
+        strncpy((char*) IP_ADDRESS, root["ip_address"], sizeof(IP_ADDRESS));
+      }
+      receivedConfiguration = 1;
+    }
+  }
+  logToSerial("thermistor pin set to: %d", THERMISTORPIN);
+  logToSerial("ph pin set to: %d", PHPIN);
+  logToSerial("ph calibration offset (*100) set to:  %d", round(OFFSET*100));
+  TimeChangeRule DT = {"DT", Second, Sun, Mar, 2, daylight};
+  TimeChangeRule ST = {"ST", First, Sun, Nov, 2, standard};
+  logToSerial("daylight timezone offset set to:  %d", daylight);
+  logToSerial("standard timezone offset set to:  %d", standard);
+  logToSerial("raspberry pi ip address is:  %s", (char*) IP_ADDRESS);
+  localTz = new Timezone(DT, ST);
+}
+
+/** Gather temperature and ph readings and update serial and lcd with these values
+ *
+ *  @param showSerial 1, if we want the sensor values to be sent over serial
+ */
+void displaySensorDataAndTime(unsigned int showSerial)
+{
+  lcd.setCursor(0, 1);
+  displaySensorData(showSerial);
+  lcd.setCursor(0, 0);
+  displayTime();
+}
+
+/** Update the lcd with the current time and the Raspberry Pi's IP address
+ */
+void displayIpAndTime()
+{
+  lcd.setCursor(0, 1);
+  lcd.print(IP_ADDRESS);
+  int i = 0;
+  for (i = 0; i < LCD_WIDTH - strlen(IP_ADDRESS); i++) {
+    lcd.print(" ");
+  }
+  lcd.setCursor(0, 0);
+  displayTime();
+}
+
+/** How often to update the lcd in seconds
+ */
+#define LCD_UPDATE_PERIOD 5
+
+/** How often to send measurements of the sensors to serial
+ */
+#define SERIAL_PERIOD 15*(60/(LCD_UPDATE_PERIOD*2))
 
 /** A counter used to determine whether or not to update the LCD with sensor data
  */
@@ -336,16 +397,13 @@ int serial_output_counter = 0;
  */
 void loop()
 {
-  int showSerial;
-  if ((SERIAL_PERIOD % serial_output_counter) == 0)
-  {
-    showSerial = 1;
-  }
-  else
-  {
-    showSerial = 0;
-  }
-  display(showSerial);
-  delay(1000 - ((NUM_TEMP_SAMPLES * WAIT_BETWEEN_TEMP_SAMPLES) + (NUM_PH_SAMPLES * WAIT_BETWEEN_PH_SAMPLES))); // one second
+  unsigned int showSerial;
+  showSerial = ((SERIAL_PERIOD % serial_output_counter) == 0);
+  displaySensorDataAndTime(showSerial);
+  // roughly 5 second intervals for display updates
+  delay(LCD_UPDATE_PERIOD*1000 - ((NUM_TEMP_SAMPLES * WAIT_BETWEEN_TEMP_SAMPLES) + (NUM_PH_SAMPLES * WAIT_BETWEEN_PH_SAMPLES)));
+  // display new thing
+  displayIpAndTime();
+  delay(LCD_UPDATE_PERIOD*1000);
   serial_output_counter += 1;
 }

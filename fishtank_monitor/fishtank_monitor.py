@@ -100,7 +100,8 @@ def main_loop(notifiers):
                     "ph_pin": config.ph_pin, 
                     "daylight": config.daylight_tz, 
                     "standard": config.standard_tz,
-                    "ph_offset": config.ph_offset
+                    "ph_offset": config.ph_offset,
+                    "ip_address": config.IP_address
                   }
     monitor.write_to_serial(alamode_cfg)
     monitor.start_monitor()

@@ -11,9 +11,31 @@
 #  @license  This software is released into the public domain
 
 import configparser
+import socket
+import fcntl
+import struct
+
 from log import get_logger
 
 logger = get_logger(__name__)
+
+## Given an interface name, return a string denoting the IP address
+ #
+ #  @param ifname a string denoting the interface name like 'lo' or 'wlan0'
+ #  @return a string denoting the IP address of the interface like '192.168.0.1'
+ #
+def get_ip_address(ifname):
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    return socket.inet_ntoa(fcntl.ioctl(
+        s.fileno(),
+        0x8915,  # SIOCGIFADDR
+        struct.pack('256s', bytes(ifname, 'UTF8')[:15])
+    )[20:24])
+
+## The Raspberry PI's IP address
+#  @todo what if the ip address changes at run time?
+#  @todo is it possible the user might not want to use this interface?
+IP_address = get_ip_address('wlan0')
 
 ## The serialdevice to use for communicating with the alamode (e.g. /dev/ttyS0)
 serial_device = None
@@ -109,6 +131,7 @@ def read_config():
         logger.info("x10_light_code from config is %r" %x10_light_code)
         logger.info("lights_on_times from config is %r" %lights_on_times)
         logger.info("lights_off_times from config is %r" %lights_off_times)
+        logger.info("ip address computed dynamically is %r" %IP_address)
 
 
     except Exception as e:
