@@ -50,7 +50,7 @@
 #    blocks, waiting on JSON-formatted configuration data for the remainder of the
 #    hardware ::setup
 #  * The Alamode then enters a ::loop where it periodically:
-#      * updates the LCD with the current time and sensor measurements is ::display
+#      * updates the LCD with the current time and sensor measurements in ::loop
 #      * sends the Raspberry Pi JSON-formatted sensor measurements and logs
 #
 #  @subsection Pi The Raspberry Pi
