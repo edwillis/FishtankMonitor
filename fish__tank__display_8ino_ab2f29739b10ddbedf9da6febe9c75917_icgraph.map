@@ -1,0 +1,5 @@
+<map id="displayTime" name="displayTime">
+<area shape="rect" id="node3" href="$fish__tank__display_8ino.html#a0e13ec210d5e918bfee6ba89b69d4ee8" title="displaySensorDataAndTime" alt="" coords="147,5,331,35"/>
+<area shape="rect" id="node7" href="$fish__tank__display_8ino.html#ab75480f888629dada48c3f70c0d36cfc" title="displayIpAndTime" alt="" coords="176,59,301,88"/>
+<area shape="rect" id="node5" href="$fish__tank__display_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="loop" alt="" coords="380,32,425,61"/>
+</map>
