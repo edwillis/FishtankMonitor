@@ -123,12 +123,71 @@ The Raspberry Pi</h2>
 <li>It creates the notifiers used to publish emailed reports and warnings via <a class="el" href="namespacenotifications.html#a9243897dad141dfaa0ef7a19c4ae4dba" title="Lazy instantiator for the global list of functors.">notifications::get_notifiers</a></li>
 <li>It creates the <a class="el" href="classserial__monitor_1_1SerialMonitor.html" title="The SerialMonitor manages JSON encoded communications with the alamode.">serial_monitor::SerialMonitor</a> and immediately uses it to send the alamode configuration data</li>
 <li>It creates the <a class="el" href="classscheduler_1_1LightScheduler.html" title="The LightScheduler controls the fishtank lights.">scheduler::LightScheduler</a> and starts it to manage the lights</li>
-<li>Thereafter, it enters a loop of writing measurement data to the sqlite database, triggering the notifiers and detecting and recovering from certain errors </li>
+<li>Thereafter, it enters a loop of writing measurement data to the sqlite database, triggering the notifiers and detecting and recovering from certain errors</li>
 </ul>
+<h2><a class="anchor" id="Acknowledgements"></a>
+Acknowledgements</h2>
+<p>This software has benefitted from the work of many other open source developers and would have been prohibitively difficult to produce without these other contributions. The table below shows these other packacges and where to find out more about them. I'd also like to express my thanks for the Raspberry Pi, Arduino and Python development communities both in the high quality software they produce and for the wealth of knowledge they share on the Internet.</p>
+<h3><a class="anchor" id="Python"></a>
+Python</h3>
+<table class="doxtable">
+<tr>
+<th>Package </th><th>Where to Find Out More About It</th></tr>
+<tr>
+<td>python </td><td><a href="https://www.python.org/">https://www.python.org/</a> </td></tr>
+<tr>
+<td>schedule </td><td><a href="https://pypi.python.org/pypi/schedule">https://pypi.python.org/pypi/schedule</a> </td></tr>
+<tr>
+<td>pygal </td><td><a href="http://pygal.org/">http://pygal.org/</a> </td></tr>
+<tr>
+<td>virtualenv </td><td><a href="https://pypi.python.org/pypi/virtualenv">https://pypi.python.org/pypi/virtualenv</a> </td></tr>
+<tr>
+<td>pip </td><td><a href="https://pypi.python.org/pypi/pip">https://pypi.python.org/pypi/pip</a> </td></tr>
+</table>
+<h3><a class="anchor" id="Arduino"></a>
+Arduino</h3>
+<table class="doxtable">
+<tr>
+<th>Package </th><th>Where to Find Out More About It</th></tr>
+<tr>
+<td>Wire </td><td><a href="http://arduino.cc/en/reference/wire">http://arduino.cc/en/reference/wire</a> </td></tr>
+<tr>
+<td>Time </td><td><a href="http://playground.arduino.cc/code/time">http://playground.arduino.cc/code/time</a> </td></tr>
+<tr>
+<td>DS1307RTC </td><td><a href="http://www.pjrc.com/teensy/td_libs_DS1307RTC.html">http://www.pjrc.com/teensy/td_libs_DS1307RTC.html</a> </td></tr>
+<tr>
+<td>Timezone </td><td><a href="https://github.com/JChristensen/Timezone">https://github.com/JChristensen/Timezone</a> </td></tr>
+<tr>
+<td>LiquidCrystal </td><td><a href="http://arduino.cc/en/Reference/LiquidCrystal">http://arduino.cc/en/Reference/LiquidCrystal</a> </td></tr>
+<tr>
+<td>LCDKeypad </td><td><a href="http://playground.arduino.cc/Code/LCDkeypad">http://playground.arduino.cc/Code/LCDkeypad</a> </td></tr>
+<tr>
+<td>ArduinoJson </td><td><a href="https://github.com/bblanchon/ArduinoJson">https://github.com/bblanchon/ArduinoJson</a> </td></tr>
+<tr>
+<td>arduino ide </td><td><a href="http://arduino.cc/en/main/software">http://arduino.cc/en/main/software</a> </td></tr>
+<tr>
+<td>ino </td><td><a href="http://inotool.org/">http://inotool.org/</a> </td></tr>
+</table>
+<h3><a class="anchor" id="General"></a>
+General</h3>
+<table class="doxtable">
+<tr>
+<th>Package </th><th>Where to Find Out More About It</th></tr>
+<tr>
+<td>doxygen </td><td><a href="http://www.stack.nl/~dimitri/doxygen/">http://www.stack.nl/~dimitri/doxygen/</a> </td></tr>
+<tr>
+<td>graphviz </td><td><a href="http://www.graphviz.org/">http://www.graphviz.org/</a> </td></tr>
+<tr>
+<td>git </td><td><a href="http://git-scm.com/">http://git-scm.com/</a> </td></tr>
+<tr>
+<td>github </td><td><a href="http://github.com">http://github.com</a> </td></tr>
+<tr>
+<td>github pages </td><td><a href="https://pages.github.com/">https://pages.github.com/</a> </td></tr>
+</table>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Mar 23 2015 22:59:23 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Mar 28 2015 12:15:14 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>
