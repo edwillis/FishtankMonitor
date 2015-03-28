@@ -62,6 +62,46 @@
 #  * It creates the ::scheduler::LightScheduler and starts it to manage the lights
 #  * Thereafter, it enters a loop of writing measurement data to the sqlite database,
 #    triggering the notifiers and detecting and recovering from certain errors
+#
+#  @subsection Acknowledgements
+#  This software has benefitted from the work of many other open source developers and
+#  would have been prohibitively difficult to produce without these other contributions.
+#  The table below shows these other packacges and where to find out more about them.
+#  I'd also like to express my thanks for the Raspberry Pi, Arduino and Python development
+#  communities both in the high quality software they produce and for the wealth of
+#  knowledge they share on the Internet.
+#
+#  @subsubsection Python
+#
+#  Package          | Where to Find Out More About It
+#  ---------------- | -----------------------------------------------------------------
+#  python           | https://www.python.org/
+#  schedule         | https://pypi.python.org/pypi/schedule
+#  pygal            | http://pygal.org/
+#  virtualenv       | https://pypi.python.org/pypi/virtualenv
+#  pip              | https://pypi.python.org/pypi/pip
+#
+#  @subsubsection Arduino
+#  Package          | Where to Find Out More About It
+#  ---------------- | -----------------------------------------------------------------
+#  Wire             |  http://arduino.cc/en/reference/wire
+#  Time             |  http://playground.arduino.cc/code/time
+#  DS1307RTC        |  http://www.pjrc.com/teensy/td_libs_DS1307RTC.html
+#  Timezone         |  https://github.com/JChristensen/Timezone
+#  LiquidCrystal    |  http://arduino.cc/en/Reference/LiquidCrystal
+#  LCDKeypad        |  http://playground.arduino.cc/Code/LCDkeypad
+#  ArduinoJson      |  https://github.com/bblanchon/ArduinoJson
+#  arduino ide      |  http://arduino.cc/en/main/software
+#  ino              |  http://inotool.org/
+#
+#  @subsubsection General
+#  Package          | Where to Find Out More About It
+#  ---------------- | -----------------------------------------------------------------
+#  doxygen          |  http://www.stack.nl/~dimitri/doxygen/
+#  graphviz         |  http://www.graphviz.org/
+#  git              |  http://git-scm.com/
+#  github           |  http://github.com
+#  github pages     |  https://pages.github.com/
 
 import time
 import sqlite3
