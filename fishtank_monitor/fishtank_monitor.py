@@ -102,6 +102,7 @@
 #  git              |  http://git-scm.com/
 #  github           |  http://github.com
 #  github pages     |  https://pages.github.com/
+#  raspbian         |  http://www.raspbian.org/
 
 import time
 import sqlite3
