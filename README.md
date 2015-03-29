@@ -11,6 +11,7 @@ Built on open-source foundations, the Alamode and Raspberry Pi based Fishtank Mo
 * Email reports showing recent sensor measurements (see below for an example)
 * Control the tank lighting on a user-specified schedule
 * Email when the PH sensor requires calibration
-![Example chart](/../master/fishtank_monitor/chart_example.jpg?raw=true "Example Chart")
 
-This project has behefitted greatly from the efforts of the developers of the projects on which it depends.  See ![doxygen output](http://edwillis.github.io/FishtankMonitor/index.html "here") for a list of these projects.  
+![Example chart](/../master/fishtank_monitor/chart_example.svg?raw=true "Example Chart")
+
+This project has behefitted greatly from the efforts of the developers of the projects on which it depends.  See [doxygen output](http://edwillis.github.io/FishtankMonitor/index.html "here") for a list of these projects.  
