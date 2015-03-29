@@ -125,7 +125,7 @@ class NotifyInformationalReports(NotifierBase):
                 chart.add('Temperature', temp_pairs)
                 logger.debug("Temperature:  %r" %temp_pairs)
                 chart.x_label_format = "%Y-%m-%d"
-                chart.render_to_file('chart.svg')
+                chart.render_to_png('chart.png')
                 msg = MIMEMultipart()
                 txt = 'Daily measurements from your fishtank monitor.\n\n\
 The most recent temperature measurments are:  %r\n\
