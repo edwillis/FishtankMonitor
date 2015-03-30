@@ -14,7 +14,9 @@
 
 import smtplib
 import pygal
+import pygal.style
 import time
+import datetime
 from email.mime.text import MIMEText
 from email.mime.image import MIMEImage
 from email.mime.multipart import MIMEMultipart
@@ -112,12 +114,16 @@ class NotifyInformationalReports(NotifierBase):
             logger.info("setting time_last_informed to %r" %self.time_last_informed)
             if config.send_reports_interval > 0:
                 logger.info("sending daily report (time_last_informed is %r)"%self.time_last_informed)
-                chart = pygal.DateY(title='Fishtank PH and Temperature over time', x_label_rotation=20)
+                style = pygal.style.Style(font_family='Arial')
+                chart = pygal.DateY(title='Fishtank PH and Temperature over Time', style=style, x_label_rotation=20)
                 values = conn.execute('select ph, temp, time from measurements order by time desc limit 1000').fetchall()
                 ph_values = [ i[0] for i in values ]
                 temp_values = [ i[1] for i in values ]
                 time_values = [ i[2] for i in values ]
                 timespan = time_values[0] - time_values[-1]
+                x_label_intervals = 10
+                x_label_span = timespan/x_label_intervals
+                x_labels = [ datetime.datetime.fromtimestamp(time_values[0] + i * x_label_span) for i in range(x_label_intervals) ]
                 ph_pairs = list(zip(time_values, ph_values))
                 temp_pairs = list(zip(time_values, temp_values))
                 chart.add('PH', ph_pairs)
@@ -125,6 +131,7 @@ class NotifyInformationalReports(NotifierBase):
                 chart.add('Temperature', temp_pairs)
                 logger.debug("Temperature:  %r" %temp_pairs)
                 chart.x_label_format = "%Y-%m-%d"
+                chart.x_labels = x_labels
                 chart.render_to_png('chart.png')
                 msg = MIMEMultipart()
                 txt = 'Daily measurements from your fishtank monitor.\n\n\
@@ -136,8 +143,8 @@ The most recent ph measurements are:  %r\n'\
                 msg['Subject'] = 'Fishtank status'
                 msg['From'] = config.email_from_address
                 msg['To'] = config.email_to_address
-                with open('chart.svg', 'rb') as f:
-                    msg.attach(MIMEImage(f.read(), name='chart.svg', _subtype="svg"))
+                with open('chart.png', 'rb') as f:
+                    msg.attach(MIMEImage(f.read(), name='chart.png', _subtype="png"))
                 self._send_email(msg)
 
 ## Send the user reminder emails when their PH monitor is due for calibration
