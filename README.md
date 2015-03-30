@@ -14,4 +14,4 @@ Built on open-source foundations, the Alamode and Raspberry Pi based Fishtank Mo
 
 ![Example chart](/../master/fishtank_monitor/chart_example.png?raw=true "Example Chart")
 
-This project has behefitted greatly from the efforts of the developers of the projects on which it depends.  See [here](http://edwillis.github.io/FishtankMonitor/index.html) for a list of these projects.  
+This project has benefitted greatly from the efforts of the developers of the projects on which it depends.  See [here](http://edwillis.github.io/FishtankMonitor/index.html) for a list of these projects.  
