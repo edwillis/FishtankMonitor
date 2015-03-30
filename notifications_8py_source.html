@@ -104,165 +104,172 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">import</span> smtplib</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">import</span> pygal</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">import</span> time</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">from</span> email.mime.text <span class="keyword">import</span> MIMEText</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">from</span> email.mime.image <span class="keyword">import</span> MIMEImage</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">from</span> email.mime.multipart <span class="keyword">import</span> MIMEMultipart</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">from</span> log <span class="keyword">import</span> get_logger</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">import</span> config</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="code" href="namespacenotifications.html#a7df62413788561d0b25940ced892ef76">   24</a></span>&#160;logger = <a class="code" href="namespacelog.html#ab223427c9823034c3457c827cebdd19e" title="Get a logger object specific to the calling module.">get_logger</a>(__name__)</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">import</span> pygal.style</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">import</span> time</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">import</span> datetime</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">from</span> email.mime.text <span class="keyword">import</span> MIMEText</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">from</span> email.mime.image <span class="keyword">import</span> MIMEImage</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">from</span> email.mime.multipart <span class="keyword">import</span> MIMEMultipart</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">from</span> log <span class="keyword">import</span> get_logger</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">import</span> config</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">## The notification base class</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">#</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">#  Defines email helper methods and a common template method functor</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">#  interface for callers to trigger evaluation of the notification</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">#  schedule and emailed communications should the conditions meet the</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">#  notifier-specific criteria.</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="code" href="classnotifications_1_1NotifierBase.html">   32</a></span>&#160;<span class="keyword">class </span><a class="code" href="classnotifications_1_1NotifierBase.html" title="The notification base class.">NotifierBase</a>:</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="comment">## The functor method to be provided by derived classes</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="comment">#</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="comment">#  @param conn the database connection to use if needed</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="comment">#  @param monitor the serial monitor from which to see the current</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="comment">#         temperature and ph</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="code" href="classnotifications_1_1NotifierBase.html#adaefbe5fdb0c93520680d8f0f2cf5f98">   39</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classnotifications_1_1NotifierBase.html#adaefbe5fdb0c93520680d8f0f2cf5f98" title="The functor method to be provided by derived classes.">__call__</a>(self, conn, monitor):</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordflow">pass</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="comment">## Email sending helper method</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="comment">#</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="comment">#  Using the configuration specified in the config file, open a</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="comment">#  connection to the user&#39;s mail server and send the argument email</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="comment">#  using the user&#39;s credentials.</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="comment">#</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="comment"># @param [in] email the MIMETest object to send</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    @staticmethod</div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="code" href="classnotifications_1_1NotifierBase.html#a6aef854558614bbfdc75800040060057">   50</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classnotifications_1_1NotifierBase.html#a6aef854558614bbfdc75800040060057" title="Email sending helper method.">_send_email</a>(email):</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        s = smtplib.SMTP(config.SMTP_host, config.SMTP_port)</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        s.ehlo()</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordflow">if</span> config.SMTP_use_ttls:</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            s.starttls()</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        s.ehlo()</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        s.login(config.SMTP_user, config.SMTP_password)</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        logger.info(<span class="stringliteral">&quot;sending emails&quot;</span>)</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        s.sendmail(config.email_to_address, [config.email_to_address], email.as_string())</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        s.quit()</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">## Send emails when bad temperature or ph readings are seen</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">#</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment">#  Examine the current ph and temperature values and warn the user by email if</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment">#  they exceed limits</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno"><a class="code" href="classnotifications_1_1NotifyWarnings.html">   65</a></span>&#160;<span class="keyword">class </span><a class="code" href="classnotifications_1_1NotifyWarnings.html" title="Send emails when bad temperature or ph readings are seen.">NotifyWarnings</a>(<a class="code" href="classnotifications_1_1NotifierBase.html" title="The notification base class.">NotifierBase</a>):</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="comment">## The last time we warned the user by email</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno"><a class="code" href="classnotifications_1_1NotifyWarnings.html#adb3ff71032d23589683f0c981a4dfb95">   68</a></span>&#160;    time_last_warned = 0</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
-<div class="line"><a name="l00070"></a><span class="lineno"><a class="code" href="classnotifications_1_1NotifyWarnings.html#a50cdb1c7f197591008a55f2d2d89fe1c">   70</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classnotifications_1_1NotifyWarnings.html#a50cdb1c7f197591008a55f2d2d89fe1c" title="The functor method to be provided by derived classes.">__call__</a>(self, conn, monitor):</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        ph_bad = <span class="keyword">False</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        temp_bad = <span class="keyword">False</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        msg = <span class="stringliteral">&#39;&#39;</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordflow">if</span> monitor.ph <span class="keywordflow">and</span> (monitor.ph &lt; 6.0 <span class="keywordflow">or</span> monitor.ph &gt; 8.0):</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            logger.warning(<span class="stringliteral">&quot;ph is bad: %r&quot;</span> %monitor.ph)</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            ph_bad = <span class="keyword">True</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordflow">if</span> monitor.temperature <span class="keywordflow">and</span> (monitor.temperature &lt; 20 <span class="keywordflow">or</span> monitor.temperature &gt; 28):</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            logger.warning(<span class="stringliteral">&quot;temperature is bad: %r&quot;</span> %monitor.temperature)</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            temp_bad = <span class="keyword">True</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordflow">if</span> ph_bad:</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            msg += <span class="stringliteral">&#39;Fishtank PH level is unsafe:  %r\n&#39;</span>%monitor.ph</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            logger.warn(<span class="stringliteral">&quot;unsafe ph, will email&quot;</span>)</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordflow">if</span> temp_bad:</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            msg += <span class="stringliteral">&#39;Fishtank temperature is unsafe:  %r\n&#39;</span>%monitor.temperature</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            logger.warn(<span class="stringliteral">&quot;unsafe temperature, will email&quot;</span>)</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keywordflow">if</span> msg <span class="keywordflow">and</span> time.time() - self.<a class="code" href="classnotifications_1_1NotifyWarnings.html#adb3ff71032d23589683f0c981a4dfb95" title="The last time we warned the user by email.">time_last_warned</a> &gt; config.send_warnings_interval:</div>
-<div class="line"><a name="l00087"></a><span class="lineno"><a class="code" href="classnotifications_1_1NotifyWarnings.html#a5141e226bff57c6f9a10726a592578e8">   87</a></span>&#160;            self.<a class="code" href="classnotifications_1_1NotifyWarnings.html#adb3ff71032d23589683f0c981a4dfb95" title="The last time we warned the user by email.">time_last_warned</a> = time.time()</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            logger.info(<span class="stringliteral">&quot;setting time_last_warned to %r&quot;</span> %self.<a class="code" href="classnotifications_1_1NotifyWarnings.html#adb3ff71032d23589683f0c981a4dfb95" title="The last time we warned the user by email.">time_last_warned</a>)</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            msg += <span class="stringliteral">&quot;\nWarning emailed notifications will continue every %r hours until the readings fall within expected ranges.&quot;</span>\</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                    %(config.send_warnings_interval/(60*60))</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            <span class="keywordflow">if</span> config.send_warnings_interval &gt; 0:</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                logger.info(<span class="stringliteral">&quot;sending warning email&quot;</span>)</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                msg = MIMEText(msg)</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                msg[<span class="stringliteral">&#39;Subject&#39;</span>] = <span class="stringliteral">&#39;Fishtank monitor warning&#39;</span></div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                msg[<span class="stringliteral">&#39;From&#39;</span>] = config.email_from_address</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                msg[<span class="stringliteral">&#39;To&#39;</span>] = config.email_to_address</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                self.<a class="code" href="classnotifications_1_1NotifierBase.html#a6aef854558614bbfdc75800040060057" title="Email sending helper method.">_send_email</a>(msg)</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="comment">## Send the user periodic informational reports (with graphs)</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="comment">#</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="comment">#  Determine how long it&#39;s been since we sent the user an informational</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="comment">#  report if one is due.  Include a graphic plotting ph and temperature</span></div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="comment">#  values over time.</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno"><a class="code" href="classnotifications_1_1NotifyInformationalReports.html">  104</a></span>&#160;<span class="keyword">class </span><a class="code" href="classnotifications_1_1NotifyInformationalReports.html" title="Send the user periodic informational reports (with graphs)">NotifyInformationalReports</a>(<a class="code" href="classnotifications_1_1NotifierBase.html" title="The notification base class.">NotifierBase</a>):</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
-<div class="line"><a name="l00106"></a><span class="lineno"><a class="code" href="classnotifications_1_1NotifyInformationalReports.html#ab5acf88553880676134d376f29f8f172">  106</a></span>&#160;    time_last_informed = 0</div>
-<div class="line"><a name="l00107"></a><span class="lineno"><a class="code" href="classnotifications_1_1NotifyInformationalReports.html#a3a2f4d957efe31639e6b607197f04b11">  107</a></span>&#160;    number_of_recent_measurements_to_include = 5</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
-<div class="line"><a name="l00109"></a><span class="lineno"><a class="code" href="classnotifications_1_1NotifyInformationalReports.html#a5f1830c5657d9776cd9c00ddb003ba96">  109</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classnotifications_1_1NotifyInformationalReports.html#a5f1830c5657d9776cd9c00ddb003ba96" title="The functor method to be provided by derived classes.">__call__</a>(self, conn, monitor):</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keywordflow">if</span> time.time() - self.<a class="code" href="classnotifications_1_1NotifyInformationalReports.html#ab5acf88553880676134d376f29f8f172">time_last_informed</a> &gt; config.send_reports_interval:</div>
-<div class="line"><a name="l00111"></a><span class="lineno"><a class="code" href="classnotifications_1_1NotifyInformationalReports.html#af745f8e26a635455a3efdef6a7c33c79">  111</a></span>&#160;            self.<a class="code" href="classnotifications_1_1NotifyInformationalReports.html#ab5acf88553880676134d376f29f8f172">time_last_informed</a> = time.time()</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;            logger.info(<span class="stringliteral">&quot;setting time_last_informed to %r&quot;</span> %self.<a class="code" href="classnotifications_1_1NotifyInformationalReports.html#ab5acf88553880676134d376f29f8f172">time_last_informed</a>)</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;            <span class="keywordflow">if</span> config.send_reports_interval &gt; 0:</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                logger.info(<span class="stringliteral">&quot;sending daily report (time_last_informed is %r)&quot;</span>%self.<a class="code" href="classnotifications_1_1NotifyInformationalReports.html#ab5acf88553880676134d376f29f8f172">time_last_informed</a>)</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                chart = pygal.DateY(title=<span class="stringliteral">&#39;Fishtank PH and Temperature over time&#39;</span>, x_label_rotation=20)</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                values = conn.execute(<span class="stringliteral">&#39;select ph, temp, time from measurements order by time desc limit 1000&#39;</span>).fetchall()</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                ph_values = [ i[0] <span class="keywordflow">for</span> i <span class="keywordflow">in</span> values ]</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                temp_values = [ i[1] <span class="keywordflow">for</span> i <span class="keywordflow">in</span> values ]</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                time_values = [ i[2] <span class="keywordflow">for</span> i <span class="keywordflow">in</span> values ]</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                timespan = time_values[0] - time_values[-1]</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                ph_pairs = list(zip(time_values, ph_values))</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                temp_pairs = list(zip(time_values, temp_values))</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                chart.add(<span class="stringliteral">&#39;PH&#39;</span>, ph_pairs)</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                logger.debug(<span class="stringliteral">&quot;PH:  %r&quot;</span> %ph_pairs)</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                chart.add(<span class="stringliteral">&#39;Temperature&#39;</span>, temp_pairs)</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                logger.debug(<span class="stringliteral">&quot;Temperature:  %r&quot;</span> %temp_pairs)</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                chart.x_label_format = <span class="stringliteral">&quot;%Y-%m-%d&quot;</span></div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                chart.render_to_file(<span class="stringliteral">&#39;chart.svg&#39;</span>)</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                msg = MIMEMultipart()</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                txt = <span class="stringliteral">&#39;Daily measurements from your fishtank monitor.\n\n\</span></div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="stringliteral">The most recent temperature measurments are:  %r\n\</span></div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="stringliteral">The most recent ph measurements are:  %r\n&#39;</span>\</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                       %(temp_values[:self.<a class="code" href="classnotifications_1_1NotifyInformationalReports.html#a3a2f4d957efe31639e6b607197f04b11">number_of_recent_measurements_to_include</a>],\</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;                         ph_values[:self.<a class="code" href="classnotifications_1_1NotifyInformationalReports.html#a3a2f4d957efe31639e6b607197f04b11">number_of_recent_measurements_to_include</a>])</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;                msg.attach(MIMEText(txt))</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;                msg[<span class="stringliteral">&#39;Subject&#39;</span>] = <span class="stringliteral">&#39;Fishtank status&#39;</span></div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;                msg[<span class="stringliteral">&#39;From&#39;</span>] = config.email_from_address</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;                msg[<span class="stringliteral">&#39;To&#39;</span>] = config.email_to_address</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;                with open(<span class="stringliteral">&#39;chart.svg&#39;</span>, <span class="stringliteral">&#39;rb&#39;</span>) <span class="keyword">as</span> f:</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;                    msg.attach(MIMEImage(f.read(), name=<span class="stringliteral">&#39;chart.svg&#39;</span>, _subtype=<span class="stringliteral">&quot;svg&quot;</span>))</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;                self.<a class="code" href="classnotifications_1_1NotifierBase.html#a6aef854558614bbfdc75800040060057" title="Email sending helper method.">_send_email</a>(msg)</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="comment">## Send the user reminder emails when their PH monitor is due for calibration</span></div>
-<div class="line"><a name="l00144"></a><span class="lineno"><a class="code" href="classnotifications_1_1NotifyCalibration.html">  144</a></span>&#160;<span class="keyword">class </span><a class="code" href="classnotifications_1_1NotifyCalibration.html" title="Send the user reminder emails when their PH monitor is due for calibration.">NotifyCalibration</a>(<a class="code" href="classnotifications_1_1NotifierBase.html" title="The notification base class.">NotifierBase</a>):</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;</div>
-<div class="line"><a name="l00146"></a><span class="lineno"><a class="code" href="classnotifications_1_1NotifyCalibration.html#a99263c4dbce930d87f952a4fad01c51f">  146</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classnotifications_1_1NotifyCalibration.html#a99263c4dbce930d87f952a4fad01c51f" title="The functor method to be provided by derived classes.">__call__</a>(self, conn, monitor):</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        now = time.time()</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        logger.debug(<span class="stringliteral">&quot;NotifyCalibration about to check if it&#39;s time&quot;</span>)</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        <span class="keywordflow">if</span> (now - config.last_calibration)/(30*24*60*60) &gt; config.months_between_calibrations:</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;            logger.info(<span class="stringliteral">&quot;calibration period expired - setting last calibration  to %r&quot;</span> %now)</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;            config.last_calibration = now</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;            <span class="keywordflow">if</span> config.months_between_calibrations &gt; 0:</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;                logger.info(<span class="stringliteral">&quot;calibration noifications are enabled, writing last cal to db&quot;</span>)</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;                conn.execute(<span class="stringliteral">&#39;insert into settings values (%r)&#39;</span> %config.last_calibration)</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;                conn.commit()</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;                logger.info(<span class="stringliteral">&quot;it&#39;s time to calibrate, sending email&quot;</span>)</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;                msg = MIMEText(msg)</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;                msg[<span class="stringliteral">&#39;Subject&#39;</span>] = <span class="stringliteral">&#39;Fishtank ph monitor calibration is due&#39;</span></div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;                msg[<span class="stringliteral">&#39;From&#39;</span>] = config.email_from_address</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;                msg[<span class="stringliteral">&#39;To&#39;</span>] = config.email_to_address</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;                self.<a class="code" href="classnotifications_1_1NotifierBase.html#a6aef854558614bbfdc75800040060057" title="Email sending helper method.">_send_email</a>(msg)</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="comment">## Global list of notitification functors</span></div>
-<div class="line"><a name="l00164"></a><span class="lineno"><a class="code" href="namespacenotifications.html#a5b603cc1b53adcedbe5a8cd95193bd8f">  164</a></span>&#160;_notifiers = <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="comment">## Lazy instantiator for the global list of functors</span></div>
-<div class="line"><a name="l00167"></a><span class="lineno"><a class="code" href="namespacenotifications.html#a9243897dad141dfaa0ef7a19c4ae4dba">  167</a></span>&#160;<span class="keyword">def </span><a class="code" href="namespacenotifications.html#a9243897dad141dfaa0ef7a19c4ae4dba" title="Lazy instantiator for the global list of functors.">get_notifiers</a>():</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="keyword">global</span> _notifiers</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <span class="keywordflow">if</span> _notifiers <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        _notifiers = [<a class="code" href="classnotifications_1_1NotifyCalibration.html" title="Send the user reminder emails when their PH monitor is due for calibration.">NotifyCalibration</a>(), <a class="code" href="classnotifications_1_1NotifyInformationalReports.html" title="Send the user periodic informational reports (with graphs)">NotifyInformationalReports</a>(), <a class="code" href="classnotifications_1_1NotifyWarnings.html" title="Send emails when bad temperature or ph readings are seen.">NotifyWarnings</a>()]</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="keywordflow">return</span> _notifiers</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="code" href="namespacenotifications.html#a7df62413788561d0b25940ced892ef76">   26</a></span>&#160;logger = <a class="code" href="namespacelog.html#ab223427c9823034c3457c827cebdd19e" title="Get a logger object specific to the calling module.">get_logger</a>(__name__)</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">## The notification base class</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">#</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">#  Defines email helper methods and a common template method functor</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">#  interface for callers to trigger evaluation of the notification</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">#  schedule and emailed communications should the conditions meet the</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">#  notifier-specific criteria.</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="code" href="classnotifications_1_1NotifierBase.html">   34</a></span>&#160;<span class="keyword">class </span><a class="code" href="classnotifications_1_1NotifierBase.html" title="The notification base class.">NotifierBase</a>:</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="comment">## The functor method to be provided by derived classes</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="comment">#</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="comment">#  @param conn the database connection to use if needed</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="comment">#  @param monitor the serial monitor from which to see the current</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="comment">#         temperature and ph</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="code" href="classnotifications_1_1NotifierBase.html#adaefbe5fdb0c93520680d8f0f2cf5f98">   41</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classnotifications_1_1NotifierBase.html#adaefbe5fdb0c93520680d8f0f2cf5f98" title="The functor method to be provided by derived classes.">__call__</a>(self, conn, monitor):</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordflow">pass</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="comment">## Email sending helper method</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="comment">#</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="comment">#  Using the configuration specified in the config file, open a</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="comment">#  connection to the user&#39;s mail server and send the argument email</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="comment">#  using the user&#39;s credentials.</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="comment">#</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="comment"># @param [in] email the MIMETest object to send</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    @staticmethod</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="code" href="classnotifications_1_1NotifierBase.html#a6aef854558614bbfdc75800040060057">   52</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classnotifications_1_1NotifierBase.html#a6aef854558614bbfdc75800040060057" title="Email sending helper method.">_send_email</a>(email):</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        s = smtplib.SMTP(config.SMTP_host, config.SMTP_port)</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        s.ehlo()</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordflow">if</span> config.SMTP_use_ttls:</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            s.starttls()</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        s.ehlo()</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        s.login(config.SMTP_user, config.SMTP_password)</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        logger.info(<span class="stringliteral">&quot;sending emails&quot;</span>)</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        s.sendmail(config.email_to_address, [config.email_to_address], email.as_string())</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        s.quit()</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment">## Send emails when bad temperature or ph readings are seen</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment">#</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment">#  Examine the current ph and temperature values and warn the user by email if</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">#  they exceed limits</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="code" href="classnotifications_1_1NotifyWarnings.html">   67</a></span>&#160;<span class="keyword">class </span><a class="code" href="classnotifications_1_1NotifyWarnings.html" title="Send emails when bad temperature or ph readings are seen.">NotifyWarnings</a>(<a class="code" href="classnotifications_1_1NotifierBase.html" title="The notification base class.">NotifierBase</a>):</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="comment">## The last time we warned the user by email</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="code" href="classnotifications_1_1NotifyWarnings.html#adb3ff71032d23589683f0c981a4dfb95">   70</a></span>&#160;    time_last_warned = 0</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="code" href="classnotifications_1_1NotifyWarnings.html#a50cdb1c7f197591008a55f2d2d89fe1c">   72</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classnotifications_1_1NotifyWarnings.html#a50cdb1c7f197591008a55f2d2d89fe1c" title="The functor method to be provided by derived classes.">__call__</a>(self, conn, monitor):</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        ph_bad = <span class="keyword">False</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        temp_bad = <span class="keyword">False</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        msg = <span class="stringliteral">&#39;&#39;</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordflow">if</span> monitor.ph <span class="keywordflow">and</span> (monitor.ph &lt; 6.0 <span class="keywordflow">or</span> monitor.ph &gt; 8.0):</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            logger.warning(<span class="stringliteral">&quot;ph is bad: %r&quot;</span> %monitor.ph)</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            ph_bad = <span class="keyword">True</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordflow">if</span> monitor.temperature <span class="keywordflow">and</span> (monitor.temperature &lt; 20 <span class="keywordflow">or</span> monitor.temperature &gt; 28):</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            logger.warning(<span class="stringliteral">&quot;temperature is bad: %r&quot;</span> %monitor.temperature)</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            temp_bad = <span class="keyword">True</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordflow">if</span> ph_bad:</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            msg += <span class="stringliteral">&#39;Fishtank PH level is unsafe:  %r\n&#39;</span>%monitor.ph</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            logger.warn(<span class="stringliteral">&quot;unsafe ph, will email&quot;</span>)</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="keywordflow">if</span> temp_bad:</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            msg += <span class="stringliteral">&#39;Fishtank temperature is unsafe:  %r\n&#39;</span>%monitor.temperature</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            logger.warn(<span class="stringliteral">&quot;unsafe temperature, will email&quot;</span>)</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keywordflow">if</span> msg <span class="keywordflow">and</span> time.time() - self.<a class="code" href="classnotifications_1_1NotifyWarnings.html#adb3ff71032d23589683f0c981a4dfb95" title="The last time we warned the user by email.">time_last_warned</a> &gt; config.send_warnings_interval:</div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="code" href="classnotifications_1_1NotifyWarnings.html#a5141e226bff57c6f9a10726a592578e8">   89</a></span>&#160;            self.<a class="code" href="classnotifications_1_1NotifyWarnings.html#adb3ff71032d23589683f0c981a4dfb95" title="The last time we warned the user by email.">time_last_warned</a> = time.time()</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            logger.info(<span class="stringliteral">&quot;setting time_last_warned to %r&quot;</span> %self.<a class="code" href="classnotifications_1_1NotifyWarnings.html#adb3ff71032d23589683f0c981a4dfb95" title="The last time we warned the user by email.">time_last_warned</a>)</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            msg += <span class="stringliteral">&quot;\nWarning emailed notifications will continue every %r hours until the readings fall within expected ranges.&quot;</span>\</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                    %(config.send_warnings_interval/(60*60))</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            <span class="keywordflow">if</span> config.send_warnings_interval &gt; 0:</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                logger.info(<span class="stringliteral">&quot;sending warning email&quot;</span>)</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                msg = MIMEText(msg)</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                msg[<span class="stringliteral">&#39;Subject&#39;</span>] = <span class="stringliteral">&#39;Fishtank monitor warning&#39;</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                msg[<span class="stringliteral">&#39;From&#39;</span>] = config.email_from_address</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                msg[<span class="stringliteral">&#39;To&#39;</span>] = config.email_to_address</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                self.<a class="code" href="classnotifications_1_1NotifierBase.html#a6aef854558614bbfdc75800040060057" title="Email sending helper method.">_send_email</a>(msg)</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="comment">## Send the user periodic informational reports (with graphs)</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="comment">#</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="comment">#  Determine how long it&#39;s been since we sent the user an informational</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="comment">#  report if one is due.  Include a graphic plotting ph and temperature</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="comment">#  values over time.</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno"><a class="code" href="classnotifications_1_1NotifyInformationalReports.html">  106</a></span>&#160;<span class="keyword">class </span><a class="code" href="classnotifications_1_1NotifyInformationalReports.html" title="Send the user periodic informational reports (with graphs)">NotifyInformationalReports</a>(<a class="code" href="classnotifications_1_1NotifierBase.html" title="The notification base class.">NotifierBase</a>):</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
+<div class="line"><a name="l00108"></a><span class="lineno"><a class="code" href="classnotifications_1_1NotifyInformationalReports.html#ab5acf88553880676134d376f29f8f172">  108</a></span>&#160;    time_last_informed = 0</div>
+<div class="line"><a name="l00109"></a><span class="lineno"><a class="code" href="classnotifications_1_1NotifyInformationalReports.html#a3a2f4d957efe31639e6b607197f04b11">  109</a></span>&#160;    number_of_recent_measurements_to_include = 5</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
+<div class="line"><a name="l00111"></a><span class="lineno"><a class="code" href="classnotifications_1_1NotifyInformationalReports.html#a5f1830c5657d9776cd9c00ddb003ba96">  111</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classnotifications_1_1NotifyInformationalReports.html#a5f1830c5657d9776cd9c00ddb003ba96" title="The functor method to be provided by derived classes.">__call__</a>(self, conn, monitor):</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="keywordflow">if</span> time.time() - self.<a class="code" href="classnotifications_1_1NotifyInformationalReports.html#ab5acf88553880676134d376f29f8f172">time_last_informed</a> &gt; config.send_reports_interval:</div>
+<div class="line"><a name="l00113"></a><span class="lineno"><a class="code" href="classnotifications_1_1NotifyInformationalReports.html#af745f8e26a635455a3efdef6a7c33c79">  113</a></span>&#160;            self.<a class="code" href="classnotifications_1_1NotifyInformationalReports.html#ab5acf88553880676134d376f29f8f172">time_last_informed</a> = time.time()</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;            logger.info(<span class="stringliteral">&quot;setting time_last_informed to %r&quot;</span> %self.<a class="code" href="classnotifications_1_1NotifyInformationalReports.html#ab5acf88553880676134d376f29f8f172">time_last_informed</a>)</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            <span class="keywordflow">if</span> config.send_reports_interval &gt; 0:</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                logger.info(<span class="stringliteral">&quot;sending daily report (time_last_informed is %r)&quot;</span>%self.<a class="code" href="classnotifications_1_1NotifyInformationalReports.html#ab5acf88553880676134d376f29f8f172">time_last_informed</a>)</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                style = pygal.style.Style(font_family=<span class="stringliteral">&#39;Arial&#39;</span>)</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                chart = pygal.DateY(title=<span class="stringliteral">&#39;Fishtank PH and Temperature over Time&#39;</span>, style=style, x_label_rotation=20)</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                values = conn.execute(<span class="stringliteral">&#39;select ph, temp, time from measurements order by time desc limit 1000&#39;</span>).fetchall()</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                ph_values = [ i[0] <span class="keywordflow">for</span> i <span class="keywordflow">in</span> values ]</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                temp_values = [ i[1] <span class="keywordflow">for</span> i <span class="keywordflow">in</span> values ]</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                time_values = [ i[2] <span class="keywordflow">for</span> i <span class="keywordflow">in</span> values ]</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                timespan = time_values[0] - time_values[-1]</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                x_label_intervals = 10</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                x_label_span = timespan/x_label_intervals</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                x_labels = [ datetime.datetime.fromtimestamp(time_values[0] + i * x_label_span) <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(x_label_intervals) ]</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                ph_pairs = list(zip(time_values, ph_values))</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                temp_pairs = list(zip(time_values, temp_values))</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                chart.add(<span class="stringliteral">&#39;PH&#39;</span>, ph_pairs)</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                logger.debug(<span class="stringliteral">&quot;PH:  %r&quot;</span> %ph_pairs)</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;                chart.add(<span class="stringliteral">&#39;Temperature&#39;</span>, temp_pairs)</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                logger.debug(<span class="stringliteral">&quot;Temperature:  %r&quot;</span> %temp_pairs)</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                chart.x_label_format = <span class="stringliteral">&quot;%Y-%m-%d&quot;</span></div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;                chart.x_labels = x_labels</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;                chart.render_to_png(<span class="stringliteral">&#39;chart.png&#39;</span>)</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;                msg = MIMEMultipart()</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;                txt = <span class="stringliteral">&#39;Daily measurements from your fishtank monitor.\n\n\</span></div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="stringliteral">The most recent temperature measurments are:  %r\n\</span></div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="stringliteral">The most recent ph measurements are:  %r\n&#39;</span>\</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;                       %(temp_values[:self.<a class="code" href="classnotifications_1_1NotifyInformationalReports.html#a3a2f4d957efe31639e6b607197f04b11">number_of_recent_measurements_to_include</a>],\</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;                         ph_values[:self.<a class="code" href="classnotifications_1_1NotifyInformationalReports.html#a3a2f4d957efe31639e6b607197f04b11">number_of_recent_measurements_to_include</a>])</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;                msg.attach(MIMEText(txt))</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;                msg[<span class="stringliteral">&#39;Subject&#39;</span>] = <span class="stringliteral">&#39;Fishtank status&#39;</span></div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;                msg[<span class="stringliteral">&#39;From&#39;</span>] = config.email_from_address</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;                msg[<span class="stringliteral">&#39;To&#39;</span>] = config.email_to_address</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;                with open(<span class="stringliteral">&#39;chart.png&#39;</span>, <span class="stringliteral">&#39;rb&#39;</span>) <span class="keyword">as</span> f:</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;                    msg.attach(MIMEImage(f.read(), name=<span class="stringliteral">&#39;chart.png&#39;</span>, _subtype=<span class="stringliteral">&quot;png&quot;</span>))</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;                self.<a class="code" href="classnotifications_1_1NotifierBase.html#a6aef854558614bbfdc75800040060057" title="Email sending helper method.">_send_email</a>(msg)</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="comment">## Send the user reminder emails when their PH monitor is due for calibration</span></div>
+<div class="line"><a name="l00151"></a><span class="lineno"><a class="code" href="classnotifications_1_1NotifyCalibration.html">  151</a></span>&#160;<span class="keyword">class </span><a class="code" href="classnotifications_1_1NotifyCalibration.html" title="Send the user reminder emails when their PH monitor is due for calibration.">NotifyCalibration</a>(<a class="code" href="classnotifications_1_1NotifierBase.html" title="The notification base class.">NotifierBase</a>):</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;</div>
+<div class="line"><a name="l00153"></a><span class="lineno"><a class="code" href="classnotifications_1_1NotifyCalibration.html#a99263c4dbce930d87f952a4fad01c51f">  153</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classnotifications_1_1NotifyCalibration.html#a99263c4dbce930d87f952a4fad01c51f" title="The functor method to be provided by derived classes.">__call__</a>(self, conn, monitor):</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        now = time.time()</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        logger.debug(<span class="stringliteral">&quot;NotifyCalibration about to check if it&#39;s time&quot;</span>)</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        <span class="keywordflow">if</span> (now - config.last_calibration)/(30*24*60*60) &gt; config.months_between_calibrations:</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;            logger.info(<span class="stringliteral">&quot;calibration period expired - setting last calibration  to %r&quot;</span> %now)</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;            config.last_calibration = now</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;            <span class="keywordflow">if</span> config.months_between_calibrations &gt; 0:</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;                logger.info(<span class="stringliteral">&quot;calibration noifications are enabled, writing last cal to db&quot;</span>)</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;                conn.execute(<span class="stringliteral">&#39;insert into settings values (%r)&#39;</span> %config.last_calibration)</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;                conn.commit()</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;                logger.info(<span class="stringliteral">&quot;it&#39;s time to calibrate, sending email&quot;</span>)</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;                msg = MIMEText(msg)</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;                msg[<span class="stringliteral">&#39;Subject&#39;</span>] = <span class="stringliteral">&#39;Fishtank ph monitor calibration is due&#39;</span></div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;                msg[<span class="stringliteral">&#39;From&#39;</span>] = config.email_from_address</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;                msg[<span class="stringliteral">&#39;To&#39;</span>] = config.email_to_address</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;                self.<a class="code" href="classnotifications_1_1NotifierBase.html#a6aef854558614bbfdc75800040060057" title="Email sending helper method.">_send_email</a>(msg)</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="comment">## Global list of notitification functors</span></div>
+<div class="line"><a name="l00171"></a><span class="lineno"><a class="code" href="namespacenotifications.html#a5b603cc1b53adcedbe5a8cd95193bd8f">  171</a></span>&#160;_notifiers = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;<span class="comment">## Lazy instantiator for the global list of functors</span></div>
+<div class="line"><a name="l00174"></a><span class="lineno"><a class="code" href="namespacenotifications.html#a9243897dad141dfaa0ef7a19c4ae4dba">  174</a></span>&#160;<span class="keyword">def </span><a class="code" href="namespacenotifications.html#a9243897dad141dfaa0ef7a19c4ae4dba" title="Lazy instantiator for the global list of functors.">get_notifiers</a>():</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <span class="keyword">global</span> _notifiers</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <span class="keywordflow">if</span> _notifiers <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        _notifiers = [<a class="code" href="classnotifications_1_1NotifyCalibration.html" title="Send the user reminder emails when their PH monitor is due for calibration.">NotifyCalibration</a>(), <a class="code" href="classnotifications_1_1NotifyInformationalReports.html" title="Send the user periodic informational reports (with graphs)">NotifyInformationalReports</a>(), <a class="code" href="classnotifications_1_1NotifyWarnings.html" title="Send emails when bad temperature or ph readings are seen.">NotifyWarnings</a>()]</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="keywordflow">return</span> _notifiers</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Mar 28 2015 12:15:12 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Mar 29 2015 20:14:46 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>
