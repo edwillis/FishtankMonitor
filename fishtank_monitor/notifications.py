@@ -156,9 +156,9 @@ class NotifyCalibration(NotifierBase):
         if (now - config.last_calibration)/(30*24*60*60) > config.months_between_calibrations:
             logger.info("calibration period expired - setting last calibration  to %r" %now)
             config.last_calibration = now
-            if config.months_between_calibrations > 0:
+            if config.months_between_calibrations:
                 logger.info("calibration noifications are enabled, writing last cal to db")
-                conn.execute('insert into settings values (%r)' %config.last_calibration)
+                conn.execute('update settings set last_calibration=%r' %config.last_calibration)
                 conn.commit()
                 logger.info("it's time to calibrate, sending email")
                 txt = 'The calibration period for the PH sensor has been exceeded.  Please calibrate \

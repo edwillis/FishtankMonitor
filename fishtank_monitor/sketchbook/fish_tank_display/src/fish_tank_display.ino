@@ -200,7 +200,7 @@ void printTempAndPhToSerial(int temp, int ph)
   Serial.flush();
 }
 
-/** Send a log message to serial so the Raspberry Pi can incude it in its logs
+/** Send a log message to serial so the Raspberry Pi can include it in its logs
  *
  *  @param message the format string for the var_args message followed by
  *  additional parameters
