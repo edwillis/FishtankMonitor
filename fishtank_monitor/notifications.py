@@ -161,7 +161,10 @@ class NotifyCalibration(NotifierBase):
                 conn.execute('insert into settings values (%r)' %config.last_calibration)
                 conn.commit()
                 logger.info("it's time to calibrate, sending email")
-                msg = MIMEText(msg)
+                txt = 'The calibration period for the PH sensor has been exceeded.  Please calibrate \
+the PH sensor at your earliest convenience.  Failure to do so may result in inaccurate PH sensor \
+readings.'
+                msg = MIMEText(txt)
                 msg['Subject'] = 'Fishtank ph monitor calibration is due'
                 msg['From'] = config.email_from_address
                 msg['To'] = config.email_to_address
