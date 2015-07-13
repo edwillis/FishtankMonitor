@@ -102,10 +102,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a6365423408ff3a8185cc602c3ccb0ba6"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classserial__monitor_1_1SerialMonitor.html#a6365423408ff3a8185cc602c3ccb0ba6">__init__</a></td></tr>
 <tr class="memdesc:a6365423408ff3a8185cc602c3ccb0ba6"><td class="mdescLeft">&#160;</td><td class="mdescRight">The constructor creates the <a class="el" href="classserial__monitor_1_1SerialMonitor.html" title="The SerialMonitor manages JSON encoded communications with the alamode.">SerialMonitor</a> thread but does not start it.  <a href="#a6365423408ff3a8185cc602c3ccb0ba6"></a><br/></td></tr>
-<tr class="memitem:aac39079de9cc6929cff173092a5eb2e4"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classserial__monitor_1_1SerialMonitor.html#aac39079de9cc6929cff173092a5eb2e4">write_to_serial</a></td></tr>
-<tr class="memdesc:aac39079de9cc6929cff173092a5eb2e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write a specified JSON object to the serial device.  <a href="#aac39079de9cc6929cff173092a5eb2e4"></a><br/></td></tr>
+<tr class="memitem:a3947d57ebbfae97ac01659150cc48686"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classserial__monitor_1_1SerialMonitor.html#a3947d57ebbfae97ac01659150cc48686">set_alamode_configuration</a></td></tr>
+<tr class="memdesc:a3947d57ebbfae97ac01659150cc48686"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Alamode configuration object.  <a href="#a3947d57ebbfae97ac01659150cc48686"></a><br/></td></tr>
 <tr class="memitem:a9f025f53cab070761ec4712f1207e789"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classserial__monitor_1_1SerialMonitor.html#a9f025f53cab070761ec4712f1207e789">run</a></td></tr>
-<tr class="memdesc:a9f025f53cab070761ec4712f1207e789"><td class="mdescLeft">&#160;</td><td class="mdescRight">Endlessly read from serial and make measurements available to third parties.  <a href="#a9f025f53cab070761ec4712f1207e789"></a><br/></td></tr>
+<tr class="memdesc:a9f025f53cab070761ec4712f1207e789"><td class="mdescLeft">&#160;</td><td class="mdescRight">Manage the Pi to Alamode communications protocol.  <a href="#a9f025f53cab070761ec4712f1207e789"></a><br/></td></tr>
 <tr class="memitem:a657f2f3ef8c37f184d32d5f4d296095d"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classserial__monitor_1_1SerialMonitor.html#a657f2f3ef8c37f184d32d5f4d296095d">create_monitor</a></td></tr>
 <tr class="memdesc:a657f2f3ef8c37f184d32d5f4d296095d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create the <a class="el" href="classserial__monitor_1_1SerialMonitor.html" title="The SerialMonitor manages JSON encoded communications with the alamode.">SerialMonitor</a> object using config data from the configuration file.  <a href="#a657f2f3ef8c37f184d32d5f4d296095d"></a><br/></td></tr>
 <tr class="memitem:ad38ca7fbadb72bc4665a05c07822c16b"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classserial__monitor_1_1SerialMonitor.html#ad38ca7fbadb72bc4665a05c07822c16b">start_monitor</a></td></tr>
@@ -119,17 +119,20 @@ Data Fields</h2></td></tr>
 <tr class="memitem:af44611672652eb03cb7e0264c1764f55"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classserial__monitor_1_1SerialMonitor.html#af44611672652eb03cb7e0264c1764f55">serial_device</a></td></tr>
 <tr class="memitem:ad55ddd61c77a6457de947938da81a4f8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classserial__monitor_1_1SerialMonitor.html#ad55ddd61c77a6457de947938da81a4f8">ard</a></td></tr>
 <tr class="memitem:aa30e103e10bafd1ba8d405c8f605d7db"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classserial__monitor_1_1SerialMonitor.html#aa30e103e10bafd1ba8d405c8f605d7db">daemon</a></td></tr>
+<tr class="memitem:a59b28f4cbac762a44964c167873790c9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classserial__monitor_1_1SerialMonitor.html#a59b28f4cbac762a44964c167873790c9">configuration</a></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
+<tr class="memitem:a27ca8f9930cde251a15aa68d2b522d01"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classserial__monitor_1_1SerialMonitor.html#a27ca8f9930cde251a15aa68d2b522d01">_write_to_serial</a></td></tr>
+<tr class="memdesc:a27ca8f9930cde251a15aa68d2b522d01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write a specified JSON object to the serial device.  <a href="#a27ca8f9930cde251a15aa68d2b522d01"></a><br/></td></tr>
 <tr class="memitem:a7b2c33f7f62c8c61b3b1f6820c9a4738"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classserial__monitor_1_1SerialMonitor.html#a7b2c33f7f62c8c61b3b1f6820c9a4738">_parse_input</a></td></tr>
-<tr class="memdesc:a7b2c33f7f62c8c61b3b1f6820c9a4738"><td class="mdescLeft">&#160;</td><td class="mdescRight">Given a string read from the alamode, construct a JSON object from it.  <a href="#a7b2c33f7f62c8c61b3b1f6820c9a4738"></a><br/></td></tr>
+<tr class="memdesc:a7b2c33f7f62c8c61b3b1f6820c9a4738"><td class="mdescLeft">&#160;</td><td class="mdescRight">Given a string read from the Alamode, construct a JSON object from it.  <a href="#a7b2c33f7f62c8c61b3b1f6820c9a4738"></a><br/></td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="classserial__monitor_1_1SerialMonitor.html" title="The SerialMonitor manages JSON encoded communications with the alamode.">SerialMonitor</a> manages JSON encoded communications with the alamode. </p>
-<p>Currently bi-directional communications are limited to an initial message to the alamode containing configration details followed by a series of reads from the alamode containing sensor measurements and logs from the alamode that terminates on when the <a class="el" href="namespacefishtank__monitor.html" title="The main function for the Fishtank Monitor.">fishtank_monitor</a> is stopped. All communications are encoded in simple JSON strings. Logs entries from the alamode are prefixed to distinguish them from the <a class="el" href="namespacefishtank__monitor.html" title="The main function for the Fishtank Monitor.">fishtank_monitor</a> logs but are emitted to those logs also. The <a class="el" href="classserial__monitor_1_1SerialMonitor.html" title="The SerialMonitor manages JSON encoded communications with the alamode.">SerialMonitor</a> runs in its own thread. </p>
+<p>The communications protocol between the Alamode and the Pi starts with the Pi sending the Alamode configuration data (IP address to display, sensor configuration and offsets etc) to the Alamode after which communications are symmetric, with the Alamode sending data of some form (e.g. sensor readings, log entries etc) and the Pi immediately responding with the (possibly updated) configuration data. This cycle only terminatesc when the <a class="el" href="namespacefishtank__monitor.html" title="The main function for the Fishtank Monitor.">fishtank_monitor</a> is stopped. All communications are encoded in simple JSON strings. Logs entries from the alamode are prefixed to distinguish them from the <a class="el" href="namespacefishtank__monitor.html" title="The main function for the Fishtank Monitor.">fishtank_monitor</a> logs but are emitted to those logs also. The <a class="el" href="classserial__monitor_1_1SerialMonitor.html" title="The SerialMonitor manages JSON encoded communications with the alamode.">SerialMonitor</a> runs in its own thread. </p>
 
-<p>Definition at line <a class="el" href="serial__monitor_8py_source.html#l00027">27</a> of file <a class="el" href="serial__monitor_8py_source.html">serial_monitor.py</a>.</p>
+<p>Definition at line <a class="el" href="serial__monitor_8py_source.html#l00029">29</a> of file <a class="el" href="serial__monitor_8py_source.html">serial_monitor.py</a>.</p>
 </div><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a6365423408ff3a8185cc602c3ccb0ba6"></a>
 <div class="memitem">
@@ -145,7 +148,13 @@ Private Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>serial_device</em>&#160;</td>
+          <td class="paramname"><em>serial_device</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>configuration</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -159,11 +168,12 @@ Private Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">serial_device</td><td>the serial device to read and write to </td></tr>
+    <tr><td class="paramname">configuration</td><td>the arduino configuration json object to send </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="serial__monitor_8py_source.html#l00032">32</a> of file <a class="el" href="serial__monitor_8py_source.html">serial_monitor.py</a>.</p>
+<p>Definition at line <a class="el" href="serial__monitor_8py_source.html#l00035">35</a> of file <a class="el" href="serial__monitor_8py_source.html">serial_monitor.py</a>.</p>
 
 </div>
 </div>
@@ -200,19 +210,72 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Given a string read from the alamode, construct a JSON object from it. </p>
+<p>Given a string read from the Alamode, construct a JSON object from it. </p>
 <p>The input is parsed and any extraneous characters (prefixes or unexpected appendices) are discarded. Sensor readings are assumed to be complete - that is, when one appears, all sensor readings will appear - but log and sensor entries can appear together in a message. Log entries are immediately send to the <a class="el" href="namespacefishtank__monitor.html" title="The main function for the Fishtank Monitor.">fishtank_monitor</a> log with a prefix making them easily distinguishable.</p>
 <p>the string read from the serial sevice </p>
 <dl class="section return"><dt>Returns</dt><dd>a JSON object representing the message from the alamode </dd></dl>
 
-<p>Definition at line <a class="el" href="serial__monitor_8py_source.html#l00067">67</a> of file <a class="el" href="serial__monitor_8py_source.html">serial_monitor.py</a>.</p>
+<p>Definition at line <a class="el" href="serial__monitor_8py_source.html#l00078">78</a> of file <a class="el" href="serial__monitor_8py_source.html">serial_monitor.py</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classserial__monitor_1_1SerialMonitor_a7b2c33f7f62c8c61b3b1f6820c9a4738_icgraph.png" border="0" usemap="#classserial__monitor_1_1SerialMonitor_a7b2c33f7f62c8c61b3b1f6820c9a4738_icgraph" alt=""/></div>
 <map name="classserial__monitor_1_1SerialMonitor_a7b2c33f7f62c8c61b3b1f6820c9a4738_icgraph" id="classserial__monitor_1_1SerialMonitor_a7b2c33f7f62c8c61b3b1f6820c9a4738_icgraph">
-<area shape="rect" id="node3" href="classserial__monitor_1_1SerialMonitor.html#a9f025f53cab070761ec4712f1207e789" title="Endlessly read from serial and make measurements available to third parties." alt="" coords="240,13,445,43"/></map>
+<area shape="rect" id="node3" href="classserial__monitor_1_1SerialMonitor.html#a9f025f53cab070761ec4712f1207e789" title="Manage the Pi to Alamode communications protocol." alt="" coords="240,13,445,43"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a27ca8f9930cde251a15aa68d2b522d01"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">def serial_monitor.SerialMonitor._write_to_serial </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>json_message</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Write a specified JSON object to the serial device. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">json_message</td><td>the JSON messsage to send to the alamode </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="serial__monitor_8py_source.html#l00063">63</a> of file <a class="el" href="serial__monitor_8py_source.html">serial_monitor.py</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classserial__monitor_1_1SerialMonitor_a27ca8f9930cde251a15aa68d2b522d01_icgraph.png" border="0" usemap="#classserial__monitor_1_1SerialMonitor_a27ca8f9930cde251a15aa68d2b522d01_icgraph" alt=""/></div>
+<map name="classserial__monitor_1_1SerialMonitor_a27ca8f9930cde251a15aa68d2b522d01_icgraph" id="classserial__monitor_1_1SerialMonitor_a27ca8f9930cde251a15aa68d2b522d01_icgraph">
+<area shape="rect" id="node3" href="classserial__monitor_1_1SerialMonitor.html#a9f025f53cab070761ec4712f1207e789" title="Manage the Pi to Alamode communications protocol." alt="" coords="240,13,445,43"/></map>
 </div>
 </p>
 
@@ -226,8 +289,18 @@ Here is the caller graph for this function:</div>
           <td class="memname">def serial_monitor.SerialMonitor.create_monitor </td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>cls</em></td><td>)</td>
+          <td class="paramname"><em>cls</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>configuration</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -235,7 +308,7 @@ Here is the caller graph for this function:</div>
 <p>Create the <a class="el" href="classserial__monitor_1_1SerialMonitor.html" title="The SerialMonitor manages JSON encoded communications with the alamode.">SerialMonitor</a> object using config data from the configuration file. </p>
 <dl class="section return"><dt>Returns</dt><dd>the <a class="el" href="classserial__monitor_1_1SerialMonitor.html" title="The SerialMonitor manages JSON encoded communications with the alamode.">SerialMonitor</a> object </dd></dl>
 
-<p>Definition at line <a class="el" href="serial__monitor_8py_source.html#l00105">105</a> of file <a class="el" href="serial__monitor_8py_source.html">serial_monitor.py</a>.</p>
+<p>Definition at line <a class="el" href="serial__monitor_8py_source.html#l00119">119</a> of file <a class="el" href="serial__monitor_8py_source.html">serial_monitor.py</a>.</p>
 
 </div>
 </div>
@@ -253,19 +326,50 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Endlessly read from serial and make measurements available to third parties. </p>
-<p>The run method reads messages from the serial device and sets the sensor measurements on itself in public members which parties interested in the most recent observations can read. </p>
+<p>Manage the Pi to Alamode communications protocol. </p>
+<p>The run method reads messages from the serial device and sets the sensor measurements on itself in public members which parties interested in the most recent observations can read. Each received message trigger the send of configuration data back to the Alamode. </p>
 
-<p>Definition at line <a class="el" href="serial__monitor_8py_source.html#l00085">85</a> of file <a class="el" href="serial__monitor_8py_source.html">serial_monitor.py</a>.</p>
+<p>Definition at line <a class="el" href="serial__monitor_8py_source.html#l00097">97</a> of file <a class="el" href="serial__monitor_8py_source.html">serial_monitor.py</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classserial__monitor_1_1SerialMonitor_a9f025f53cab070761ec4712f1207e789_cgraph.png" border="0" usemap="#classserial__monitor_1_1SerialMonitor_a9f025f53cab070761ec4712f1207e789_cgraph" alt=""/></div>
 <map name="classserial__monitor_1_1SerialMonitor_a9f025f53cab070761ec4712f1207e789_cgraph" id="classserial__monitor_1_1SerialMonitor_a9f025f53cab070761ec4712f1207e789_cgraph">
-<area shape="rect" id="node3" href="classserial__monitor_1_1SerialMonitor.html#a7b2c33f7f62c8c61b3b1f6820c9a4738" title="Given a string read from the alamode, construct a JSON object from it." alt="" coords="259,5,445,51"/></map>
+<area shape="rect" id="node3" href="classserial__monitor_1_1SerialMonitor.html#a7b2c33f7f62c8c61b3b1f6820c9a4738" title="Given a string read from the Alamode, construct a JSON object from it." alt="" coords="259,5,445,51"/><area shape="rect" id="node5" href="classserial__monitor_1_1SerialMonitor.html#a27ca8f9930cde251a15aa68d2b522d01" title="Write a specified JSON object to the serial device." alt="" coords="259,74,445,121"/></map>
 </div>
 </p>
+
+</div>
+</div>
+<a class="anchor" id="a3947d57ebbfae97ac01659150cc48686"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def serial_monitor.SerialMonitor.set_alamode_configuration </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>configuration</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the Alamode configuration object. </p>
+<p>The Alamode configuration is mutable - the user might have changed some parameters in the config file and things like the Pi's IP address are inherently dynamic. The Pi to Alamode communications is a bi-directional affair of symmetric messages - one first from the Alamode followed immediately by a message from the Pi. The message from the Pi is always simply this configuration. The only variance from this pattern of messages is on start-up, when the Pi starts off communications be sending the configuration, after which the bi-directional messaging proceeds as described earlier. </p>
+
+<p>Definition at line <a class="el" href="serial__monitor_8py_source.html#l00057">57</a> of file <a class="el" href="serial__monitor_8py_source.html">serial_monitor.py</a>.</p>
 
 </div>
 </div>
@@ -285,45 +389,7 @@ Here is the call graph for this function:</div>
 
 <p>Start ourselves. </p>
 
-<p>Definition at line <a class="el" href="serial__monitor_8py_source.html#l00110">110</a> of file <a class="el" href="serial__monitor_8py_source.html">serial_monitor.py</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aac39079de9cc6929cff173092a5eb2e4"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">def serial_monitor.SerialMonitor.write_to_serial </td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>self</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>json_message</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Write a specified JSON object to the serial device. </p>
-<p>Although this class does not enforce this, it is nonetheless the case that writing to serial can only happen immediately upon startup, at which point the only communications supported are an endless series of reads from the alamode.</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>This class should ensure that the protocol (write first, then read forever) is enforced rather than leaving this responsibility to the client. </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">json_message</td><td>the JSON messsage to send to the alamode </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="serial__monitor_8py_source.html#l00052">52</a> of file <a class="el" href="serial__monitor_8py_source.html">serial_monitor.py</a>.</p>
+<p>Definition at line <a class="el" href="serial__monitor_8py_source.html#l00124">124</a> of file <a class="el" href="serial__monitor_8py_source.html">serial_monitor.py</a>.</p>
 
 </div>
 </div>
@@ -338,7 +404,21 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="serial__monitor_8py_source.html#l00038">38</a> of file <a class="el" href="serial__monitor_8py_source.html">serial_monitor.py</a>.</p>
+<p>Definition at line <a class="el" href="serial__monitor_8py_source.html#l00041">41</a> of file <a class="el" href="serial__monitor_8py_source.html">serial_monitor.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a59b28f4cbac762a44964c167873790c9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">serial_monitor.SerialMonitor.configuration</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="serial__monitor_8py_source.html#l00043">43</a> of file <a class="el" href="serial__monitor_8py_source.html">serial_monitor.py</a>.</p>
 
 </div>
 </div>
@@ -352,7 +432,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="serial__monitor_8py_source.html#l00039">39</a> of file <a class="el" href="serial__monitor_8py_source.html">serial_monitor.py</a>.</p>
+<p>Definition at line <a class="el" href="serial__monitor_8py_source.html#l00042">42</a> of file <a class="el" href="serial__monitor_8py_source.html">serial_monitor.py</a>.</p>
 
 </div>
 </div>
@@ -366,7 +446,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="serial__monitor_8py_source.html#l00034">34</a> of file <a class="el" href="serial__monitor_8py_source.html">serial_monitor.py</a>.</p>
+<p>Definition at line <a class="el" href="serial__monitor_8py_source.html#l00037">37</a> of file <a class="el" href="serial__monitor_8py_source.html">serial_monitor.py</a>.</p>
 
 </div>
 </div>
@@ -380,7 +460,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="serial__monitor_8py_source.html#l00037">37</a> of file <a class="el" href="serial__monitor_8py_source.html">serial_monitor.py</a>.</p>
+<p>Definition at line <a class="el" href="serial__monitor_8py_source.html#l00040">40</a> of file <a class="el" href="serial__monitor_8py_source.html">serial_monitor.py</a>.</p>
 
 </div>
 </div>
@@ -394,7 +474,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="serial__monitor_8py_source.html#l00036">36</a> of file <a class="el" href="serial__monitor_8py_source.html">serial_monitor.py</a>.</p>
+<p>Definition at line <a class="el" href="serial__monitor_8py_source.html#l00039">39</a> of file <a class="el" href="serial__monitor_8py_source.html">serial_monitor.py</a>.</p>
 
 </div>
 </div>
@@ -408,7 +488,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="serial__monitor_8py_source.html#l00035">35</a> of file <a class="el" href="serial__monitor_8py_source.html">serial_monitor.py</a>.</p>
+<p>Definition at line <a class="el" href="serial__monitor_8py_source.html#l00038">38</a> of file <a class="el" href="serial__monitor_8py_source.html">serial_monitor.py</a>.</p>
 
 </div>
 </div>
@@ -418,7 +498,7 @@ Here is the call graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 29 2015 20:14:49 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jul 13 2015 12:33:39 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

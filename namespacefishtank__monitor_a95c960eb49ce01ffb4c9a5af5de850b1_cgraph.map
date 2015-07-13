@@ -1,3 +1,4 @@
 <map id="fishtank_monitor.main_loop" name="fishtank_monitor.main_loop">
 <area shape="rect" id="node3" href="$namespaceconfig.html#aa4806cc2c75c55fa89bd07ffa6e1d8be" title="Read the config file and parse its contents into a series of global variables." alt="" coords="235,5,363,35"/>
+<area shape="rect" id="node5" href="$namespaceconfig.html#ab19fa73e87c881d5951f127686147043" title="Given an interface name, return a string denoting the IP address." alt="" coords="411,5,560,35"/>
 </map>

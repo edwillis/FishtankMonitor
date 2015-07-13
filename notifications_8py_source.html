@@ -246,30 +246,33 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        <span class="keywordflow">if</span> (now - config.last_calibration)/(30*24*60*60) &gt; config.months_between_calibrations:</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;            logger.info(<span class="stringliteral">&quot;calibration period expired - setting last calibration  to %r&quot;</span> %now)</div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;            config.last_calibration = now</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;            <span class="keywordflow">if</span> config.months_between_calibrations &gt; 0:</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;            <span class="keywordflow">if</span> config.months_between_calibrations:</div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;                logger.info(<span class="stringliteral">&quot;calibration noifications are enabled, writing last cal to db&quot;</span>)</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;                conn.execute(<span class="stringliteral">&#39;insert into settings values (%r)&#39;</span> %config.last_calibration)</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;                conn.execute(<span class="stringliteral">&#39;update settings set last_calibration=%r&#39;</span> %config.last_calibration)</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;                conn.commit()</div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;                logger.info(<span class="stringliteral">&quot;it&#39;s time to calibrate, sending email&quot;</span>)</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;                msg = MIMEText(msg)</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;                msg[<span class="stringliteral">&#39;Subject&#39;</span>] = <span class="stringliteral">&#39;Fishtank ph monitor calibration is due&#39;</span></div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;                msg[<span class="stringliteral">&#39;From&#39;</span>] = config.email_from_address</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;                msg[<span class="stringliteral">&#39;To&#39;</span>] = config.email_to_address</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;                self.<a class="code" href="classnotifications_1_1NotifierBase.html#a6aef854558614bbfdc75800040060057" title="Email sending helper method.">_send_email</a>(msg)</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="comment">## Global list of notitification functors</span></div>
-<div class="line"><a name="l00171"></a><span class="lineno"><a class="code" href="namespacenotifications.html#a5b603cc1b53adcedbe5a8cd95193bd8f">  171</a></span>&#160;_notifiers = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;                txt = <span class="stringliteral">&#39;The calibration period for the PH sensor has been exceeded.  Please calibrate \</span></div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;<span class="stringliteral">the PH sensor at your earliest convenience.  Failure to do so may result in inaccurate PH sensor \</span></div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="stringliteral">readings.&#39;</span></div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;                msg = MIMEText(txt)</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;                msg[<span class="stringliteral">&#39;Subject&#39;</span>] = <span class="stringliteral">&#39;Fishtank ph monitor calibration is due&#39;</span></div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;                msg[<span class="stringliteral">&#39;From&#39;</span>] = config.email_from_address</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;                msg[<span class="stringliteral">&#39;To&#39;</span>] = config.email_to_address</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;                self.<a class="code" href="classnotifications_1_1NotifierBase.html#a6aef854558614bbfdc75800040060057" title="Email sending helper method.">_send_email</a>(msg)</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;<span class="comment">## Lazy instantiator for the global list of functors</span></div>
-<div class="line"><a name="l00174"></a><span class="lineno"><a class="code" href="namespacenotifications.html#a9243897dad141dfaa0ef7a19c4ae4dba">  174</a></span>&#160;<span class="keyword">def </span><a class="code" href="namespacenotifications.html#a9243897dad141dfaa0ef7a19c4ae4dba" title="Lazy instantiator for the global list of functors.">get_notifiers</a>():</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <span class="keyword">global</span> _notifiers</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <span class="keywordflow">if</span> _notifiers <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        _notifiers = [<a class="code" href="classnotifications_1_1NotifyCalibration.html" title="Send the user reminder emails when their PH monitor is due for calibration.">NotifyCalibration</a>(), <a class="code" href="classnotifications_1_1NotifyInformationalReports.html" title="Send the user periodic informational reports (with graphs)">NotifyInformationalReports</a>(), <a class="code" href="classnotifications_1_1NotifyWarnings.html" title="Send emails when bad temperature or ph readings are seen.">NotifyWarnings</a>()]</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="keywordflow">return</span> _notifiers</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;<span class="comment">## Global list of notitification functors</span></div>
+<div class="line"><a name="l00174"></a><span class="lineno"><a class="code" href="namespacenotifications.html#a5b603cc1b53adcedbe5a8cd95193bd8f">  174</a></span>&#160;_notifiers = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="comment">## Lazy instantiator for the global list of functors</span></div>
+<div class="line"><a name="l00177"></a><span class="lineno"><a class="code" href="namespacenotifications.html#a9243897dad141dfaa0ef7a19c4ae4dba">  177</a></span>&#160;<span class="keyword">def </span><a class="code" href="namespacenotifications.html#a9243897dad141dfaa0ef7a19c4ae4dba" title="Lazy instantiator for the global list of functors.">get_notifiers</a>():</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="keyword">global</span> _notifiers</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <span class="keywordflow">if</span> _notifiers <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;        _notifiers = [<a class="code" href="classnotifications_1_1NotifyCalibration.html" title="Send the user reminder emails when their PH monitor is due for calibration.">NotifyCalibration</a>(), <a class="code" href="classnotifications_1_1NotifyInformationalReports.html" title="Send the user periodic informational reports (with graphs)">NotifyInformationalReports</a>(), <a class="code" href="classnotifications_1_1NotifyWarnings.html" title="Send emails when bad temperature or ph readings are seen.">NotifyWarnings</a>()]</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    <span class="keywordflow">return</span> _notifiers</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 29 2015 20:14:46 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jul 13 2015 12:33:37 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

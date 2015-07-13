@@ -1,3 +1,4 @@
 <map id="serial_monitor.SerialMonitor.run" name="serial_monitor.SerialMonitor.run">
-<area shape="rect" id="node3" href="$classserial__monitor_1_1SerialMonitor.html#a7b2c33f7f62c8c61b3b1f6820c9a4738" title="Given a string read from the alamode, construct a JSON object from it." alt="" coords="259,5,445,51"/>
+<area shape="rect" id="node3" href="$classserial__monitor_1_1SerialMonitor.html#a7b2c33f7f62c8c61b3b1f6820c9a4738" title="Given a string read from the Alamode, construct a JSON object from it." alt="" coords="259,5,445,51"/>
+<area shape="rect" id="node5" href="$classserial__monitor_1_1SerialMonitor.html#a27ca8f9930cde251a15aa68d2b522d01" title="Write a specified JSON object to the serial device." alt="" coords="259,74,445,121"/>
 </map>

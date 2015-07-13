@@ -122,60 +122,60 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        struct.pack(<span class="stringliteral">&#39;256s&#39;</span>, bytes(ifname, <span class="stringliteral">&#39;UTF8&#39;</span>)[:15])</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    )[20:24])</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">## The Raspberry PI&#39;s IP address</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">#  @todo what if the ip address changes at run time?</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">#  @todo is it possible the user might not want to use this interface?</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="code" href="namespaceconfig.html#a0b1470dbc0b819e868b79fc4fc62399a">   38</a></span>&#160;IP_address = <a class="code" href="namespaceconfig.html#ab19fa73e87c881d5951f127686147043" title="Given an interface name, return a string denoting the IP address.">get_ip_address</a>(<span class="stringliteral">&#39;wlan0&#39;</span>)</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">## The serialdevice to use for communicating with the alamode (e.g. /dev/ttyS0)</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="code" href="namespaceconfig.html#a4eae281ce888818e77c53d8062d909fa">   41</a></span>&#160;serial_device = <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="code" href="namespaceconfig.html#a4fc9e77e1e51ef3d27f1aa8ba0399249">   42</a></span>&#160;SMTP_host = <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="code" href="namespaceconfig.html#a979992e4f89c1a0835234dc8a4aa3b8a">   43</a></span>&#160;SMTP_port = <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="code" href="namespaceconfig.html#a08bff852b0455b2a4391588e38cbbc83">   44</a></span>&#160;SMTP_user = <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">## The user&#39;s email password</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">#  @todo find a way to secure the user&#39;s email password</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="code" href="namespaceconfig.html#a4398370e02c38cf5f2cd358ed304bfb9">   47</a></span>&#160;SMTP_password = <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="code" href="namespaceconfig.html#af7906cc97825970f8d620d606b9d261f">   48</a></span>&#160;SMTP_use_ttls = <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">## How often to email the user informational reports and graphics</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="code" href="namespaceconfig.html#adb8d27dbca4ad7552e28bd43fb545fdd">   50</a></span>&#160;send_reports_interval = <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">## How often to email warnings to the user when tank conditions are unsafe</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno"><a class="code" href="namespaceconfig.html#a9ce20c6f563529e90e82d0172ec21039">   52</a></span>&#160;send_warnings_interval = <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="code" href="namespaceconfig.html#a4644639d854af833274cf37a873b1859">   53</a></span>&#160;email_to_address = <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="code" href="namespaceconfig.html#a0da63d87c26266a58714fa441b918ab3">   54</a></span>&#160;email_from_address = <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">## How often the user wishes to recalibrate their ph sensor</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="code" href="namespaceconfig.html#a044ad9264a7bd2d552f8844fc240cd11">   56</a></span>&#160;months_between_calibrations = <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">## The X10 house and device code for controlling the lights (for example I8)</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="code" href="namespaceconfig.html#a0dab1ea9a183568b52ca6917aafb2113">   58</a></span>&#160;x10_light_code = <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">## A list of times in 24 hour format when we should turn on the lights</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="code" href="namespaceconfig.html#a14b5d0d6dc339580d7a42f5b7c5c4ae4">   60</a></span>&#160;lights_on_times = []</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">## A list of times in 24 hour format when we should turn off the lights</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno"><a class="code" href="namespaceconfig.html#a3a4ecc6e80f2b8814ae907b2839113a6">   62</a></span>&#160;lights_off_times = []</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment">## X10 isn&#39;t the most reliable protocol - how often should we retry each command</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno"><a class="code" href="namespaceconfig.html#ae9ecb1914b31cc77b4b036fe1dc5e0c7">   64</a></span>&#160;x10_retries = <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment">## The local daylight savings time offset from GMT in minutes</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno"><a class="code" href="namespaceconfig.html#a53beb649d49d57e3e4c5cc2507d155bd">   66</a></span>&#160;daylight_tz = <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment">## The local standard time offset from GMT in minutes</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno"><a class="code" href="namespaceconfig.html#a6c6c8cf93b39ed725df3549c90a2a261">   68</a></span>&#160;standard_tz = <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment">## The analog pin the PH monitor is connected to</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno"><a class="code" href="namespaceconfig.html#adcb862a7bcb267c1f62aa782d1bea268">   70</a></span>&#160;ph_pin = <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">## The analog pin the temperature sensor is connected to</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno"><a class="code" href="namespaceconfig.html#ab79cd9d326008e60e3d38fbf31635898">   72</a></span>&#160;temperature_pin = <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment">## The linear PH calibration offset to use on PH measurements</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno"><a class="code" href="namespaceconfig.html#a909c6ecdc8869b289d4f7c9fb9a0a3d6">   74</a></span>&#160;ph_offset = <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment">## The last time we calibrated the ph sensor</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno"><a class="code" href="namespaceconfig.html#aca17cb6bbaeebd5e8ac3177ed5ce06f2">   77</a></span>&#160;last_calibration = <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment">## The path to the configuration file itself</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno"><a class="code" href="namespaceconfig.html#a4f7c954e578bec8971feeb3eb5e1edbc">   80</a></span>&#160;config_filename = <span class="stringliteral">&#39;./cfg/fishtank_monitor.cfg&#39;</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment">## Read the config file and parse its contents into a series of global variables</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno"><a class="code" href="namespaceconfig.html#aa4806cc2c75c55fa89bd07ffa6e1d8be">   83</a></span>&#160;<span class="keyword">def </span><a class="code" href="namespaceconfig.html#aa4806cc2c75c55fa89bd07ffa6e1d8be" title="Read the config file and parse its contents into a series of global variables.">read_config</a>():</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keyword">global</span> SMTP_host, SMTP_port, SMTP_user, SMTP_password, SMTP_use_ttls, send_reports_interval</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keyword">global</span> send_warnings_interval, email_to_address, email_from_address, months_between_calibrations</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keyword">global</span> last_calibration, serial_device, x10_retries, x10_light_code, lights_on_times, lights_off_times</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keyword">global</span> daylight_tz, standard_tz, ph_pin, temperature_pin, ph_offset</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordflow">try</span>:</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">## The Raspberry Pi&#39;s IP address</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">#  @todo is it possible the user might not want to use this interface?</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="code" href="namespaceconfig.html#a1a18afa148f26440bcf3c1bf2ffcaa2f">   37</a></span>&#160;IP_address = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">## The serialdevice to use for communicating with the alamode (e.g. /dev/ttyS0)</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="code" href="namespaceconfig.html#a4eae281ce888818e77c53d8062d909fa">   40</a></span>&#160;serial_device = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="code" href="namespaceconfig.html#a4fc9e77e1e51ef3d27f1aa8ba0399249">   41</a></span>&#160;SMTP_host = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="code" href="namespaceconfig.html#a979992e4f89c1a0835234dc8a4aa3b8a">   42</a></span>&#160;SMTP_port = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="code" href="namespaceconfig.html#a08bff852b0455b2a4391588e38cbbc83">   43</a></span>&#160;SMTP_user = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">## The user&#39;s email password</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">#  @todo find a way to secure the user&#39;s email password</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="code" href="namespaceconfig.html#a4398370e02c38cf5f2cd358ed304bfb9">   46</a></span>&#160;SMTP_password = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="code" href="namespaceconfig.html#af7906cc97825970f8d620d606b9d261f">   47</a></span>&#160;SMTP_use_ttls = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">## How often to email the user informational reports and graphics</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="code" href="namespaceconfig.html#adb8d27dbca4ad7552e28bd43fb545fdd">   49</a></span>&#160;send_reports_interval = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">## How often to email warnings to the user when tank conditions are unsafe</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="code" href="namespaceconfig.html#a9ce20c6f563529e90e82d0172ec21039">   51</a></span>&#160;send_warnings_interval = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="code" href="namespaceconfig.html#a4644639d854af833274cf37a873b1859">   52</a></span>&#160;email_to_address = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="code" href="namespaceconfig.html#a0da63d87c26266a58714fa441b918ab3">   53</a></span>&#160;email_from_address = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">## How often the user wishes to recalibrate their ph sensor</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="code" href="namespaceconfig.html#a044ad9264a7bd2d552f8844fc240cd11">   55</a></span>&#160;months_between_calibrations = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">## The X10 house and device code for controlling the lights (for example I8)</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="code" href="namespaceconfig.html#a0dab1ea9a183568b52ca6917aafb2113">   57</a></span>&#160;x10_light_code = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">## A list of times in 24 hour format when we should turn on the lights</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="code" href="namespaceconfig.html#a14b5d0d6dc339580d7a42f5b7c5c4ae4">   59</a></span>&#160;lights_on_times = []</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment">## A list of times in 24 hour format when we should turn off the lights</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="code" href="namespaceconfig.html#a3a4ecc6e80f2b8814ae907b2839113a6">   61</a></span>&#160;lights_off_times = []</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">## X10 isn&#39;t the most reliable protocol - how often should we retry each command</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="code" href="namespaceconfig.html#ae9ecb1914b31cc77b4b036fe1dc5e0c7">   63</a></span>&#160;x10_retries = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment">## The local daylight savings time offset from GMT in minutes</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="code" href="namespaceconfig.html#a53beb649d49d57e3e4c5cc2507d155bd">   65</a></span>&#160;daylight_tz = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">## The local standard time offset from GMT in minutes</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="code" href="namespaceconfig.html#a6c6c8cf93b39ed725df3549c90a2a261">   67</a></span>&#160;standard_tz = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment">## The analog pin the PH monitor is connected to</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="code" href="namespaceconfig.html#adcb862a7bcb267c1f62aa782d1bea268">   69</a></span>&#160;ph_pin = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">## The analog pin the temperature sensor is connected to</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="code" href="namespaceconfig.html#ab79cd9d326008e60e3d38fbf31635898">   71</a></span>&#160;temperature_pin = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment">## The linear PH calibration offset to use on PH measurements</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="code" href="namespaceconfig.html#a909c6ecdc8869b289d4f7c9fb9a0a3d6">   73</a></span>&#160;ph_offset = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment">## The last time we calibrated the ph sensor</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="code" href="namespaceconfig.html#aca17cb6bbaeebd5e8ac3177ed5ce06f2">   76</a></span>&#160;last_calibration = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="comment">## The path to the configuration file itself</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="code" href="namespaceconfig.html#a4f7c954e578bec8971feeb3eb5e1edbc">   79</a></span>&#160;config_filename = <span class="stringliteral">&#39;./cfg/fishtank_monitor.cfg&#39;</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">## Read the config file and parse its contents into a series of global variables</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="code" href="namespaceconfig.html#aa4806cc2c75c55fa89bd07ffa6e1d8be">   82</a></span>&#160;<span class="keyword">def </span><a class="code" href="namespaceconfig.html#aa4806cc2c75c55fa89bd07ffa6e1d8be" title="Read the config file and parse its contents into a series of global variables.">read_config</a>():</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keyword">global</span> SMTP_host, SMTP_port, SMTP_user, SMTP_password, SMTP_use_ttls, send_reports_interval</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keyword">global</span> send_warnings_interval, email_to_address, email_from_address, months_between_calibrations</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keyword">global</span> last_calibration, serial_device, x10_retries, x10_light_code, lights_on_times, lights_off_times</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keyword">global</span> daylight_tz, standard_tz, ph_pin, temperature_pin, ph_offset, IP_address</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordflow">try</span>:</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        IP_address = <a class="code" href="namespaceconfig.html#ab19fa73e87c881d5951f127686147043" title="Given an interface name, return a string denoting the IP address.">get_ip_address</a>(<span class="stringliteral">&#39;wlan0&#39;</span>)</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        cfg = configparser.ConfigParser()</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        cfg.read(config_filename)</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        serial_device = cfg.get(<span class="stringliteral">&#39;hardware&#39;</span>, <span class="stringliteral">&#39;serial device&#39;</span>)</div>
@@ -230,7 +230,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 29 2015 20:14:46 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jul 13 2015 12:33:37 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

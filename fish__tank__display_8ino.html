@@ -131,10 +131,12 @@ Functions</h2></td></tr>
 <tr class="memitem:ae079b9d9d26b962a337cb79c7fde9674"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fish__tank__display_8ino.html#ae079b9d9d26b962a337cb79c7fde9674">printPseudoFloat</a> (LCDKeypad <a class="el" href="fish__tank__display_8ino.html#ab283d73b1cf8e2270155fcc6fce4422c">lcd</a>, int left, int right, char *units, int showZero)</td></tr>
 <tr class="memitem:a6459ed0635e25efb428ae3dfe1cab682"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fish__tank__display_8ino.html#a6459ed0635e25efb428ae3dfe1cab682">getTemp</a> ()</td></tr>
 <tr class="memitem:adbf03085741b26be1853084f8039d745"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fish__tank__display_8ino.html#adbf03085741b26be1853084f8039d745">getPh</a> ()</td></tr>
+<tr class="memitem:a906dfe2b98f3c08e2186cbe301dd3d60"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fish__tank__display_8ino.html#a906dfe2b98f3c08e2186cbe301dd3d60">handleSendReceivePair</a> (JsonObject &amp;toSend)</td></tr>
 <tr class="memitem:a2cc6c8c1987020291f60914b0de80c59"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fish__tank__display_8ino.html#a2cc6c8c1987020291f60914b0de80c59">printTempAndPhToSerial</a> (int temp, int ph)</td></tr>
 <tr class="memitem:a0647fffcfbba5091e4df9676dc6954c4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fish__tank__display_8ino.html#a0647fffcfbba5091e4df9676dc6954c4">logToSerial</a> (const char *const message,...)</td></tr>
 <tr class="memitem:ab2f29739b10ddbedf9da6febe9c75917"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fish__tank__display_8ino.html#ab2f29739b10ddbedf9da6febe9c75917">displayTime</a> ()</td></tr>
 <tr class="memitem:a55046f51070711cbd027c5b2d4d6fff5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fish__tank__display_8ino.html#a55046f51070711cbd027c5b2d4d6fff5">displaySensorData</a> (unsigned int showSerial)</td></tr>
+<tr class="memitem:ab215ee4084d65595fe177f3ab46d93df"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fish__tank__display_8ino.html#ab215ee4084d65595fe177f3ab46d93df">receiveConfigurationOverSerial</a> ()</td></tr>
 <tr class="memitem:a4fc01d736fe50cf5b977f755b675f11d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fish__tank__display_8ino.html#a4fc01d736fe50cf5b977f755b675f11d">setup</a> ()</td></tr>
 <tr class="memitem:a0e13ec210d5e918bfee6ba89b69d4ee8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fish__tank__display_8ino.html#a0e13ec210d5e918bfee6ba89b69d4ee8">displaySensorDataAndTime</a> (unsigned int showSerial)</td></tr>
 <tr class="memitem:ab75480f888629dada48c3f70c0d36cfc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fish__tank__display_8ino.html#ab75480f888629dada48c3f70c0d36cfc">displayIpAndTime</a> ()</td></tr>
@@ -144,6 +146,8 @@ Functions</h2></td></tr>
 Variables</h2></td></tr>
 <tr class="memitem:ab283d73b1cf8e2270155fcc6fce4422c"><td class="memItemLeft" align="right" valign="top">LCDKeypad&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fish__tank__display_8ino.html#ab283d73b1cf8e2270155fcc6fce4422c">lcd</a></td></tr>
 <tr class="memitem:adf836c4ddea5fd136476eb34a91a9f2f"><td class="memItemLeft" align="right" valign="top">Timezone *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fish__tank__display_8ino.html#adf836c4ddea5fd136476eb34a91a9f2f">localTz</a> = 0</td></tr>
+<tr class="memitem:a88051271ca3c003f7c7595fbbd214ea3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fish__tank__display_8ino.html#a88051271ca3c003f7c7595fbbd214ea3">daylight</a> = -1</td></tr>
+<tr class="memitem:a940abbaa3e9bef19f230cf04120457a1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fish__tank__display_8ino.html#a940abbaa3e9bef19f230cf04120457a1">standard</a> = -1</td></tr>
 <tr class="memitem:a576473af03cd34ffc2479cf7dbf00f34"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fish__tank__display_8ino.html#a576473af03cd34ffc2479cf7dbf00f34">THERMISTORPIN</a> = -1</td></tr>
 <tr class="memitem:ae691603f357be6b8be38f5c7f975f9a5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fish__tank__display_8ino.html#ae691603f357be6b8be38f5c7f975f9a5">PHPIN</a> = -1</td></tr>
 <tr class="memitem:aadec65200168fbdddae5840dde5b48ac"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fish__tank__display_8ino.html#aadec65200168fbdddae5840dde5b48ac">OFFSET</a> = -1.0</td></tr>
@@ -162,7 +166,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>The beta coefficient of the thermistor (usually 3000-4000) </p>
 
-<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00068">68</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00074">74</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
 
 </div>
 </div>
@@ -177,7 +181,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>The height of the display in rows </p>
 
-<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00036">36</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00039">39</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
 
 </div>
 </div>
@@ -192,7 +196,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>How often to update the lcd in seconds </p>
 
-<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00386">386</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00411">411</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
 
 </div>
 </div>
@@ -207,7 +211,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>The width of the display in characters </p>
 
-<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00032">32</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00035">35</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
 
 </div>
 </div>
@@ -222,7 +226,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>Common size limit </p>
 
-<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00072">72</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00078">78</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
 
 </div>
 </div>
@@ -237,7 +241,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>The number of samples to take to produce a PH reading </p>
 
-<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00088">88</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00094">94</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
 
 </div>
 </div>
@@ -252,7 +256,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>How many samples to take to produce a temperature reading </p>
 
-<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00052">52</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00058">58</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
 
 </div>
 </div>
@@ -267,7 +271,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>How often to send measurements of the sensors to serial </p>
 
-<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00390">390</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00415">415</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
 
 </div>
 </div>
@@ -282,7 +286,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>The value of the 'other' resistor </p>
 
-<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00044">44</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00050">50</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
 
 </div>
 </div>
@@ -297,7 +301,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>Temperature for nominal resistance (almost always 25 C) </p>
 
-<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00064">64</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00070">70</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
 
 </div>
 </div>
@@ -312,7 +316,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>Resistance at 25 degrees C </p>
 
-<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00060">60</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00066">66</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
 
 </div>
 </div>
@@ -327,7 +331,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>How long to wait between PH samples in ms </p>
 
-<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00092">92</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00098">98</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
 
 </div>
 </div>
@@ -342,7 +346,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>How long to wait between temperature samples in ms </p>
 
-<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00056">56</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00062">62</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
 
 </div>
 </div>
@@ -370,7 +374,7 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the equivalent Farenheit value (in 0.1s of degrees Farenheit) </dd></dl>
 
-<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00101">101</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00107">107</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -397,14 +401,14 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 <p>Update the lcd with the current time and the Raspberry Pi's IP address </p>
 
-<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00372">372</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00397">397</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="fish__tank__display_8ino_ab75480f888629dada48c3f70c0d36cfc_cgraph.png" border="0" usemap="#fish__tank__display_8ino_ab75480f888629dada48c3f70c0d36cfc_cgraph" alt=""/></div>
 <map name="fish__tank__display_8ino_ab75480f888629dada48c3f70c0d36cfc_cgraph" id="fish__tank__display_8ino_ab75480f888629dada48c3f70c0d36cfc_cgraph">
-<area shape="rect" id="node3" href="fish__tank__display_8ino.html#ab2f29739b10ddbedf9da6febe9c75917" title="displayTime" alt="" coords="183,5,273,35"/><area shape="rect" id="node5" href="fish__tank__display_8ino.html#a0647fffcfbba5091e4df9676dc6954c4" title="logToSerial" alt="" coords="324,5,409,35"/></map>
+<area shape="rect" id="node3" href="fish__tank__display_8ino.html#ab2f29739b10ddbedf9da6febe9c75917" title="displayTime" alt="" coords="183,13,273,43"/><area shape="rect" id="node5" href="fish__tank__display_8ino.html#a0647fffcfbba5091e4df9676dc6954c4" title="logToSerial" alt="" coords="324,13,409,43"/><area shape="rect" id="node7" href="fish__tank__display_8ino.html#a906dfe2b98f3c08e2186cbe301dd3d60" title="handleSendReceivePair" alt="" coords="460,13,620,43"/><area shape="rect" id="node9" href="fish__tank__display_8ino.html#ab215ee4084d65595fe177f3ab46d93df" title="receiveConfigurationOver\lSerial" alt="" coords="671,5,839,51"/></map>
 </div>
 </p>
 
@@ -441,14 +445,14 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00272">272</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00289">289</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="fish__tank__display_8ino_a55046f51070711cbd027c5b2d4d6fff5_cgraph.png" border="0" usemap="#fish__tank__display_8ino_a55046f51070711cbd027c5b2d4d6fff5_cgraph" alt=""/></div>
 <map name="fish__tank__display_8ino_a55046f51070711cbd027c5b2d4d6fff5_cgraph" id="fish__tank__display_8ino_a55046f51070711cbd027c5b2d4d6fff5_cgraph">
-<area shape="rect" id="node3" href="fish__tank__display_8ino.html#a6459ed0635e25efb428ae3dfe1cab682" title="getTemp" alt="" coords="235,5,307,35"/><area shape="rect" id="node5" href="fish__tank__display_8ino.html#ae5686c6695977b3aede88bc6a343bb59" title="celciusToFarenheit" alt="" coords="205,59,336,88"/><area shape="rect" id="node7" href="fish__tank__display_8ino.html#ae079b9d9d26b962a337cb79c7fde9674" title="printPseudoFloat" alt="" coords="211,112,331,141"/><area shape="rect" id="node9" href="fish__tank__display_8ino.html#adbf03085741b26be1853084f8039d745" title="getPh" alt="" coords="243,165,299,195"/><area shape="rect" id="node11" href="fish__tank__display_8ino.html#a2cc6c8c1987020291f60914b0de80c59" title="printTempAndPhToSerial" alt="" coords="188,219,353,248"/></map>
+<area shape="rect" id="node3" href="fish__tank__display_8ino.html#a6459ed0635e25efb428ae3dfe1cab682" title="getTemp" alt="" coords="235,5,307,35"/><area shape="rect" id="node5" href="fish__tank__display_8ino.html#ae5686c6695977b3aede88bc6a343bb59" title="celciusToFarenheit" alt="" coords="205,59,336,88"/><area shape="rect" id="node7" href="fish__tank__display_8ino.html#ae079b9d9d26b962a337cb79c7fde9674" title="printPseudoFloat" alt="" coords="211,112,331,141"/><area shape="rect" id="node9" href="fish__tank__display_8ino.html#adbf03085741b26be1853084f8039d745" title="getPh" alt="" coords="243,165,299,195"/><area shape="rect" id="node11" href="fish__tank__display_8ino.html#a2cc6c8c1987020291f60914b0de80c59" title="printTempAndPhToSerial" alt="" coords="188,219,353,248"/><area shape="rect" id="node13" href="fish__tank__display_8ino.html#a906dfe2b98f3c08e2186cbe301dd3d60" title="handleSendReceivePair" alt="" coords="404,219,564,248"/><area shape="rect" id="node15" href="fish__tank__display_8ino.html#ab215ee4084d65595fe177f3ab46d93df" title="receiveConfigurationOver\lSerial" alt="" coords="615,210,783,257"/></map>
 </div>
 </p>
 
@@ -484,14 +488,14 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00362">362</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00387">387</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="fish__tank__display_8ino_a0e13ec210d5e918bfee6ba89b69d4ee8_cgraph.png" border="0" usemap="#fish__tank__display_8ino_a0e13ec210d5e918bfee6ba89b69d4ee8_cgraph" alt=""/></div>
 <map name="fish__tank__display_8ino_a0e13ec210d5e918bfee6ba89b69d4ee8_cgraph" id="fish__tank__display_8ino_a0e13ec210d5e918bfee6ba89b69d4ee8_cgraph">
-<area shape="rect" id="node3" href="fish__tank__display_8ino.html#a55046f51070711cbd027c5b2d4d6fff5" title="displaySensorData" alt="" coords="239,139,369,168"/><area shape="rect" id="node15" href="fish__tank__display_8ino.html#ab2f29739b10ddbedf9da6febe9c75917" title="displayTime" alt="" coords="259,219,349,248"/><area shape="rect" id="node5" href="fish__tank__display_8ino.html#a6459ed0635e25efb428ae3dfe1cab682" title="getTemp" alt="" coords="467,5,539,35"/><area shape="rect" id="node7" href="fish__tank__display_8ino.html#ae5686c6695977b3aede88bc6a343bb59" title="celciusToFarenheit" alt="" coords="437,59,568,88"/><area shape="rect" id="node9" href="fish__tank__display_8ino.html#ae079b9d9d26b962a337cb79c7fde9674" title="printPseudoFloat" alt="" coords="443,112,563,141"/><area shape="rect" id="node11" href="fish__tank__display_8ino.html#adbf03085741b26be1853084f8039d745" title="getPh" alt="" coords="475,165,531,195"/><area shape="rect" id="node13" href="fish__tank__display_8ino.html#a2cc6c8c1987020291f60914b0de80c59" title="printTempAndPhToSerial" alt="" coords="420,219,585,248"/><area shape="rect" id="node17" href="fish__tank__display_8ino.html#a0647fffcfbba5091e4df9676dc6954c4" title="logToSerial" alt="" coords="460,272,545,301"/></map>
+<area shape="rect" id="node3" href="fish__tank__display_8ino.html#a55046f51070711cbd027c5b2d4d6fff5" title="displaySensorData" alt="" coords="239,139,369,168"/><area shape="rect" id="node19" href="fish__tank__display_8ino.html#ab2f29739b10ddbedf9da6febe9c75917" title="displayTime" alt="" coords="259,219,349,248"/><area shape="rect" id="node5" href="fish__tank__display_8ino.html#a6459ed0635e25efb428ae3dfe1cab682" title="getTemp" alt="" coords="467,5,539,35"/><area shape="rect" id="node7" href="fish__tank__display_8ino.html#ae5686c6695977b3aede88bc6a343bb59" title="celciusToFarenheit" alt="" coords="437,59,568,88"/><area shape="rect" id="node9" href="fish__tank__display_8ino.html#ae079b9d9d26b962a337cb79c7fde9674" title="printPseudoFloat" alt="" coords="443,112,563,141"/><area shape="rect" id="node11" href="fish__tank__display_8ino.html#adbf03085741b26be1853084f8039d745" title="getPh" alt="" coords="475,165,531,195"/><area shape="rect" id="node13" href="fish__tank__display_8ino.html#a2cc6c8c1987020291f60914b0de80c59" title="printTempAndPhToSerial" alt="" coords="420,219,585,248"/><area shape="rect" id="node15" href="fish__tank__display_8ino.html#a906dfe2b98f3c08e2186cbe301dd3d60" title="handleSendReceivePair" alt="" coords="636,245,796,275"/><area shape="rect" id="node17" href="fish__tank__display_8ino.html#ab215ee4084d65595fe177f3ab46d93df" title="receiveConfigurationOver\lSerial" alt="" coords="847,237,1015,283"/><area shape="rect" id="node21" href="fish__tank__display_8ino.html#a0647fffcfbba5091e4df9676dc6954c4" title="logToSerial" alt="" coords="460,272,545,301"/></map>
 </div>
 </p>
 
@@ -521,14 +525,14 @@ Here is the caller graph for this function:</div>
 <p>Display the current time on the lcd</p>
 <p>Using the global lcd object and assuming the cursor has already been positioned at the desired location, write the current time at that position. </p>
 
-<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00229">229</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00246">246</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="fish__tank__display_8ino_ab2f29739b10ddbedf9da6febe9c75917_cgraph.png" border="0" usemap="#fish__tank__display_8ino_ab2f29739b10ddbedf9da6febe9c75917_cgraph" alt=""/></div>
 <map name="fish__tank__display_8ino_ab2f29739b10ddbedf9da6febe9c75917_cgraph" id="fish__tank__display_8ino_ab2f29739b10ddbedf9da6febe9c75917_cgraph">
-<area shape="rect" id="node3" href="fish__tank__display_8ino.html#a0647fffcfbba5091e4df9676dc6954c4" title="logToSerial" alt="" coords="148,5,233,35"/></map>
+<area shape="rect" id="node3" href="fish__tank__display_8ino.html#a0647fffcfbba5091e4df9676dc6954c4" title="logToSerial" alt="" coords="148,13,233,43"/><area shape="rect" id="node5" href="fish__tank__display_8ino.html#a906dfe2b98f3c08e2186cbe301dd3d60" title="handleSendReceivePair" alt="" coords="284,13,444,43"/><area shape="rect" id="node7" href="fish__tank__display_8ino.html#ab215ee4084d65595fe177f3ab46d93df" title="receiveConfigurationOver\lSerial" alt="" coords="495,5,663,51"/></map>
 </div>
 </p>
 
@@ -558,7 +562,7 @@ Here is the caller graph for this function:</div>
 <p>Get a PH reading</p>
 <p>Get a PH reading, taking multiple samples to arrive at a more consistent value. </p>
 
-<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00164">164</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00170">170</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -586,7 +590,7 @@ Here is the caller graph for this function:</div>
 <p>Get a temperature reading</p>
 <p>Measure temperature from the thermistor, taking multiple readings to arrive at a more consistent value. </p>
 
-<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00134">134</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00140">140</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -594,6 +598,50 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="fish__tank__display_8ino_a6459ed0635e25efb428ae3dfe1cab682_icgraph.png" border="0" usemap="#fish__tank__display_8ino_a6459ed0635e25efb428ae3dfe1cab682_icgraph" alt=""/></div>
 <map name="fish__tank__display_8ino_a6459ed0635e25efb428ae3dfe1cab682_icgraph" id="fish__tank__display_8ino_a6459ed0635e25efb428ae3dfe1cab682_icgraph">
 <area shape="rect" id="node3" href="fish__tank__display_8ino.html#a55046f51070711cbd027c5b2d4d6fff5" title="displaySensorData" alt="" coords="129,5,260,35"/><area shape="rect" id="node5" href="fish__tank__display_8ino.html#a0e13ec210d5e918bfee6ba89b69d4ee8" title="displaySensorDataAndTime" alt="" coords="309,5,493,35"/><area shape="rect" id="node7" href="fish__tank__display_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="loop" alt="" coords="543,5,588,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a906dfe2b98f3c08e2186cbe301dd3d60"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void handleSendReceivePair </td>
+          <td>(</td>
+          <td class="paramtype">JsonObject &amp;&#160;</td>
+          <td class="paramname"><em>toSend</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>handle a send/receive pair over Serial</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">toSend</td><td>a JsonObject to send to the Pi</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Serial communications proceeds in lock step, with the Alamode driving the bus - the Alamode sends a message and then immediately receives one from the Pi. </p>
+
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00197">197</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="fish__tank__display_8ino_a906dfe2b98f3c08e2186cbe301dd3d60_cgraph.png" border="0" usemap="#fish__tank__display_8ino_a906dfe2b98f3c08e2186cbe301dd3d60_cgraph" alt=""/></div>
+<map name="fish__tank__display_8ino_a906dfe2b98f3c08e2186cbe301dd3d60_cgraph" id="fish__tank__display_8ino_a906dfe2b98f3c08e2186cbe301dd3d60_cgraph">
+<area shape="rect" id="node3" href="fish__tank__display_8ino.html#ab215ee4084d65595fe177f3ab46d93df" title="receiveConfigurationOver\lSerial" alt="" coords="217,5,385,51"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="fish__tank__display_8ino_a906dfe2b98f3c08e2186cbe301dd3d60_icgraph.png" border="0" usemap="#fish__tank__display_8ino_a906dfe2b98f3c08e2186cbe301dd3d60_icgraph" alt=""/></div>
+<map name="fish__tank__display_8ino_a906dfe2b98f3c08e2186cbe301dd3d60_icgraph" id="fish__tank__display_8ino_a906dfe2b98f3c08e2186cbe301dd3d60_icgraph">
+<area shape="rect" id="node3" href="fish__tank__display_8ino.html#a2cc6c8c1987020291f60914b0de80c59" title="printTempAndPhToSerial" alt="" coords="217,5,383,35"/><area shape="rect" id="node11" href="fish__tank__display_8ino.html#a0647fffcfbba5091e4df9676dc6954c4" title="logToSerial" alt="" coords="257,59,343,88"/><area shape="rect" id="node5" href="fish__tank__display_8ino.html#a55046f51070711cbd027c5b2d4d6fff5" title="displaySensorData" alt="" coords="433,5,564,35"/><area shape="rect" id="node7" href="fish__tank__display_8ino.html#a0e13ec210d5e918bfee6ba89b69d4ee8" title="displaySensorDataAndTime" alt="" coords="613,5,797,35"/><area shape="rect" id="node9" href="fish__tank__display_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="loop" alt="" coords="847,32,892,61"/><area shape="rect" id="node13" href="fish__tank__display_8ino.html#ab2f29739b10ddbedf9da6febe9c75917" title="displayTime" alt="" coords="453,59,544,88"/><area shape="rect" id="node19" href="fish__tank__display_8ino.html#a4fc01d736fe50cf5b977f755b675f11d" title="setup" alt="" coords="472,112,525,141"/><area shape="rect" id="node16" href="fish__tank__display_8ino.html#ab75480f888629dada48c3f70c0d36cfc" title="displayIpAndTime" alt="" coords="643,59,768,88"/></map>
 </div>
 </p>
 
@@ -622,7 +670,7 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Send a log message to serial so the Raspberry Pi can incude it in its logs</p>
+<p>Send a log message to serial so the Raspberry Pi can include it in its logs</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">message</td><td>the format string for the var_args message followed by additional parameters </td></tr>
@@ -630,7 +678,16 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00208">208</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00227">227</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="fish__tank__display_8ino_a0647fffcfbba5091e4df9676dc6954c4_cgraph.png" border="0" usemap="#fish__tank__display_8ino_a0647fffcfbba5091e4df9676dc6954c4_cgraph" alt=""/></div>
+<map name="fish__tank__display_8ino_a0647fffcfbba5091e4df9676dc6954c4_cgraph" id="fish__tank__display_8ino_a0647fffcfbba5091e4df9676dc6954c4_cgraph">
+<area shape="rect" id="node3" href="fish__tank__display_8ino.html#a906dfe2b98f3c08e2186cbe301dd3d60" title="handleSendReceivePair" alt="" coords="143,13,303,43"/><area shape="rect" id="node5" href="fish__tank__display_8ino.html#ab215ee4084d65595fe177f3ab46d93df" title="receiveConfigurationOver\lSerial" alt="" coords="353,5,521,51"/></map>
+</div>
+</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -657,14 +714,14 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 <p>The main alamode loop </p>
 
-<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00398">398</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00423">423</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="fish__tank__display_8ino_afe461d27b9c48d5921c00d521181f12f_cgraph.png" border="0" usemap="#fish__tank__display_8ino_afe461d27b9c48d5921c00d521181f12f_cgraph" alt=""/></div>
 <map name="fish__tank__display_8ino_afe461d27b9c48d5921c00d521181f12f_cgraph" id="fish__tank__display_8ino_afe461d27b9c48d5921c00d521181f12f_cgraph">
-<area shape="rect" id="node3" href="fish__tank__display_8ino.html#a0e13ec210d5e918bfee6ba89b69d4ee8" title="displaySensorDataAndTime" alt="" coords="101,192,285,221"/><area shape="rect" id="node21" href="fish__tank__display_8ino.html#ab75480f888629dada48c3f70c0d36cfc" title="displayIpAndTime" alt="" coords="131,245,256,275"/><area shape="rect" id="node5" href="fish__tank__display_8ino.html#a55046f51070711cbd027c5b2d4d6fff5" title="displaySensorData" alt="" coords="335,139,465,168"/><area shape="rect" id="node17" href="fish__tank__display_8ino.html#ab2f29739b10ddbedf9da6febe9c75917" title="displayTime" alt="" coords="355,245,445,275"/><area shape="rect" id="node7" href="fish__tank__display_8ino.html#a6459ed0635e25efb428ae3dfe1cab682" title="getTemp" alt="" coords="563,5,635,35"/><area shape="rect" id="node9" href="fish__tank__display_8ino.html#ae5686c6695977b3aede88bc6a343bb59" title="celciusToFarenheit" alt="" coords="533,59,664,88"/><area shape="rect" id="node11" href="fish__tank__display_8ino.html#ae079b9d9d26b962a337cb79c7fde9674" title="printPseudoFloat" alt="" coords="539,112,659,141"/><area shape="rect" id="node13" href="fish__tank__display_8ino.html#adbf03085741b26be1853084f8039d745" title="getPh" alt="" coords="571,165,627,195"/><area shape="rect" id="node15" href="fish__tank__display_8ino.html#a2cc6c8c1987020291f60914b0de80c59" title="printTempAndPhToSerial" alt="" coords="516,219,681,248"/><area shape="rect" id="node19" href="fish__tank__display_8ino.html#a0647fffcfbba5091e4df9676dc6954c4" title="logToSerial" alt="" coords="556,272,641,301"/></map>
+<area shape="rect" id="node3" href="fish__tank__display_8ino.html#a0e13ec210d5e918bfee6ba89b69d4ee8" title="displaySensorDataAndTime" alt="" coords="101,192,285,221"/><area shape="rect" id="node26" href="fish__tank__display_8ino.html#ab75480f888629dada48c3f70c0d36cfc" title="displayIpAndTime" alt="" coords="131,245,256,275"/><area shape="rect" id="node5" href="fish__tank__display_8ino.html#a55046f51070711cbd027c5b2d4d6fff5" title="displaySensorData" alt="" coords="335,139,465,168"/><area shape="rect" id="node21" href="fish__tank__display_8ino.html#ab2f29739b10ddbedf9da6febe9c75917" title="displayTime" alt="" coords="355,245,445,275"/><area shape="rect" id="node7" href="fish__tank__display_8ino.html#a6459ed0635e25efb428ae3dfe1cab682" title="getTemp" alt="" coords="563,5,635,35"/><area shape="rect" id="node9" href="fish__tank__display_8ino.html#ae5686c6695977b3aede88bc6a343bb59" title="celciusToFarenheit" alt="" coords="533,59,664,88"/><area shape="rect" id="node11" href="fish__tank__display_8ino.html#ae079b9d9d26b962a337cb79c7fde9674" title="printPseudoFloat" alt="" coords="539,112,659,141"/><area shape="rect" id="node13" href="fish__tank__display_8ino.html#adbf03085741b26be1853084f8039d745" title="getPh" alt="" coords="571,165,627,195"/><area shape="rect" id="node15" href="fish__tank__display_8ino.html#a2cc6c8c1987020291f60914b0de80c59" title="printTempAndPhToSerial" alt="" coords="516,219,681,248"/><area shape="rect" id="node17" href="fish__tank__display_8ino.html#a906dfe2b98f3c08e2186cbe301dd3d60" title="handleSendReceivePair" alt="" coords="732,245,892,275"/><area shape="rect" id="node19" href="fish__tank__display_8ino.html#ab215ee4084d65595fe177f3ab46d93df" title="receiveConfigurationOver\lSerial" alt="" coords="943,237,1111,283"/><area shape="rect" id="node23" href="fish__tank__display_8ino.html#a0647fffcfbba5091e4df9676dc6954c4" title="logToSerial" alt="" coords="556,272,641,301"/></map>
 </div>
 </p>
 
@@ -724,7 +781,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00118">118</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00124">124</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -770,7 +827,16 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00192">192</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00213">213</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="fish__tank__display_8ino_a2cc6c8c1987020291f60914b0de80c59_cgraph.png" border="0" usemap="#fish__tank__display_8ino_a2cc6c8c1987020291f60914b0de80c59_cgraph" alt=""/></div>
+<map name="fish__tank__display_8ino_a2cc6c8c1987020291f60914b0de80c59_cgraph" id="fish__tank__display_8ino_a2cc6c8c1987020291f60914b0de80c59_cgraph">
+<area shape="rect" id="node3" href="fish__tank__display_8ino.html#a906dfe2b98f3c08e2186cbe301dd3d60" title="handleSendReceivePair" alt="" coords="223,13,383,43"/><area shape="rect" id="node5" href="fish__tank__display_8ino.html#ab215ee4084d65595fe177f3ab46d93df" title="receiveConfigurationOver\lSerial" alt="" coords="433,5,601,51"/></map>
+</div>
+</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -778,6 +844,34 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="fish__tank__display_8ino_a2cc6c8c1987020291f60914b0de80c59_icgraph.png" border="0" usemap="#fish__tank__display_8ino_a2cc6c8c1987020291f60914b0de80c59_icgraph" alt=""/></div>
 <map name="fish__tank__display_8ino_a2cc6c8c1987020291f60914b0de80c59_icgraph" id="fish__tank__display_8ino_a2cc6c8c1987020291f60914b0de80c59_icgraph">
 <area shape="rect" id="node3" href="fish__tank__display_8ino.html#a55046f51070711cbd027c5b2d4d6fff5" title="displaySensorData" alt="" coords="223,5,353,35"/><area shape="rect" id="node5" href="fish__tank__display_8ino.html#a0e13ec210d5e918bfee6ba89b69d4ee8" title="displaySensorDataAndTime" alt="" coords="403,5,587,35"/><area shape="rect" id="node7" href="fish__tank__display_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="loop" alt="" coords="636,5,681,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ab215ee4084d65595fe177f3ab46d93df"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void receiveConfigurationOverSerial </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Read our configuration data from the Pi over serial</p>
+<p>Read configuration data items from the Pi over serial and apply those attributes (including things like the Pi's ip address, sensor configuration parameters, timezone information etc) to the global configuration. </p>
+
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00326">326</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="fish__tank__display_8ino_ab215ee4084d65595fe177f3ab46d93df_icgraph.png" border="0" usemap="#fish__tank__display_8ino_ab215ee4084d65595fe177f3ab46d93df_icgraph" alt=""/></div>
+<map name="fish__tank__display_8ino_ab215ee4084d65595fe177f3ab46d93df_icgraph" id="fish__tank__display_8ino_ab215ee4084d65595fe177f3ab46d93df_icgraph">
+<area shape="rect" id="node3" href="fish__tank__display_8ino.html#a906dfe2b98f3c08e2186cbe301dd3d60" title="handleSendReceivePair" alt="" coords="225,60,385,89"/><area shape="rect" id="node21" href="fish__tank__display_8ino.html#a4fc01d736fe50cf5b977f755b675f11d" title="setup" alt="" coords="691,112,744,141"/><area shape="rect" id="node5" href="fish__tank__display_8ino.html#a2cc6c8c1987020291f60914b0de80c59" title="printTempAndPhToSerial" alt="" coords="436,7,601,36"/><area shape="rect" id="node13" href="fish__tank__display_8ino.html#a0647fffcfbba5091e4df9676dc6954c4" title="logToSerial" alt="" coords="476,60,561,89"/><area shape="rect" id="node7" href="fish__tank__display_8ino.html#a55046f51070711cbd027c5b2d4d6fff5" title="displaySensorData" alt="" coords="652,5,783,35"/><area shape="rect" id="node9" href="fish__tank__display_8ino.html#a0e13ec210d5e918bfee6ba89b69d4ee8" title="displaySensorDataAndTime" alt="" coords="832,5,1016,35"/><area shape="rect" id="node11" href="fish__tank__display_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="loop" alt="" coords="1065,32,1111,61"/><area shape="rect" id="node15" href="fish__tank__display_8ino.html#ab2f29739b10ddbedf9da6febe9c75917" title="displayTime" alt="" coords="672,59,763,88"/><area shape="rect" id="node18" href="fish__tank__display_8ino.html#ab75480f888629dada48c3f70c0d36cfc" title="displayIpAndTime" alt="" coords="861,59,987,88"/></map>
 </div>
 </p>
 
@@ -795,23 +889,37 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Initiaize the system and prepare to start takng measurements</p>
+<p>Initiaize the system and prepare to start taking measurements</p>
 <p>Prepare LCD, serial, read the sensor pin configuration from serial and initialize the temperature and PH sensors and read the timezone configuration and initialize the timezone handling. </p>
 
-<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00308">308</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00363">363</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="fish__tank__display_8ino_a4fc01d736fe50cf5b977f755b675f11d_cgraph.png" border="0" usemap="#fish__tank__display_8ino_a4fc01d736fe50cf5b977f755b675f11d_cgraph" alt=""/></div>
 <map name="fish__tank__display_8ino_a4fc01d736fe50cf5b977f755b675f11d_cgraph" id="fish__tank__display_8ino_a4fc01d736fe50cf5b977f755b675f11d_cgraph">
-<area shape="rect" id="node3" href="fish__tank__display_8ino.html#a0647fffcfbba5091e4df9676dc6954c4" title="logToSerial" alt="" coords="111,5,196,35"/></map>
+<area shape="rect" id="node3" href="fish__tank__display_8ino.html#ab215ee4084d65595fe177f3ab46d93df" title="receiveConfigurationOver\lSerial" alt="" coords="457,5,625,51"/><area shape="rect" id="node5" href="fish__tank__display_8ino.html#a0647fffcfbba5091e4df9676dc6954c4" title="logToSerial" alt="" coords="111,39,196,68"/><area shape="rect" id="node7" href="fish__tank__display_8ino.html#a906dfe2b98f3c08e2186cbe301dd3d60" title="handleSendReceivePair" alt="" coords="247,39,407,68"/></map>
 </div>
 </p>
 
 </div>
 </div>
 <h2>Variable Documentation</h2>
+<a class="anchor" id="a88051271ca3c003f7c7595fbbd214ea3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int daylight = -1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00045">45</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a423714c400708c847da5241fca80f454"></a>
 <div class="memitem">
 <div class="memproto">
@@ -823,7 +931,7 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 <p>The IP address of the Raspberry Pi </p>
 
-<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00084">84</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00090">90</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
 
 </div>
 </div>
@@ -837,12 +945,12 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 <p>Set of functions and constants responsible for monitoring the sensors</p>
-<p>Initialization is dependent on receipt of a JSON-formatted set of configuration parameters specifying such things as the pins the sensors are connected to. This configuration data arrives on Alamode over serial - once it's received, the Alamode transitions into a loop where it periodically reads new sensor measurements and reports them over serial tot he Raspberry Pi, as well as updating the LCD display with the current time and sensor measurements.</p>
+<p>Initialization is dependent on receipt of a JSON-formatted set of configuration parameters specifying such things as the pins the sensors are connected to. This configuration data arrives on Alamode over serial - once it's received, the Alamode transitions into a loop where it periodically reads new sensor measurements and reports them over serial to the Raspberry Pi, as well as updating the LCD display with the current time and sensor measurements. The configuration is updated beyond this one read however, as the Alamode to Pi communications protocol has the Pi sending back this configuration after each send of data of any form from the Alamode.</p>
 <dl class="section author"><dt>Author</dt><dd>Ed Willis </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Ed Willis, 2015, all rights reserved </dd></dl>
 <dl class="section user"><dt>License:</dt><dd>This software is released into the public domainThe object representing the LCD display </dd></dl>
 
-<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00028">28</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00031">31</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
 
 </div>
 </div>
@@ -857,7 +965,7 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 <p>The local timezone </p>
 
-<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00040">40</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00043">43</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
 
 </div>
 </div>
@@ -872,7 +980,7 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 <p>Linear deviation compensate for PH value </p>
 
-<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00080">80</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00086">86</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
 
 </div>
 </div>
@@ -887,7 +995,7 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 <p>The analog pin the ph sensor is connected to </p>
 
-<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00076">76</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00082">82</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
 
 </div>
 </div>
@@ -902,7 +1010,21 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 <p>A counter used to determine whether or not to update the LCD with sensor data </p>
 
-<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00394">394</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00419">419</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a940abbaa3e9bef19f230cf04120457a1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int standard = -1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00046">46</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
 
 </div>
 </div>
@@ -917,14 +1039,14 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 <p>The analog pin the sensor is connected to </p>
 
-<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00048">48</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
+<p>Definition at line <a class="el" href="fish__tank__display_8ino_source.html#l00054">54</a> of file <a class="el" href="fish__tank__display_8ino_source.html">fish_tank_display.ino</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 29 2015 20:14:47 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jul 13 2015 12:33:38 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

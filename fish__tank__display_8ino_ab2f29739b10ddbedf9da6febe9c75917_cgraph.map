@@ -1,3 +1,5 @@
 <map id="displayTime" name="displayTime">
-<area shape="rect" id="node3" href="$fish__tank__display_8ino.html#a0647fffcfbba5091e4df9676dc6954c4" title="logToSerial" alt="" coords="148,5,233,35"/>
+<area shape="rect" id="node3" href="$fish__tank__display_8ino.html#a0647fffcfbba5091e4df9676dc6954c4" title="logToSerial" alt="" coords="148,13,233,43"/>
+<area shape="rect" id="node5" href="$fish__tank__display_8ino.html#a906dfe2b98f3c08e2186cbe301dd3d60" title="handleSendReceivePair" alt="" coords="284,13,444,43"/>
+<area shape="rect" id="node7" href="$fish__tank__display_8ino.html#ab215ee4084d65595fe177f3ab46d93df" title="receiveConfigurationOver\lSerial" alt="" coords="495,5,663,51"/>
 </map>

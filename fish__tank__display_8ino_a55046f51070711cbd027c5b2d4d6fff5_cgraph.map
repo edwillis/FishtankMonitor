@@ -4,4 +4,6 @@
 <area shape="rect" id="node7" href="$fish__tank__display_8ino.html#ae079b9d9d26b962a337cb79c7fde9674" title="printPseudoFloat" alt="" coords="211,112,331,141"/>
 <area shape="rect" id="node9" href="$fish__tank__display_8ino.html#adbf03085741b26be1853084f8039d745" title="getPh" alt="" coords="243,165,299,195"/>
 <area shape="rect" id="node11" href="$fish__tank__display_8ino.html#a2cc6c8c1987020291f60914b0de80c59" title="printTempAndPhToSerial" alt="" coords="188,219,353,248"/>
+<area shape="rect" id="node13" href="$fish__tank__display_8ino.html#a906dfe2b98f3c08e2186cbe301dd3d60" title="handleSendReceivePair" alt="" coords="404,219,564,248"/>
+<area shape="rect" id="node15" href="$fish__tank__display_8ino.html#ab215ee4084d65595fe177f3ab46d93df" title="receiveConfigurationOver\lSerial" alt="" coords="615,210,783,257"/>
 </map>

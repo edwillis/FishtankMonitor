@@ -11,6 +11,7 @@ var searchData=
   ['serial_5fperiod',['SERIAL_PERIOD',['../fish__tank__display_8ino.html#a62f1c6dae8689cf86153d81cdd07955e',1,'fish_tank_display.ino']]],
   ['serialmonitor',['SerialMonitor',['../classserial__monitor_1_1SerialMonitor.html',1,'serial_monitor']]],
   ['seriesresistor',['SERIESRESISTOR',['../fish__tank__display_8ino.html#aeda514ffe2696b78d945bc12a07b63cf',1,'fish_tank_display.ino']]],
+  ['set_5falamode_5fconfiguration',['set_alamode_configuration',['../classserial__monitor_1_1SerialMonitor.html#a3947d57ebbfae97ac01659150cc48686',1,'serial_monitor::SerialMonitor']]],
   ['setup',['setUp',['../classfishtank__monitor__test_1_1TestFishTankMonitor.html#ad9e553d7de0aa20e779581485c92a3f5',1,'fishtank_monitor_test.TestFishTankMonitor.setUp()'],['../fish__tank__display_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;fish_tank_display.ino']]],
   ['setupclass',['setUpClass',['../classfishtank__monitor__test_1_1TestFishTankMonitor.html#a7104fac889d47683e44ef673e12dba06',1,'fishtank_monitor_test::TestFishTankMonitor']]],
   ['sleep_5fint',['SLEEP_INT',['../namespacefishtank__monitor__test.html#a914c2103d29cc6071ba1a4c13129a644',1,'fishtank_monitor_test']]],
@@ -20,6 +21,7 @@ var searchData=
   ['smtp_5fuse_5fttls',['SMTP_use_ttls',['../namespaceconfig.html#af7906cc97825970f8d620d606b9d261f',1,'config']]],
   ['smtp_5fuser',['SMTP_user',['../namespaceconfig.html#a08bff852b0455b2a4391588e38cbbc83',1,'config']]],
   ['source_5fsuffix',['source_suffix',['../namespaceconf.html#a10af2a769eb3bd3322e874f677e435b1',1,'conf']]],
+  ['standard',['standard',['../fish__tank__display_8ino.html#a940abbaa3e9bef19f230cf04120457a1',1,'fish_tank_display.ino']]],
   ['standard_5ftz',['standard_tz',['../namespaceconfig.html#a6c6c8cf93b39ed725df3549c90a2a261',1,'config']]],
   ['start_5fmonitor',['start_monitor',['../classserial__monitor_1_1SerialMonitor.html#ad38ca7fbadb72bc4665a05c07822c16b',1,'serial_monitor::SerialMonitor']]],
   ['started',['started',['../classserial__monitor_1_1SerialMonitor.html#a75eff8a74282a197b06cc53a25a28ffb',1,'serial_monitor::SerialMonitor']]]

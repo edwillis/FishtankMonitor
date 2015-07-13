@@ -8,5 +8,6 @@ var searchData=
   ['_5fon',['_on',['../classscheduler_1_1LightFunctor.html#a9d6422c26d4c6331b8d9d478b61a2576',1,'scheduler.LightFunctor._on()'],['../classscheduler_1_1LightScheduler.html#afacbe3f0a3608a04f7debba8f75bbfdb',1,'scheduler.LightScheduler._on()']]],
   ['_5fparse_5finput',['_parse_input',['../classserial__monitor_1_1SerialMonitor.html#a7b2c33f7f62c8c61b3b1f6820c9a4738',1,'serial_monitor::SerialMonitor']]],
   ['_5fscheduler',['_scheduler',['../classscheduler_1_1LightScheduler.html#aa8c7024e318fbe3eced9d24a7635583c',1,'scheduler::LightScheduler']]],
-  ['_5fsend_5femail',['_send_email',['../classnotifications_1_1NotifierBase.html#a6aef854558614bbfdc75800040060057',1,'notifications::NotifierBase']]]
+  ['_5fsend_5femail',['_send_email',['../classnotifications_1_1NotifierBase.html#a6aef854558614bbfdc75800040060057',1,'notifications::NotifierBase']]],
+  ['_5fwrite_5fto_5fserial',['_write_to_serial',['../classserial__monitor_1_1SerialMonitor.html#a27ca8f9930cde251a15aa68d2b522d01',1,'serial_monitor::SerialMonitor']]]
 ];

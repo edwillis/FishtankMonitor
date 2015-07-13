@@ -11,6 +11,7 @@ var searchData=
   ['smtp_5fuse_5fttls',['SMTP_use_ttls',['../namespaceconfig.html#af7906cc97825970f8d620d606b9d261f',1,'config']]],
   ['smtp_5fuser',['SMTP_user',['../namespaceconfig.html#a08bff852b0455b2a4391588e38cbbc83',1,'config']]],
   ['source_5fsuffix',['source_suffix',['../namespaceconf.html#a10af2a769eb3bd3322e874f677e435b1',1,'conf']]],
+  ['standard',['standard',['../fish__tank__display_8ino.html#a940abbaa3e9bef19f230cf04120457a1',1,'fish_tank_display.ino']]],
   ['standard_5ftz',['standard_tz',['../namespaceconfig.html#a6c6c8cf93b39ed725df3549c90a2a261',1,'config']]],
   ['started',['started',['../classserial__monitor_1_1SerialMonitor.html#a75eff8a74282a197b06cc53a25a28ffb',1,'serial_monitor::SerialMonitor']]]
 ];

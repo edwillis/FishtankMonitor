@@ -1,3 +1,5 @@
 <map id="setup" name="setup">
-<area shape="rect" id="node3" href="$fish__tank__display_8ino.html#a0647fffcfbba5091e4df9676dc6954c4" title="logToSerial" alt="" coords="111,5,196,35"/>
+<area shape="rect" id="node3" href="$fish__tank__display_8ino.html#ab215ee4084d65595fe177f3ab46d93df" title="receiveConfigurationOver\lSerial" alt="" coords="457,5,625,51"/>
+<area shape="rect" id="node5" href="$fish__tank__display_8ino.html#a0647fffcfbba5091e4df9676dc6954c4" title="logToSerial" alt="" coords="111,39,196,68"/>
+<area shape="rect" id="node7" href="$fish__tank__display_8ino.html#a906dfe2b98f3c08e2186cbe301dd3d60" title="handleSendReceivePair" alt="" coords="247,39,407,68"/>
 </map>
