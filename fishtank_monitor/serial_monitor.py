@@ -111,6 +111,7 @@ class SerialMonitor(threading.Thread):
 
         except Exception as e:
             logger.exception("exception encountered in monitor_serial:  %r" %e)
+            raise
 
     ## Create the SerialMonitor object using config data from the configuration file
     #
