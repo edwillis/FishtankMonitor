@@ -32,10 +32,9 @@ def get_ip_address(ifname):
         struct.pack('256s', bytes(ifname, 'UTF8')[:15])
     )[20:24])
 
-## The Raspberry PI's IP address
-#  @todo what if the ip address changes at run time?
+## The Raspberry Pi's IP address
 #  @todo is it possible the user might not want to use this interface?
-IP_address = get_ip_address('wlan0')
+IP_address = None
 
 ## The serialdevice to use for communicating with the alamode (e.g. /dev/ttyS0)
 serial_device = None
@@ -84,8 +83,9 @@ def read_config():
     global SMTP_host, SMTP_port, SMTP_user, SMTP_password, SMTP_use_ttls, send_reports_interval
     global send_warnings_interval, email_to_address, email_from_address, months_between_calibrations
     global last_calibration, serial_device, x10_retries, x10_light_code, lights_on_times, lights_off_times
-    global daylight_tz, standard_tz, ph_pin, temperature_pin, ph_offset
+    global daylight_tz, standard_tz, ph_pin, temperature_pin, ph_offset, IP_address
     try:
+        IP_address = get_ip_address('wlan0')
         cfg = configparser.ConfigParser()
         cfg.read(config_filename)
         serial_device = cfg.get('hardware', 'serial device')

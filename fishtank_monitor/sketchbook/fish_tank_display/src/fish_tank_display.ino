@@ -5,8 +5,11 @@
  *  sensors are connected to.  This configuration data arrives on Alamode
  *  over serial - once it's received, the Alamode transitions into a loop
  *  where it periodically reads new sensor measurements and reports them
- *  over serial tot he Raspberry Pi, as well as updating the LCD display with
- *  the current time and sensor measurements.
+ *  over serial to the Raspberry Pi, as well as updating the LCD display with
+ *  the current time and sensor measurements.  The configuration is updated
+ *  beyond this one read however, as the Alamode to Pi communications protocol
+ *  has the Pi sending back this configuration after each send of data of any
+ *  form from the Alamode.
  *
  * @author  Ed Willis
  * @copyright Ed Willis, 2015, all rights reserved
@@ -38,6 +41,9 @@ LCDKeypad lcd;
 /** The local timezone
  */
 Timezone* localTz = 0;
+
+int daylight = -1;
+int standard = -1;
 
 /** The value of the 'other' resistor
  */
@@ -180,6 +186,21 @@ float getPh()
   return ph;
 }
 
+/** handle a send/receive pair over Serial
+ *
+ *  @param toSend a JsonObject to send to the Pi
+ *
+ *  Serial communications proceeds in lock step, with the Alamode
+ *  driving the bus - the Alamode sends a message and then immediately
+ *  receives one from the Pi.
+ */
+void handleSendReceivePair(JsonObject& toSend) {
+  toSend.printTo(Serial);
+  Serial.print("\n");
+  Serial.flush();
+  receiveConfigurationOverSerial();
+}
+
 /** send sensor measurements to the Raspberry Pi over serial
  *
  *  Send temperature and ph readings back to pi. Both arguments are 
@@ -195,9 +216,7 @@ void printTempAndPhToSerial(int temp, int ph)
   JsonObject& root = jsonBuffer.createObject();
   root["temperature"] = temp/10.0;
   root["ph"] = ph/10.0;
-  root.printTo(Serial);
-  Serial.print("\n");
-  Serial.flush();
+  handleSendReceivePair(root);
 }
 
 /** Send a log message to serial so the Raspberry Pi can include it in its logs
@@ -215,9 +234,7 @@ void logToSerial(const char * const message, ...)
   va_end(args);
   JsonObject& root = jsonBuffer.createObject();
   root["log"] = msg_buffer;
-  root.printTo(Serial);
-  Serial.print("\n");
-  Serial.flush();
+  handleSendReceivePair(root);
 }
 
 /** Display the current time on the lcd
@@ -299,24 +316,15 @@ void displaySensorData(unsigned int showSerial)
   }
 }
 
-/** Initiaize the system and prepare to start takng measurements
+/** Read our configuration data from the Pi over serial
  *
- *  Prepare LCD, serial, read the sensor pin configuration from serial
- *  and initialize the temperature and PH sensors and read the timezone
- *  configuration and initialize the timezone handling.
- */ 
-void setup()
-{
+ *  Read configuration data items from the Pi over serial and apply
+ *  those attributes (including things like the Pi's ip address,
+ *  sensor configuration parameters, timezone information etc) to the
+ *  global configuration.
+ */
+void receiveConfigurationOverSerial() {
   char serial_buffer[MAX_COLLECTION_SIZE];
-  char conversion[MAX_COLLECTION_SIZE];
-  lcd.begin(LCD_WIDTH, LCD_HEIGHT);
-  lcd.clear();
-  lcd.setCursor(0, 1);
-  setSyncProvider(RTC.get);
-  Serial.begin(9600);
-  pinMode(13, OUTPUT);
-  int daylight = -1;
-  int standard = -1;
   int receivedConfiguration = 0;
   while (!receivedConfiguration)
   {
@@ -344,6 +352,23 @@ void setup()
       receivedConfiguration = 1;
     }
   }
+}
+
+/** Initiaize the system and prepare to start taking measurements
+ *
+ *  Prepare LCD, serial, read the sensor pin configuration from serial
+ *  and initialize the temperature and PH sensors and read the timezone
+ *  configuration and initialize the timezone handling.
+ */ 
+void setup()
+{
+  lcd.begin(LCD_WIDTH, LCD_HEIGHT);
+  lcd.clear();
+  lcd.setCursor(0, 1);
+  setSyncProvider(RTC.get);
+  Serial.begin(9600);
+  pinMode(13, OUTPUT);
+  receiveConfigurationOverSerial();
   logToSerial("thermistor pin set to: %d", THERMISTORPIN);
   logToSerial("ph pin set to: %d", PHPIN);
   logToSerial("ph calibration offset (*100) set to:  %d", round(OFFSET*100));

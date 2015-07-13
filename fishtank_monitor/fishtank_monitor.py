@@ -52,6 +52,7 @@
 #  * The Alamode then enters a ::loop where it periodically:
 #      * updates the LCD with the current time and sensor measurements in ::loop
 #      * sends the Raspberry Pi JSON-formatted sensor measurements and logs
+#      * receives the possibly updated configuration data and applies it
 #
 #  @subsection Pi The Raspberry Pi
 #  * The Raspberry Pi reads the config file makes the configuration parameters available
@@ -135,7 +136,6 @@ conn.execute('create table if not exists settings (last_calibration REAL)')
 #  @param notifiers the list of notifier functors to call each iteration
 def main_loop(notifiers):
     logger.debug("starting serial monitor")
-    monitor = SerialMonitor.create_monitor()
     alamode_cfg = { 
                     "thermistor_pin": config.temperature_pin, 
                     "ph_pin": config.ph_pin, 
@@ -144,7 +144,7 @@ def main_loop(notifiers):
                     "ph_offset": config.ph_offset,
                     "ip_address": config.IP_address
                   }
-    monitor.write_to_serial(alamode_cfg)
+    monitor = SerialMonitor.create_monitor(alamode_cfg)
     monitor.start_monitor()
     monitor.started.wait()
     logger.debug("starting light scheduler")
@@ -156,6 +156,8 @@ def main_loop(notifiers):
             logger.info("writing measurements to database ph is %r, temperature is %r" %(monitor.ph, monitor.temperature))
             conn.execute('insert into measurements values(?, ?, ?)',(int(time.time()), monitor.temperature, monitor.ph))
             conn.commit()
+            logger.info("re-reading config in case anything's changed")
+            config.read_config()
             logger.info("checking notifications")
             for notifier in notifiers:
                 notifier(conn, monitor)
