@@ -14,6 +14,7 @@ import configparser
 import socket
 import fcntl
 import struct
+from contextlib import closing
 
 from log import get_logger
 
@@ -26,11 +27,12 @@ logger = get_logger(__name__)
  #
 def get_ip_address(ifname):
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    return socket.inet_ntoa(fcntl.ioctl(
-        s.fileno(),
-        0x8915,  # SIOCGIFADDR
-        struct.pack('256s', bytes(ifname, 'UTF8')[:15])
-    )[20:24])
+    with closing(s):
+        return socket.inet_ntoa(fcntl.ioctl(
+            s.fileno(),
+            0x8915,  # SIOCGIFADDR
+            struct.pack('256s', bytes(ifname, 'UTF8')[:15])
+        )[20:24])
 
 ## The Raspberry Pi's IP address
 #  @todo is it possible the user might not want to use this interface?

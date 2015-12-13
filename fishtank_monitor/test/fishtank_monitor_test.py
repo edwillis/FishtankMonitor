@@ -39,6 +39,10 @@ class FakeSerial():
         except:
             return b''
 
+    @staticmethod
+    def writelines(_):
+        pass
+
 SLEEP_INT = 0.25
 
 ## The suite of unit tests covering the python portion of the Fishtank Monitor
@@ -50,7 +54,7 @@ class TestFishTankMonitor(unittest.TestCase):
         config.read_config()
 
     def setUp(self):
-        self.monitor = serial_monitor.SerialMonitor(config.serial_device)
+        self.monitor = serial_monitor.SerialMonitor(config.serial_device, {})
         self.monitor.stop = False
         notifications.time_last_warned = 0
         self.monitor.ph = None
