@@ -201,24 +201,25 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="keywordflow">except</span> Exception <span class="keyword">as</span> e:</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;            logger.exception(<span class="stringliteral">&quot;exception encountered in monitor_serial:  %r&quot;</span> %e)</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="comment">## Create the SerialMonitor object using config data from the configuration file</span></div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="comment">#</span></div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="comment">#  @return the SerialMonitor object</span></div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    @classmethod</div>
-<div class="line"><a name="l00119"></a><span class="lineno"><a class="code" href="classserial__monitor_1_1SerialMonitor.html#a657f2f3ef8c37f184d32d5f4d296095d">  119</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classserial__monitor_1_1SerialMonitor.html#a657f2f3ef8c37f184d32d5f4d296095d" title="Create the SerialMonitor object using config data from the configuration file.">create_monitor</a>(cls, configuration):</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        monitor = <a class="code" href="classserial__monitor_1_1SerialMonitor.html" title="The SerialMonitor manages JSON encoded communications with the alamode.">SerialMonitor</a>(config.serial_device, configuration)</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <span class="keywordflow">return</span> monitor</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="comment">## Start ourselves</span></div>
-<div class="line"><a name="l00124"></a><span class="lineno"><a class="code" href="classserial__monitor_1_1SerialMonitor.html#ad38ca7fbadb72bc4665a05c07822c16b">  124</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classserial__monitor_1_1SerialMonitor.html#ad38ca7fbadb72bc4665a05c07822c16b" title="Start ourselves.">start_monitor</a>(self):</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        logger.info(<span class="stringliteral">&quot;starting monitor&quot;</span>)</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        self.start()</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;            <span class="keywordflow">raise</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="comment">## Create the SerialMonitor object using config data from the configuration file</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="comment">#</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="comment">#  @return the SerialMonitor object</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    @classmethod</div>
+<div class="line"><a name="l00120"></a><span class="lineno"><a class="code" href="classserial__monitor_1_1SerialMonitor.html#a657f2f3ef8c37f184d32d5f4d296095d">  120</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classserial__monitor_1_1SerialMonitor.html#a657f2f3ef8c37f184d32d5f4d296095d" title="Create the SerialMonitor object using config data from the configuration file.">create_monitor</a>(cls, configuration):</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        monitor = <a class="code" href="classserial__monitor_1_1SerialMonitor.html" title="The SerialMonitor manages JSON encoded communications with the alamode.">SerialMonitor</a>(config.serial_device, configuration)</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <span class="keywordflow">return</span> monitor</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="comment">## Start ourselves</span></div>
+<div class="line"><a name="l00125"></a><span class="lineno"><a class="code" href="classserial__monitor_1_1SerialMonitor.html#ad38ca7fbadb72bc4665a05c07822c16b">  125</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classserial__monitor_1_1SerialMonitor.html#ad38ca7fbadb72bc4665a05c07822c16b" title="Start ourselves.">start_monitor</a>(self):</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        logger.info(<span class="stringliteral">&quot;starting monitor&quot;</span>)</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        self.start()</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jul 13 2015 12:33:37 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Dec 12 2015 19:46:22 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

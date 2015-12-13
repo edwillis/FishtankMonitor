@@ -1,8 +1,9 @@
 var searchData=
 [
-  ['send_5freports_5finterval',['send_reports_interval',['../namespaceconfig.html#adb8d27dbca4ad7552e28bd43fb545fdd',1,'config']]],
-  ['send_5fwarnings_5finterval',['send_warnings_interval',['../namespaceconfig.html#a9ce20c6f563529e90e82d0172ec21039',1,'config']]],
-  ['serial_5fdevice',['serial_device',['../classserial__monitor_1_1SerialMonitor.html#af44611672652eb03cb7e0264c1764f55',1,'serial_monitor.SerialMonitor.serial_device()'],['../namespaceconfig.html#a4eae281ce888818e77c53d8062d909fa',1,'config.serial_device()']]],
+  ['secret_5fkey',['SECRET_KEY',['../namespacefishtank__monitor_1_1settings.html#a01570f5b82eac763939c89245d90bef0',1,'fishtank_monitor::settings']]],
+  ['send_5freports_5finterval',['send_reports_interval',['../classadmin_1_1models_1_1Configuration.html#a5ac353ae40277192c16dd7b6b2f28747',1,'admin.models.Configuration.send_reports_interval()'],['../namespaceconfig.html#adb8d27dbca4ad7552e28bd43fb545fdd',1,'config.send_reports_interval()']]],
+  ['send_5fwarnings_5finterval',['send_warnings_interval',['../classadmin_1_1models_1_1Configuration.html#a85d57a2d643f863b1c26823b2fd338fa',1,'admin.models.Configuration.send_warnings_interval()'],['../namespaceconfig.html#a9ce20c6f563529e90e82d0172ec21039',1,'config.send_warnings_interval()']]],
+  ['serial_5fdevice',['serial_device',['../classadmin_1_1models_1_1Configuration.html#aebfa44acf6dfdd1509d08d67eedb56fe',1,'admin.models.Configuration.serial_device()'],['../classserial__monitor_1_1SerialMonitor.html#af44611672652eb03cb7e0264c1764f55',1,'serial_monitor.SerialMonitor.serial_device()'],['../namespaceconfig.html#a4eae281ce888818e77c53d8062d909fa',1,'config.serial_device()']]],
   ['serial_5foutput_5fcounter',['serial_output_counter',['../fish__tank__display_8ino.html#a9e5b612f7453f4a6ef18033b6f67a113',1,'fish_tank_display.ino']]],
   ['sleep_5fint',['SLEEP_INT',['../namespacefishtank__monitor__test.html#a914c2103d29cc6071ba1a4c13129a644',1,'fishtank_monitor_test']]],
   ['smtp_5fhost',['SMTP_host',['../namespaceconfig.html#a4fc9e77e1e51ef3d27f1aa8ba0399249',1,'config']]],
@@ -12,6 +13,8 @@ var searchData=
   ['smtp_5fuser',['SMTP_user',['../namespaceconfig.html#a08bff852b0455b2a4391588e38cbbc83',1,'config']]],
   ['source_5fsuffix',['source_suffix',['../namespaceconf.html#a10af2a769eb3bd3322e874f677e435b1',1,'conf']]],
   ['standard',['standard',['../fish__tank__display_8ino.html#a940abbaa3e9bef19f230cf04120457a1',1,'fish_tank_display.ino']]],
+  ['standard_5ftimezone_5foffset',['standard_timezone_offset',['../classadmin_1_1models_1_1Configuration.html#a8ba4df1f1463330f3cea4cf6692eca15',1,'admin::models::Configuration']]],
   ['standard_5ftz',['standard_tz',['../namespaceconfig.html#a6c6c8cf93b39ed725df3549c90a2a261',1,'config']]],
-  ['started',['started',['../classserial__monitor_1_1SerialMonitor.html#a75eff8a74282a197b06cc53a25a28ffb',1,'serial_monitor::SerialMonitor']]]
+  ['started',['started',['../classserial__monitor_1_1SerialMonitor.html#a75eff8a74282a197b06cc53a25a28ffb',1,'serial_monitor::SerialMonitor']]],
+  ['static_5furl',['STATIC_URL',['../namespacefishtank__monitor_1_1settings.html#a6763a14de67ccf0b4e8c70751513c669',1,'fishtank_monitor::settings']]]
 ];

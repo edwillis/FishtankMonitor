@@ -6,6 +6,7 @@ var searchData=
   ['config',['config',['../namespaceconfig.html',1,'']]],
   ['config_2epy',['config.py',['../config_8py.html',1,'']]],
   ['config_5ffilename',['config_filename',['../namespaceconfig.html#a4f7c954e578bec8971feeb3eb5e1edbc',1,'config']]],
+  ['configuration',['Configuration',['../classadmin_1_1models_1_1Configuration.html',1,'admin::models']]],
   ['configuration',['configuration',['../classserial__monitor_1_1SerialMonitor.html#a59b28f4cbac762a44964c167873790c9',1,'serial_monitor::SerialMonitor']]],
   ['conn',['conn',['../namespacefishtank__monitor.html#a6f1ae41684d3a37da462d57e85a57c7b',1,'fishtank_monitor']]],
   ['copyright',['copyright',['../namespaceconf.html#a33fa97cf51dcb25970fbf53f10159589',1,'conf']]],
