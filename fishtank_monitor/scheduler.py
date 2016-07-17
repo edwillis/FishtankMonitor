@@ -34,7 +34,7 @@ class LightFunctor():
         try:
             logger.info("turning lights %r" %('on' if self._on else 'off'))
             for i in range(1 + config.x10_retries):
-                logger.debug("light operation attempt %d" %i)
+                logger.info("light operation attempt %d" %i)
                 args = ['sudo',
                         '/usr/local/bin/heyu',
                         'f' + ('on' if self._on else 'off'),

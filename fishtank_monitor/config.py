@@ -86,6 +86,8 @@ def read_config():
     global send_warnings_interval, email_to_address, email_from_address, months_between_calibrations
     global last_calibration, serial_device, x10_retries, x10_light_code, lights_on_times, lights_off_times
     global daylight_tz, standard_tz, ph_pin, temperature_pin, ph_offset, IP_address
+    lights_on_times = []
+    lights_off_times = []
     try:
         IP_address = get_ip_address('wlan0')
         cfg = configparser.ConfigParser()

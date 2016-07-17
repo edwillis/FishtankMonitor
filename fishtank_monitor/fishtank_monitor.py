@@ -180,9 +180,8 @@ if __name__ == "__main__":
             config.last_calibration = time.time()
             conn.execute('insert into settings values (%r)' %config.last_calibration)
     logger.info("last_calibration from database is %r" %config.last_calibration)
-    while True:
-        try:
-            logger.info("calling main_loop")
-            main_loop(notifiers)
-        except Exception as e:
-            logger.exception("encountered exception in main_loop, retrying:  %r" %e)
+    try:
+        logger.info("calling main_loop")
+        main_loop(notifiers)
+    except Exception as e:
+        logger.exception("encountered exception in main_loop, retrying:  %r" %e)
