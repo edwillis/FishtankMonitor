@@ -270,16 +270,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;            config.last_calibration = time.time()</div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;            conn.execute(<span class="stringliteral">&#39;insert into settings values (%r)&#39;</span> %config.last_calibration)</div>
 <div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    logger.info(<span class="stringliteral">&quot;last_calibration from database is %r&quot;</span> %config.last_calibration)</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <span class="keywordflow">while</span> <span class="keyword">True</span>:</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        <span class="keywordflow">try</span>:</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;            logger.info(<span class="stringliteral">&quot;calling main_loop&quot;</span>)</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;            <a class="code" href="namespacefishtank__monitor.html#a95c960eb49ce01ffb4c9a5af5de850b1" title="The main functional loop of ithe fishtank monitor.">main_loop</a>(notifiers)</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        <span class="keywordflow">except</span> Exception <span class="keyword">as</span> e:</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;            logger.exception(<span class="stringliteral">&quot;encountered exception in main_loop, retrying:  %r&quot;</span> %e)</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <span class="keywordflow">try</span>:</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        logger.info(<span class="stringliteral">&quot;calling main_loop&quot;</span>)</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;        <a class="code" href="namespacefishtank__monitor.html#a95c960eb49ce01ffb4c9a5af5de850b1" title="The main functional loop of ithe fishtank monitor.">main_loop</a>(notifiers)</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <span class="keywordflow">except</span> Exception <span class="keyword">as</span> e:</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        logger.exception(<span class="stringliteral">&quot;encountered exception in main_loop, retrying:  %r&quot;</span> %e)</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Dec 12 2015 19:46:21 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jul 17 2016 20:12:25 for Fishtank Monitor by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>
